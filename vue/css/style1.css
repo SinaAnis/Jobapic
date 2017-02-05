@@ -1,0 +1,66 @@
+#map-canvas {
+  height: 70%;
+  width : 35%;
+  margin-left: 3%;
+  padding-top: 15%;
+}
+
+
+
+.switch {
+  background-color:  #007DA6;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  padding-top: 30px;
+}
+
+h4 {
+  color: #FFF;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.switch {
+  background-color: #47A7DC;
+  width: 200px;
+  display: inline-block;
+  border-radius: 10px;
+  height: 40px;
+  padding: 2px;
+  position: relative;
+  @include clearfix;
+  label {
+    float: left;
+    width: 50%;
+    position: relative;
+    z-index: 2;
+    line-height: 40px;
+    cursor: pointer;
+    color: lighten( #47A7DC, 30%);
+    border-radius: 10px;
+  }
+  input[type="radio"]{
+    display: none;
+    &:checked + label {
+      color:  #007DA6;
+      font-weight: bold;
+    }
+  }
+  span {
+    position: relative;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    display: block;
+    border-radius: 10px;
+    background-color: #FFF;
+    transition: all 200ms ease;
+    &.right {
+      left: 50%;
+      border-radius: 10px;
+      transition: all 200ms ease;
+    }
+  }
+}
