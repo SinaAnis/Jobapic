@@ -337,7 +337,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
             <!--===================================================-->
             <section id="content-container">
                 <header class="pageheader">
-                    <h3><i class="fa fa-home"></i> Mur </h3>
+                    <h3><i class="fa fa-home"></i> Création d'annonce  </h3>
                     <div class="breadcrumb-wrapper"> <span class="label">Vous êtes ici:</span>
                         <ol class="breadcrumb">
                             <li> <a href="#"> Home </a> </li>
@@ -355,74 +355,97 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         <div class="col-md-4 col-lg-3">
 
                         </div>
-						<div class="col-md-8-2 col-lg-9-2">
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Icones</h3>
-                                </div>
 
+                        <div class="panel">
+                           <!-- Panel heading -->
+                           <div class="panel-heading">
+                               <h3 class="panel-title">Mon Annonce</h3>
+                           </div>
+                           <!-- Panel body -->
+                            <form  action="index.php?controle=creerAnnonce&action=create" method="post">
+                               <div id="registrationForm" class="form-horizontal">
+
+                                 <div class="panel-body">
+
+                                   <div class="form-group">
+                                       <label class="col-xs-3 control-label">Nom de l'annonce</label>
+                                       <div class="col-xs-4">
+                                           <input type="text" class="form-control" name="nom" placeholder="Nom de l'annonce" />
+                                       </div>
+
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="col-xs-3 control-label">Date de l'annonce</label>
+                                       <div class="col-xs-5">
+                                           <input type="date" class="form-control" name="date" />
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="col-xs-3 control-label">Adresse de l'annonce</label>
+                                       <div class="col-xs-5">
+                                          <!-- donne par default l'adresse de l'utilisateur -->
+                                           <input type="text" class="form-control" name="adresse" />
+                                       </div>
+                                   </div>
+
+                                   <div class="form-group">
+                                       <label class="col-xs-3 control-label">Catégorie</label>
+                                       <div class="col-xs-6">
+                                         <label class="form-radio form-icon">
+                                             <input type="radio" name="categorie" value="BabySitter" > BabySitter</label>
+                                         <label class="form-radio form-icon">
+                                             <input type="radio" name="categorie" value="Jardinier" > Jardinier</label>
+                                         <label class="form-radio form-icon">
+                                             <input type="radio" name="categorie" value="CoursAnglais" > Cours d'anglais</label>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="col-xs-3 control-label">Description de l'annonce</label>
+                                       <div class="col-xs-9">
+                                           <div  />
+                                           <input name="description" type="text"  style="border: 1px solid #e5e5e5; height: 25px; widht=100%;"  />
+
+
+                                               </div>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="col-xs-3 control-label">Récompense</label>
+                                       <div class="col-xs-5">
+                                           <input type="recompense" class="form-control" name="description" />
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <div class="col-xs-6 col-xs-offset-3">
+                                           <div class="checkbox">
+                                               <label class="form-checkbox form-icon">
+                                                   <input type="checkbox" name="agree" value="agree" />
+                                                   J'accepte les termes et les annonces
+                                               </label>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <div class="col-xs-9 col-xs-offset-3">
+                                           <button type="submit" class="btn btn-primary" name="signup" >
+                                               Envoyer
+                                           </button>
+                                       </div>
+                                   </div>
+
+                               </div>
                             </div>
-                        </div>
-                        <div class="col-md-8-1 col-lg-9-1">
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Calendar</h3>
-                                </div>
-                                <div class="panel-body">
+                             </form>
+                       </div>
 
-                                    <!-- Calendar placeholder-->
-                                    <!-- ============================================ -->
-                                    <div id='demo-calendar'></div>
-                                    <!-- ============================================ -->
 
-                                </div>
-                            </div>
-                        </div>
-						  <div class="col-md-8-3 col-lg-9-3">
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Tuto</h3>
-                                </div>
-                                <div class="panel-body">
 
-                                    <!-- Calendar placeholder-->
-                                    <!-- ============================================ -->
-                                    <div id='demo-calendar'></div>
-                                    <!-- ============================================ -->
 
-                                </div>
-                            </div>
-                        </div>
-						<div class="col-md-8-3 col-lg-9-3">
-                            <div class="panel">
-                                <div class="panel-heading, panel-heading-1">
-                                    <h3 class="panel-title">Faq</h3>
-                                </div>
-                                <div class="panel-body">
 
-                                    <!-- Calendar placeholder-->
-                                    <!-- ============================================ -->
-                                    <div id='demo-calendar'></div>
-                                    <!-- ============================================ -->
 
-                                </div>
-                            </div>
-                        </div>
 						<!--	<div id="map-canvas"></div> -->
 
-						<div class="col-md-8-4 col-lg-9-4">
-                            <div class="panel">
-							  <h3 class="panel-title">Listes</h3>
-                <ul>
-++++
-                  <?php  require ("./controle/espaceEmploye.php") ?>
-                <!--  require ("./controle/espaceEmploy.php") ; -->
 
-
-                </ul>
-
-                            </div>
-                        </div>
                     </div>
 
                 </section>
@@ -467,9 +490,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                       <!--Submenu-->
                                       <ul class="collapse">
-
-                                          <li><a  href="index.php?controle=creerAnnonce&action=create"><i class="fa fa-caret-right" ></i> Créer une annonce </a></li>
-
+                                          <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
                                           <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
                                       </ul>
                                     </li>

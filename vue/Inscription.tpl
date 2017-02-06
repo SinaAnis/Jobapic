@@ -208,7 +208,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                             <div class="form-group">
                                                 <div class="col-md-12">
                                                     <h5 class="semibold text-primary">
-                                                        <i class="fa fa-cog"></i> Sitation
+                                                        <i class="fa fa-cog"></i> Situation
                                                     </h5>
                                                     <p class="text-muted"> Entre votre situation actuel </p>
                                                 </div>
