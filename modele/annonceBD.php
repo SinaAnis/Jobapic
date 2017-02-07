@@ -1,13 +1,12 @@
 <?php
 
-function creation_annonce($nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAnnonce,$idUser){
-  require ("./modele/connectBD.php");
-  $req= "INSERT INTO utilisateur (NomAnnonce,DateAnnonce,AdrAnnonce,DescripAnnonce,Recompence,IdCategorie,IdUser)
-  VALUES ('%s','CURRENT_DATE','%s','%s','%s','%s','%s')";
-  $sql = sprintf ($nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAnnonce,$idUser);
-  $res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
+function afficherAnnonce() {
+ require ("modele/connectBD.php");
+	$select = "SELECT * FROM `annonce`";
+	$req = sprintf($select);
+	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
+	
+	return mysqli_fetch_all($res);
 }
-
-
 
 ?>
