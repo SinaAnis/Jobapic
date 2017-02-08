@@ -8,7 +8,7 @@
 function ident(){
 	$emailConnexion= isset($_POST['mail'])?($_POST['mail']):'';
 	$_SESSION['mdp']= isset($_POST['mdp'])?($_POST['mdp']):'';
-  $_SESSION['prenom'] = "SALUT";
+    $_SESSION['prenom'] = "SALUT";
 	$emailInscription= isset($_POST['email'])?($_POST['email']):'';
 	$_SESSION['nom'] =isset($_POST['nom'])?($_POST['nom']):'';
 	$_SESSION['prenom'] = isset($_POST['prenom'])?($_POST['prenom']):'';
@@ -20,6 +20,7 @@ function ident(){
 
 
    require ("modele/utilisateurBD.php") ;
+   require ("modele/annonceBD.php");
 	$msg='';
 
 	if (count($_POST)==0)
@@ -70,6 +71,7 @@ function ident(){
 				 $_SESSION['profil'] = $profil;
 				 echo "<script language='JavaScript'>alert('Connexion!!')</script>";
 				 getProfil($emailConnexion,$_SESSION['mdp']);
+				 $questionAfficher=afficherAnnonce();
 				 require('./vue/index.tpl') ;
 
 			}
@@ -99,33 +101,8 @@ function ident(){
 
 	}
 
-
-function ident2() {
-
-	$login=  isset($_POST['Email'])?($_POST['Email']):'';
-	$mdp=  isset($_POST['Mot de passe'])?($_POST['Mot de passe']):'';
-	$msg1='';
-	$msg2='Veuillez vous identifier :';
-	echo($msg2);
-
-	if  (count($_POST)==0) {
-		echo('666');
-		require ("vue/index.tpl") ;
-	}
-	else {
-		echo($login +" et3 "+$mdp);
-		require ("modele/utilisateurBD.php") ;
-			if  (verif_user($login,$mdp,$profil)) {
-				$_SESSION['profil'] = $profil;
-				echo ("ok, bienvenue");
-				require("vue/test.tpl");
-			}
-			else{
-				$msg2 ="Erreur de saisie, veuillez ressayer : ";
-				require ("vue/index.tpl") ;
-			}
-		}
-}
+	
+	
 
 	function deconnexion (){
 			session_destroy();
