@@ -370,40 +370,46 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                    <div class="form-group">
                                        <label class="col-xs-3 control-label">Nom de l'annonce</label>
                                        <div class="col-xs-4">
-                                           <input type="text" class="form-control" name="nom" placeholder="Nom de l'annonce" />
+                                           <input type="text" class="form-control" name="nomA" placeholder="Nom de l'annonce" />
                                        </div>
 
                                    </div>
                                    <div class="form-group">
                                        <label class="col-xs-3 control-label">Date de l'annonce</label>
                                        <div class="col-xs-5">
-                                           <input type="date" class="form-control" name="date" />
+                                           <input type="date" class="form-control" name="date" value=date />
                                        </div>
                                    </div>
                                    <div class="form-group">
                                        <label class="col-xs-3 control-label">Adresse de l'annonce</label>
                                        <div class="col-xs-5">
                                           <!-- donne par default l'adresse de l'utilisateur -->
-                                           <input type="text" class="form-control" name="adresse" />
+                                           <input type="text" class="form-control" name="adr" value='<?php echo $_SESSION['Adresse'] ?>'>
                                        </div>
                                    </div>
 
                                    <div class="form-group">
                                        <label class="col-xs-3 control-label">Catégorie</label>
                                        <div class="col-xs-6">
-                                         <label class="form-radio form-icon">
-                                             <input type="radio" name="categorie" value="BabySitter" > BabySitter</label>
-                                         <label class="form-radio form-icon">
-                                             <input type="radio" name="categorie" value="Jardinier" > Jardinier</label>
-                                         <label class="form-radio form-icon">
-                                             <input type="radio" name="categorie" value="CoursAnglais" > Cours d'anglais</label>
+
+                                         <?php
+
+                                         foreach ($categorie as $value) {
+                                            echo ("<label class='form-radio form-icon'>");
+                                             echo ("<input type='radio' name='cat' value=".$value['IdCategorie'].">".$value['NomCategorie']."</label>");
+                                         }
+
+
+                                         ?>
+
                                        </div>
                                    </div>
+
                                    <div class="form-group">
                                        <label class="col-xs-3 control-label">Description de l'annonce</label>
                                        <div class="col-xs-9">
                                            <div  />
-                                           <input name="description" type="text"  style="border: 1px solid #e5e5e5; height: 25px; widht=100%;"  />
+                                           <input name="des" type="text"  size="50" style="border: 1px solid #e5e5e5; overflow: hidden;  "  />
 
 
                                                </div>
@@ -412,14 +418,14 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                    <div class="form-group">
                                        <label class="col-xs-3 control-label">Récompense</label>
                                        <div class="col-xs-5">
-                                           <input type="recompense" class="form-control" name="description" />
+                                           <input type="recompense" class="form-control" name="rec" />
                                        </div>
                                    </div>
                                    <div class="form-group">
                                        <div class="col-xs-6 col-xs-offset-3">
                                            <div class="checkbox">
                                                <label class="form-checkbox form-icon">
-                                                   <input type="checkbox" name="agree" value="agree" />
+                                                   <input type="checkbox" name="agree" />
                                                    J'accepte les termes et les annonces
                                                </label>
                                            </div>
