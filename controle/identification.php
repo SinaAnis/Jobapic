@@ -24,7 +24,7 @@ function ident(){
 	$msg='';
 
 	if (count($_POST)==0)
-		require('./vue/Connexion/index.tpl');
+		require('./vue/Connexion/connexion.tpl');
 
   // SI ON SOUHAITE SE CONNECTER
 	if(isset($_POST['mail']) && isset($_POST['mdp'])) {
@@ -64,7 +64,7 @@ function ident(){
 		if(isset($_POST['finis'])){
 		inscription($emailInscription,$_SESSION['prenom'],$_SESSION['nom'],$_SESSION['mdp'], $genre, $date, $ville , $telephone, $situation, $profil);
 		echo "<script language='JavaScript'>alert('Vous etes maintenant inscrit !!')</script>";
-			 require('./vue/index.tpl') ;
+			 require('./vue/mur.tpl') ;
 		}
 
 		if (verif_ident($emailConnexion,$_SESSION['mdp'],$profil) && !isset($_POST['ville']) ) {
@@ -72,25 +72,25 @@ function ident(){
 				 echo "<script language='JavaScript'>alert('Connexion!!')</script>";
 				 getProfil($emailConnexion,$_SESSION['mdp']);
 				 $questionAfficher=afficherAnnonce();
-				 require('./vue/index.tpl') ;
+				 require('./vue/mur.tpl') ;
 
 			}
 			else if(!empty($emailConnexion) && !empty($_SESSION['mdp'])) {
 				echo "<script language='JavaScript'>alert('Mauvais Identifiant ou Mot de Passe!!')</script>";
 			//	echo "<script language='JavaScript'>alert('".$emailConnexion."')</script>";
 		 //			echo "<script language='JavaScript'>alert('".$_SESSION['mdp']."')</script>";
-				require('./vue/Connexion/index.tpl') ;
+				require('./vue/Connexion/connexion.tpl') ;
 			}
 			else if(!isset($_POST['email'])&&!isset($_POST['ville'])) {
 			//	echo "<script language='JavaScript'>alert('Retour au Menu!!')</script>";
-				require_once('./vue/Connexion/index.tpl');
+				require_once('./vue/Connexion/connexion.tpl');
 			}
 
 
 		if (mail_disponible($emailInscription) && isset($_POST['email'])){
 			$_SESSION['profil'] = $profil;
 		  echo "<script language='JavaScript'>alert('Inscription!!')</script>";
-		  require('./vue/Inscription.tpl') ;
+		  require('./vue/inscription.tpl') ;
 		}
 		else if(isset($_POST['email']) && isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['mdp']) && !isset($_POST['finis']) ) {
 			echo "<script language='JavaScript'>alert('Mail pas disponible !!')</script>";
@@ -101,12 +101,16 @@ function ident(){
 
 	}
 
-	
-	
-
 	function deconnexion (){
 			session_destroy();
             header("Location:index.php");
 			//require("vue/identification.tpl");
+	}
+
+	function afficherMur(){
+		   require ("modele/annonceBD.php");
+
+		$questionAfficher=afficherAnnonce();
+		require('./vue/mur.tpl');
 	}
 ?>
