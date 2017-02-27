@@ -21,6 +21,7 @@ function ident(){
 
    require ("modele/utilisateurBD.php") ;
    require ("modele/annonceBD.php");
+	  $categorie=getCategorieFavoris($_SESSION['idUser']);
 	$msg='';
 
 	if (count($_POST)==0)
@@ -37,7 +38,7 @@ function ident(){
 				 $_SESSION['profil'] = $profil;
 				 echo "<script language='JavaScript'>alert('Connexion réussie !')</script>";
 				 getProfil($emailConnexion,$_SESSION['mdp']);
-				 $questionAfficher=afficherAnnonce();
+				 $questionAfficher=afficherAnnonceEmploye();
 				 require('./vue/mur.tpl') ;
 
 			}
@@ -48,7 +49,7 @@ function ident(){
 			else if(!isset($_POST['email'])&&!isset($_POST['ville'])) {
 				require_once('./vue/Connexion/connexion.tpl');
 			}
-<<<<<<< HEAD
+
 
 
 		if (mail_disponible($emailInscription) && isset($_POST['email'])){
@@ -60,9 +61,6 @@ function ident(){
 			echo "<script language='JavaScript'>alert('Mail pas disponible !!')</script>";
 		}
 
-
-=======
->>>>>>> 5b312dcdb85ad5079ee2d1f187b26b14fd168b96
 	}
 
 	function deconnexion (){
@@ -70,29 +68,22 @@ function ident(){
             header("Location:index.php");
 	}
 
-<<<<<<< HEAD
+
 	function affichermurEmploye(){
-		   require ("modele/annonceBD.php");
-			 require ("modele/utilisateurBD.php");
-			 $categorie=getCategorieFavoris($_SESSION['idUser']);
-echo "<script language='JavaScript'>alert('Section Employé !!')</script>";
+		require ("modele/annonceBD.php");
+    echo "<script language='JavaScript'>alert('Section Employé !!')</script>";
 		$questionAfficher=afficherAnnonceEmploye($categorie);
 		require('./vue/murEmploye.tpl');
 	}
 
 	function affichermurEmployeur(){
 		require ("modele/annonceBD.php");
-		require ("modele/utilisateurBD.php") ;
+
 		$categorie=getCategorieFavoris($_SESSION['idUser']);
 		echo "<script language='JavaScript'>alert('Section Employeur !!')</script>";
 		$questionAfficher=afficherAnnonceEmployeur($_SESSION['idUser']);
 		require('./vue/murEmployeur.tpl');
-=======
-	function afficherMur(){
-		require ("modele/annonceBD.php");
-		$questionAfficher=afficherAnnonce();
-		require('./vue/mur.tpl');
->>>>>>> 5b312dcdb85ad5079ee2d1f187b26b14fd168b96
-	}
-	
+}
+
+
 ?>

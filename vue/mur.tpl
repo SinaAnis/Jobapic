@@ -80,7 +80,7 @@
                 <!--================================-->
                 <div class="navbar-header">
 				<!-- RETOUR -->
-                    <a href="index.php?controle=identification&action=afficherMur" class="navbar-brand"> <i class="fa fa-cube brand-icon"></i>
+                    <a href="index.php?controle=identification&action=affichermurEmploye" class="navbar-brand"> <i class="fa fa-cube brand-icon"></i>
                         <div class="brand-title"> <span class="brand-text">Job'Apic</span> </div>
                     </a>
                 </div>
@@ -410,7 +410,7 @@
                                                                     </br>
                                                                     <div class="col-md-8-4 col-lg-9-4">
                                                                      <div class="panel">
-                                                                        <h3 class="panel-title">Listes</h3> 
+                                                                        <h3 class="panel-title">Listes</h3>
                                                                         <div id="liste">
                                                                         </br>
                                                                         <?php
@@ -431,7 +431,7 @@
                                                                         echo ('</table>');
                                                                         echo "</tr>\n";
                                                                         }
-                                                                }    
+                                                                }
                                                                 ?>
                                                                 </br>
                                                             <a class = "btnRet" href ="index.php?controle=consulterAnnonce&action=afficherMesAnnonces"> Plus d'offres... </a>
@@ -463,7 +463,7 @@
 
                                                                     <!--Menu list item-->
                                                                     <li>
-                                                                        <a href="index.php?controle=identification&action=afficherMur">
+                                                                        <a href="index.php?controle=identification&action=affichermurEmploye">
                                                                             <i class="fa fa-dashboard"></i>
                                                                             <span class="menu-title">
                                                                                 <strong>Mur</strong>
@@ -495,11 +495,11 @@
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
                                                                           <li><a href="index.php?controle=consulterAnnonce&action=consulterMesAnnonces"><i class="fa fa-caret-right"></i> Mes annonces</a></li>
-                                                                          
+
                                                                           <li><a href="index.php?controle=consulterCandidature&action=consulterMesCandidatures"><i class="fa fa-caret-right"></i> Mes candidatures</a></li>
-																		  
+
 																		  <li><a href="index.php?controle=consulterCandidature&action=consulterLesCandidatures"><i class="fa fa-caret-right"></i> Les candidatures</a></li>
-																		  
+
 																		  <li><a href="index.php?controle=editerProfil&action=consulterProfil"><i class="fa fa-caret-right"></i> Editer mon profil</a></li>
 
                                                                     </ul>
@@ -521,7 +521,7 @@
                                                                         <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Corbeille</a></li>
                                                                     </ul>
                                                                 </li>
-																
+
                                                                 <!--Menu list item-->
                                                                 <li>
                                                                     <a href="calendar.html">
@@ -531,9 +531,9 @@
                                                                         </span>
                                                                     </a>
                                                                 </li>
-																
+
 																<li><a href="#"><i class="fa fa-caret-right"></i>A propos</a></li>
-																
+
 																<li><a href="#"><i class="fa fa-caret-right"></i>Contact</a></li>
 
 
