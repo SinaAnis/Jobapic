@@ -31,60 +31,24 @@ function ident(){
 		$emailConnexion = $_POST['mail'];
 		$_SESSION['mdp'] = $_POST['mdp'];
 		$profil = array(); //profil affecté par l'appel à verif_ident
-	//	require ("modele/utilisateurBD.php") ;
 	}
-
-
-
-	// SI ON SOUHAITE S'INSCRIRE
-		if(isset($_POST['email']) && isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['mdp']) ) {
-			$emailInscription = $_POST['email'];
-			$_SESSION['prenom'] = $_POST['prenom'];
-			$_SESSION['nom'] = $_POST['nom'];
-			$_SESSION['mdp'] = $_POST['mdp'];
-			$profil = array(); //profil affecté par l'appel à verif_ident
-		//	require ("modele/utilisateurBD.php") ;
-		}
-
-		if(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['telephone']) && isset($_POST['date']) && isset($_POST['sexe']) && isset($_POST['ville'])   ) {
-    	$_SESSION['nom'] = $_POST['nom'];
-			$_SESSION['prenom'] = $_POST['prenom'];
-			$genre = $_POST['sexe'];
-			$date = $_POST['date'];
-			$ville = $_POST['ville'];
-			// MAIL
-		//	$departement = $_POST['departement'];
-			$telephone = $_POST['telephone'];
-			$situation = $_POST['situation'];
-			$emailInscription = $_POST['email'];
-			$profil = array(); //profil affecté par l'appel à verif_ident
-		//	require ("modele/utilisateurBD.php") ;
-		}
-
-		if(isset($_POST['finis'])){
-		inscription($emailInscription,$_SESSION['prenom'],$_SESSION['nom'],$_SESSION['mdp'], $genre, $date, $ville , $telephone, $situation, $profil);
-		echo "<script language='JavaScript'>alert('Vous etes maintenant inscrit !!')</script>";
-			 require('./vue/murEmploye.tpl') ;
-		}
 
 		if (verif_ident($emailConnexion,$_SESSION['mdp'],$profil) && !isset($_POST['ville']) ) {
 				 $_SESSION['profil'] = $profil;
-				 echo "<script language='JavaScript'>alert('Connexion!!')</script>";
+				 echo "<script language='JavaScript'>alert('Connexion réussie !')</script>";
 				 getProfil($emailConnexion,$_SESSION['mdp']);
 				 $questionAfficher=afficherAnnonce();
-				 require('./vue/murEmploye.tpl') ;
+				 require('./vue/mur.tpl') ;
 
 			}
 			else if(!empty($emailConnexion) && !empty($_SESSION['mdp'])) {
-				echo "<script language='JavaScript'>alert('Mauvais Identifiant ou Mot de Passe!!')</script>";
-			//	echo "<script language='JavaScript'>alert('".$emailConnexion."')</script>";
-		 //			echo "<script language='JavaScript'>alert('".$_SESSION['mdp']."')</script>";
+				echo "<script language='JavaScript'>alert('Mauvais Identifiant ou Mot de Passe ! Veuillez réessayer.')</script>";
 				require('./vue/Connexion/connexion.tpl') ;
 			}
 			else if(!isset($_POST['email'])&&!isset($_POST['ville'])) {
-			//	echo "<script language='JavaScript'>alert('Retour au Menu!!')</script>";
 				require_once('./vue/Connexion/connexion.tpl');
 			}
+<<<<<<< HEAD
 
 
 		if (mail_disponible($emailInscription) && isset($_POST['email'])){
@@ -97,21 +61,16 @@ function ident(){
 		}
 
 
+=======
+>>>>>>> 5b312dcdb85ad5079ee2d1f187b26b14fd168b96
 	}
 
 	function deconnexion (){
 			session_destroy();
             header("Location:index.php");
-			//require("vue/identification.tpl");
 	}
 
-	function affichermur(){
-		   require ("modele/annonceBD.php");
-
-		$questionAfficher=afficherAnnonce();
-		require('./vue/murEmploye.tpl');
-	}
-
+<<<<<<< HEAD
 	function affichermurEmploye(){
 		   require ("modele/annonceBD.php");
 			 require ("modele/utilisateurBD.php");
@@ -128,6 +87,12 @@ echo "<script language='JavaScript'>alert('Section Employé !!')</script>";
 		echo "<script language='JavaScript'>alert('Section Employeur !!')</script>";
 		$questionAfficher=afficherAnnonceEmployeur($_SESSION['idUser']);
 		require('./vue/murEmployeur.tpl');
+=======
+	function afficherMur(){
+		require ("modele/annonceBD.php");
+		$questionAfficher=afficherAnnonce();
+		require('./vue/mur.tpl');
+>>>>>>> 5b312dcdb85ad5079ee2d1f187b26b14fd168b96
 	}
-
+	
 ?>
