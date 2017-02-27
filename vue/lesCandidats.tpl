@@ -10,19 +10,19 @@
     <!--STYLESHEET-->
     <!--=================================================-->
 	
-	   <link href="vue/css/lavy.css" rel="stylesheet">
-	<!--stylesheet new -->
-	<link href="css/new.css" rel="stylesheet">
-	
     <!--Roboto Slab Font [ OPTIONAL ] -->
     <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Roboto:500,400italic,100,700italic,300,700,500italic,400" rel="stylesheet">
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
     <link href="vue/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="vue/css/styleAnnonce.css" rel="stylesheet">
 
     <!--Jasmine Stylesheet [ REQUIRED ]-->
     <link href="vue/css/style.css" rel="stylesheet">
+	
+	<link href="vue/css/lavy.css" rel="stylesheet">
 
     <!--Font Awesome [ OPTIONAL ]-->
     <link href="vue/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -55,8 +55,7 @@
     <!--=================================================-->
 
     <!--Page Load Progress Bar [ OPTIONAL ]-->
-    <link href="vue/plugins/pace/pace.min.css" rel="stylesheet">
-    <script src="vue/plugins/pace/pace.min.js"></script>
+
 </head>
 
 <body>
@@ -341,66 +340,89 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
             <!--===================================================-->
             <section id="content-container">
                 <header class="pageheader">
-                    <h3><i class="fa fa-home"></i> Consulter mon Profil  </h3>
+                    <h3><i class="fa fa-home"></i> Les Candidats </h3>
                     <div class="breadcrumb-wrapper"> <span class="label">Vous êtes ici:</span>
                         <ol class="breadcrumb">
                             <li> <a href="#"> Home </a> </li>
-                            <li class="active"> Mur </li>
-							<li class="active"> Profil </li>
-							<li class="active"> Conculter mon profil </li>
+                            <li class="active"> <a href="#"> Profil </a>   </li>
+                            <li class="active"> Les Candidats </li>
                         </ol>
                     </div>
                 </header>
 
                 <!--Page content-->
+				<h3 class="cat">catégorie</h3>
+				<div class="row taille2">
+					<div class="col-sm-4 taille"></div>
+					<div class="col-sm-4 taille"></div>
+					<div class="col-sm-4 taille"></div>
+					<div class="col-sm-4 taille"></div>
+				</div>
+				<div class="row taille2">
+					<div class="col-sm-4 taille3">
+						<h3 class="text"> Nom </h3>
+						<h3 class="text"> Prenom </h3>
+						<h3 class="text"> Adresse </h3>
+						<input class="btn menu-title" type="button" name="btn" value="Voir plus"> 
+					</div>
+					<div class="col-sm-4 taille3">
+						<h3 class="text"> Nom </h3>
+						<h3 class="text"> Prenom </h3>
+						<h3 class="text"> Adresse </h3>
+						<input class="btn menu-title" type="button" name="btn" value="Voir plus"> 
+					</div>
+					<div class="col-sm-4 taille3">
+						<h3 class="text"> Nom </h3>
+						<h3 class="text"> Prenom </h3>
+						<h3 class="text"> Adresse </h3>
+						<input class="btn menu-title" type="button" name="btn" value="Voir plus"> 
+					</div>
+					<div class="col-sm-4 taille3">
+						<h3 class="text"> Nom </h3>
+						<h3 class="text"> Prenom </h3>
+						<h3 class="text"> Adresse </h3>
+						<input class="btn menu-title" type="button" name="btn" value="Voir plus"> 
+					</div>
+				</div>
+				
+				<h3 class="cat">catégorie2</h3>
+				<div class="row taille2">
+					<div class="col-sm-4 taille"></div>
+					<div class="col-sm-4 taille"></div>
+					<div class="col-sm-4 taille"></div>
+					<div class="col-sm-4 taille"></div>
+				</div>
+				<div class="row taille2">
+					<div class="col-sm-4 taille3">
+						<h3 class="text"> Nom </h3>
+						<h3 class="text"> Prenom </h3>
+						<h3 class="text"> Adresse </h3>
+						<input class="btn menu-title" type="button" name="btn" value="Voir plus"> 
+					</div>
+					<div class="col-sm-4 taille3">
+						<h3 class="text"> Nom </h3>
+						<h3 class="text"> Prenom </h3>
+						<h3 class="text"> Adresse </h3>
+						<input class="btn menu-title" type="button" name="btn" value="Voir plus"> 
+					</div>
+					<div class="col-sm-4 taille3">
+						<h3 class="text"> Nom </h3>
+						<h3 class="text"> Prenom </h3>
+						<h3 class="text"> Adresse </h3>
+						<input class="btn menu-title" type="button" name="btn" value="Voir plus"> 
+					</div>
+					<div class="col-sm-4 taille3">
+						<h3 class="text"> Nom </h3>
+						<h3 class="text"> Prenom </h3>
+						<h3 class="text"> Adresse </h3>
+						<input class="btn menu-title" type="button" name="btn" value="Voir plus"> 
+					</div>
+				</div>
+				
+				
+
+               
                 <!--===================================================-->
-					
-				<div class="profil">
-					
-					<img class="photo" src="vue/img/profil.jpg" alt="1"/>
-					<h3 class="nom"><?php echo $_SESSION['nom']; ?></h3>
-					<h4 class="prenom"><?php echo $_SESSION['prenom']; ?></h4>
-					<h4 class="prenom">19 ans</h4>
-					<h4 class="prenom">18 allée Saint Exupéry 92390 Villeneuve la Garenne</h4>
-					<h4 class="prenom">Etudiante</h4>
-					
-				</div>
-				
-				<div class="profil2">
-					<h4 class="prof2">Formation</h4>
-						<h4 class="prof3">- 2ème année de DUT Info, Paris Descartes</h4>
-						<h4 class="prof3">- 1ère année de DUT Info, Paris Descartes</h4>
-						<h4 class="prof3">- Lycée Michel Ange</h4>
-					<h4 class="prof2">Expérience</h4>
-						<h4 class="prof3">- Aide au devoirs primaire 1an</h4>
-						<h4 class="prof3">- Baby-sitting</h4>
-						<h4 class="prof3">- Vendeuse à séphora 6mois</h4>
-					<h4 class="prof2">Loisir</h4>
-						<h4 class="prof3">- basket ball</h4>
-						<h4 class="prof3">- Art, dessin, peinture, ...</h4>
-						<h4 class="prof3">- Séries</h4>
-				
-					
-				</div>
-					
-				<div class="profil3">
-					<h4 class="prof2">Notes</h4>
-					<h1><i class="fa fa-home logo"></i></h1>
-					<h1><i class="fa fa-home logo"></i></h1>
-					<h1><i class="fa fa-home logo"></i></h1>
-					<h1><i class="fa fa-home logo"></i></h1>
-					<h1><i class="fa fa-home logo"></i></h1>
-					<h1><i class="fa fa-home logo"></i></h1>
-					<h1><i class="fa fa-home logo"></i></h1>
-				
-					
-				</div>
-				
-   
-   
-   
-   
-   
                 <!--===================================================-->
                 <!--End page content-->
 
@@ -457,8 +479,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                       <!--Submenu-->
                                       <ul class="collapse">
                                           <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
-                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
-                                          <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
+                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>
+                                          <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Modifier mon profil </a></li>
                                       </ul>
                                     </li>
 

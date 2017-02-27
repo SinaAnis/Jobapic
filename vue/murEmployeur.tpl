@@ -570,37 +570,6 @@ input:checked + .slider:before {
                                                                   </li>
 
 
-                                                                  <!--Menu list item
-
-                                                                  <li class="list-divider"></li>
-
-
-                                                                  <!--Category name-->
-
-                                                                  <!--Category name
-                                                                  <li class="list-header">Lot Secondaire</li>-->
-                                                                  <!--Menu list item-->
-
-                                                                  <!--Category name
-                                                                  <li class="list-header">Lot Tertiaire</li>-->
-                                                                  <!--Menu list item
-                                                                  <li>
-                                                                      <a href="#">
-                                                                          <i class="fa fa-envelope"></i>
-                                                                          <span class="menu-title">Profil</span>
-                                                                          <i class="arrow"></i>
-                                                                      </a>
-
-                                                                      <!--Submenu
-
-                                                                      <ul class="collapse">
-                                                                          <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
-                                                                          <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Mes candidatures </a></li>
-                                                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
-
-
-                                                                      </ul>
-                                                                  </li>-->
                                                                   <!--Category name-->
                                                                   <li class="list-header">Lot Falcultatif</li>
                                                                   <!--Menu list item-->
@@ -629,33 +598,7 @@ input:checked + .slider:before {
                                                                     </a>
                                                                 </li>
 
-
-
-                                                                <!--Menu list item-->
-
-
-                                                                <!--Menu list item-->
-
-
-                                                                <!--Menu list item-->
-
-                                                                <!--Menu list item-->
-
-
-                                                                <!--Menu list item-->
-
-
                                                                 <li class="list-divider"></li>
-
-
-
-                                                                <!--Menu list item-->
-
-
-                                                                <!--Menu list item-->
-
-
-                                                                <!--Menu list item-->
 
 
                                                             </ul>
@@ -722,7 +665,7 @@ input:checked + .slider:before {
                                                         <!--================================-->
                                                         <!--End nav tabs-->
 
-              
+
 
 <!--Second tab (Settings)-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

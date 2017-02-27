@@ -1,0 +1,119 @@
+/*lesCandidats*/
+
+.btn{
+	border:none; 
+	width: 35%; 
+	height: 30px; 
+	border-radius:8px; 
+	background-color: rgba(0, 0, 0, 0.8); 
+	font:bold 15px Verdana; 
+	color:#fff;
+	margin-left: 32%;
+	margin-top: 10px;
+}
+
+.btn:hover{
+	background-color: rgba(84, 84, 84, 0.3);
+	color: black;
+}
+
+.cat{
+	text-align: center;
+	margin-bottom: 2em;
+}
+
+.taille{
+	background-image: url('../img/img1.jpg');
+	width: 300px;
+	height: 400px;
+	margin-left: 3.5em;
+}
+
+.taille2{
+	margin-left: 10em;
+}
+
+
+.taille3{
+	width: 300px;
+	height: 200px;
+	background-color: rgba(84, 84, 84, 0.1);
+	margin-left: 3.5em;
+	margin-bottom: 5em;
+}
+
+.text{
+	color : black;
+	font-size: 20px;
+	text-align: center;
+}
+
+/*monProfil*/
+.profil{
+	background-color: rgba(25, 33, 45, 0.5);
+	border-radius: 2%;
+	height: 70%;
+	width: 20%;
+	float: left;
+	margin-left: 3%;
+}
+
+.profil2{
+	background-color: rgba(25, 33, 45, 0.3);
+	border-radius: 2%;
+	height: 70%;
+	width: 47%;
+	float: left;
+	margin-left: 3%;
+}
+
+.profil3{
+	background-color: rgba(25, 33, 45, 0.1);
+	border-radius: 2%;
+	height: 70%;
+	width: 20%;
+	float: left;
+	margin-left: 3%;
+}
+
+
+.photo{
+	background-color : black;
+	overflow:hidden;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:90px;
+    width:180px;
+    height:180px;
+	margin-left: 23%;
+	margin-top: 8%;
+}
+
+.nom{
+	color : white;
+	text-transform: uppercase;
+	font-size: 16px;
+	text-align: center;
+}
+
+.prenom{
+	color : rgb(25, 33, 45);
+	font-size: 14px;
+	text-align: center;
+}
+
+.prof2{
+	color : white;
+	font-size: 14px;
+	margin-left: 3%;
+}
+
+.prof3{
+	color : rgb(25, 33, 45);
+	font-size: 12px;
+	margin-left: 10%;
+}
+
+.logo{
+	margin-left: 10%;
+}

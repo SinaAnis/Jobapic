@@ -37,7 +37,7 @@ function ident(){
 				 echo "<script language='JavaScript'>alert('Connexion réussie !')</script>";
 				 getProfil($emailConnexion,$_SESSION['mdp']);
 				 $questionAfficher=afficherAnnonceEmploye();
-				 require('./vue/mur.tpl') ;
+				 require('./vue/murEmploye.tpl') ;
 
 			}
 			else if(!empty($emailConnexion) && !empty($_SESSION['mdp'])) {

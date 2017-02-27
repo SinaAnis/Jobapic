@@ -547,7 +547,7 @@ input:checked + .slider:before {
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
 
-                                                                          <li><a href="index.php?controle=consulterAnnonce&action=consulterAnnonce"><i class="fa fa-caret-right"></i> Consulter les annonces du jours</a></li>
+                                                                          <li><a href="index.phpcontrole=creerAnnonce&action=create"><i class="fa fa-caret-right"></i> Consulter les annonces du jours</a></li>
                                                                       </ul>
                                                                   </li>
 
