@@ -547,7 +547,7 @@ input:checked + .slider:before {
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
                                                                           <li><a href="index.php?controle=creerAnnonce&action=create"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
-                                                                          <li><a href="index.php?controle=consulterAnnonce&action=consulterAnnonce"><i class="fa fa-caret-right"></i> Consulter les annonces du jours</a></li>
+
                                                                       </ul>
                                                                   </li>
 
@@ -564,7 +564,6 @@ input:checked + .slider:before {
 
                                                                           <li><a href="#"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
 
-                                                                          <li><a href="#"><i class="fa fa-caret-right"></i> Mes candidatures</a></li
 
                                                                           <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Modifier paramètres </a></li>
                                                                     </ul>
@@ -723,168 +722,7 @@ input:checked + .slider:before {
                                                         <!--================================-->
                                                         <!--End nav tabs-->
 
-                                                        <!-- Tabs Content Start-->
-                                                        <!--================================-->
-                                                        <div class="tab-content">
-
-                                                            <!--First tab (Contact list)-->
-                                                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                                                            <div class="tab-pane fade in active" id="demo-asd-tab-1">
-                                                                <h4 class="pad-hor text-thin"> Membres en ligne (7) </h4>
-                                                                <div class="list-group bg-trans">
-                                                                   <div class="list-group-item">
-                                                                     <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                                                        <img src="img/av1.png" alt="" class="img-sm">
-                                                                        <i class="on bottom text-light"></i>
-                                                                    </a>
-                                                                    <div class="inline-block">
-                                                                     <div class="text-small">John Knight</div>
-                                                                     <small class="text-mute">Available</small>
-                                                                 </div>
-                                                             </div>
-                                                             <div class="list-group-item">
-                                                                 <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                                                    <img src="img/av2.png" alt="" class="img-sm">
-                                                                    <i class="on bottom text-light"></i>
-                                                                </a>
-                                                                <div class="inline-block pad-ver-5">
-                                                                 <div class="text-small">Jose Knight</div>
-                                                                 <small class="text-mute">Available</small>
-                                                             </div>
-                                                         </div>
-                                                         <div class="list-group-item">
-                                                             <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                                                <img src="img/av3.png" alt="" class="img-sm">
-                                                                <i class="on bottom text-light"></i>
-                                                            </a>
-                                                            <div class="inline-block">
-                                                             <div class="text-small">Roy Banks</div>
-                                                             <small class="text-mute">Available</small>
-                                                         </div>
-                                                     </div>
-                                                     <div class="list-group-item">
-                                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                                            <img src="img/av7.png" alt="" class="img-sm">
-                                                            <i class="on bottom text-light"></i>
-                                                        </a>
-                                                        <div class="inline-block">
-                                                         <div class="text-small">Steven Jordan</div>
-                                                         <small class="text-mute">Available</small>
-                                                     </div>
-                                                 </div>
-                                                 <div class="list-group-item">
-                                                     <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                                        <img src="img/av4.png" alt="" class="img-sm">
-                                                        <i class="on bottom text-light"></i>
-                                                    </a>
-                                                    <div class="inline-block">
-                                                     <div class="text-small">Scott Owens</div>
-                                                     <small class="text-mute">Available</small>
-                                                 </div>
-                                             </div>
-                                             <div class="list-group-item">
-                                                 <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                                    <img src="img/av5.png" alt="" class="img-sm">
-                                                    <i class="on bottom text-light"></i>
-                                                </a>
-                                                <div class="inline-block">
-                                                 <div class="text-small">Melissa Hunt</div>
-                                                 <small class="text-mute">Available</small>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <hr>
-                                     <h4 class="pad-hor text-thin"> Membres occupés (4) </h4>
-                                     <div class="list-group bg-trans">
-                                       <div class="list-group-item">
-                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                            <img src="img/av1.png" alt="" class="img-sm">
-                                            <i class="busy bottom text-light"></i>
-                                        </a>
-                                        <div class="inline-block">
-                                         <div class="text-small">John Knight</div>
-                                         <small class="text-mute">Available</small>
-                                     </div>
-                                 </div>
-                                 <div class="list-group-item">
-                                     <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                        <img src="img/av2.png" alt="" class="img-sm">
-                                        <i class="busy bottom text-light"></i>
-                                    </a>
-                                    <div class="inline-block">
-                                     <div class="text-small">Jose Knight</div>
-                                     <small class="text-mute">Available</small>
-                                 </div>
-                             </div>
-                             <div class="list-group-item">
-                                 <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                    <img src="img/av3.png" alt="" class="img-sm">
-                                    <i class="busy bottom text-light"></i>
-                                </a>
-                                <div class="inline-block">
-                                 <div class="text-small">Roy Banks</div>
-                                 <small class="text-mute">Available</small>
-                             </div>
-                         </div>
-                         <div class="list-group-item">
-                             <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                <img src="img/av7.png" alt="" class="img-sm">
-                                <i class="busy bottom text-light"></i>
-                            </a>
-                            <div class="inline-block">
-                             <div class="text-small">Steven Jordan</div>
-                             <small class="text-mute">Available</small>
-                         </div>
-                     </div>
-                 </div>
-                 <hr>
-                 <h4 class="pad-hor text-thin"> Membres déconnectés (4) </h4>
-                 <div class="list-group bg-trans">
-                   <div class="list-group-item">
-                     <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                        <img src="img/av1.png" alt="" class="img-sm">
-                        <i class="off bottom text-light"></i>
-                    </a>
-                    <div class="inline-block pad-ver-5">
-                     <div class="text-small">John Knight</div>
-                     <small class="text-mute">Available</small>
-                 </div>
-             </div>
-             <div class="list-group-item">
-                 <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                    <img src="img/av2.png" alt="" class="img-sm">
-                    <i class="off bottom text-light"></i>
-                </a>
-                <div class="inline-block pad-ver-5">
-                 <div class="text-small">Jose Knight</div>
-                 <small class="text-mute">Available</small>
-             </div>
-         </div>
-         <div class="list-group-item">
-             <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                <img src="img/av3.png" alt="" class="img-sm">
-                <i class="off bottom text-light"></i>
-            </a>
-            <div class="inline-block pad-ver-5">
-             <div class="text-small">Roy Banks</div>
-             <small class="text-mute">Available</small>
-         </div>
-     </div>
-     <div class="list-group-item">
-         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-            <img src="img/av7.png" alt="" class="img-sm">
-            <i class="off bottom text-light"></i>
-        </a>
-        <div class="inline-block">
-         <div class="text-small">Steven Jordan</div>
-         <small class="text-mute">Available</small>
-     </div>
- </div>
-</div>
-
-</div>
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<!--End first tab (Contact list)-->
+              
 
 <!--Second tab (Settings)-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

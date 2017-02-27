@@ -546,7 +546,7 @@ input:checked + .slider:before {
 
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
-                                                                          <li><a href="index.php?controle=creerAnnonce&action=create"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
+
                                                                           <li><a href="index.php?controle=consulterAnnonce&action=consulterAnnonce"><i class="fa fa-caret-right"></i> Consulter les annonces du jours</a></li>
                                                                       </ul>
                                                                   </li>
@@ -560,7 +560,7 @@ input:checked + .slider:before {
 
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
-                                                                          <li><a href="#"><i class="fa fa-caret-right"></i> Mes annonces</a></li>
+
 
                                                                           <li><a href="#"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
 
