@@ -6,9 +6,11 @@
 
 
 function ident(){
+	require ("modele/utilisateurBD.php") ;
+	require ("modele/annonceBD.php");
 	$emailConnexion= isset($_POST['mail'])?($_POST['mail']):'';
 	$_SESSION['mdp']= isset($_POST['mdp'])?($_POST['mdp']):'';
-    $_SESSION['prenom'] = "SALUT";
+  $_SESSION['prenom'] = "SALUT";
 	$emailInscription= isset($_POST['email'])?($_POST['email']):'';
 	$_SESSION['nom'] =isset($_POST['nom'])?($_POST['nom']):'';
 	$_SESSION['prenom'] = isset($_POST['prenom'])?($_POST['prenom']):'';
@@ -17,12 +19,8 @@ function ident(){
 	$ville = isset($_POST['ville'])?($_POST['ville']):'';
 	$telephone = isset($_POST['telephone'])?($_POST['telephone']):'';
 	$situation = isset($_POST['situation'])?($_POST['situation']):'';
-
-
-   require ("modele/utilisateurBD.php") ;
-   require ("modele/annonceBD.php");
-	  $categorie=getCategorieFavoris($_SESSION['idUser']);
-	$msg='';
+	$_SESSION['categorie']=getCategorieFavoris($_SESSION['idUser']);
+	 $msg='';
 
 	if (count($_POST)==0)
 		require('./vue/Connexion/connexion.tpl');
@@ -71,14 +69,16 @@ function ident(){
 
 	function affichermurEmploye(){
 		require ("modele/annonceBD.php");
+		require ("modele/utilisateurBD.php") ;
+		$categorie=getCategorieFavoris($_SESSION['idUser']);
     echo "<script language='JavaScript'>alert('Section Employé !!')</script>";
-		$questionAfficher=afficherAnnonceEmploye($categorie);
+		$questionAfficher=afficherAnnonceEmploye();
 		require('./vue/murEmploye.tpl');
 	}
 
 	function affichermurEmployeur(){
 		require ("modele/annonceBD.php");
-
+    require ("modele/utilisateurBD.php") ;
 		$categorie=getCategorieFavoris($_SESSION['idUser']);
 		echo "<script language='JavaScript'>alert('Section Employeur !!')</script>";
 		$questionAfficher=afficherAnnonceEmployeur($_SESSION['idUser']);

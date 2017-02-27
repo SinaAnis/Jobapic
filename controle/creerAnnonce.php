@@ -6,6 +6,7 @@
 
   function creerAnnonce(){
   	require('./vue/pageCreationAnnonce.tpl');
+    $categorie = getCategorieFavoris($_SESSION['idUser']);
   }
 
 function create () {

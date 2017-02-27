@@ -536,6 +536,10 @@
 
 																<li><a href="#"><i class="fa fa-caret-right"></i>Contact</a></li>
 
+                                <a href="index.php?controle=identification&action=afficherMurEmployeur">
+                                                          <button class="btn btn-default">Employeur</button> </a>
+                                                          <a href="index.php?controle=identification&action=afficherMurEmploye">
+                                                            <button class="btn btn-default"> Employé </button> </a>
 
 
                                                                 <!--Menu list item-->
