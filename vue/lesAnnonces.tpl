@@ -373,6 +373,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         <td class="col-md-2" style="border-bottom:1px solid">
                             Distance
                         </td>
+						
+						
                     </tr>
                     <tr class="lespace">
                         <td class="col-md-2">
@@ -407,6 +409,10 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         <td class="col-md-2">
                             Distance
                         </td>
+						<td class="col-md-2" style="border-bottom:1px solid">
+						<!--<button name=".$value[2]."  type= 'submit' value=". $value[0]." /> Valider </button>-->
+						<button name="1"  type= 'submit' value="1" /> Postuler </button>
+						</td>
                     </tr>
                     <tr>
                         <td class="col-md-2">
