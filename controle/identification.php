@@ -97,8 +97,6 @@ function ident(){
 		}
 
 
-
-
 	}
 
 	function deconnexion (){
@@ -116,8 +114,10 @@ function ident(){
 
 	function affichermurEmploye(){
 		   require ("modele/annonceBD.php");
+			 require ("modele/utilisateurBD.php");
+			 $categorie=getCategorieFavoris($_SESSION['idUser']);
 echo "<script language='JavaScript'>alert('Section Employé !!')</script>";
-		$questionAfficher=afficherAnnonce();
+		$questionAfficher=afficherAnnonceEmploye($categorie);
 		require('./vue/murEmploye.tpl');
 	}
 
@@ -126,6 +126,7 @@ echo "<script language='JavaScript'>alert('Section Employé !!')</script>";
 		require ("modele/utilisateurBD.php") ;
 		$categorie=getCategorieFavoris($_SESSION['idUser']);
 		echo "<script language='JavaScript'>alert('Section Employeur !!')</script>";
+		$questionAfficher=afficherAnnonceEmployeur($_SESSION['idUser']);
 		require('./vue/murEmployeur.tpl');
 	}
 

@@ -471,72 +471,39 @@ input:checked + .slider:before {
                                                                     </div>
 
                                                                     <!-- CARTE -->
-
-
-                                                <div id="map-canvas"></div>
-                                                </br>
-                                                <div class="col-md-8-4 col-lg-9-4">
-                                                 <div class="panel">
-                                                    <h3 class="panel-title">Listes</h3>
-                                                    <div id="liste">
-                                                    </br>
-                                                    <div class="panel-body">
-                                                          <label class="col-xs-3 control-label">Nom de l'annonce</label>
-                                                          <div class="col-xs-4">
-                                                              <input type="text" class="form-control" name="nomA" placeholder="Nom de l'annonce" />
-                                                          </div>
-                                                          <label class="col-xs-3 control-label">Date de l'annonce</label>
-                                                          <div class="col-xs-5">
-                                                              <input type="date" class="form-control" name="date" value=date />
-                                                          </div>
-                                                          <label class="col-xs-3 control-label">Adresse de l'annonce</label>
-                                                          <div class="col-xs-5">
-                                                             <!-- donne par default l'adresse de l'utilisateur -->
-                                                              <input type="text" class="form-control" name="adr" value='<?php echo $_SESSION['Adresse'] ?>'>
-                                                          </div>
-                                                          <label class="col-xs-3 control-label">Catégorie</label>
-                                                          <div class="col-xs-6">
-
-                                                            <?php
-
-
-                                                            foreach ($categorie as $value) {
-                                                               echo ("<label class='form-radio form-icon'>");
-                                                                echo ("<input type='radio' name='cat' value=".$value['IdCategorie'].">".$value['NomCategorie']."</label>");
-                                                            }
-
-
-                                                            ?>
-
-                                                          </div>
-                                                          <label class="col-xs-3 control-label">Description de l'annonce</label>
-                                                          <div class="col-xs-9">
-                                                              <input name="des" type="text"  size="50" style="border: 1px solid #e5e5e5; overflow: hidden;  "  />
-                                                                  </div>
-                                                          <label class="col-xs-3 control-label">Récompense</label>
-                                                          <div class="col-xs-5">
-                                                              <input type="recompense" class="form-control" name="rec" />
-                                                          </div>
-                                                          <div class="col-xs-6 col-xs-offset-3">
-                                                              <div class="checkbox">
-                                                                  <label class="form-checkbox form-icon">
-                                                                      <input type="checkbox" name="agree" />
-                                                                      J'accepte les termes et les annonces
-                                                                  </label>
-                                                              </div>
-                                                          </div>
-                                                          <div class="col-xs-9 col-xs-offset-3">
-                                                              <button type="submit" class="btn btn-primary" name="signup" >
-                                                                  Envoyer
-                                                              </button>
-                                                          </div>
+                                                                    <div id="map-canvas"></div>
+                                                                    </br>
+                                                                    <div class="col-md-8-4 col-lg-9-4">
+                                                                     <div class="panel">
+                                                                        <h3 class="panel-title">Listes</h3>
+                                                                        <div id="liste">
+                                                                        </br>
+                                                                        <?php
+                                                                        if ($questionAfficher != false){
+                                                                    // BOUCLE FOR
+                                                                        foreach ($questionAfficher as $key => $value) {
+                                                                        echo('</br>');
+                                                                        echo ('<table>');
+                                                                        echo ('<tr><th> N° </th> <th> Annonce : '.$value[0].'</th>'. "\n");
+                                                                        echo "<tr class='question'>";
+                                                                        echo ("<td>" . utf8_encode($value[1]) . "</td>". "\n");
+                                                                        echo ("<td>" . utf8_encode($value[2]) . "</td>". "\n");
+                                                                        echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                        echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                        echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                        echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                        echo ('</table>');
+                                                                        echo ('</table>');
+                                                                        echo "</tr>\n";
+                                                                        }
+                                                                }
+                                                                ?>
+                                                                </br>
+                                                            <a class = "btnRet" href ="index.php?controle=consulterAnnonce&action=afficherMesAnnonces"> Plus d'offres... </a>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                            </br>
-                                        <a class = "btnRet" href ="index.php?controle=consulterAnnonce&action=afficherMesAnnonces"> Plus d'offres... </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
+                                                </section>
                                                 <!--===================================================-->
                                                 <!--End page content-->
 
@@ -693,13 +660,13 @@ input:checked + .slider:before {
 
 
                                                             </ul>
-<center>
+                                                            <center>
                                                         <a href="index.php?controle=identification&action=afficherMurEmployeur">
                                                           <button class="btn btn-default">Employeur</button>
-</a>
-<a href="index.php?controle=identification&action=afficherMurEmploye">
-  <button class="btn btn-default"> Employé </button>
-</a>
+                                                        </a>
+                                                        <a href="index.php?controle=identification&action=afficherMurEmploye">
+                                                          <button class="btn btn-default"> Employé </button>
+                                                        </a>
 
 
 

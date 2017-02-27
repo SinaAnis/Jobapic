@@ -1,4 +1,4 @@
-<? php
+<?php
 
 function inscription(){
 
@@ -16,11 +16,11 @@ function inscription(){
 		if  (check_free($logi,$mdp,$profil)) {
 			$_SESSION['profil'] = $profil;
 			header("Location:index.php?controle=inscript&action=init");
-		} 
+		}
 		else{
 			$msg2 ="Erreur de saisie, veuillez ressayer : ";
 			require ("vue/identification.tpl") ;
-		} 
+		}
 	}
 }
 ?>
