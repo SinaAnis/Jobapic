@@ -394,6 +394,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                          <?php
 
+                                         
                                          foreach ($categorie as $value) {
                                             echo ("<label class='form-radio form-icon'>");
                                              echo ("<input type='radio' name='cat' value=".$value['IdCategorie'].">".$value['NomCategorie']."</label>");
@@ -511,9 +512,9 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
                                                                           <li><a href="#"><i class="fa fa-caret-right"></i> Mes annonces</a></li>
-                                                                          
+
                                                                           <li><a href="#"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
-                                                                        
+
                                                                           <li><a href="#"><i class="fa fa-caret-right"></i> Mes candidatures</a></li
 
                                                                           <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Modifier paramètres </a></li>
@@ -548,7 +549,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                                           <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
                                                                           <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Mes candidatures </a></li>
                                                                           <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
-                                                                          
+
 
                                                                       </ul>
                                                                   </li>-->

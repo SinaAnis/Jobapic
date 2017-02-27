@@ -19,6 +19,7 @@ function create () {
 
 
 	if  (count($_POST)==0) {
+    echo "<script language='JavaScript'>alert('Veuillez remplir les champs')</script>";
 	  //  echo("Veuillez remplir les champs");
 	   	require ("modele/utilisateurBD.php") ;
 			$categorie=getCategorieFavoris($_SESSION['idUser']);

@@ -64,7 +64,7 @@ function ident(){
 		if(isset($_POST['finis'])){
 		inscription($emailInscription,$_SESSION['prenom'],$_SESSION['nom'],$_SESSION['mdp'], $genre, $date, $ville , $telephone, $situation, $profil);
 		echo "<script language='JavaScript'>alert('Vous etes maintenant inscrit !!')</script>";
-			 require('./vue/mur.tpl') ;
+			 require('./vue/murEmploye.tpl') ;
 		}
 
 		if (verif_ident($emailConnexion,$_SESSION['mdp'],$profil) && !isset($_POST['ville']) ) {
@@ -72,7 +72,7 @@ function ident(){
 				 echo "<script language='JavaScript'>alert('Connexion!!')</script>";
 				 getProfil($emailConnexion,$_SESSION['mdp']);
 				 $questionAfficher=afficherAnnonce();
-				 require('./vue/mur.tpl') ;
+				 require('./vue/murEmploye.tpl') ;
 
 			}
 			else if(!empty($emailConnexion) && !empty($_SESSION['mdp'])) {
@@ -107,10 +107,26 @@ function ident(){
 			//require("vue/identification.tpl");
 	}
 
-	function afficherMur(){
+	function affichermur(){
 		   require ("modele/annonceBD.php");
 
 		$questionAfficher=afficherAnnonce();
-		require('./vue/mur.tpl');
+		require('./vue/murEmploye.tpl');
 	}
+
+	function affichermurEmploye(){
+		   require ("modele/annonceBD.php");
+echo "<script language='JavaScript'>alert('Section Employé !!')</script>";
+		$questionAfficher=afficherAnnonce();
+		require('./vue/murEmploye.tpl');
+	}
+
+	function affichermurEmployeur(){
+		require ("modele/annonceBD.php");
+		require ("modele/utilisateurBD.php") ;
+		$categorie=getCategorieFavoris($_SESSION['idUser']);
+		echo "<script language='JavaScript'>alert('Section Employeur !!')</script>";
+		require('./vue/murEmployeur.tpl');
+	}
+
 ?>
