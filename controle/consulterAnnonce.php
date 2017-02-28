@@ -1,7 +1,11 @@
 <?php
 
 function consulterLesAnnonces(){
-	require('./vue/lesAnnonces.tpl');
+	require('./modele/annonceBD.php');
+	$iduser=$_SESSION['idUser'];
+	
+	$tabAnnonces= afficherAnnonceEmploye($iduser);
+	require('./vue/lesAnnonces.tpl') ;
 }
 
 function consulterMesAnnonces(){

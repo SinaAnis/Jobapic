@@ -6,6 +6,11 @@ function consulterProfil(){
 	
 }
 
+function editerProfil(){
+	require('./vue/modifProfil.tpl');
+	
+}
+
 function getCategorieFavoris($idUser){
  require ("./modele/utilisateurBD.php") ;
   $categorie = getCategorieFavoris($_SESSION['idUser']);

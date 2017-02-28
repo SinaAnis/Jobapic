@@ -138,7 +138,7 @@ input:checked + .slider:before {
                 <!--Brand logo & name-->
                 <!--================================-->
                 <div class="navbar-header">
-                    <a href="index.html" class="navbar-brand"> <i class="fa fa-cube brand-icon"></i>
+                    <a href="index.php?controle=identification&action=afficherMurEmployeur" class="navbar-brand"> <i class="fa fa-cube brand-icon"></i>
                         <div class="brand-title"> <span class="brand-text">Job'Apic</span> </div>
                     </a>
                 </div>
@@ -529,7 +529,7 @@ input:checked + .slider:before {
 
                                                                     <!--Menu list item-->
                                                                     <li>
-                                                                        <a href="index.php?controle=identification&action=afficherMur">
+                                                                        <a href="index.php?controle=identification&action=afficherMurEmployeur">
                                                                             <i class="fa fa-dashboard"></i>
                                                                             <span class="menu-title">
                                                                                 <strong>Mur</strong>
@@ -546,7 +546,7 @@ input:checked + .slider:before {
 
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
-                                                                          <li><a href="index.php?controle=creerAnnonce&action=create"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
+                                                                          <li><a href="index.php?controle=creerAnnonce&action=creerAnnonce"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
 
                                                                       </ul>
                                                                   </li>
@@ -560,16 +560,47 @@ input:checked + .slider:before {
 
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
-                                                                          <li><a href="#"><i class="fa fa-caret-right"></i> Mes annonces</a></li>
+                                                                          <li><a href="index.php?controle=lesCandidatures&action=lesCandidatures"><i class="fa fa-caret-right"></i> les Candidatures</a></li>
 
-                                                                          <li><a href="#"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
+                                                                          <li><a href="index.php?controle=editerProfil&action=editerProfil"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
 
 
-                                                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Modifier paramètres </a></li>
+                                                                           <!--<li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Modifier paramètres </a></li>-->
                                                                     </ul>
                                                                   </li>
 
 
+                                                                  <!--Menu list item
+
+                                                                  <li class="list-divider"></li>
+
+
+                                                                  <!--Category name-->
+
+                                                                  <!--Category name
+                                                                  <li class="list-header">Lot Secondaire</li>-->
+                                                                  <!--Menu list item-->
+
+                                                                  <!--Category name
+                                                                  <li class="list-header">Lot Tertiaire</li>-->
+                                                                  <!--Menu list item
+                                                                  <li>
+                                                                      <a href="#">
+                                                                          <i class="fa fa-envelope"></i>
+                                                                          <span class="menu-title">Profil</span>
+                                                                          <i class="arrow"></i>
+                                                                      </a>
+
+                                                                      <!--Submenu
+
+                                                                      <ul class="collapse">
+                                                                          <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
+                                                                          <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Mes candidatures </a></li>
+                                                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
+
+
+                                                                      </ul>
+                                                                  </li>-->
                                                                   <!--Category name-->
                                                                   <li class="list-header">Lot Falcultatif</li>
                                                                   <!--Menu list item-->
@@ -598,7 +629,33 @@ input:checked + .slider:before {
                                                                     </a>
                                                                 </li>
 
+
+
+                                                                <!--Menu list item-->
+
+
+                                                                <!--Menu list item-->
+
+
+                                                                <!--Menu list item-->
+
+                                                                <!--Menu list item-->
+
+
+                                                                <!--Menu list item-->
+
+
                                                                 <li class="list-divider"></li>
+
+
+
+                                                                <!--Menu list item-->
+
+
+                                                                <!--Menu list item-->
+
+
+                                                                <!--Menu list item-->
 
 
                                                             </ul>

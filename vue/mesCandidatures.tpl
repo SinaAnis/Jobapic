@@ -16,7 +16,7 @@
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
     <link href="vue/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <link href="vue/css/styleAnnonce.css" rel="stylesheet">
 
     <!--Jasmine Stylesheet [ REQUIRED ]-->
@@ -306,7 +306,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                         <a href="#">  <i class="fa fa-gear fa-fw fa-lg"></i> Paramètre </a>
                                     </li>
                                     <li>
-                                        <a href="#"> <i class="fa fa-sign-out fa-fw"></i> Déconnection  </a>
+                                        <a href="#"> <i class="fa fa-sign-out fa-fw"></i> Déconnexion  </a>
                                     </li>
                                 </ul>
                             </div>
@@ -338,105 +338,23 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
             <!--===================================================-->
             <section id="content-container">
                 <header class="pageheader">
-                    <h3><i class="fa fa-home"></i> Mes Annonces </h3>
+                    <h3><i class="fa fa-home"></i> Mes Candidatures </h3>
                     <div class="breadcrumb-wrapper"> <span class="label">Vous êtes ici:</span>
                         <ol class="breadcrumb">
                             <li> <a href="#"> Home </a> </li>
                             <li class="active"> <a href="#"> Profil </a>   </li>
-                            <li class="active"> Mes Annonces </li>
+                            <li class="active"> Mes Candidatures </li>
                         </ol>
                     </div>
                 </header>
 
-                <!--Page content
+                <!--Page content-->
                 <div class="col-md-12 col-lg-12">
                             <div class="panel">
 							  <h3 class="panel-title" style="font-size:25px;">Listes</h3>
-                <ul>-->
-				
+                <ul>
                 <!--  require ("./controle/espaceEmploy.php") ; -->
-				
-				
-			<div id="listeAnnonces">
-			</br>
-			<?php
-			//print_r($test);
-			if($_SESSION['idUser']== $_SESSION['idUser']){
-				if ($tabAnnonces != false){
-					echo ('<table>');
-					echo ('<tr><th> N° </th> <th> Nom annonce : </th> <th> Categorie </th>  <th> Adresse </th> <th> Date </th> <th> Recompense </th> ');
-					foreach ($tabAnnonces as $key => $value) {
-						echo "<tr class='annonces'>";
-					
-						//echo ("<td>" . utf8_encode($value[2]) . " : Choix simple</td>");
-			
-						echo ("<td>" . utf8_encode($value[0]) . "</td>");
-						echo ("<td>" . utf8_encode($value[1]) . "</td>");
-						echo ("<td>" . utf8_encode($value[6]) . "</td>");
-						echo ("<td>" . utf8_encode($value[3]) . "</td>");
-						echo ("<td>" . utf8_encode($value[2]) . "</td>");
-						echo ("<td>" . utf8_encode($value[5]) . "</td>");
-						
-						/*if($test != false){
-						echo "<td>";
-						foreach ($test as $key => $tes) {
-								if($value[0]==$tes[2]){
-									if($tes[3]=='0'){
-										echo("<button name='activer' type='submit'  value=". $value[0].">Active</button>");
-									}
-									else{
-										echo("<button name='desactiver' type='submit'  value=". $value[0].">Desactive</button>");	
-									}
-								}
-							}
-						}
-						echo "</td>";
-						
-						// a revoir
-						//if($inactif != false){
-						//	foreach ($inactif as $key => $inac) {
-						//		if($value[0]==$inac[0]){
-						//		echo ("<td>  " .($total - $inac[1]) . " </td>");
-						//		}
-						//		else{
-						//		echo ("<td>  ". $total ." </td>");
-						//		}		
-						//	}
-						//}*/
-								
-						
-
-						/*if ($rep != false){
-							echo "<td>";
-							foreach ($rep as $key => $repo) {
-								if($value[0]==$repo[1]){
-									echo "<br>";
-									if($repo[3]==1 ){
-										echo (" <FONT color='green'>" . utf8_encode($repo[2]) . " </FONT>");
-									}
-									else{
-										echo("<FONT color='red'>" . utf8_encode($repo[2]) . " </FONT>");
-									}
-							
-								}
-							}
-							echo "</td>";
-						}
-						else{
-								echo("<td>   </td>");
-								}*/
-
-					echo "</tr>\n";
-					}
-					echo ('</table>');
-				}
-				else
-					echo ('pas de questions');
-			}
-			?>
-		</div>
-		
-                <!--<div>
+                <div>
                 </div>
                 <table class="listAnnonce">
                     <tr class="titres">
@@ -448,31 +366,31 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         </td>
                         <td class="col-md-3" style="border-bottom:1px solid">
                             Nom du recruteur
-                        </td>   
+                        </td>
                         <td class="col-md-2" style="border-bottom:1px solid">
                             Date de publication
                         </td>
                         <td class="col-md-2" style="border-bottom:1px solid">
                             Distance
                         </td>
-						
-						
+
+
                     </tr>
                     <tr class="lespace">
                         <td class="col-md-2">
-                            
+
                         </td>
                         <td class="col-md-3">
-                            
+
                         </td>
                         <td class="col-md-3">
-                            
-                        </td>   
-                        <td class="col-md-2">
-                            
+
                         </td>
                         <td class="col-md-2">
-                            
+
+                        </td>
+                        <td class="col-md-2">
+
                         </td>
                     </tr>
                     <tr>
@@ -484,7 +402,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         </td>
                         <td class="col-md-3">
                             Nom du recruteur
-                        </td>   
+                        </td>
                         <td class="col-md-2">
                             Date de publication
                         </td>
@@ -492,7 +410,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                             Distance
                         </td>
 						<td class="col-md-2" style="border-bottom:1px solid">
-						<!--<button name=".$value[2]."  type= 'submit' value=". $value[0]." /> Valider </button>
+						<!--<button name=".$value[2]."  type= 'submit' value=". $value[0]." /> Valider </button>-->
 						<button name="1"  type= 'submit' value="1" /> Postuler </button>
 						</td>
                     </tr>
@@ -505,7 +423,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         </td>
                         <td class="col-md-3">
                             Nom du recruteur
-                        </td>   
+                        </td>
                         <td class="col-md-2">
                             Date de publication
                         </td>
@@ -522,7 +440,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         </td>
                         <td class="col-md-3">
                             Nom du recruteur
-                        </td>   
+                        </td>
                         <td class="col-md-2" >
                             Date de publication
                         </td>
@@ -539,7 +457,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         </td>
                         <td class="col-md-3" >
                             Nom du recruteur
-                        </td>   
+                        </td>
                         <td class="col-md-2" >
                             Date de publication
                         </td>
@@ -556,7 +474,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         </td>
                         <td class="col-md-3" >
                             Nom du recruteur
-                        </td>   
+                        </td>
                         <td class="col-md-2" >
                             Date de publication
                         </td>
@@ -573,7 +491,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         </td>
                         <td class="col-md-3" >
                             Nom du recruteur
-                        </td>   
+                        </td>
                         <td class="col-md-2" >
                             Date de publication
                         </td>
@@ -586,9 +504,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                 </ul>
 
                             </div>
-                        </div>-->
-						
-						
+                        </div>
                 <!--===================================================-->
                 <!--===================================================-->
                 <!--End page content-->
@@ -625,7 +541,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                                     <li>
                                                                       <a href="#">
                                                                           <i class="fa fa-envelope"></i>
-                                                                          <span class="menu-title">Annonce(s)</span>
+                                                                          <span class="menu-title">Candidatures(s)</span>
                                                                           <i class="arrow"></i>
                                                                       </a>
 
@@ -646,9 +562,9 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
                                                                           <li><a href="#"><i class="fa fa-caret-right"></i> Mes annonces</a></li>
-                                                                          
+
                                                                           <li><a href="#"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
-                                                                        
+
                                                                           <li><a href="#"><i class="fa fa-caret-right"></i> Mes candidatures</a></li
 
                                                                           <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Modifier paramètres </a></li>
@@ -683,7 +599,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                                           <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
                                                                           <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Mes candidatures </a></li>
                                                                           <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
-                                                                          
+
 
                                                                       </ul>
                                                                   </li>-->
@@ -797,244 +713,6 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                             <!--================================-->
                             <!--End nav tabs-->
 
-                            <!-- Tabs Content Start-->
-                            <!--================================-->
-                            <div class="tab-content">
-
-                                <!--First tab (Contact list)-->
-                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                                <div class="tab-pane fade in active" id="demo-asd-tab-1">
-                                    <h4 class="pad-hor text-thin"> Membres en ligne (7) </h4>
-                                    <div class="list-group bg-trans">
-                                       <div class="list-group-item">
-                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                            <img src="img/av1.png" alt="" class="img-sm">
-                                            <i class="on bottom text-light"></i>
-                                          </a>
-                                          <div class="inline-block">
-                                             <div class="text-small">John Knight</div>
-                                             <small class="text-mute">Available</small>
-                                          </div>
-                                       </div>
-                                       <div class="list-group-item">
-                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                            <img src="img/av2.png" alt="" class="img-sm">
-                                            <i class="on bottom text-light"></i>
-                                          </a>
-                                          <div class="inline-block pad-ver-5">
-                                             <div class="text-small">Jose Knight</div>
-                                             <small class="text-mute">Available</small>
-                                          </div>
-                                       </div>
-                                       <div class="list-group-item">
-                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                            <img src="img/av3.png" alt="" class="img-sm">
-                                            <i class="on bottom text-light"></i>
-                                          </a>
-                                          <div class="inline-block">
-                                             <div class="text-small">Roy Banks</div>
-                                             <small class="text-mute">Available</small>
-                                          </div>
-                                       </div>
-                                       <div class="list-group-item">
-                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                            <img src="img/av7.png" alt="" class="img-sm">
-                                            <i class="on bottom text-light"></i>
-                                          </a>
-                                          <div class="inline-block">
-                                             <div class="text-small">Steven Jordan</div>
-                                             <small class="text-mute">Available</small>
-                                          </div>
-                                       </div>
-                                       <div class="list-group-item">
-                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                            <img src="img/av4.png" alt="" class="img-sm">
-                                            <i class="on bottom text-light"></i>
-                                          </a>
-                                          <div class="inline-block">
-                                             <div class="text-small">Scott Owens</div>
-                                             <small class="text-mute">Available</small>
-                                          </div>
-                                       </div>
-                                       <div class="list-group-item">
-                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                            <img src="img/av5.png" alt="" class="img-sm">
-                                            <i class="on bottom text-light"></i>
-                                          </a>
-                                          <div class="inline-block">
-                                             <div class="text-small">Melissa Hunt</div>
-                                             <small class="text-mute">Available</small>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <hr>
-                                    <h4 class="pad-hor text-thin"> Membres occupés (4) </h4>
-                                    <div class="list-group bg-trans">
-                                       <div class="list-group-item">
-                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                            <img src="img/av1.png" alt="" class="img-sm">
-                                            <i class="busy bottom text-light"></i>
-                                          </a>
-                                          <div class="inline-block">
-                                             <div class="text-small">John Knight</div>
-                                             <small class="text-mute">Available</small>
-                                          </div>
-                                       </div>
-                                       <div class="list-group-item">
-                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                            <img src="img/av2.png" alt="" class="img-sm">
-                                            <i class="busy bottom text-light"></i>
-                                          </a>
-                                          <div class="inline-block">
-                                             <div class="text-small">Jose Knight</div>
-                                             <small class="text-mute">Available</small>
-                                          </div>
-                                       </div>
-                                       <div class="list-group-item">
-                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                            <img src="img/av3.png" alt="" class="img-sm">
-                                            <i class="busy bottom text-light"></i>
-                                          </a>
-                                          <div class="inline-block">
-                                             <div class="text-small">Roy Banks</div>
-                                             <small class="text-mute">Available</small>
-                                          </div>
-                                       </div>
-                                       <div class="list-group-item">
-                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                            <img src="img/av7.png" alt="" class="img-sm">
-                                            <i class="busy bottom text-light"></i>
-                                          </a>
-                                          <div class="inline-block">
-                                             <div class="text-small">Steven Jordan</div>
-                                             <small class="text-mute">Available</small>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <hr>
-                                    <h4 class="pad-hor text-thin"> Membres déconnectés (4) </h4>
-                                    <div class="list-group bg-trans">
-                                       <div class="list-group-item">
-                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                            <img src="img/av1.png" alt="" class="img-sm">
-                                            <i class="off bottom text-light"></i>
-                                          </a>
-                                          <div class="inline-block pad-ver-5">
-                                             <div class="text-small">John Knight</div>
-                                             <small class="text-mute">Available</small>
-                                          </div>
-                                       </div>
-                                       <div class="list-group-item">
-                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                            <img src="img/av2.png" alt="" class="img-sm">
-                                            <i class="off bottom text-light"></i>
-                                          </a>
-                                          <div class="inline-block pad-ver-5">
-                                             <div class="text-small">Jose Knight</div>
-                                             <small class="text-mute">Available</small>
-                                          </div>
-                                       </div>
-                                       <div class="list-group-item">
-                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                            <img src="img/av3.png" alt="" class="img-sm">
-                                            <i class="off bottom text-light"></i>
-                                          </a>
-                                          <div class="inline-block pad-ver-5">
-                                             <div class="text-small">Roy Banks</div>
-                                             <small class="text-mute">Available</small>
-                                          </div>
-                                       </div>
-                                       <div class="list-group-item">
-                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
-                                            <img src="img/av7.png" alt="" class="img-sm">
-                                            <i class="off bottom text-light"></i>
-                                          </a>
-                                          <div class="inline-block">
-                                             <div class="text-small">Steven Jordan</div>
-                                             <small class="text-mute">Available</small>
-                                          </div>
-                                       </div>
-                                    </div>
-
-                                  </div>
-                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                                <!--End first tab (Contact list)-->
-
-                                <!--Second tab (Settings)-->
-                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                                <div class="tab-pane fade" id="demo-asd-tab-3">
-                                    <ul class="list-group bg-trans">
-                                        <li class="list-header">
-                                           <h4 class="text-thin">Parametre de compte</h4>
-                                        </li>
-                                        <li class="list-group-item">
-                                           <div class="pull-right">
-                                              <input class="demo-switch" type="checkbox" checked>
-                                           </div>
-                                           <p>Montrer mon statut personnel</p>
-                                           <small class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small>
-                                        </li>
-                                        <li class="list-group-item">
-                                           <div class="pull-right">
-                                              <input class="demo-switch" type="checkbox" checked>
-                                           </div>
-                                           <p>Show offline contact</p>
-                                           <small class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small>
-                                        </li>
-                                        <li class="list-group-item">
-                                           <div class="pull-right">
-                                              <input class="demo-switch" type="checkbox">
-                                           </div>
-                                           <p>Invisible mode </p>
-                                           <small class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small>
-                                        </li>
-                                    </ul>
-                                    <hr>
-                                    <ul class="list-group bg-trans">
-                                        <li class="list-header">
-                                            <h4 class="text-thin">Public Settings</h4>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="pull-right">
-                                                <input class="demo-switch" type="checkbox" checked>
-                                            </div> Online status
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="pull-right">
-                                                <input class="demo-switch" type="checkbox">
-                                            </div>
-                                            Show offline contact
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="pull-right">
-                                                <input class="demo-switch" type="checkbox" checked>
-                                            </div>
-                                            Show my device icon
-                                        </li>
-                                    </ul>
-                                    <hr>
-                                    <h4 class="pad-hor text-thin">Task Progress</h4>
-                                    <div class="pad-all">
-                                        <p>Upgrade Progress</p>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar progress-bar-success" style="width: 15%;"><span class="sr-only">15%</span></div>
-                                        </div>
-                                        <small class="text-muted">15% Completed</small>
-                                    </div>
-                                    <div class="pad-hor">
-                                        <p>Database</p>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar progress-bar-danger" style="width: 75%;"><span class="sr-only">75%</span></div>
-                                        </div>
-                                        <small class="text-muted">17/23 Database</small>
-                                    </div>
-                                </div>
-                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                                <!--Second tab (Settings)-->
-
-                            </div>
-                            <!-- Tabs Content End -->
-                            <!--================================-->
                         </div>
                     </div>
                 </div>
