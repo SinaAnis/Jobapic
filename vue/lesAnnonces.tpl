@@ -64,7 +64,7 @@
 A.applink:hover {border: 2px dotted #DCE6F4;padding:2px;background-color:#ffff00;color:green;text-decoration:none}
 A.applink       {border: 2px dotted #DCE6F4;padding:2px;color:#2F5BFF;background:transparent;text-decoration:none}
 A.info          {color:#2F5BFF;background:transparent;text-decoration:none}
-A.info:hover    {color:green;background:transparent;text-decoration:underline}
+A.info:hover    {color:green;background:transparent;textssssdecoration:underline}
 </style>
 
 <!-- /Copyright � 2004. Spidersoft Ltd -->
