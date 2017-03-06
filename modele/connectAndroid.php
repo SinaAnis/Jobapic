@@ -1,18 +1,17 @@
-<?php 
+<?php
+    try {
+        // connection to the database.
+        $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+        $bdd = new PDO('mysql:host=localhost;dbname=AdvancedAndroidDevelopment', 'root', 'root', $pdo_options);
 
+        // Execute SQL request on the database.
+        $sql = 'SELECT id, name, type, price FROM product;';
+        $response = $bdd->query($sql);
+        $output = $response->fetchAll(PDO::FETCH_ASSOC));
+    } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
+    }
 
-function connectionAndroid($login,$mdp){
-	require ("modele/utilisateurBD.php") ;
-	require ("modele/annonceBD.php");
-	if (verif_ident($login,$mdp,$profil)) {
-			$_SESSION['profil'] = $profil;
-		   // echo "<script language='JavaScript'>alert('Connexion réussie !')</script>";
-			//getProfil($login,$mdp);
-			//$questionAfficher=afficherAnnonceEmploye();
-		   // require('./vue/murEmploye.tpl') ;
-           return true;
-			}
-	return false;
-}
-
+    // Print JSON encode of the array.
+    echo(json_encode($output));
 ?>
