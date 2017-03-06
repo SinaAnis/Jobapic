@@ -138,7 +138,7 @@ input:checked + .slider:before {
                 <!--Brand logo & name-->
                 <!--================================-->
                 <div class="navbar-header">
-                    <a href="index.php?controle=identification&action=afficherMurEmployeur" class="navbar-brand"> <i class="fa fa-cube brand-icon"></i>
+                    <a href="index.html" class="navbar-brand"> <i class="fa fa-cube brand-icon"></i>
                         <div class="brand-title"> <span class="brand-text">Job'Apic</span> </div>
                     </a>
                 </div>
@@ -478,26 +478,7 @@ input:checked + .slider:before {
                                                                         <h3 class="panel-title">Listes</h3>
                                                                         <div id="liste">
                                                                         </br>
-                                                                        <?php
-                                                                        if ($questionAfficher != false){
-                                                                    // BOUCLE FOR
-                                                                        foreach ($questionAfficher as $key => $value) {
-                                                                        echo('</br>');
-                                                                        echo ('<table>');
-                                                                        echo ('<tr><th> N° </th> <th> Annonce : '.$value[0].'</th>'. "\n");
-                                                                        echo "<tr class='question'>";
-                                                                        echo ("<td>" . utf8_encode($value[1]) . "</td>". "\n");
-                                                                        echo ("<td>" . utf8_encode($value[2]) . "</td>". "\n");
-                                                                        echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
-                                                                        echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
-                                                                        echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
-                                                                        echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
-                                                                        echo ('</table>');
-                                                                        echo ('</table>');
-                                                                        echo "</tr>\n";
-                                                                        }
-                                                                }
-                                                                ?>
+                                                                        <h2> Bienvenue sur l'espace employeur !</h3>
                                                                 </br>
                                                             <a class = "btnRet" href ="index.php?controle=consulterAnnonce&action=afficherMesAnnonces"> Plus d'offres... </a>
                                                             </div>
@@ -722,7 +703,7 @@ input:checked + .slider:before {
                                                         <!--================================-->
                                                         <!--End nav tabs-->
 
-
+              
 
 <!--Second tab (Settings)-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
