@@ -5,7 +5,7 @@
 */
 
 
-/*function ident(){
+function ident(){
 	require ("modele/utilisateurBD.php") ;
 	require ("modele/annonceBD.php");
 	$emailConnexion= isset($_POST['mail'])?($_POST['mail']):'';
@@ -53,16 +53,16 @@
 
 		if (mail_disponible($emailInscription) && isset($_POST['email'])){
 			$_SESSION['profil'] = $profil;
-		  echo "<script language='JavaScript'>alert('Inscription!!')</script>";
+		  echo "<script language='JavaScript'>alert('Inscription !')</script>";
 		  require('./vue/inscription.tpl') ;
 		}
 		else if(isset($_POST['email']) && isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['mdp']) && !isset($_POST['finis']) ) {
-			echo "<script language='JavaScript'>alert('Mail pas disponible !!')</script>";
+			echo "<script language='JavaScript'>alert('Mail pas disponible !')</script>";
 		}
 
-	}*/
+	}
 	
-function ident(){
+/*function ident(){
 	$emailConnexion= isset($_POST['mail'])?($_POST['mail']):'';
 	$_SESSION['mdp']= isset($_POST['mdp'])?($_POST['mdp']):'';
     //$_SESSION['prenom'] = "SALUT";
@@ -103,7 +103,7 @@ function ident(){
 			else if(!isset($_POST['email'])&&!isset($_POST['ville'])) {
 				require_once('./vue/Connexion/connexion.tpl');
 			}
-	}
+	}*/
 
 	function deconnexion (){
 			session_destroy();
@@ -128,6 +128,5 @@ function ident(){
 		$questionAfficher=afficherAnnonceEmployeur($_SESSION['idUser']);
 		require('./vue/murEmployeur.tpl');
 }
-
 
 ?>
