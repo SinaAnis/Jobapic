@@ -75,6 +75,11 @@ AND categorie.idCategorie = categoriepref.idCategorie";
 			return $res;
 	}
 
-
+	function getCategorie(){
+		require ("./modele/connectBD.php");
+			$sql= "SELECT categorie.IdCategorie,categorie.NomCategorie FROM `categorie`";
+			$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
+			return $res;
+	}
 
 ?>
