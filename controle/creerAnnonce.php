@@ -36,9 +36,8 @@ function create () {
             print_r ($_POST);
 		}
 		else{
-			
-            require ("modele/annonceBD.php") ;
-			require ("modele/annonceBD.php") ;
+            		require ("modele/annonceBD.php") ;
+			require ("modele/utilisateurBD.php") ;
 			creation_annonce($nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAnnonce,$_SESSION['idUser']);
             		$categorie = getCategorie();
 			echo "<script language='JavaScript'>alert('Création d annonce réussie ! Félicitation')</script>";
