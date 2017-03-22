@@ -614,7 +614,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                                                     <!--Menu list item-->
                                                                     <li>
-                                                                        <a href="index.php?controle=identification&action=afficherMur">
+                                                                        <a href="index.php?controle=identification&action=afficherMurEmploye">
                                                                             <i class="fa fa-dashboard"></i>
                                                                             <span class="menu-title">
                                                                                 <strong>Mur</strong>
