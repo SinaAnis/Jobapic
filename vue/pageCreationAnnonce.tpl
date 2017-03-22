@@ -392,16 +392,19 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                        <label class="col-xs-3 control-label">Catégorie</label>
                                        <div class="col-xs-6">
 
-                                         <?php
+                                         <select name="cat">
+                                            
+                                            <?php
 
                                          
-                                         foreach ($categorie as $value) {
-                                            echo ("<label class='form-radio form-icon'>");
-                                             echo ("<input type='radio' name='cat' value=".$value['IdCategorie'].">".$value['NomCategorie']."</label>");
-                                         }
+                                                 foreach ($categorie as $value) {
+                                                     echo ("<OPTION value='".$value['IdCategorie']."'>".$value['NomCategorie']);
+                                                 }
 
 
-                                         ?>
+                                            ?>
+                                            
+                                          </select>
 
                                        </div>
                                    </div>
