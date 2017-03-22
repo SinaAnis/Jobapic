@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-?>
+
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8">
@@ -10,11 +9,11 @@
 
     <!--STYLESHEET-->
     <!--=================================================-->
-
+	
 	   <link href="vue/css/lavy.css" rel="stylesheet">
 	<!--stylesheet new -->
 	<link href="css/new.css" rel="stylesheet">
-
+	
     <!--Roboto Slab Font [ OPTIONAL ] -->
     <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Roboto:500,400italic,100,700italic,300,700,500italic,400" rel="stylesheet">
@@ -355,19 +354,18 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                 <!--Page content-->
                 <!--===================================================-->
-
+					
 				<div class="profil">
-
+					
 					<img class="photo" src="vue/img/profil.jpg" alt="1"/>
 					<h3 class="nom"><?php echo $_SESSION['nom']; ?></h3>
 					<h4 class="prenom"><?php echo $_SESSION['prenom']; ?></h4>
-					<h4 class="prenom">
-                                $_SESSION['prenom'] ?>19 ans</h4>
-					<h4 class="adresse">18 allée Saint Exupéry</h4>
+					<h4 class="prenom">19 ans</h4>
+					<h4 class="prenom">18 allée Saint Exupéry 92390 Villeneuve la Garenne</h4>
 					<h4 class="prenom">Etudiante</h4>
-
+					
 				</div>
-
+				
 				<div class="profil2">
 					<h4 class="prof2">Formation</h4>
 						<h4 class="prof3">- 2ème année de DUT Info, Paris Descartes</h4>
@@ -381,10 +379,10 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 						<h4 class="prof3">- basket ball</h4>
 						<h4 class="prof3">- Art, dessin, peinture, ...</h4>
 						<h4 class="prof3">- Séries</h4>
-
-
+				
+					
 				</div>
-
+					
 				<div class="profil3">
 					<h4 class="prof2">Notes</h4>
 					<h1><i class="fa fa-home logo"></i></h1>
@@ -394,15 +392,15 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 					<h1><i class="fa fa-home logo"></i></h1>
 					<h1><i class="fa fa-home logo"></i></h1>
 					<h1><i class="fa fa-home logo"></i></h1>
-
-
+				
+					
 				</div>
-
-
-
-
-
-
+				
+   
+   
+   
+   
+   
                 <!--===================================================-->
                 <!--End page content-->
 
