@@ -148,8 +148,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <input type="hidden" name="email" value = <?php echo $_POST['prenom'];?> >
-                                                          <input type="hidden" name="mdp" value = <?php echo $_POST['mdp'];?> >
+                                                        <input type="hidden" name="email" value = <?php echo $_SESSION['prenom'];?> >
+                                                          <input type="hidden" name="mdp" value = <?php echo $_SESSION['mdp'];?> >
                                                         <label>Prénom: <span class="text-danger">*</span> </label>
                                                         <!-- CHANGER $POST prenom par $SESSION -->
                                                         <input type="text" name="prenom" class="form-control"  data-parsley-group="information" data-parsley-required  placeholder="Prénom" value=<?php echo $_SESSION['prenom'];?> >
@@ -164,11 +164,11 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <label>Téléphone:</label>
-                                                        <input type="text" name="telephone" placeholder="99-99-99-99-99" data-mask="9999999999" class="form-control" />
+                                                        <input type="text" name="telephone" placeholder="99-99-99-99-99" data-mask="9999999999" value=<?php echo $_SESSION['Telephone'];?> class="form-control" />
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label>Date de naissance:</label>
-                                                        <input type="text" name="date" placeholder="9999-99-99" data-mask="9999-99-99" class="form-control" />
+                                                        <input type="text" name="date" placeholder="9999-99-99" data-mask="9999-99-99" value=<?php echo $_SESSION['dateNaissance'];?> class="form-control" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -179,9 +179,9 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                       <div class="row">
                                                           <div class="col-sm-8">
                                                               <select name="departement" class="form-control" data-parsley-group="experience" data-parsley-required>
-                                                                  <option value="Paris">Paris</option>
-                                                                  <option value="SSD">Seine Saint Denis</option>
-                                                                  <option value="SEM">Seine et Marne</option>
+                                                                  <option <?php if ($_SESSION['Departement'] == "Paris") {?> selected="selected"  <?php } ?>  value="Paris">Paris</option>
+                                                                  <option <?php if ($_SESSION['Departement'] == "SSD") {?> selected="selected"  <?php } ?>value="SSD">Seine Saint Denis</option>
+                                                                  <option <?php if ($_SESSION['Departement'] == "SEM") {?> selected="selected"  <?php } ?>value="SEM">Seine et Marne</option>
 
                                                               </select>
                                                           </div>

@@ -43,7 +43,7 @@
 
 	function getProfil($log='',$num=''){
 		require ("./modele/connectBD.php");
-			$req= "SELECT idUser,nom,prenom,genre,dateNaissance,Adresse,Mail,Telephone,Situation,mdp FROM Utilisateur WHERE idUser='%s' AND Mdp='%s'";
+			$req= "SELECT idUser,nom,prenom,genre,dateNaissance,Adresse,Mail,Telephone,Situation,mdp,Departement,Ville,Photo FROM Utilisateur WHERE idUser='%s' AND Mdp='%s'";
 			$sql = sprintf ($req, $log, $num);
 			$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
 				foreach($res as $row){
@@ -57,6 +57,9 @@
 					$_SESSION['Telephone'] = $row['Telephone'];
 					$_SESSION['Situation'] = $row['Situation'];
 					$_SESSION['mdp'] = $row['mdp'];
+					$_SESSION['Departement'] = $row['Departement'];
+					$_SESSION['Ville'] = $row['Ville'];
+					$_SESSION['Photo'] = $row['Photo'];
 				}
 
 	}
