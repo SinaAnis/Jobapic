@@ -1,3 +1,5 @@
+a suprimerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+
 <?php
     try {
         // connection to the database.
