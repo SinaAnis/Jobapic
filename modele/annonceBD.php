@@ -9,6 +9,33 @@ function afficherAnnonceEmploye() {
 	return mysqli_fetch_all($res);
 }
 
+function afficherAnnonceById($id) {
+ require ("modele/connectBD.php");
+	$select = "SELECT * FROM `annonce` where idAnnonce = '%s'";
+	$req = sprintf($select, $id);
+	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
+
+	return mysqli_fetch_all($res);
+}
+
+function getUserNameWithAnnonceId($id) {
+ require ("modele/connectBD.php");
+	$select = "SELECT utilisateur.Prenom FROM `annonce`, `utilisateur` where idAnnonce = '%s' AND utilisateur.idUser = annonce.idUser";
+	$req = sprintf($select, $id);
+	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
+
+	return mysqli_fetch_all($res);
+}
+
+function getCatNameWithAnnonceId($id) {
+ require ("modele/connectBD.php");
+	$select = "SELECT categorie.NomCategorie FROM `annonce`, `categorie` where idAnnonce = '%s' AND categorie.idCategorie = annonce.idCategorie";
+	$req = sprintf($select, $id);
+	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
+
+	return mysqli_fetch_all($res);
+}
+
 function afficherAnnonceEmployeur($idEmployeur) {
  require ("modele/connectBD.php");
 	$select = "SELECT * FROM `annonce` WHERE idUser = '%s' ";
