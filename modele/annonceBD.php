@@ -2,7 +2,7 @@
 
 function afficherAnnonceEmploye() {
  require ("modele/connectBD.php");
-	$select = "SELECT * FROM `annonce`, `categoriepref`, `utilisateur` WHERE annonce.IdCategorie = categoriepref.IdCategorie and utilisateur.IdUser = categoriepref.IdUser ";
+	$select = "SELECT * FROM `annonce` where annonce.idCategorie in (select idCategorie from `categoriepref`, `utilisateur` where utilisateur.IdUser = categoriepref.IdUser) ORDER BY idAnnonce";
 	$req = sprintf($select);
 	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
 
