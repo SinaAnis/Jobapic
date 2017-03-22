@@ -38,8 +38,9 @@ function create () {
 		else{
 			
             require ("modele/annonceBD.php") ;
+			require ("modele/annonceBD.php") ;
 			creation_annonce($nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAnnonce,$_SESSION['idUser']);
-			require('./vue/pageCreationAnnonce.tpl') ;
+            		$categorie = getCategorie();
 			echo "<script language='JavaScript'>alert('Création d annonce réussie ! Félicitation')</script>";
 			$nomAnnonce= " " ; 	$catAnnonce= " "; $desAnnonce= " ";
 		}
