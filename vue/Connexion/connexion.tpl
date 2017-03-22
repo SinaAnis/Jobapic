@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -63,11 +63,11 @@
      <div class="table">
        <div class="table-cell">
          <form  action="./index.php" method="post">
-         <input name="email" placeholder="Email" type="text" />
-         <input name="prenom" placeholder="Prénom" type="text" />
-         <input name="nom" placeholder="Nom" type="text" />
-         <input name="mdp" placeholder="Mot de passe" type=Password />
-         <input name="mdp" placeholder="Confirmer votre mot de passe" type=Password />
+         <input name="email" placeholder="Email" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Veuillez entrez un mail correct" required/>
+         <input name="prenom" placeholder="Prénom" type="text" onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);" required/>
+         <input name="nom" placeholder="Nom" type="text" onchange="this.value = this.value.toUpperCase()" required/>
+         <input name="mdp" placeholder="Mot de passe" type=Password required/>
+         <input name="mdp" placeholder="Confirmer votre mot de passe" type=Password required/>
          <input name="inscription" VALUE="inscription" type="hidden" />
              <!-- <div class="btn">
            Inscription
