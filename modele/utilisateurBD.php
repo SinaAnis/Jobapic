@@ -32,11 +32,11 @@
 		else return true;
 	}
 
-	function inscription($mail,$prenom,$nom,$mdp, $genre, $date, $ville , $telephone, $situation, &$profil) {
+	function inscription($mail,$prenom,$nom,$mdp, $genre, $date, $adresse , $telephone, $situation,$departement , $ville, $photo, &$profil) {
 		require ("./modele/connectBD.php");
-		$req= "INSERT INTO utilisateur (Nom,Prenom,Genre,DateNaissance,Adresse,Mail,Telephone,Situation,Mdp)
-		VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s')";
-		$sql = sprintf ($req , $nom, $prenom, $genre ,$date , $ville, $mail, $telephone ,$situation , $mdp);
+		$req= "INSERT INTO utilisateur (Nom,Prenom,Genre,DateNaissance,Adresse,Mail,Telephone,Situation,Mdp,Departement,Ville,Photo)
+		VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')";
+		$sql = sprintf ($req , $nom, $prenom, $genre ,$date , $adresse, $mail, $telephone ,$situation , $mdp);
 		$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
 
 	}

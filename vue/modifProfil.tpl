@@ -82,7 +82,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                 <!--Brand logo & name-->
                 <!--================================-->
                 <div class="navbar-header">
-                    <a href="index.html" class="navbar-brand">
+                    <a href="index.php?controle=editerProfil&action=consulterProfil" class="navbar-brand">
                         <i class="fa fa-cube brand-icon"></i>
                         <div class="brand-title">
                             <span class="brand-text">Job'Apic</span>
@@ -190,7 +190,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                   </div>
                                                   <div class="col-md-6">
                                                       <label>Ville: <span class="text-danger">*</span> </label>
-                                                      <input type="text" name="ville" class="form-control" placeholder="Ville" data-parsley-group="information" data-parsley-required />
+                                                      <input type="text" name="ville" class="form-control" placeholder="Ville" value=<?php echo $_SESSION['Ville'];?> data-parsley-group="information" data-parsley-required />
 
                                                   </div>
                                                 </div>
@@ -220,8 +220,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                         <div class="row">
                                                             <div class="col-sm-8">
                                                                 <select name="sexe" class="form-control" data-parsley-group="experience" data-parsley-required>
-                                                                    <option value="Femme">Femme</option>
-                                                                    <option value="Homme">Homme</option>
+                                                                    <option <?php if ($_SESSION['genre'] == "Femme") {?> selected="selected"  <?php } ?> value="Femme">Femme</option>
+                                                                    <option <?php if ($_SESSION['genre'] == "Homme") {?> selected="selected"  <?php } ?> value="Homme">Homme</option>
                                                                     <option value="Aucun">Non Renseigné</option>
 
                                                                 </select>
@@ -234,10 +234,10 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                         <div class="row">
                                                             <div class="col-sm-8">
                                                                 <select name="situation" class="form-control" data-parsley-group="experience" data-parsley-required>
-                                                                    <option value="Etudiant">Etudiant</option>
-                                                                    <option value="Salarié">Salarié</option>
-                                                                    <option value="Chomage">Chomage</option>
-                                                                    <option value="Retraité">Retraité</option>
+                                                                    <option <?php if ($_SESSION['Situation'] == "Etudiant") {?> selected="selected"  <?php } ?> value="Etudiant">Etudiant</option>
+                                                                    <option <?php if ($_SESSION['Situation'] == "Salarié") {?> selected="selected"  <?php } ?>value="Salarié">Salarié</option>
+                                                                    <option <?php if ($_SESSION['Situation'] == "Chomage") {?> selected="selected"  <?php } ?>value="Chomage">Chomage</option>
+                                                                    <option <?php if ($_SESSION['Situation'] == "Retraité") {?> selected="selected"  <?php } ?>value="Retraité">Retraité</option>
                                                                 </select>
                                                             </div>
 
