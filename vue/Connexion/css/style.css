@@ -260,3 +260,11 @@ position:absolute;
   z-index: 3;
   fill: #fff;
 }
+
+pattern :valid {
+   box-shadow: 0 0 2px 1px green;
+}
+
+pattern :invalid {
+   box-shadow: 0 0 2px 1px pink;
+}
