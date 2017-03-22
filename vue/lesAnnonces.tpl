@@ -359,12 +359,33 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 				
 			<div id="listeAnnonces">
 			</br>
+			<style type='text/css'>
+                .plusdinfo{
+                    text-decoration:none; 
+                    color:#333; 
+                    border:1px solid #333; 
+                    border-radius:3px;
+                    background-color:#ddd;
+                    padding:2px;
+                    margin:2px;
+                    transition:1s;
+                }
+                .plusdinfo:hover{
+                    background-color:#4af;
+                    border:1px solid #14c; 
+                    border-radius:3px;
+                    transition:1s;
+                }
+                td{
+                    height:30px;
+                }
+            </style>
 			<?php
 			//print_r($test);
 			if($_SESSION['idUser']== $_SESSION['idUser']){
 				if ($tabAnnonces != false){
-					echo ('<table>');
-					echo ('<tr><th> N° </th> <th> Nom annonce : </th> <th> Categorie </th>  <th> Adresse </th> <th> Date </th> <th> Recompense </th> ');
+					echo ('<table border="1">');
+					echo ('<tr><th> N° </th> <th> Nom annonce : </th> <th> Categorie </th>  <th> Adresse </th> <th> Date </th> <th> Recompense </th> <th> Plus d\'infos </th></tr>');
 					foreach ($tabAnnonces as $key => $value) {
 						echo "<tr class='annonces'>";
 					
@@ -376,62 +397,15 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 						echo ("<td>" . utf8_encode($value[3]) . "</td>");
 						echo ("<td>" . utf8_encode($value[2]) . "</td>");
 						echo ("<td>" . utf8_encode($value[5]) . "</td>");
+                        			echo ("<td><a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></td>");
 						
-						/*if($test != false){
-						echo "<td>";
-						foreach ($test as $key => $tes) {
-								if($value[0]==$tes[2]){
-									if($tes[3]=='0'){
-										echo("<button name='activer' type='submit'  value=". $value[0].">Active</button>");
-									}
-									else{
-										echo("<button name='desactiver' type='submit'  value=". $value[0].">Desactive</button>");	
-									}
-								}
-							}
-						}
-						echo "</td>";
-						
-						// a revoir
-						//if($inactif != false){
-						//	foreach ($inactif as $key => $inac) {
-						//		if($value[0]==$inac[0]){
-						//		echo ("<td>  " .($total - $inac[1]) . " </td>");
-						//		}
-						//		else{
-						//		echo ("<td>  ". $total ." </td>");
-						//		}		
-						//	}
-						//}*/
-								
-						
-
-						/*if ($rep != false){
-							echo "<td>";
-							foreach ($rep as $key => $repo) {
-								if($value[0]==$repo[1]){
-									echo "<br>";
-									if($repo[3]==1 ){
-										echo (" <FONT color='green'>" . utf8_encode($repo[2]) . " </FONT>");
-									}
-									else{
-										echo("<FONT color='red'>" . utf8_encode($repo[2]) . " </FONT>");
-									}
-							
-								}
-							}
-							echo "</td>";
-						}
-						else{
-								echo("<td>   </td>");
-								}*/
 
 					echo "</tr>\n";
 					}
 					echo ('</table>');
 				}
 				else
-					echo ('pas de questions');
+					echo ('pas d\'annonces');
 			}
 			?>
 		</div>
