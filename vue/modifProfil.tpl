@@ -143,12 +143,12 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                     <p class="text-muted"> Entrez vos information générale </p>
                                                 </div>
                                             </div>
-                                            <form  action="./index.php" method="post">
+                                            <form action="./index.php?controle=editerProfil&action=editerProfil" method="post">
                                             <div class="form-group">
 
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <input type="hidden" name="email" value = <?php echo $_SESSION['prenom'];?> >
+                                                        <input type="hidden" name="mail" value = <?php echo $_SESSION['Mail'];?> >
                                                           <input type="hidden" name="mdp" value = <?php echo $_SESSION['mdp'];?> >
                                                         <label>Prénom: <span class="text-danger">*</span> </label>
                                                         <!-- CHANGER $POST prenom par $SESSION -->
@@ -180,8 +180,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                           <div class="col-sm-8">
                                                               <select name="departement" class="form-control" data-parsley-group="experience" data-parsley-required>
                                                                   <option <?php if ($_SESSION['Departement'] == "Paris") {?> selected="selected"  <?php } ?>  value="Paris">Paris</option>
-                                                                  <option <?php if ($_SESSION['Departement'] == "SSD") {?> selected="selected"  <?php } ?>value="SSD">Seine Saint Denis</option>
-                                                                  <option <?php if ($_SESSION['Departement'] == "SEM") {?> selected="selected"  <?php } ?>value="SEM">Seine et Marne</option>
+                                                                  <option <?php if ($_SESSION['Departement'] == "SSD") {?> selected="selected"  <?php } ?>value="Seine Saint Denis">Seine Saint Denis</option>
+                                                                  <option <?php if ($_SESSION['Departement'] == "SEM") {?> selected="selected"  <?php } ?>value="Seine et Marne">Seine et Marne</option>
 
                                                               </select>
                                                           </div>
@@ -193,6 +193,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                       <input type="text" name="ville" class="form-control" placeholder="Ville" value=<?php echo $_SESSION['Ville'];?> data-parsley-group="information" data-parsley-required />
 
                                                   </div>
+
+                                                
                                                 </div>
                                             </div>
 
@@ -219,7 +221,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                         <label> Genre: </label>
                                                         <div class="row">
                                                             <div class="col-sm-8">
-                                                                <select name="sexe" class="form-control" data-parsley-group="experience" data-parsley-required>
+                                                                <select name="genre" class="form-control" data-parsley-group="experience" data-parsley-required>
                                                                     <option <?php if ($_SESSION['genre'] == "Femme") {?> selected="selected"  <?php } ?> value="Femme">Femme</option>
                                                                     <option <?php if ($_SESSION['genre'] == "Homme") {?> selected="selected"  <?php } ?> value="Homme">Homme</option>
                                                                     <option value="Aucun">Non Renseigné</option>

@@ -36,9 +36,18 @@
 		require ("./modele/connectBD.php");
 		$req= "INSERT INTO utilisateur (Nom,Prenom,Genre,DateNaissance,Adresse,Mail,Telephone,Situation,Mdp,Departement,Ville,Photo)
 		VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')";
-		$sql = sprintf ($req , $nom, $prenom, $genre ,$date , $adresse, $mail, $telephone ,$situation , $mdp);
+		$sql = sprintf ($req , $nom, $prenom, $genre ,$date , $adresse, $mail, $telephone ,$situation , $mdp ,$departement , $ville, $photo);
 		$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
 
+	}
+
+	function editerProfilBD($mail,$prenom,$nom,$mdp, $genre, $date , $telephone, $situation,$departement , $ville, $photo , $login) {
+		require ("./modele/connectBD.php");
+		$req= "UPDATE utilisateur
+		SET Nom ='%s' ,Prenom  ='%s',Genre  ='%s',DateNaissance  ='%s',Mail  ='%s',Telephone ='%s',Situation  ='%s',Mdp  ='%s',Departement  ='%s',Ville  ='%s',Photo  ='%s'
+		WHERE idUser='%s'";
+		$sql = sprintf ($req , $nom, $prenom, $genre ,$date , $mail, $telephone ,$situation , $mdp ,$departement , $ville, $photo, 1 );
+		$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
 	}
 
 	function getProfil($log='',$num=''){
