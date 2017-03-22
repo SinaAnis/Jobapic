@@ -7,6 +7,7 @@ function consulterProfil(){
 }
 
 function editerProfil(){
+	$idUser = $_SESSION['idUser'];
 	$mail = isset($_POST['mail'])?($_POST['mail']):'';
 	$prenom = isset($_POST['prenom'])?($_POST['prenom']):'';
 	$nom = isset($_POST['nom'])?($_POST['nom']):'';
@@ -21,7 +22,7 @@ function editerProfil(){
 
 
 
-   echo "<script language='JavaScript'>alert(". " YO" . $_SESSION['idUser'] ." !!')</script>";
+   echo "<script language='JavaScript'>alert(". " YO " . $_SESSION['idUser'] . " et $idUser " . " !!')</script>";
 	 if  (count($_POST)==0) {
 	 require('./vue/modifProfil.tpl');
     }
@@ -39,7 +40,7 @@ function editerProfil(){
     require('./vue/modifProfil.tpl');
    }
 	 else {
-		    echo "<script language='JavaScript'>alert(' YO" . $_SESSION['idUser'] ." !!')</script>";
+		    echo "<script language='JavaScript'>alert(' YO" . $_SESSION['idUser'] ." et ".$idUser." !!')</script>";
 		 echo "<script language='JavaScript'>alert('Aucune Modification !!')</script>";
 		 require('./vue/modifProfil.tpl');
 	 }
