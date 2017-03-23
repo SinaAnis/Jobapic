@@ -23,16 +23,22 @@ function editerProfil(){
 	 if  (count($_POST)==0) {
 	 require('./vue/modifProfil.tpl');
     }
+	
+	// VERIFIER POUR LE DEPARTEMENT + VILLE A FAIRE
 		/*
 		|| $genre != $_SESSION['genre'] || $date != $_SESSION['dateNaissance'] || $adresse != $_SESSION['Adresse'] || $telephone != $_SESSION['Telephone']
  	 || $situation != $_SESSION['Situation'] || $departement != $_SESSION['Departement']|| $ville != $_SESSION['Ville'] || $photo != $_SESSION['Photo']
 	 */
-   else if($mail != $_SESSION['Mail'] || $prenom != $_SESSION['prenom'] || $nom != $_SESSION['nom'] || $mdp != $_SESSION['mdp']||  $genre != $_SESSION['genre']
-	 || $date != $_SESSION['dateNaissance']  || $telephone != $_SESSION['Telephone']
+   else if($mail != $_SESSION['Mail'] || $genre != $_SESSION['genre']
+	 ||    $telephone != $_SESSION['Telephone']
 	  || $situation != $_SESSION['Situation'] || $departement != $_SESSION['Departement'] || $ville != $_SESSION['Ville'] || $photo != $_SESSION['Photo'] ) {
 		//echo "<script language='JavaScript'>alert('Profil edité avec succes !!')</script>";
 		require ("./modele/utilisateurBD.php") ;
+<<<<<<< HEAD
 		editerProfilBD($mail,$prenom,$nom,$mdp, $genre, $date , $telephone, $situation,$departement , $ville, $photo ,$_SESSION['idUser']);
+=======
+		editerProfilBD($mail, $genre,  $telephone, $situation,$departement , $ville, $photo ,$_SESSION['idUser']);
+>>>>>>> origin/master
 		getProfil($_SESSION['idUser'],$_SESSION['mdp']);
     require('./vue/modifProfil.tpl');
    }
