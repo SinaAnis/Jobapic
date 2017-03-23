@@ -357,148 +357,67 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                 <div>
                 </div>
                 <table class="listAnnonce">
-                    <tr class="titres">
+		<tr class="titres">
                         <td class="col-md-2" style="border-bottom:1px solid" >
                             Catégorie
                         </td>
-                        <td class="col-md-3" style="border-bottom:1px solid">
+                        <td class="col-md-2" style="border-bottom:1px solid">
                             Nom du poste
                         </td>
-                        <td class="col-md-3" style="border-bottom:1px solid">
+                        <td class="col-md-2" style="border-bottom:1px solid">
                             Nom du recruteur
                         </td>
                         <td class="col-md-2" style="border-bottom:1px solid">
                             Date de publication
                         </td>
                         <td class="col-md-2" style="border-bottom:1px solid">
-                            Distance
+                            Adresse
+                        </td>
+                        <td class="col-md-2" style="border-bottom:1px solid">
+                            Statut
                         </td>
 
 
                     </tr>
                     <tr class="lespace">
-                        <td class="col-md-2">
-
-                        </td>
-                        <td class="col-md-3">
-
-                        </td>
-                        <td class="col-md-3">
-
-                        </td>
-                        <td class="col-md-2">
-
-                        </td>
-                        <td class="col-md-2">
-
-                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
-                    <tr>
-                        <td class="col-md-2">
-                            Catégorie
-                        </td>
-                        <td class="col-md-3">
-                            Nom du poste
-                        </td>
-                        <td class="col-md-3">
-                            Nom du recruteur
-                        </td>
-                        <td class="col-md-2">
-                            Date de publication
-                        </td>
-                        <td class="col-md-2">
-                            Distance
-                        </td>
-						<td class="col-md-2" style="border-bottom:1px solid">
-						<!--<button name=".$value[2]."  type= 'submit' value=". $value[0]." /> Valider </button>-->
-						<button name="1"  type= 'submit' value="1" /> Postuler </button>
-						</td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2">
-                            Catégorie
-                        </td>
-                        <td class="col-md-3">
-                            Nom du poste
-                        </td>
-                        <td class="col-md-3">
-                            Nom du recruteur
-                        </td>
-                        <td class="col-md-2">
-                            Date de publication
-                        </td>
-                        <td class="col-md-2">
-                            Distance
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2">
-                            Catégorie
-                        </td>
-                        <td class="col-md-3">
-                            Nom du poste
-                        </td>
-                        <td class="col-md-3">
-                            Nom du recruteur
-                        </td>
-                        <td class="col-md-2" >
-                            Date de publication
-                        </td>
-                        <td class="col-md-2" >
-                            Distance
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2"  >
-                            Catégorie
-                        </td>
-                        <td class="col-md-3" >
-                            Nom du poste
-                        </td>
-                        <td class="col-md-3" >
-                            Nom du recruteur
-                        </td>
-                        <td class="col-md-2" >
-                            Date de publication
-                        </td>
-                        <td class="col-md-2" >
-                            Distance
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2"  >
-                            Catégorie
-                        </td>
-                        <td class="col-md-3" >
-                            Nom du poste
-                        </td>
-                        <td class="col-md-3" >
-                            Nom du recruteur
-                        </td>
-                        <td class="col-md-2" >
-                            Date de publication
-                        </td>
-                        <td class="col-md-2" >
-                            Distance
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2"  >
-                            Catégorie
-                        </td>
-                        <td class="col-md-3" >
-                            Nom du poste
-                        </td>
-                        <td class="col-md-3" >
-                            Nom du recruteur
-                        </td>
-                        <td class="col-md-2" >
-                            Date de publication
-                        </td>
-                        <td class="col-md-2" >
-                            Distance
-                        </td>
-                    </tr>
+                    <?php 
+                    require ("modele/connectBD.php");
+                    
+                    foreach ($tabAnnonces as $key => $value) {
+                        $neme = getUserNameWithAnnonceId($value[0]);
+                        $cat = getCatNameWithAnnonceId($value[0]);
+                        $statut = getStatutWithIdAnnonceAndUser($iduser, $value[0]);
+						echo "<tr class='annonces'>";
+					
+						//echo ("<td>" . utf8_encode($value[2]) . " : Choix simple</td>");
+                        foreach ($cat as $key => $valuee) {
+                               echo ("<td>" . $valuee[0] . "</td>");
+                        }
+                        
+						//echo ("<td>" . utf8_encode($value[6]) . "</td>");
+						echo ("<td>" . utf8_encode($value[1]) . "</td>");
+                        foreach ($neme as $key => $valu) {
+                               echo ("<td>" . $valu[0] . "</td>");
+                        }
+                        echo ("<td>" . utf8_encode($value[2]) . "</td>");
+						echo ("<td>" . utf8_encode($value[3]) . "</td>");
+                        foreach ($statut as $key => $val) {
+                            if($val[0]==0)
+                                echo ("<td>En cours</td>");
+                            else
+                                echo ("<td>".utf8_encode("Validé")."</td>");
+                        }
+					echo "</tr>\n";
+					}
+                    
+                    ?>
                 </table>
 
                 </ul>
