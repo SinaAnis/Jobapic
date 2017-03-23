@@ -2,27 +2,27 @@
 
 function afficherAnnonceEmploye() {
  require ("modele/connectBD.php");
-	$select = "SELECT * FROM `annonce` where annonce.idUser <> %s and annonce.idCategorie in (select idCategorie from `categoriepref`, `utilisateur` where utilisateur.IdUser = categoriepref.IdUser) ORDER BY idAnnonce";
+	$select = "SELECT * FROM `annonce` where annonce.idCategorie in (select idCategorie from `categoriepref`, `utilisateur` where utilisateur.IdUser = categoriepref.IdUser) ORDER BY idAnnonce";
 	$req = sprintf($select);
 	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
 
 	return mysqli_fetch_all($res);
 }
 
-
+<<<<<<< HEAD
 function afficherCandidatAnnonce($idAnnonce){
   require ("modele/connectBD.php");
    $select = "SELECT * FROM `postule` p , `utilisateur` u WHERE `IdAnnonce` = '%s' AND p.IdUser = u.IdUser";
    $req = sprintf($select,$idAnnonce);
    $res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
    return mysqli_fetch_all($res);
- }
-
+=======
 function afficherAnnonceById($id) {
  require ("modele/connectBD.php");
 	$select = "SELECT * FROM `annonce` where idAnnonce = '%s'";
 	$req = sprintf($select, $id);
 	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
+
 	return mysqli_fetch_all($res);
 }
 
@@ -42,6 +42,7 @@ function getCatNameWithAnnonceId($id) {
 	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
 
 	return mysqli_fetch_all($res);
+>>>>>>> origin/master
 }
 
 function afficherAnnonceEmployeur($idEmployeur) {
@@ -60,13 +61,5 @@ function creation_annonce($nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAn
   $sql = sprintf ($req,$nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAnnonce,$idUser);
   $res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
 }
-
-function postulerSQL($iduser,$id){
-  require ("./modele/connectBD.php");
-  $req= "INSERT INTO `postule`(`IdAnnonce`, `IdUser`) VALUES ('%s','%s')";
-  $sql = sprintf ($req,$id,$iduser);
-  $res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
-}
-
 
 ?>

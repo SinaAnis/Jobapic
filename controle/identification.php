@@ -61,7 +61,7 @@ function ident(){
 		  echo "<script language='JavaScript'>alert('Etape suivante !')</script>";
 		  require('./vue/contrat.tpl') ;
 		}
-		
+
 		/*else if (mail_disponible($emailInscription) && isset($_POST['email'])){
 			$_SESSION['profil'] = $profil;
 		  echo "<script language='JavaScript'>alert('Etape suivante !')</script>";
@@ -73,7 +73,7 @@ function ident(){
 
 
 	}
-	
+
 /*function ident(){
 	$emailConnexion= isset($_POST['mail'])?($_POST['mail']):'';
 	$_SESSION['mdp']= isset($_POST['mdp'])?($_POST['mdp']):'';
@@ -86,7 +86,7 @@ function ident(){
 	//$ville = isset($_POST['ville'])?($_POST['ville']):'';
 	//$telephone = isset($_POST['telephone'])?($_POST['telephone']):'';
 	//$situation = isset($_POST['situation'])?($_POST['situation']):'';
-	
+
    require ("modele/utilisateurBD.php") ;
    require ("modele/annonceBD.php");
 	$msg='';
@@ -115,8 +115,8 @@ function ident(){
 			else if(!isset($_POST['email'])&&!isset($_POST['ville'])) {
 				require_once('./vue/Connexion/connexion.tpl');
 			}
-	}*/
 	}
+	}*/
 
 	//A CONTINUER RENVOIE PAGE INSCRIPTION
 	function pageinscription(){
@@ -124,11 +124,11 @@ function ident(){
 		if (isset($_POST['cocher'])) {
 				require('./vue/inscription.tpl') ;
 		}
-		else 
+		else
 		{
 			alert('veuillez accepter le contrat pur continuer');
 		}
-		
+
 	}
 
 	// ENLEVER MAJUSCULE POUR LADRESSE MAIL

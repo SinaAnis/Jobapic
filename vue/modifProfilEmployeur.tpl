@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier mon profil (coté Employe) | Job'Apic - Enfin un job à pic.</title>
+    <title>Modifier mon profil (coté Employe) | Job'Apic - Enfin un job à pic..</title>
 
 
     <!--STYLESHEET-->
@@ -180,7 +180,17 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                       <label> Département: </label>
                                                       <div class="row">
                                                           <div class="col-sm-8">
+                                                             <!-- <select name="departement" class="form-control" data-parsley-group="experience" data-parsley-required>
+                                                                  <option <?php if ($_SESSION['Departement'] == "Paris") {?> selected="selected"  <?php } ?>  value="Paris">Paris</option>
+<<<<<<< HEAD
+                                                                  <option <?php if ($_SESSION['Departement'] == "Seine Saint Denis") {?> selected="selected"  <?php } ?>value="Seine Saint Denis">Seine Saint Denis</option>
+                                                                  <option <?php if ($_SESSION['Departement'] == "Seine et Marne") {?> selected="selected"  <?php } ?>value="Seine et Marne">Seine et Marne</option>
+=======
+                                                                  <option <?php if ($_SESSION['Departement'] == "SSD") {?> selected="selected"  <?php } ?>value="Seine Saint Denis">Seine Saint Denis</option>
+                                                                  <option <?php if ($_SESSION['Departement'] == "SEM") {?> selected="selected"  <?php } ?>value="Seine et Marne">Seine et Marne</option>
+>>>>>>> origin/master
 
+                                                              </select>-->
                                                               <select name="departement"   class="form-control" data-parsley-group="experience" data-parsley-requiredstyle="width: 204px" onChange="affiche_ville(this.value)"><?php<option value=" echo $_SESSION['Departement'] "></option>?>
 
                                                         <option value='01' <?php if(isset($_SESSION['Département'])&&$_SESSION['Département'] == "01 - Ain") echo "selected='selected'"; ?>>01 - Ain</option>
@@ -496,7 +506,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                     <!--Menu list item-->
                                     <li>
-                                        <a href="index.php?controle=identification&action=afficherMurEmploye">
+                                        <a href="index.php?controle=identification&action=afficherMurEmployeur">
                                             <i class="fa fa-dashboard"></i>
                                             <span class="menu-title">
                                                 <strong>Mur</strong>
@@ -513,8 +523,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                       <!--Submenu-->
                                       <ul class="collapse">
-
-                                          <li><a href="index.php?controle=consulterAnnonce&action=consulterLesAnnonces"><i class="fa fa-caret-right"></i> Consulter les annonces du jours</a></li>
+                                          <li><a href="index.php?controle=creerAnnonce&action=creerAnnonce"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
+      <li><a href="index.php?controle=lesCandidatures&action=lesCandidatures"><i class="fa fa-caret-right"></i> les Candidatures</a></li>
                                       </ul>
                                   </li>
 
@@ -528,12 +538,11 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                       <!--Submenu-->
                                       <ul class="collapse">
 
+       <li><a href="index.php?controle=consulterAnnonce&action=consulterMesAnnonces"><i class="fa fa-caret-right"></i> Mes annonces</a></li>
+                                          <li><a href="index.php?controle=editerProfil&action=editerProfil"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
 
-                                          <li><a href="index.php?controle=editerProfil&action=editerProfilEmploye"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
 
-                                          <li><a href="index.php?controle=mesCandidatures&action=mesCandidatures"><i class="fa fa-caret-right"></i> Mes candidatures</a></li>
-
-                                          <!--<li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Modifier paramètres </a></li>-->
+                                           <!--<li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Modifier paramètres </a></li>-->
                                     </ul>
                                   </li>
 
@@ -581,9 +590,9 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                     <!--Submenu-->
                                     <ul class="collapse">
-                                        <li><a href="#"><i class="fa fa-caret-right"></i> Inbox</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right"></i> View Message</a></li>
-                                        <li><a href="#"><i class="fa fa-caret-right"></i> Compose Message</a></li>
+                                        <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Inbox</a></li>
+                                        <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> View Message</a></li>
+                                        <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Compose Message</a></li>
                                     </ul>
                                 </li>
 
@@ -627,16 +636,17 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
 
                             </ul>
-<center>
+                            <center>
                         <a href="index.php?controle=identification&action=afficherMurEmployeur">
                           <button class="btn btn-default">Employeur</button>
-</a>
-<a href="index.php?controle=identification&action=afficherMurEmploye">
-<button class="btn btn-default"> Employé </button>
-</a>
+                        </a>
+                        <a href="index.php?controle=identification&action=afficherMurEmploye">
+                          <button class="btn btn-default"> Employé </button>
+                        </a>
 </br>
 </br>
-<p style="color: white; font-weight: bold">vous êtes dans le mur Employé</p>
+<p style="color: white; font-weight: bold">vous êtes dans le mur Employeur</p>
+
 
                           </form>
                             </center>
@@ -669,6 +679,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
         </nav>
         <!--===================================================-->
         <!--END MAIN NAVIGATION-->
+
+
         </div>
 
 
