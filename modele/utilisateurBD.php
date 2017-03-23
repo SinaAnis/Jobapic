@@ -42,7 +42,11 @@
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	function editerProfilBD($mail,$prenom,$nom,$mdp, $genre, $date , $telephone, $situation,$departement , $ville, $photo , $log) {
+=======
+	function editerProfilBD($mail, $genre, $telephone, $situation,$departement , $ville, $photo , $log) {
+>>>>>>> origin/master
 =======
 	function editerProfilBD($mail, $genre, $telephone, $situation,$departement , $ville, $photo , $log) {
 >>>>>>> origin/master
@@ -51,7 +55,11 @@
 		SET Mail  ='%s',Genre  ='%s',Telephone ='%s',Situation  ='%s',Departement  ='%s',Ville  ='%s',Photo  ='%s'
 		WHERE idUser='%s'";
 <<<<<<< HEAD
+<<<<<<< HEAD
 		$sql = sprintf ($req , $nom, $prenom, $genre ,$date , $mail, $telephone ,$situation , $mdp ,$departement , $ville, $photo, $log);
+=======
+		$sql = sprintf ($req , $mail,$genre , $telephone ,$situation ,$departement , $ville, $photo, $log);
+>>>>>>> origin/master
 =======
 		$sql = sprintf ($req , $mail,$genre , $telephone ,$situation ,$departement , $ville, $photo, $log);
 >>>>>>> origin/master
