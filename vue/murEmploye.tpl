@@ -608,15 +608,14 @@ input:checked + .slider:before {
                                                                   <li>
                                                                     <a href="#">
                                                                         <i class="fa fa-envelope"></i>
-                                                                        <span class="menu-title">Email</span>
+                                                                        <span class="menu-title">Messagerie</span>
                                                                         <i class="arrow"></i>
                                                                     </a>
 
                                                                     <!--Submenu-->
                                                                     <ul class="collapse">
-                                                                        <li><a href="#"><i class="fa fa-caret-right"></i> Inbox</a></li>
-                                                                        <li><a href="#"><i class="fa fa-caret-right"></i> View Message</a></li>
-                                                                        <li><a href="#"><i class="fa fa-caret-right"></i> Compose Message</a></li>
+                                                                        <li><a href="index.php?controle=composerMessage&action=afficherMessages"><i class="fa fa-caret-right"></i>Mes Messages</a></li>
+                                                                        <li><a href="index.php?controle=composerMessage&action=creerMessage"><i class="fa fa-caret-right"></i> Composer un Message</a></li>
                                                                     </ul>
                                                                 </li>
 

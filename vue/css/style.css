@@ -4623,9 +4623,8 @@ fieldset:not([disabled]) .has-error .form-radio.form-normal.active:after,
 /* General */
 
 a {
-	/*text-decoration: none;
-	color: #515151;*/
-	text-decoration : underline;
+	text-decoration: none;
+	color: #515151;
 	outline: 0
 }
 a:hover, a:focus {
@@ -8578,34 +8577,4 @@ padding-right: 20px;
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
     transition: all .3s
-}
-
-/*LOADER
-
-.loader {
-
-position : fixed;
-z-index: 9999;
-background : url('img.wait.gif') 50% 50% no-repeat;
-top : 0px;
-left : 0px;
-height : 100%;
-width : 100%;
-cursor : wait;
-
-}*/
-
-#scroll
-{
-      /* Il est impératif de fixer les dimensions du bloc */
-      width:60%;
-      height:70%;
-      /* overflow (surplus) prend pour valeur auto, ce qui correspond à placer des scrollbar */
-      overflow:auto;
-      border:1px ridge grey;
-      padding-left: 30px;
-      padding-right: 30px;
-      padding-top: 10px;
-
-      padding-bottom: 10px;
 }
