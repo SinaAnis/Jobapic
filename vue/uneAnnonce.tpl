@@ -16,7 +16,7 @@
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
     <link href="vue/css/bootstrap.min.css" rel="stylesheet">
-
+    
     <link href="vue/css/styleAnnonce.css" rel="stylesheet">
 
     <!--Jasmine Stylesheet [ REQUIRED ]-->
@@ -306,7 +306,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                         <a href="#">  <i class="fa fa-gear fa-fw fa-lg"></i> Paramètre </a>
                                     </li>
                                     <li>
-                                        <a href="#"> <i class="fa fa-sign-out fa-fw"></i> Déconnexion  </a>
+                                        <a href="#"> <i class="fa fa-sign-out fa-fw"></i> Déconnection  </a>
                                     </li>
                                 </ul>
                             </div>
@@ -338,12 +338,12 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
             <!--===================================================-->
             <section id="content-container">
                 <header class="pageheader">
-                    <h3><i class="fa fa-home"></i> Mes Candidatures </h3>
+                    <h3><i class="fa fa-home"></i> Mes Annonces </h3>
                     <div class="breadcrumb-wrapper"> <span class="label">Vous êtes ici:</span>
                         <ol class="breadcrumb">
                             <li> <a href="#"> Home </a> </li>
                             <li class="active"> <a href="#"> Profil </a>   </li>
-                            <li class="active"> Mes Candidatures </li>
+                            <li class="active"> Mes Annonces </li>
                         </ol>
                     </div>
                 </header>
@@ -356,149 +356,72 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                 <!--  require ("./controle/espaceEmploy.php") ; -->
                 <div>
                 </div>
+                <style>
+                    td{
+                        border-bottom:1px solid;
+                        text-align:center;
+                    }
+                </style>
                 <table class="listAnnonce">
                     <tr class="titres">
-                        <td class="col-md-2" style="border-bottom:1px solid" >
+                        <td class="col-md-2">
                             Catégorie
                         </td>
-                        <td class="col-md-3" style="border-bottom:1px solid">
+                        <td class="col-md-3">
                             Nom du poste
                         </td>
-                        <td class="col-md-3" style="border-bottom:1px solid">
+                        <td class="col-md-3">
                             Nom du recruteur
+                        </td>   
+                        <td class="col-md-2">
+                            Adresse
                         </td>
-                        <td class="col-md-2" style="border-bottom:1px solid">
+                        <td class="col-md-2">
                             Date de publication
                         </td>
-                        <td class="col-md-2" style="border-bottom:1px solid">
-                            Distance
-                        </td>
-
-
+                        
                     </tr>
                     <tr class="lespace">
                         <td class="col-md-2">
+                            
+                        </td>
+                        <td class="col-md-3">
+                            
+                        </td>
+                        <td class="col-md-3">
+                            
+                        </td>   
+                        <td class="col-md-2">
+                            
+                        </td>
+                        <td class="col-md-2">
+                            
+                        </td>
+                    </tr>
+                    <?php 
+                        foreach ($annonce as $key => $value) {
+                            echo "<tr>";
+					
+                            //echo ("<td>" . utf8_encode($value[2]) . " : Choix simple</td>");
+                            
+                            foreach ($tomcat as $key => $valuee) {
+                                echo ("<td>" . utf8_encode($valuee[0]) . "</td>");
+                            }
+                            echo ("<td>" . utf8_encode($value[1]) . "</td>");
+                            foreach ($neme as $key => $valu) {
+                                echo ("<td>" . utf8_encode($valu[0]) . "</td>");
+                            }
+                            echo ("<td>" . utf8_encode($value[3]) . "</td>");
+                            echo ("<td>" . utf8_encode($value[2]) . "</td>");
+                            
+                        
 
-                        </td>
-                        <td class="col-md-3">
-
-                        </td>
-                        <td class="col-md-3">
-
-                        </td>
-                        <td class="col-md-2">
-
-                        </td>
-                        <td class="col-md-2">
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2">
-                            Catégorie
-                        </td>
-                        <td class="col-md-3">
-                            Nom du poste
-                        </td>
-                        <td class="col-md-3">
-                            Nom du recruteur
-                        </td>
-                        <td class="col-md-2">
-                            Date de publication
-                        </td>
-                        <td class="col-md-2">
-                            Distance
-                        </td>
-						<td class="col-md-2" style="border-bottom:1px solid">
-						<!--<button name=".$value[2]."  type= 'submit' value=". $value[0]." /> Valider </button>-->
-						<button name="1"  type= 'submit' value="1" /> Postuler </button>
-						</td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2">
-                            Catégorie
-                        </td>
-                        <td class="col-md-3">
-                            Nom du poste
-                        </td>
-                        <td class="col-md-3">
-                            Nom du recruteur
-                        </td>
-                        <td class="col-md-2">
-                            Date de publication
-                        </td>
-                        <td class="col-md-2">
-                            Distance
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2">
-                            Catégorie
-                        </td>
-                        <td class="col-md-3">
-                            Nom du poste
-                        </td>
-                        <td class="col-md-3">
-                            Nom du recruteur
-                        </td>
-                        <td class="col-md-2" >
-                            Date de publication
-                        </td>
-                        <td class="col-md-2" >
-                            Distance
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2"  >
-                            Catégorie
-                        </td>
-                        <td class="col-md-3" >
-                            Nom du poste
-                        </td>
-                        <td class="col-md-3" >
-                            Nom du recruteur
-                        </td>
-                        <td class="col-md-2" >
-                            Date de publication
-                        </td>
-                        <td class="col-md-2" >
-                            Distance
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2"  >
-                            Catégorie
-                        </td>
-                        <td class="col-md-3" >
-                            Nom du poste
-                        </td>
-                        <td class="col-md-3" >
-                            Nom du recruteur
-                        </td>
-                        <td class="col-md-2" >
-                            Date de publication
-                        </td>
-                        <td class="col-md-2" >
-                            Distance
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2"  >
-                            Catégorie
-                        </td>
-                        <td class="col-md-3" >
-                            Nom du poste
-                        </td>
-                        <td class="col-md-3" >
-                            Nom du recruteur
-                        </td>
-                        <td class="col-md-2" >
-                            Date de publication
-                        </td>
-                        <td class="col-md-2" >
-                            Distance
-                        </td>
-                    </tr>
+                            echo "</tr>\n";
+                        }
+                    
+                    ?>
+                    
+                    
                 </table>
 
                 </ul>
@@ -513,184 +436,178 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
             <!--===================================================-->
             <!--END CONTENT CONTAINER-->
 
-           <!--MAIN NAVIGATION-->
+            <!--MAIN NAVIGATION-->
             <!--===================================================-->
             <nav id="mainnav-container">
                 <div id="mainnav">
 
-                     <!--Menu-->
-                                                    <!--================================-->
-                                                    <div id="mainnav-menu-wrap">
-                                                        <div class="nano">
-                                                            <div class="nano-content">
-                                                                <ul id="mainnav-menu" class="list-group">
+                    <!--Menu-->
+                    <!--================================-->
+                    <div id="mainnav-menu-wrap">
+                        <div class="nano">
+                            <div class="nano-content">
+                                <ul id="mainnav-menu" class="list-group">
 
-                                                                    <!--Category name-->
-                                                                    <li class="list-header">Lot Principal</li>
+                                    <!--Category name-->
+                                    <li class="list-header">Lot Primaire</li>
 
-                                                                    <!--Menu list item-->
-                                                                    <li>
-                                                                        <a href="index.php?controle=identification&action=afficherMurEmploye">
-                                                                            <i class="fa fa-dashboard"></i>
-                                                                            <span class="menu-title">
-                                                                                <strong>Mur</strong>
-                                                                            </span>
-                                                                        </a>
-                                                                    </li>
+                                    <!--Menu list item-->
+                                    <li>
+                                        <a href="index.html">
+                                            <i class="fa fa-dashboard"></i>
+                                            <span class="menu-title">
+												<strong>Mur</strong>
+											</span>
+                                        </a>
+                                    </li>
 
-                                                                    <li>
-                                                                      <a href="#">
-                                                                          <i class="fa fa-envelope"></i>
-                                                                          <span class="menu-title">Annonce(s)</span>
-                                                                          <i class="arrow"></i>
-                                                                      </a>
+                                    <li>
+                                      <a href="#">
+                                          <i class="fa fa-envelope"></i>
+                                          <span class="menu-title">Annonce(s)</span>
+                                          <i class="arrow"></i>
+                                      </a>
 
-                                                                      <!--Submenu-->
-                                                                      <ul class="collapse">
-                                                                          <!--<li><a href="index.php?controle=creerAnnonce&action=creerAnnonce"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>-->
-                                                                          <li><a href="index.php?controle=consulterAnnonce&action=consulterLesAnnonces"><i class="fa fa-caret-right"></i> Consulter les annonces du jours</a></li>
-                                                                      </ul>
-                                                                  </li>
+                                      <!--Submenu-->
+                                      <ul class="collapse">
+                                          <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
+                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
+                                      </ul>
+                                    </li>
 
-                                                                  <li>
-                                                                      <a href="#">
-                                                                          <i class="fa fa-envelope"></i>
-                                                                          <span class="menu-title">Profil</span>
-                                                                          <i class="arrow"></i>
-                                                                      </a>
+                                    <li>
+                                      <a href="#">
+                                          <i class="fa fa-envelope"></i>
+                                          <span class="menu-title">Profil</span>
+                                          <i class="arrow"></i>
+                                      </a>
 
-                                                                      <!--Submenu-->
-                                                                      <ul class="collapse">
-                                                                          <!--<li><a href="#"><i class="fa fa-caret-right"></i> Mes annonces</a></li>-->
-
-                                                                          <li><a href="index.php?controle=editerProfil&action=editerProfil"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
-
-                                                                          <li><a href="index.php?controle=mesCandidatures&action=mesCandidatures"><i class="fa fa-caret-right"></i> Mes candidatures</a></li>
-
-                                                                          <!--<li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Modifier paramètres </a></li>-->
-                                                                    </ul>
-                                                                  </li>
+                                      <!--Submenu-->
+                                      <ul class="collapse">
+                                          <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
+                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
+                                          <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
+                                      </ul>
+                                    </li>
 
 
-                                                                  <!--Menu list item
+                                    <!--Menu list item-->
 
-                                                                  <li class="list-divider"></li>
-
-
-                                                                  <!--Category name-->
-
-                                                                  <!--Category name
-                                                                  <li class="list-header">Lot Secondaire</li>-->
-                                                                  <!--Menu list item-->
-
-                                                                  <!--Category name
-                                                                  <li class="list-header">Lot Tertiaire</li>-->
-                                                                  <!--Menu list item
-                                                                  <li>
-                                                                      <a href="#">
-                                                                          <i class="fa fa-envelope"></i>
-                                                                          <span class="menu-title">Profil</span>
-                                                                          <i class="arrow"></i>
-                                                                      </a>
-
-                                                                      <!--Submenu
-
-                                                                      <ul class="collapse">
-                                                                          <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
-                                                                          <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Mes candidatures </a></li>
-                                                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
+                                    <li class="list-divider"></li>
 
 
-                                                                      </ul>
-                                                                  </li>-->
-                                                                  <!--Category name-->
-                                                                  <li class="list-header">Lot Falcultatif</li>
-                                                                  <!--Menu list item-->
-                                                                  <li>
-                                                                    <a href="#">
-                                                                        <i class="fa fa-envelope"></i>
-                                                                        <span class="menu-title">Email</span>
-                                                                        <i class="arrow"></i>
-                                                                    </a>
+                                    <!--Category name-->
 
-                                                                    <!--Submenu-->
-                                                                    <ul class="collapse">
-                                                                        <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Inbox</a></li>
-                                                                        <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> View Message</a></li>
-                                                                        <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Compose Message</a></li>
-                                                                    </ul>
-                                                                </li>
+                                    <!--Category name-->
+                                    <li class="list-header">Lot Secondaire</li>
+                                    <!--Menu list item-->
 
-                                                                <!--Menu list item-->
-                                                                <li>
-                                                                    <a href="calendar.html">
-                                                                        <i class="fa fa-calendar"></i>
-                                                                        <span class="menu-title">
-                                                                            Réseaux sociaux
-                                                                        </span>
-                                                                    </a>
-                                                                </li>
+                                    <!--Category name-->
+                                    <li class="list-header">Lot Tertiaire</li>
+                                    <!--Menu list item-->
+                                    <li>
+                                      <a href="#">
+                                          <i class="fa fa-envelope"></i>
+                                          <span class="menu-title">Profil</span>
+                                          <i class="arrow"></i>
+                                      </a>
+
+                                      <!--Submenu-->
+                                      <ul class="collapse">
+                                          <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
+                                          <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Mes candidatures </a></li>
+                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
+                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Modifier paramètre </a></li>
+
+                                      </ul>
+                                    </li>
+                                    <!--Category name-->
+                                    <li class="list-header">Lot Falcultatif</li>
+                                    <!--Menu list item-->
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-envelope"></i>
+                                            <span class="menu-title">Email</span>
+                                            <i class="arrow"></i>
+                                        </a>
+
+                                        <!--Submenu-->
+                                        <ul class="collapse">
+                                            <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Inbox</a></li>
+                                            <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> View Message</a></li>
+                                            <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Compose Message</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!--Menu list item-->
+                                    <li>
+                                        <a href="calendar.html">
+                                            <i class="fa fa-calendar"></i>
+                                            <span class="menu-title">
+                        Calendar
+                      </span>
+                                        </a>
+                                    </li>
 
 
 
-                                                                <!--Menu list item-->
+                                    <!--Menu list item-->
 
 
-                                                                <!--Menu list item-->
+                                    <!--Menu list item-->
 
 
-                                                                <!--Menu list item-->
+                                    <!--Menu list item-->
 
-                                                                <!--Menu list item-->
-
-
-                                                                <!--Menu list item-->
+                                    <!--Menu list item-->
 
 
-                                                                <li class="list-divider"></li>
+                                    <!--Menu list item-->
+
+
+                                    <li class="list-divider"></li>
 
 
 
-                                                                <!--Menu list item-->
+                                    <!--Menu list item-->
 
 
-                                                                <!--Menu list item-->
+                                    <!--Menu list item-->
 
 
-                                                                <!--Menu list item-->
+                                    <!--Menu list item-->
 
 
-                                                            </ul>
+                                </ul>
 
 
-                                                            <!--Widget-->
-                                                            <!--================================-->
-                                                            <div class="mainnav-widget">
+                                <!--Widget-->
+                                <!--================================-->
+                                <div class="mainnav-widget">
 
-                                                                <!-- Show the button on collapsed navigation -->
-                                                                <div class="show-small">
-                                                                    <a href="#" data-toggle="menu-widget" data-target="#demo-wg-server">
-                                                                        <i class="fa fa-desktop"></i>
-                                                                    </a>
-                                                                </div>
+                                    <!-- Show the button on collapsed navigation -->
+                                    <div class="show-small">
+                                        <a href="#" data-toggle="menu-widget" data-target="#demo-wg-server">
+                                            <i class="fa fa-desktop"></i>
+                                        </a>
+                                    </div>
 
-                                                                <!-- Hide the content on collapsed navigation -->
+                                    <!-- Hide the content on collapsed navigation -->
 
-                                                            </div>
-                                                            <!--================================-->
-                                                            <!--End widget-->
+                                </div>
+                                <!--================================-->
+                                <!--End widget-->
 
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!--================================-->
-                                                <!--End menu-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--================================-->
+                    <!--End menu-->
 
-                                            </div>
-                                        </nav>
-                                        <!--===================================================-->
-                                        <!--END MAIN NAVIGATION-->
-
+                </div>
+            </nav>
+            <!--===================================================-->
+            <!--END MAIN NAVIGATION-->
 
 
             <!--ASIDE-->
@@ -713,6 +630,244 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                             <!--================================-->
                             <!--End nav tabs-->
 
+                            <!-- Tabs Content Start-->
+                            <!--================================-->
+                            <div class="tab-content">
+
+                                <!--First tab (Contact list)-->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <div class="tab-pane fade in active" id="demo-asd-tab-1">
+                                    <h4 class="pad-hor text-thin"> Membres en ligne (7) </h4>
+                                    <div class="list-group bg-trans">
+                                       <div class="list-group-item">
+                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                            <img src="img/av1.png" alt="" class="img-sm">
+                                            <i class="on bottom text-light"></i>
+                                          </a>
+                                          <div class="inline-block">
+                                             <div class="text-small">John Knight</div>
+                                             <small class="text-mute">Available</small>
+                                          </div>
+                                       </div>
+                                       <div class="list-group-item">
+                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                            <img src="img/av2.png" alt="" class="img-sm">
+                                            <i class="on bottom text-light"></i>
+                                          </a>
+                                          <div class="inline-block pad-ver-5">
+                                             <div class="text-small">Jose Knight</div>
+                                             <small class="text-mute">Available</small>
+                                          </div>
+                                       </div>
+                                       <div class="list-group-item">
+                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                            <img src="img/av3.png" alt="" class="img-sm">
+                                            <i class="on bottom text-light"></i>
+                                          </a>
+                                          <div class="inline-block">
+                                             <div class="text-small">Roy Banks</div>
+                                             <small class="text-mute">Available</small>
+                                          </div>
+                                       </div>
+                                       <div class="list-group-item">
+                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                            <img src="img/av7.png" alt="" class="img-sm">
+                                            <i class="on bottom text-light"></i>
+                                          </a>
+                                          <div class="inline-block">
+                                             <div class="text-small">Steven Jordan</div>
+                                             <small class="text-mute">Available</small>
+                                          </div>
+                                       </div>
+                                       <div class="list-group-item">
+                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                            <img src="img/av4.png" alt="" class="img-sm">
+                                            <i class="on bottom text-light"></i>
+                                          </a>
+                                          <div class="inline-block">
+                                             <div class="text-small">Scott Owens</div>
+                                             <small class="text-mute">Available</small>
+                                          </div>
+                                       </div>
+                                       <div class="list-group-item">
+                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                            <img src="img/av5.png" alt="" class="img-sm">
+                                            <i class="on bottom text-light"></i>
+                                          </a>
+                                          <div class="inline-block">
+                                             <div class="text-small">Melissa Hunt</div>
+                                             <small class="text-mute">Available</small>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <hr>
+                                    <h4 class="pad-hor text-thin"> Membres occupés (4) </h4>
+                                    <div class="list-group bg-trans">
+                                       <div class="list-group-item">
+                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                            <img src="img/av1.png" alt="" class="img-sm">
+                                            <i class="busy bottom text-light"></i>
+                                          </a>
+                                          <div class="inline-block">
+                                             <div class="text-small">John Knight</div>
+                                             <small class="text-mute">Available</small>
+                                          </div>
+                                       </div>
+                                       <div class="list-group-item">
+                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                            <img src="img/av2.png" alt="" class="img-sm">
+                                            <i class="busy bottom text-light"></i>
+                                          </a>
+                                          <div class="inline-block">
+                                             <div class="text-small">Jose Knight</div>
+                                             <small class="text-mute">Available</small>
+                                          </div>
+                                       </div>
+                                       <div class="list-group-item">
+                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                            <img src="img/av3.png" alt="" class="img-sm">
+                                            <i class="busy bottom text-light"></i>
+                                          </a>
+                                          <div class="inline-block">
+                                             <div class="text-small">Roy Banks</div>
+                                             <small class="text-mute">Available</small>
+                                          </div>
+                                       </div>
+                                       <div class="list-group-item">
+                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                            <img src="img/av7.png" alt="" class="img-sm">
+                                            <i class="busy bottom text-light"></i>
+                                          </a>
+                                          <div class="inline-block">
+                                             <div class="text-small">Steven Jordan</div>
+                                             <small class="text-mute">Available</small>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <hr>
+                                    <h4 class="pad-hor text-thin"> Membres déconnectés (4) </h4>
+                                    <div class="list-group bg-trans">
+                                       <div class="list-group-item">
+                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                            <img src="img/av1.png" alt="" class="img-sm">
+                                            <i class="off bottom text-light"></i>
+                                          </a>
+                                          <div class="inline-block pad-ver-5">
+                                             <div class="text-small">John Knight</div>
+                                             <small class="text-mute">Available</small>
+                                          </div>
+                                       </div>
+                                       <div class="list-group-item">
+                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                            <img src="img/av2.png" alt="" class="img-sm">
+                                            <i class="off bottom text-light"></i>
+                                          </a>
+                                          <div class="inline-block pad-ver-5">
+                                             <div class="text-small">Jose Knight</div>
+                                             <small class="text-mute">Available</small>
+                                          </div>
+                                       </div>
+                                       <div class="list-group-item">
+                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                            <img src="img/av3.png" alt="" class="img-sm">
+                                            <i class="off bottom text-light"></i>
+                                          </a>
+                                          <div class="inline-block pad-ver-5">
+                                             <div class="text-small">Roy Banks</div>
+                                             <small class="text-mute">Available</small>
+                                          </div>
+                                       </div>
+                                       <div class="list-group-item">
+                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                            <img src="img/av7.png" alt="" class="img-sm">
+                                            <i class="off bottom text-light"></i>
+                                          </a>
+                                          <div class="inline-block">
+                                             <div class="text-small">Steven Jordan</div>
+                                             <small class="text-mute">Available</small>
+                                          </div>
+                                       </div>
+                                    </div>
+
+                                  </div>
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!--End first tab (Contact list)-->
+
+                                <!--Second tab (Settings)-->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <div class="tab-pane fade" id="demo-asd-tab-3">
+                                    <ul class="list-group bg-trans">
+                                        <li class="list-header">
+                                           <h4 class="text-thin">Parametre de compte</h4>
+                                        </li>
+                                        <li class="list-group-item">
+                                           <div class="pull-right">
+                                              <input class="demo-switch" type="checkbox" checked>
+                                           </div>
+                                           <p>Montrer mon statut personnel</p>
+                                           <small class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small>
+                                        </li>
+                                        <li class="list-group-item">
+                                           <div class="pull-right">
+                                              <input class="demo-switch" type="checkbox" checked>
+                                           </div>
+                                           <p>Show offline contact</p>
+                                           <small class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small>
+                                        </li>
+                                        <li class="list-group-item">
+                                           <div class="pull-right">
+                                              <input class="demo-switch" type="checkbox">
+                                           </div>
+                                           <p>Invisible mode </p>
+                                           <small class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small>
+                                        </li>
+                                    </ul>
+                                    <hr>
+                                    <ul class="list-group bg-trans">
+                                        <li class="list-header">
+                                            <h4 class="text-thin">Public Settings</h4>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="pull-right">
+                                                <input class="demo-switch" type="checkbox" checked>
+                                            </div> Online status
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="pull-right">
+                                                <input class="demo-switch" type="checkbox">
+                                            </div>
+                                            Show offline contact
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="pull-right">
+                                                <input class="demo-switch" type="checkbox" checked>
+                                            </div>
+                                            Show my device icon
+                                        </li>
+                                    </ul>
+                                    <hr>
+                                    <h4 class="pad-hor text-thin">Task Progress</h4>
+                                    <div class="pad-all">
+                                        <p>Upgrade Progress</p>
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar progress-bar-success" style="width: 15%;"><span class="sr-only">15%</span></div>
+                                        </div>
+                                        <small class="text-muted">15% Completed</small>
+                                    </div>
+                                    <div class="pad-hor">
+                                        <p>Database</p>
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar progress-bar-danger" style="width: 75%;"><span class="sr-only">75%</span></div>
+                                        </div>
+                                        <small class="text-muted">17/23 Database</small>
+                                    </div>
+                                </div>
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!--Second tab (Settings)-->
+
+                            </div>
+                            <!-- Tabs Content End -->
+                            <!--================================-->
                         </div>
                     </div>
                 </div>

@@ -32,18 +32,27 @@
 		else return true;
 	}
 
-	function inscription($mail,$prenom,$nom,$mdp, $genre, $date, $ville , $telephone, $situation, &$profil) {
+	function inscription($mail,$prenom,$nom,$mdp, $genre, $date, $adresse , $telephone, $situation,$departement , $ville, $photo, &$profil) {
 		require ("./modele/connectBD.php");
-		$req= "INSERT INTO utilisateur (Nom,Prenom,Genre,DateNaissance,Adresse,Mail,Telephone,Situation,Mdp)
-		VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s')";
-		$sql = sprintf ($req , $nom, $prenom, $genre ,$date , $ville, $mail, $telephone ,$situation , $mdp);
+		$req= "INSERT INTO utilisateur (Nom,Prenom,Genre,DateNaissance,Adresse,Mail,Telephone,Situation,Mdp,Departement,Ville,Photo)
+		VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')";
+		$sql = sprintf ($req , $nom, $prenom, $genre ,$date , $adresse, $mail, $telephone ,$situation , $mdp ,$departement , $ville, $photo);
 		$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
 
 	}
 
+	function editerProfilBD($mail, $genre, $telephone, $situation,$departement , $ville, $photo , $log) {
+		require ("./modele/connectBD.php");
+		$req= "UPDATE utilisateur
+		SET Mail  ='%s',Genre  ='%s',Telephone ='%s',Situation  ='%s',Departement  ='%s',Ville  ='%s',Photo  ='%s'
+		WHERE idUser='%s'";
+		$sql = sprintf ($req , $mail,$genre , $telephone ,$situation ,$departement , $ville, $photo, $log);
+		$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
+	}
+
 	function getProfil($log='',$num=''){
 		require ("./modele/connectBD.php");
-			$req= "SELECT idUser,nom,prenom,genre,dateNaissance,Adresse,Mail,Telephone,Situation,mdp FROM Utilisateur WHERE idUser='%s' AND Mdp='%s'";
+			$req= "SELECT idUser,nom,prenom,genre,dateNaissance,Adresse,Mail,Telephone,Situation,mdp,Departement,Ville,Photo FROM Utilisateur WHERE idUser='%s' AND Mdp='%s'";
 			$sql = sprintf ($req, $log, $num);
 			$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
 				foreach($res as $row){
@@ -57,6 +66,9 @@
 					$_SESSION['Telephone'] = $row['Telephone'];
 					$_SESSION['Situation'] = $row['Situation'];
 					$_SESSION['mdp'] = $row['mdp'];
+					$_SESSION['Departement'] = $row['Departement'];
+					$_SESSION['Ville'] = $row['Ville'];
+					$_SESSION['Photo'] = $row['Photo'];
 				}
 
 	}
@@ -72,6 +84,11 @@ AND categorie.idCategorie = categoriepref.idCategorie";
 			return $res;
 	}
 
-
+	function getCategorie(){
+		require ("./modele/connectBD.php");
+			$sql= "SELECT categorie.IdCategorie,categorie.NomCategorie FROM `categorie`";
+			$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
+			return $res;
+	}
 
 ?>

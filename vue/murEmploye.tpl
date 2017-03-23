@@ -562,9 +562,9 @@ input:checked + .slider:before {
                                                                       <ul class="collapse">
 
 
-                                                                          <li><a href="index.php?controle=editerProfil&action=editerProfil"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
+                                                                          <li><a href="index.php?controle=editerProfil&action=editerProfilEmploye"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
 
-                                                                          <li><a href="index.php?controle=mesCandidatures&action=mesCandidatures"><i class="fa fa-caret-right"></i> Mes candidatures</a></li
+                                                                          <li><a href="index.php?controle=mesCandidatures&action=mesCandidatures"><i class="fa fa-caret-right"></i> Mes candidatures</a></li>
 
                                                                           <!--<li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Modifier paramètres </a></li>-->
                                                                     </ul>
@@ -667,8 +667,9 @@ input:checked + .slider:before {
 														  <a href="index.php?controle=identification&action=afficherMurEmploye">
 														  <button class="btn btn-default"> Employé </button>
 														  </a>
-
-
+														</br>
+														</br>
+														<p style="color: white; font-weight: bold">vous êtes dans le mur Employé</p>
 
                                                           </form>
                                                             </center>
