@@ -41,6 +41,7 @@ function create () {
 			creation_annonce($nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAnnonce,$_SESSION['idUser']);
             		$categorie = getCategorie();
 			echo "<script language='JavaScript'>alert('Création d annonce réussie ! Félicitation')</script>";
+			require('./vue/pageCreationAnnonce.tpl') ;
 			$nomAnnonce= " " ; 	$catAnnonce= " "; $desAnnonce= " ";
 		}
 

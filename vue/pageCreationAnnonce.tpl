@@ -483,7 +483,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                                                     <!--Menu list item-->
                                                                     <li>
-                                                                        <a href="index.php?controle=identification&action=afficherMur">
+                                                                        <a href="index.php?controle=identification&action=afficherMurEmployeur">
                                                                             <i class="fa fa-dashboard"></i>
                                                                             <span class="menu-title">
                                                                                 <strong>Mur</strong>
@@ -501,7 +501,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
                                                                           <li><a href="index.php?controle=creerAnnonce&action=creerAnnonce"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
-                                                                          <li><a href="index.php?controle=consulterAnnonce&action=consulterAnnonce"><i class="fa fa-caret-right"></i> Consulter les annonces du jours</a></li>
+                                                                         <li><a href="index.php?controle=lesCandidatures&action=lesCandidatures"><i class="fa fa-caret-right"></i> les Candidatures</a></li>
+																		 <!--<li><a href="index.php?controle=consulterAnnonce&action=consulterAnnonce"><i class="fa fa-caret-right"></i> Consulter les annonces du jours</a></li>-->
                                                                       </ul>
                                                                   </li>
 
@@ -514,13 +515,13 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
-                                                                          <li><a href="#"><i class="fa fa-caret-right"></i> Mes annonces</a></li>
+                                                                          <li><a href="index.php?controle=consulterAnnonce&action=consulterMesAnnonces"><i class="fa fa-caret-right"></i> Mes annonces</a></li>
 
-                                                                          <li><a href="#"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
+                                                                          <li><a href="index.php?controle=editerProfil&action=editerProfil"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
 
-                                                                          <li><a href="#"><i class="fa fa-caret-right"></i> Mes candidatures</a></li
+                                                                          <!--<li><a href="#"><i class="fa fa-caret-right"></i> Mes candidatures</a></li>-->
 
-                                                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Modifier paramètres </a></li>
+                                                                          <!--<li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Modifier paramètres </a></li>-->
                                                                     </ul>
                                                                   </li>
 

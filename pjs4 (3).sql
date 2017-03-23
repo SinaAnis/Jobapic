@@ -30,7 +30,7 @@ CREATE TABLE `annonce` (
   `IdAnnonce` int(20) NOT NULL,
   `NomAnnonce` varchar(25) DEFAULT NULL,
   `DateAnnonce` date DEFAULT NULL,
-  `AdrAnnonce` varchar(30) DEFAULT NULL,
+  `AdrAnnonce` varchar(60) DEFAULT NULL,
   `DescripAnnonce` varchar(500) DEFAULT NULL,
   `Recompense` int(255) DEFAULT NULL,
   `IdCategorie` int(11) DEFAULT NULL,
