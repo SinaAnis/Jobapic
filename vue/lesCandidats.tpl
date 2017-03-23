@@ -360,204 +360,28 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                 </header>
 
 <!--Page content-->
-<div class="container">
-  <div class="info">
-    <h1>Annonce</h1>
-  </div>
+
   <!-- Normal Demo-->
-  <div class="column">
-    <div class="demo-title"></div>
-    <!-- Post-->
-    <div class="post-module">
-      <!-- Thumbnail-->
-      <div class="thumbnail">
-        <div class="date">
-          <div class="day">num</div>
-          
-        </div><img src="http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg"/>
-      </div>
-      <!-- Post Content-->
-      <div class="post-content">
-        <div class="category">categorie</div>
-        <h1 class="title">AKROUCH</h1>
-        <h2 class="sub_title">Anis</h2>
-        <p >Etudiant en dut info</p>
-        <p ></p>
-		<p ></p>
-      </div>
-    </div>
-  </div>
-  
-   <div class="column">
-    <div class="demo-title"></div>
-    <!-- Post-->
-    <div class="post-module">
-      <!-- Thumbnail-->
-      <div class="thumbnail">
-        <div class="date">
-          <div class="day">num</div>
-          
-        </div><img src="http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg"/>
-      </div>
-      <!-- Post Content-->
-      <div class="post-content">
-        <div class="category">categorie</div>
-        <h1 class="title">CAROUNANITHI</h1>
-        <h2 class="sub_title">Catherine</h2>
-        <p >Etudiante en dut info</p>
+<?php 
+  require ("modele/connectBD.php");
+  foreach ($annonce as $key => $value) {
+    echo("<div class=\"container\"><div class=\"info\"><h1>".$value[0]."</h1></div>");
+    $candid = getCandidatsIDWithAnnonceId($value[0]);
+    //print_r($candid);
+    $cpt = 1;
+    foreach ($candid as $key => $valu) {
+        $uncandid = getUserByID($valu[0]);
         
-      </div>
-    </div>
-  </div>
-  
-   <div class="column">
-    <div class="demo-title"></div>
-    <!-- Post-->
-    <div class="post-module">
-      <!-- Thumbnail-->
-      <div class="thumbnail">
-        <div class="date">
-          <div class="day">num</div>
-          
-        </div><img src="http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg"/>
-      </div>
-      <!-- Post Content-->
-      <div class="post-content">
-        <div class="category">categorie</div>
-        <h1 class="title">KICHENASSAMY</h1>
-        <h2 class="sub_title">Lavannya</h2>
-        <p >Etudiante en dut info</p>
-        
-      </div>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="demo-title"></div>
-    <!-- Post-->
-    <div class="post-module">
-      <!-- Thumbnail-->
-      <div class="thumbnail">
-        <div class="date">
-          <div class="day">num</div>
-          
-        </div><img src="http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg"/>
-      </div>
-      <!-- Post Content-->
-      <div class="post-content">
-        <div class="category">categorie</div>
-        <h1 class="title">Rosaz</h1>
-        <h2 class="sub_title">Boris</h2>
-        <p >Etudiant en dut info</p>
-        
-      </div>
-    </div>
-  </div>
-  </br>
-  </br>
-</div>
-
-
-<div class="container" style="margin-bottom: 50%">
-  <div class="info">
-    <h1>Annonce</h1>
-  </div>
-  <!-- Normal Demo-->
-  <div class="column">
-    <div class="demo-title"></div>
-    <!-- Post-->
-    <div class="post-module">
-      <!-- Thumbnail-->
-      <div class="thumbnail">
-        <div class="date">
-          <div class="day">num</div>
-          
-        </div><img src="http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg"/>
-      </div>
-      <!-- Post Content-->
-      <div class="post-content">
-        <div class="category">categorie</div>
-        <h1 class="title">AKROUCH</h1>
-        <h2 class="sub_title">Anis</h2>
-        <p >Etudiant en dut info</p>
-        <p ></p>
-		<p ></p>
-      </div>
-    </div>
-  </div>
-  
-   <div class="column">
-    <div class="demo-title"></div>
-    <!-- Post-->
-    <div class="post-module">
-      <!-- Thumbnail-->
-      <div class="thumbnail">
-        <div class="date">
-          <div class="day">num</div>
-          
-        </div><img src="http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg"/>
-      </div>
-      <!-- Post Content-->
-      <div class="post-content">
-        <div class="category">categorie</div>
-        <h1 class="title">CAROUNANITHI</h1>
-        <h2 class="sub_title">Catherine</h2>
-        <p >Etudiante en dut info</p>
-        
-      </div>
-    </div>
-  </div>
-  
-   <div class="column">
-    <div class="demo-title"></div>
-    <!-- Post-->
-    <div class="post-module">
-      <!-- Thumbnail-->
-      <div class="thumbnail">
-        <div class="date">
-          <div class="day">num</div>
-          
-        </div><img src="http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg"/>
-      </div>
-      <!-- Post Content-->
-      <div class="post-content">
-        <div class="category">categorie</div>
-        <h1 class="title">KICHENASSAMY</h1>
-        <h2 class="sub_title">Lavannya</h2>
-        <p >Etudiante en dut info</p>
-        
-      </div>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="demo-title"></div>
-    <!-- Post-->
-    <div class="post-module">
-      <!-- Thumbnail-->
-      <div class="thumbnail">
-        <div class="date">
-          <div class="day">num</div>
-          
-        </div><img src="http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg"/>
-      </div>
-      <!-- Post Content-->
-      <div class="post-content">
-        <div class="category">categorie</div>
-        <h1 class="title">Rosaz</h1>
-        <h2 class="sub_title">Boris</h2>
-        <p >Etudiant en dut info</p>
-        
-      </div>
-    </div>
-  </div>
-  </br>
-  </br>
-</div>
-
-				
-
-               
+        foreach ($uncandid as $key => $val) {
+            echo("<div class=\"column\"><div class=\"demo-title\"></div><div class=\"post-module\"><div class=\"thumbnail\"><div class=\"date\">");
+            echo("<div class=\"day\">".$cpt."</div>");
+            $cpt = $cpt + 1;
+            echo("</div><img src=\"http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg\"/></div><div class=\"post-content\"><div class=\"category\">".$val[7]."</div><h1 class=\"title\">".$val[1]."</h1><h2 class=\"sub_title\">".$val[2]."</h2><p>".$val[10]."</p><p></p><p></p></div></div></div>");
+        }
+    }
+    echo("</div>");
+  }
+  ?>
                 <!--===================================================-->
                 <!--===================================================-->
                 <!--End page content-->
