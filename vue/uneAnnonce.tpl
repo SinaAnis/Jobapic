@@ -362,15 +362,15 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         text-align:center;
                     }
                 </style>
-                <table class="listAnnonce">
+               <table class="listAnnonce">
                     <tr class="titres">
                         <td class="col-md-2">
                             Catégorie
                         </td>
-                        <td class="col-md-3">
+                        <td class="col-md-2">
                             Nom du poste
                         </td>
-                        <td class="col-md-3">
+                        <td class="col-md-2">
                             Nom du recruteur
                         </td>   
                         <td class="col-md-2">
@@ -379,24 +379,18 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         <td class="col-md-2">
                             Date de publication
                         </td>
+                        <td class="col-md-2">
+                            Postuler
+                        </td>
                         
                     </tr>
                     <tr class="lespace">
-                        <td class="col-md-2">
-                            
-                        </td>
-                        <td class="col-md-3">
-                            
-                        </td>
-                        <td class="col-md-3">
-                            
-                        </td>   
-                        <td class="col-md-2">
-                            
-                        </td>
-                        <td class="col-md-2">
-                            
-                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>   
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <?php 
                         foreach ($annonce as $key => $value) {
@@ -413,7 +407,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                             }
                             echo ("<td>" . utf8_encode($value[3]) . "</td>");
                             echo ("<td>" . utf8_encode($value[2]) . "</td>");
-                            
+                            echo ("<td><a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></td>");
                         
 
                             echo "</tr>\n";
@@ -423,7 +417,6 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                     
                     
                 </table>
-
                 </ul>
 
                             </div>
