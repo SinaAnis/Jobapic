@@ -20,9 +20,6 @@ function editerProfil(){
 	$ville = isset($_POST['ville'])?($_POST['ville']):'';
 	$photo = isset($_POST['photo'])?($_POST['photo']):'';
 
-
-
-   echo "<script language='JavaScript'>alert(". " YO " . $_SESSION['idUser'] . " et $idUser " . " !!')</script>";
 	 if  (count($_POST)==0) {
 	 require('./vue/modifProfil.tpl');
     }
@@ -35,12 +32,11 @@ function editerProfil(){
 	  || $situation != $_SESSION['Situation'] || $departement != $_SESSION['Departement'] || $ville != $_SESSION['Ville'] || $photo != $_SESSION['Photo'] ) {
 		//echo "<script language='JavaScript'>alert('Profil edité avec succes !!')</script>";
 		require ("./modele/utilisateurBD.php") ;
-		editerProfilBD($mail,$prenom,$nom,$mdp, $genre, $date , $telephone, $situation,$departement , $ville, $photo ,1);
+		editerProfilBD($mail,$prenom,$nom,$mdp, $genre, $date , $telephone, $situation,$departement , $ville, $photo ,$_SESSION['idUser']);
 		getProfil($_SESSION['idUser'],$_SESSION['mdp']);
     require('./vue/modifProfil.tpl');
    }
 	 else {
-		    echo "<script language='JavaScript'>alert(' YO" . $_SESSION['idUser'] ." et ".$idUser." !!')</script>";
 		 echo "<script language='JavaScript'>alert('Aucune Modification !!')</script>";
 		 require('./vue/modifProfil.tpl');
 	 }

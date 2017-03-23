@@ -9,19 +9,19 @@
 
     <!--STYLESHEET-->
     <!--=================================================-->
-	
+
     <!--Roboto Slab Font [ OPTIONAL ] -->
     <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Roboto:500,400italic,100,700italic,300,700,500italic,400" rel="stylesheet">
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
     <link href="vue/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <link href="vue/css/styleAnnonce.css" rel="stylesheet">
 
     <!--Jasmine Stylesheet [ REQUIRED ]-->
     <link href="vue/css/style.css" rel="stylesheet">
-	
+
 	<link href="vue/css/lavy.css" rel="stylesheet">
 
     <!--Font Awesome [ OPTIONAL ]-->
@@ -351,40 +351,46 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                 </header>
 
                 <!--Page content-->
-				<h3 class="cat">catégorie</h3>
-				<div class="row taille2">
-					<div class="col-sm-4 taille"></div>
-					<div class="col-sm-4 taille"></div>
-					<div class="col-sm-4 taille"></div>
-					<div class="col-sm-4 taille"></div>
-				</div>
-				<div class="row taille2">
+       <?php foreach ($annonces as $v) {
+        echo ("<h3 class='cat'>".$v[1]."</h3>"); ?>
+        <?php
+         require("./modele/annonceBD.php") ;
+         	require('./vue/lesCandidats.tpl');
+        $candidatures = afficherCandidatAnnonce($v[0]);
+        foreach ($candidatures as $candidat) {
+        echo ("<h3 class='cat'>".$candidat[1]."</h3>");
+        ?>
+        <div class="col-sm-4 taille3">
+          <h3 class="text"> Nom </h3>
+          <h3 class="text"> Prenom </h3>
+          <h3 class="text"> Adresse </h3>
+          <input class="btn menu-title" type="button" name="btn" value="Voir plus">
+        </div>
+
+          <?php } ?>
+          <!--
 					<div class="col-sm-4 taille3">
 						<h3 class="text"> Nom </h3>
 						<h3 class="text"> Prenom </h3>
 						<h3 class="text"> Adresse </h3>
-						<input class="btn menu-title" type="button" name="btn" value="Voir plus"> 
+						<input class="btn menu-title" type="button" name="btn" value="Voir plus">
 					</div>
 					<div class="col-sm-4 taille3">
 						<h3 class="text"> Nom </h3>
 						<h3 class="text"> Prenom </h3>
 						<h3 class="text"> Adresse </h3>
-						<input class="btn menu-title" type="button" name="btn" value="Voir plus"> 
+						<input class="btn menu-title" type="button" name="btn" value="Voir plus">
 					</div>
 					<div class="col-sm-4 taille3">
 						<h3 class="text"> Nom </h3>
 						<h3 class="text"> Prenom </h3>
 						<h3 class="text"> Adresse </h3>
-						<input class="btn menu-title" type="button" name="btn" value="Voir plus"> 
+						<input class="btn menu-title" type="button" name="btn" value="Voir plus">
 					</div>
-					<div class="col-sm-4 taille3">
-						<h3 class="text"> Nom </h3>
-						<h3 class="text"> Prenom </h3>
-						<h3 class="text"> Adresse </h3>
-						<input class="btn menu-title" type="button" name="btn" value="Voir plus"> 
-					</div>
-				</div>
-				
+        -->
+
+        <?php  } ?>
+<!--
 				<h3 class="cat">catégorie2</h3>
 				<div class="row taille2">
 					<div class="col-sm-4 taille"></div>
@@ -397,31 +403,32 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 						<h3 class="text"> Nom </h3>
 						<h3 class="text"> Prenom </h3>
 						<h3 class="text"> Adresse </h3>
-						<input class="btn menu-title" type="button" name="btn" value="Voir plus"> 
+						<input class="btn menu-title" type="button" name="btn" value="Voir plus">
 					</div>
 					<div class="col-sm-4 taille3">
 						<h3 class="text"> Nom </h3>
 						<h3 class="text"> Prenom </h3>
 						<h3 class="text"> Adresse </h3>
-						<input class="btn menu-title" type="button" name="btn" value="Voir plus"> 
+						<input class="btn menu-title" type="button" name="btn" value="Voir plus">
 					</div>
 					<div class="col-sm-4 taille3">
 						<h3 class="text"> Nom </h3>
 						<h3 class="text"> Prenom </h3>
 						<h3 class="text"> Adresse </h3>
-						<input class="btn menu-title" type="button" name="btn" value="Voir plus"> 
+						<input class="btn menu-title" type="button" name="btn" value="Voir plus">
 					</div>
 					<div class="col-sm-4 taille3">
 						<h3 class="text"> Nom </h3>
 						<h3 class="text"> Prenom </h3>
 						<h3 class="text"> Adresse </h3>
-						<input class="btn menu-title" type="button" name="btn" value="Voir plus"> 
+						<input class="btn menu-title" type="button" name="btn" value="Voir plus">
 					</div>
 				</div>
-				
-				
+      -->
 
-               
+
+
+
                 <!--===================================================-->
                 <!--===================================================-->
                 <!--End page content-->

@@ -154,6 +154,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                         <!-- CHANGER $POST prenom par $SESSION -->
                                                         <input type="text" name="prenom" class="form-control"  data-parsley-group="information" data-parsley-required  placeholder="Prénom" value=<?php echo $_SESSION['prenom'];?> >
                                                     </div>
+                                                    
                                                     <div class="col-md-6">
                                                         <label>Nom: <span class="text-danger">*</span> </label>
                                                         <input type="text" name="nom" class="form-control" placeholder="Nom" data-parsley-group="information" data-parsley-required value=<?php echo $_SESSION['nom'];?> />
@@ -180,8 +181,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                           <div class="col-sm-8">
                                                               <select name="departement" class="form-control" data-parsley-group="experience" data-parsley-required>
                                                                   <option <?php if ($_SESSION['Departement'] == "Paris") {?> selected="selected"  <?php } ?>  value="Paris">Paris</option>
-                                                                  <option <?php if ($_SESSION['Departement'] == "SSD") {?> selected="selected"  <?php } ?>value="Seine Saint Denis">Seine Saint Denis</option>
-                                                                  <option <?php if ($_SESSION['Departement'] == "SEM") {?> selected="selected"  <?php } ?>value="Seine et Marne">Seine et Marne</option>
+                                                                  <option <?php if ($_SESSION['Departement'] == "Seine Saint Denis") {?> selected="selected"  <?php } ?>value="Seine Saint Denis">Seine Saint Denis</option>
+                                                                  <option <?php if ($_SESSION['Departement'] == "Seine et Marne") {?> selected="selected"  <?php } ?>value="Seine et Marne">Seine et Marne</option>
 
                                                               </select>
                                                           </div>
@@ -194,7 +195,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                                   </div>
 
-                                                
+
                                                 </div>
                                             </div>
 
@@ -224,7 +225,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                                 <select name="genre" class="form-control" data-parsley-group="experience" data-parsley-required>
                                                                     <option <?php if ($_SESSION['genre'] == "Femme") {?> selected="selected"  <?php } ?> value="Femme">Femme</option>
                                                                     <option <?php if ($_SESSION['genre'] == "Homme") {?> selected="selected"  <?php } ?> value="Homme">Homme</option>
-                                                                    <option value="Aucun">Non Renseigné</option>
+                                                                    <option <?php if ($_SESSION['genre'] == "Aucun") {?> selected="selected"  <?php } ?>value="Aucun">Non Renseigné</option>
 
                                                                 </select>
                                                             </div>

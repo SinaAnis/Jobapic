@@ -9,6 +9,14 @@ function afficherAnnonceEmploye() {
 	return mysqli_fetch_all($res);
 }
 
+function afficherCandidatAnnonce($idAnnonce){
+  require ("modele/connectBD.php");
+   $select = "SELECT * FROM `postule` p , `utilisateur` u WHERE `IdAnnonce` = '%s' AND p.IdUser = u.IdUser";
+   $req = sprintf($select,$idAnnonce);
+   $res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
+   return mysqli_fetch_all($res);
+}
+
 function afficherAnnonceEmployeur($idEmployeur) {
  require ("modele/connectBD.php");
 	$select = "SELECT * FROM `annonce` WHERE idUser = '%s' ";

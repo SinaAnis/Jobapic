@@ -2,8 +2,11 @@
 
 
 function lesCandidatures(){
-	require('./vue/lesCandidats.tpl');
+	require ("./modele/annonceBD.php") ;
+	$annonces = afficherAnnonceEmployeur($_SESSION['idUser']);
 	
+	require('./vue/lesCandidats.tpl');
+
 }
 
 ?>
