@@ -5,23 +5,31 @@
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Les candidatures | Job'Apic - Enfin un job à pic.</title>
+    <title> Page d'Accueil | Job'Apic - Enfin un job à pic.</title>
 
     <!--STYLESHEET-->
     <!--=================================================-->
-
+	
     <!--Roboto Slab Font [ OPTIONAL ] -->
     <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Roboto:500,400italic,100,700italic,300,700,500italic,400" rel="stylesheet">
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
     <link href="vue/css/bootstrap.min.css" rel="stylesheet">
-
+    
     <link href="vue/css/styleAnnonce.css" rel="stylesheet">
+	
+	
+	<!--style les candidats-->
+	<link href="vue/css/lesCandidats.css" rel="stylesheet">
+	<link rel="stylesheet" media="all and (max-width: 600px)" href="vue/css/lesCandidats_mobile.css">
+	<script type="text/javascript" src="vue/js/lesCandidats.js"></script>
 
+	
+	
     <!--Jasmine Stylesheet [ REQUIRED ]-->
     <link href="vue/css/style.css" rel="stylesheet">
-
+	
 	<link href="vue/css/lavy.css" rel="stylesheet">
 
     <!--Font Awesome [ OPTIONAL ]-->
@@ -340,7 +348,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
             <!--===================================================-->
             <section id="content-container">
                 <header class="pageheader">
-                    <h3><i class="fa fa-home"></i> Les Candidats </h3>
+                    <h3 class="titre"><i class="fa fa-home"></i> Les Candidats </h3>
                     <div class="breadcrumb-wrapper"> <span class="label">Vous êtes ici:</span>
                         <ol class="breadcrumb">
                             <li> <a href="#"> Home </a> </li>
@@ -350,85 +358,205 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                     </div>
                 </header>
 
-                <!--Page content-->
-       <?php foreach ($annonces as $v) {
-        echo ("<h3 class='cat'>".$v[1]."</h3>"); ?>
-        <?php
-         require("./modele/annonceBD.php") ;
-         	require('./vue/lesCandidats.tpl');
-        $candidatures = afficherCandidatAnnonce($v[0]);
-        foreach ($candidatures as $candidat) {
-        echo ("<h3 class='cat'>".$candidat[1]."</h3>");
-        ?>
-        <div class="col-sm-4 taille3">
-          <h3 class="text"> Nom </h3>
-          <h3 class="text"> Prenom </h3>
-          <h3 class="text"> Adresse </h3>
-          <input class="btn menu-title" type="button" name="btn" value="Voir plus">
-        </div>
+<!--Page content-->
+<div class="container">
+  <div class="info">
+    <h1>Annonce</h1>
+  </div>
+  <!-- Normal Demo-->
+  <div class="column">
+    <div class="demo-title"></div>
+    <!-- Post-->
+    <div class="post-module">
+      <!-- Thumbnail-->
+      <div class="thumbnail">
+        <div class="date">
+          <div class="day">num</div>
+          
+        </div><img src="http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg"/>
+      </div>
+      <!-- Post Content-->
+      <div class="post-content">
+        <div class="category">categorie</div>
+        <h1 class="title">AKROUCH</h1>
+        <h2 class="sub_title">Anis</h2>
+        <p >Etudiant en dut info</p>
+        <p ></p>
+		<p ></p>
+      </div>
+    </div>
+  </div>
+  
+   <div class="column">
+    <div class="demo-title"></div>
+    <!-- Post-->
+    <div class="post-module">
+      <!-- Thumbnail-->
+      <div class="thumbnail">
+        <div class="date">
+          <div class="day">num</div>
+          
+        </div><img src="http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg"/>
+      </div>
+      <!-- Post Content-->
+      <div class="post-content">
+        <div class="category">categorie</div>
+        <h1 class="title">CAROUNANITHI</h1>
+        <h2 class="sub_title">Catherine</h2>
+        <p >Etudiante en dut info</p>
+        
+      </div>
+    </div>
+  </div>
+  
+   <div class="column">
+    <div class="demo-title"></div>
+    <!-- Post-->
+    <div class="post-module">
+      <!-- Thumbnail-->
+      <div class="thumbnail">
+        <div class="date">
+          <div class="day">num</div>
+          
+        </div><img src="http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg"/>
+      </div>
+      <!-- Post Content-->
+      <div class="post-content">
+        <div class="category">categorie</div>
+        <h1 class="title">KICHENASSAMY</h1>
+        <h2 class="sub_title">Lavannya</h2>
+        <p >Etudiante en dut info</p>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="demo-title"></div>
+    <!-- Post-->
+    <div class="post-module">
+      <!-- Thumbnail-->
+      <div class="thumbnail">
+        <div class="date">
+          <div class="day">num</div>
+          
+        </div><img src="http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg"/>
+      </div>
+      <!-- Post Content-->
+      <div class="post-content">
+        <div class="category">categorie</div>
+        <h1 class="title">Rosaz</h1>
+        <h2 class="sub_title">Boris</h2>
+        <p >Etudiant en dut info</p>
+        
+      </div>
+    </div>
+  </div>
+  </br>
+  </br>
+</div>
 
-          <?php } ?>
-          <!--
-					<div class="col-sm-4 taille3">
-						<h3 class="text"> Nom </h3>
-						<h3 class="text"> Prenom </h3>
-						<h3 class="text"> Adresse </h3>
-						<input class="btn menu-title" type="button" name="btn" value="Voir plus">
-					</div>
-					<div class="col-sm-4 taille3">
-						<h3 class="text"> Nom </h3>
-						<h3 class="text"> Prenom </h3>
-						<h3 class="text"> Adresse </h3>
-						<input class="btn menu-title" type="button" name="btn" value="Voir plus">
-					</div>
-					<div class="col-sm-4 taille3">
-						<h3 class="text"> Nom </h3>
-						<h3 class="text"> Prenom </h3>
-						<h3 class="text"> Adresse </h3>
-						<input class="btn menu-title" type="button" name="btn" value="Voir plus">
-					</div>
-        -->
 
-        <?php  } ?>
-<!--
-				<h3 class="cat">catégorie2</h3>
-				<div class="row taille2">
-					<div class="col-sm-4 taille"></div>
-					<div class="col-sm-4 taille"></div>
-					<div class="col-sm-4 taille"></div>
-					<div class="col-sm-4 taille"></div>
-				</div>
-				<div class="row taille2">
-					<div class="col-sm-4 taille3">
-						<h3 class="text"> Nom </h3>
-						<h3 class="text"> Prenom </h3>
-						<h3 class="text"> Adresse </h3>
-						<input class="btn menu-title" type="button" name="btn" value="Voir plus">
-					</div>
-					<div class="col-sm-4 taille3">
-						<h3 class="text"> Nom </h3>
-						<h3 class="text"> Prenom </h3>
-						<h3 class="text"> Adresse </h3>
-						<input class="btn menu-title" type="button" name="btn" value="Voir plus">
-					</div>
-					<div class="col-sm-4 taille3">
-						<h3 class="text"> Nom </h3>
-						<h3 class="text"> Prenom </h3>
-						<h3 class="text"> Adresse </h3>
-						<input class="btn menu-title" type="button" name="btn" value="Voir plus">
-					</div>
-					<div class="col-sm-4 taille3">
-						<h3 class="text"> Nom </h3>
-						<h3 class="text"> Prenom </h3>
-						<h3 class="text"> Adresse </h3>
-						<input class="btn menu-title" type="button" name="btn" value="Voir plus">
-					</div>
-				</div>
-      -->
+<div class="container" style="margin-bottom: 50%">
+  <div class="info">
+    <h1>Annonce</h1>
+  </div>
+  <!-- Normal Demo-->
+  <div class="column">
+    <div class="demo-title"></div>
+    <!-- Post-->
+    <div class="post-module">
+      <!-- Thumbnail-->
+      <div class="thumbnail">
+        <div class="date">
+          <div class="day">num</div>
+          
+        </div><img src="http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg"/>
+      </div>
+      <!-- Post Content-->
+      <div class="post-content">
+        <div class="category">categorie</div>
+        <h1 class="title">AKROUCH</h1>
+        <h2 class="sub_title">Anis</h2>
+        <p >Etudiant en dut info</p>
+        <p ></p>
+		<p ></p>
+      </div>
+    </div>
+  </div>
+  
+   <div class="column">
+    <div class="demo-title"></div>
+    <!-- Post-->
+    <div class="post-module">
+      <!-- Thumbnail-->
+      <div class="thumbnail">
+        <div class="date">
+          <div class="day">num</div>
+          
+        </div><img src="http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg"/>
+      </div>
+      <!-- Post Content-->
+      <div class="post-content">
+        <div class="category">categorie</div>
+        <h1 class="title">CAROUNANITHI</h1>
+        <h2 class="sub_title">Catherine</h2>
+        <p >Etudiante en dut info</p>
+        
+      </div>
+    </div>
+  </div>
+  
+   <div class="column">
+    <div class="demo-title"></div>
+    <!-- Post-->
+    <div class="post-module">
+      <!-- Thumbnail-->
+      <div class="thumbnail">
+        <div class="date">
+          <div class="day">num</div>
+          
+        </div><img src="http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg"/>
+      </div>
+      <!-- Post Content-->
+      <div class="post-content">
+        <div class="category">categorie</div>
+        <h1 class="title">KICHENASSAMY</h1>
+        <h2 class="sub_title">Lavannya</h2>
+        <p >Etudiante en dut info</p>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="demo-title"></div>
+    <!-- Post-->
+    <div class="post-module">
+      <!-- Thumbnail-->
+      <div class="thumbnail">
+        <div class="date">
+          <div class="day">num</div>
+          
+        </div><img src="http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg"/>
+      </div>
+      <!-- Post Content-->
+      <div class="post-content">
+        <div class="category">categorie</div>
+        <h1 class="title">Rosaz</h1>
+        <h2 class="sub_title">Boris</h2>
+        <p >Etudiant en dut info</p>
+        
+      </div>
+    </div>
+  </div>
+  </br>
+  </br>
+</div>
 
+				
 
-
-
+               
                 <!--===================================================-->
                 <!--===================================================-->
                 <!--End page content-->
@@ -454,7 +582,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                     <!--Menu list item-->
                                     <li>
-                                        <a href="index.php?controle=identification&action=afficherMurEmployeur">
+                                        <a href="index.html">
                                             <i class="fa fa-dashboard"></i>
                                             <span class="menu-title">
 												<strong>Mur</strong>
@@ -471,8 +599,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                       <!--Submenu-->
                                       <ul class="collapse">
-                                          <li><a href="index.php?controle=creerAnnonce&action=creerAnnonce"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
-                                          <li><a href="index.php?controle=lesCandidatures&action=lesCandidatures"><i class="fa fa-caret-right"></i> les Candidatures</a></li>
+                                          <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
+                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
                                       </ul>
                                     </li>
 
@@ -485,9 +613,9 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                       <!--Submenu-->
                                       <ul class="collapse">
-                                          <li><a href="index.php?controle=consulterAnnonce&action=consulterMesAnnonces"><i class="fa fa-caret-right"></i> Mes annonces</a></li>
-
-                                          <li><a href="index.php?controle=editerProfil&action=editerProfil"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
+                                          <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
+                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>
+                                          <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Modifier mon profil </a></li>
                                       </ul>
                                     </li>
 
@@ -496,6 +624,32 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                     <li class="list-divider"></li>
 
+
+                                    <!--Category name-->
+
+                                    <!--Category name-->
+                                    <li class="list-header">Lot Secondaire</li>
+                                    <!--Menu list item-->
+
+                                    <!--Category name-->
+                                    <li class="list-header">Lot Tertiaire</li>
+                                    <!--Menu list item-->
+                                    <li>
+                                      <a href="#">
+                                          <i class="fa fa-envelope"></i>
+                                          <span class="menu-title">Profil</span>
+                                          <i class="arrow"></i>
+                                      </a>
+
+                                      <!--Submenu-->
+                                      <ul class="collapse">
+                                          <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
+                                          <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Mes candidatures </a></li>
+                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
+                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Modifier paramètre </a></li>
+
+                                      </ul>
+                                    </li>
                                     <!--Category name-->
                                     <li class="list-header">Lot Falcultatif</li>
                                     <!--Menu list item-->
@@ -854,11 +1008,11 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
         <!-- FOOTER -->
         <!--===================================================-->
-        <footer id="footer">
+       <!-- <footer id="footer">
 
             <!-- Visible when footer positions are fixed -->
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-            <div class="show-fixed pull-right">
+           <!-- <div class="show-fixed pull-right">
                 <ul class="footer-list list-inline">
                     <li>
                         <p class="text-sm">SEO Proggres</p>
@@ -882,14 +1036,14 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
             <!-- Visible when footer positions are static -->
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-            <div class="hide-fixed pull-right pad-rgt">Currently v2.2</div>
+            <!-- <div class="hide-fixed pull-right pad-rgt">Currently v2.2</div>
 
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
             <!-- Remove the class name "show-fixed" and "hide-fixed" to make the content always appears. -->
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-            <p class="pad-lft">&#0169; 2015 - Job'Apic</p>
-        </footer>
+          <!--   <p class="pad-lft">&#0169; 2015 - Job'Apic</p>
+        </footer>-->
         <!--===================================================-->
         <!-- END FOOTER -->
 
