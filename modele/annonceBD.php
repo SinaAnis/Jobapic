@@ -1,34 +1,44 @@
 <?php
 
-function afficherAnnonceEmploye($id) {
+function afficherAnnonceEmploye($iduser) {
  require ("modele/connectBD.php");
-	$select = "SELECT * FROM `annonce` where annonce.idUser <> '%s' and annonce.idCategorie in (select idCategorie from `categoriepref`, `utilisateur` where utilisateur.IdUser = categoriepref.IdUser) ORDER BY idAnnonce";
-	$req = sprintf($select,$id);
+	$select = "SELECT * FROM `annonce` where annonce.idUser <> %s and annonce.idCategorie in (select idCategorie from `categoriepref`, `utilisateur` where utilisateur.IdUser = categoriepref.IdUser) ORDER BY idAnnonce";
+	$req = sprintf($select,$iduser);
 	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
 
 	return mysqli_fetch_all($res);
 }
-
-
-function afficherCandidatAnnonce($idAnnonce){
-  require ("modele/connectBD.php");
-   $select = "SELECT * FROM `postule` p , `utilisateur` u WHERE `IdAnnonce` = '%s' AND p.IdUser = u.IdUser";
-   $req = sprintf($select,$idAnnonce);
-   $res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
-   return mysqli_fetch_all($res);
- }
 
 function afficherAnnonceById($id) {
  require ("modele/connectBD.php");
 	$select = "SELECT * FROM `annonce` where idAnnonce = '%s'";
 	$req = sprintf($select, $id);
 	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
+
+	return mysqli_fetch_all($res);
+}
+
+function getAnnonceWithIdUser($id) {
+ require ("modele/connectBD.php");
+	$select = "SELECT * FROM `annonce` where idUser = '%s' ORDER BY idAnnonce";
+	$req = sprintf($select, $id);
+	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
+
 	return mysqli_fetch_all($res);
 }
 
 function getUserNameWithAnnonceId($id) {
  require ("modele/connectBD.php");
 	$select = "SELECT utilisateur.Prenom FROM `annonce`, `utilisateur` where idAnnonce = '%s' AND utilisateur.idUser = annonce.idUser";
+	$req = sprintf($select, $id);
+	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
+
+	return mysqli_fetch_all($res);
+}
+
+function getCandidatsIDWithAnnonceId($id) {
+ require ("modele/connectBD.php");
+	$select = "SELECT idUser FROM `postule` where idAnnonce = '%s'";
 	$req = sprintf($select, $id);
 	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
 
@@ -63,9 +73,9 @@ function creation_annonce($nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAn
 
 function postulerSQL($iduser,$id){
   require ("./modele/connectBD.php");
-  $req= "INSERT INTO `postule`(`IdAnnonce`, `IdUser`) VALUES ('%s','%s')";
+  $req= "INSERT INTO `postule`(`IdAnnonce`, `IdUser`) VALUES (%s,%s)";
   $sql = sprintf ($req,$id,$iduser);
-  $res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
+  $res = mysqli_query($link,$sql);// or die ('erreur de requete : ' . $sql);
 }
 
 function getPostuleById($id){
@@ -81,6 +91,15 @@ function getStatutWithIdAnnonceAndUser($iduser, $idann){
     require ("modele/connectBD.php");
 	$select = "SELECT statut FROM `postule` WHERE postule.idUser = %s AND postule.idAnnonce = %s ";
 	$req = sprintf($select,$iduser, $idann);
+	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
+
+	return mysqli_fetch_all($res);
+}
+
+function getUserByID($iduser){
+    require ("modele/connectBD.php");
+	$select = "SELECT * FROM `utilisateur` WHERE idUser = %s ";
+	$req = sprintf($select,$iduser);
 	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
 
 	return mysqli_fetch_all($res);
