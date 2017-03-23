@@ -138,8 +138,9 @@ input:checked + .slider:before {
                 <!--Brand logo & name-->
                 <!--================================-->
                 <div class="navbar-header">
-                    <a href="index.html" class="navbar-brand"> <i class="fa fa-cube brand-icon"></i>
+                    <a href="index.php?controle=identification&action=afficherMurEmploye" class="navbar-brand"> <i class="fa fa-cube brand-icon"></i>
                         <div class="brand-title"> <span class="brand-text">Job'Apic</span> </div>
+			
                     </a>
                 </div>
                 <!--================================-->
