@@ -22,7 +22,8 @@
 	
 	<!--style les candidats-->
 	<link href="vue/css/lesCandidats.css" rel="stylesheet">
-	<link rel="stylesheet" media="all and (max-width: 600px)" href="vue/css/lesCandidats_mobile.css">
+	<link rel="stylesheet" media="all and (max-width: 700px)" href="vue/css/lesCandidats_mobile.css">
+	<link rel="stylesheet" media="all and (max-width: 1024px)" href="vue/css/lesCandidats_1024.css">
 	<script type="text/javascript" src="vue/js/lesCandidats.js"></script>
 
 	
