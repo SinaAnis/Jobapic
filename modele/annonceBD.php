@@ -10,6 +10,7 @@ function afficherAnnonceEmploye() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 function afficherCandidatAnnonce($idAnnonce){
   require ("modele/connectBD.php");
    $select = "SELECT * FROM `postule` p , `utilisateur` u WHERE `IdAnnonce` = '%s' AND p.IdUser = u.IdUser";
@@ -17,6 +18,8 @@ function afficherCandidatAnnonce($idAnnonce){
    $res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
    return mysqli_fetch_all($res);
 =======
+=======
+>>>>>>> origin/master
 function afficherAnnonceById($id) {
  require ("modele/connectBD.php");
 	$select = "SELECT * FROM `annonce` where idAnnonce = '%s'";
@@ -42,6 +45,9 @@ function getCatNameWithAnnonceId($id) {
 	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
 
 	return mysqli_fetch_all($res);
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 }
 

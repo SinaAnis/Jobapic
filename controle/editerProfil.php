@@ -35,7 +35,11 @@ function editerProfil(){
 		//echo "<script language='JavaScript'>alert('Profil edité avec succes !!')</script>";
 		require ("./modele/utilisateurBD.php") ;
 <<<<<<< HEAD
+<<<<<<< HEAD
 		editerProfilBD($mail,$prenom,$nom,$mdp, $genre, $date , $telephone, $situation,$departement , $ville, $photo ,$_SESSION['idUser']);
+=======
+		editerProfilBD($mail, $genre,  $telephone, $situation,$departement , $ville, $photo ,$_SESSION['idUser']);
+>>>>>>> origin/master
 =======
 		editerProfilBD($mail, $genre,  $telephone, $situation,$departement , $ville, $photo ,$_SESSION['idUser']);
 >>>>>>> origin/master
