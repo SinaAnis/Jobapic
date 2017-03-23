@@ -53,4 +53,11 @@ function creation_annonce($nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAn
   $res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
 }
 
+function postulerSQL($iduser,$id){
+  require ("./modele/connectBD.php");
+  $req= "INSERT INTO `postule`(`IdAnnonce`, `IdUser`) VALUES (%s,%s)";
+  $sql = sprintf ($req,$id,$iduser);
+  $res = mysqli_query($link,$sql);// or die ('erreur de requete : ' . $sql);
+}
+
 ?>
