@@ -490,147 +490,121 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
             <!--MAIN NAVIGATION-->
             <!--===================================================-->
-           <nav id="mainnav-container">
+          <nav id="mainnav-container">
                 <div id="mainnav">
 
-                     <!--Menu-->
-                                                    <!--================================-->
-                                                    <div id="mainnav-menu-wrap">
-                                                        <div class="nano">
-                                                            <div class="nano-content">
-                                                                <ul id="mainnav-menu" class="list-group">
+                    <!--Menu-->
+                    <!--================================-->
+                    <div id="mainnav-menu-wrap">
+                        <div class="nano">
+                            <div class="nano-content">
+                                <ul id="mainnav-menu" class="list-group">
 
-                                                                    <!--Category name-->
-                                                                    <li class="list-header">Lot Principal</li>
+                                    <!--Category name-->
+                                    <li class="list-header">Lot Primaire</li>
 
-                                                                    <!--Menu list item-->
-                                                                    <li>
-                                                                        <a href="index.php?controle=identification&action=afficherMurEmploye">
-                                                                            <i class="fa fa-dashboard"></i>
-                                                                            <span class="menu-title">
-                                                                                <strong>Mur</strong>
-                                                                            </span>
-                                                                        </a>
-                                                                    </li>
+                                    <!--Menu list item-->
+                                    <li>
+                                        <a href="index.php?controle=identification&action=afficherMurEmployeur">
+                                            <i class="fa fa-dashboard"></i>
+                                            <span class="menu-title">
+												<strong>Mur</strong>
+											</span>
+                                        </a>
+                                    </li>
 
-                                                                    <li>
-                                                                      <a href="#">
-                                                                          <i class="fa fa-envelope"></i>
-                                                                          <span class="menu-title">Annonce(s)</span>
-                                                                          <i class="arrow"></i>
-                                                                      </a>
+                                    <li>
+                                      <a href="#">
+                                          <i class="fa fa-envelope"></i>
+                                          <span class="menu-title">Annonce(s)</span>
+                                          <i class="arrow"></i>
+                                      </a>
 
-                                                                      <!--Submenu-->
-                                                                      <ul class="collapse">
-                                                                         <li><a href="index.php?controle=consulterAnnonce&action=consulterLesAnnonces"><i class="fa fa-caret-right"></i> Consulter les annonces du jours</a></li>
-                                                                      </ul>
-                                                                  </li>
+                                      <!--Submenu-->
+                                      <ul class="collapse">
+                                           <li><a href="index.php?controle=creerAnnonce&action=creerAnnonce"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
+                                           <li><a href="index.php?controle=lesCandidatures&action=lesCandidatures"><i class="fa fa-caret-right"></i> Les Candidatures</a></li>
+                                      </ul>
+                                    </li>
 
-                                                                  <li>
-                                                                      <a href="#">
-                                                                          <i class="fa fa-envelope"></i>
-                                                                          <span class="menu-title">Profil</span>
-                                                                          <i class="arrow"></i>
-                                                                      </a>
+                                    <li>
+                                      <a href="#">
+                                          <i class="fa fa-envelope"></i>
+                                          <span class="menu-title">Profil</span>
+                                          <i class="arrow"></i>
+                                      </a>
 
-                                                                      <!--Submenu-->
-                                                                      <ul class="collapse">
-                                                                          <li><a href="index.php?controle=editerProfil&action=editerProfilEmploye"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
-                                                                        
-                                                                          <li><a href="index.php?controle=mesCandidatures&action=mesCandidatures"><i class="fa fa-caret-right"></i> Mes candidatures</a></li>
-                                                                    </ul>
-                                                                  </li>
-
-
-                                                                  <!--Menu list item
-
-                                                                  <li class="list-divider"></li>
+                                      <!--Submenu-->
+                                      <ul class="collapse">
+                                       
+										<li><a href="index.php?controle=editerProfil&action=editerProfilEmployeur"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
+                                      </ul>
+                                    </li>
 
 
-                                                                  <!--Category name-->
+                                    <!--Menu list item-->
 
-                                                                  <!--Category name
-                                                                  <li class="list-header">Lot Secondaire</li>-->
-                                                                  <!--Menu list item-->
+                                    <li class="list-divider"></li>
 
-                                                                  <!--Category name
-                                                                  <li class="list-header">Lot Tertiaire</li>-->
-                                                                  <!--Menu list item
-                                                                  <li>
-                                                                      <a href="#">
-                                                                          <i class="fa fa-envelope"></i>
-                                                                          <span class="menu-title">Profil</span>
-                                                                          <i class="arrow"></i>
-                                                                      </a>
+                                 
+                                    <!--Category name-->
+                                    <li class="list-header">Lot Falcultatif</li>
+                                    <!--Menu list item-->
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-envelope"></i>
+                                            <span class="menu-title">Email</span>
+                                            <i class="arrow"></i>
+                                        </a>
 
-                                                                      <!--Submenu
+                                        <!--Submenu-->
+                                        <ul class="collapse">
+                                            <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Inbox</a></li>
+                                            <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> View Message</a></li>
+                                            <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Compose Message</a></li>
+                                        </ul>
+                                    </li>
 
-                                                                      <ul class="collapse">
-                                                                          <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
-                                                                          <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Mes candidatures </a></li>
-                                                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
-                                                                          
-
-                                                                      </ul>
-                                                                  </li>-->
-                                                                  <!--Category name-->
-                                                                  <li class="list-header">Lot Falcultatif</li>
-                                                                  <!--Menu list item-->
-                                                                  <li>
-                                                                    <a href="#">
-                                                                        <i class="fa fa-envelope"></i>
-                                                                        <span class="menu-title">Email</span>
-                                                                        <i class="arrow"></i>
-                                                                    </a>
-
-                                                                    <!--Submenu-->
-                                                                    <ul class="collapse">
-                                                                        <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Inbox</a></li>
-                                                                        <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> View Message</a></li>
-                                                                        <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Compose Message</a></li>
-                                                                    </ul>
-                                                                </li>
-
-                                                                <!--Menu list item-->
-                                                                <li>
-                                                                    <a href="calendar.html">
-                                                                        <i class="fa fa-calendar"></i>
-                                                                        <span class="menu-title">
-                                                                            Réseaux sociaux
-                                                                        </span>
-                                                                    </a>
-                                                                </li>
+                                    <!--Menu list item-->
+                                    <li>
+                                        <a href="calendar.html">
+                                            <i class="fa fa-calendar"></i>
+                                            <span class="menu-title">
+                        Calendar
+                      </span>
+                                        </a>
+                                    </li>
 
 
 
-                                                                <!--Menu list item-->
+                                    <!--Menu list item-->
 
 
-                                                                <!--Menu list item-->
+                                    <!--Menu list item-->
 
 
-                                                                <!--Menu list item-->
+                                    <!--Menu list item-->
 
-                                                                <!--Menu list item-->
-
-
-                                                                <!--Menu list item-->
+                                    <!--Menu list item-->
 
 
-                                                                <li class="list-divider"></li>
+                                    <!--Menu list item-->
+
+
+                                    <li class="list-divider"></li>
 
 
 
-                                                                <!--Menu list item-->
+                                    <!--Menu list item-->
 
 
-                                                                <!--Menu list item-->
+                                    <!--Menu list item-->
 
 
-                                                                <!--Menu list item-->
+                                    <!--Menu list item-->
 
 
-                                                            </ul>
+                                </ul>
 <center>
                                                         <a href="index.php?controle=identification&action=afficherMurEmployeur">
                                                           <button class="btn btn-default">Employeur</button>
@@ -640,7 +614,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 														  </a>
 														</br>
 														</br>
-														<p style="color: white; font-weight: bold">vous êtes dans le mur Employé</p>
+														<p style="color: white; font-weight: bold">vous êtes dans le mur Employeur</p>
 
                                                           </form>
                                                             </center>
