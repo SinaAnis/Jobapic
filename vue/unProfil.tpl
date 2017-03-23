@@ -407,7 +407,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
             <!--===================================================-->
             <!--END CONTENT CONTAINER-->
 
-            <!--MAIN NAVIGATION-->
+             <!--MAIN NAVIGATION-->
             <!--===================================================-->
             <nav id="mainnav-container">
                 <div id="mainnav">
