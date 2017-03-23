@@ -149,7 +149,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <input type="hidden" name="email" value = <?php echo $_POST['prenom'];?> >
-                                                          <input type="hidden" name="mdp" value = <?php echo $_POST['mdp'];?> >
+                                                         <!-- <input type="hidden" name="mdp" value = <?php echo $_POST['mdp'];?> --->
                                                         <label>Prénom: <span class="text-danger">*</span> </label>
                                                         <!-- CHANGER $POST prenom par $SESSION -->
                                                         <input type="text" name="prenom" class="form-control"  data-parsley-group="information" data-parsley-required  placeholder="Prénom" value=<?php echo $_SESSION['prenom'];?> >

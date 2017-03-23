@@ -5,8 +5,10 @@
 */
 
   function creerAnnonce(){
-  	require('./vue/pageCreationAnnonce.tpl');
-    $categorie = getCategorieFavoris($_SESSION['idUser']);
+    require ("modele/utilisateurBD.php") ;
+    //$categorie = getCategorieFavoris($_SESSION['idUser']);
+    $categorie = getCategorie();
+    require('./vue/pageCreationAnnonce.tpl');
   }
 
 function create () {
@@ -17,25 +19,30 @@ function create () {
 	$recAnnonce=  isset($_POST['rec'])?($_POST['rec']):'';
 	$catAnnonce=  isset($_POST['cat'])?($_POST['cat']):'';
 
-
+    
 
 	if  (count($_POST)==0) {
 	  //  echo("Veuillez remplir les champs");
 	   	require ("modele/utilisateurBD.php") ;
-			$categorie=getCategorieFavoris($_SESSION['idUser']);
+			$categorie=getCategorie();
 			require('./vue/pageCreationAnnonce.tpl') ;
 
 	}
-	else if (!empty($nomAnnonce)&&!empty($adrAnnonce)&&!empty($desAnnonce)&&!empty($recAnnonce) && isset($_POST['signup'])){
-require ("modele/annonceBD.php") ;
-			creation_annonce($nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAnnonce,$_SESSION['idUser']);
+	else if ($nomAnnonce == ''|| $adrAnnonce == ''|| $desAnnonce == '' || $recAnnonce == ''){
+            echo "<script language='JavaScript'>alert('Manque des informations')</script>";
+            require ("modele/utilisateurBD.php") ;
+			$categorie=getCategorie();
 			require('./vue/pageCreationAnnonce.tpl') ;
-			echo "<script language='JavaScript'>alert('Création d annonce réussie ! Félicitation')</script>";
-			$nomAnnonce= " " ; 	$catAnnonce= " "; $desAnnonce= " ";
+            print_r ($_POST);
 		}
 		else{
-			echo "<script language='JavaScript'>alert('Manque des informations')</script>";
+            		require ("modele/annonceBD.php") ;
+			require ("modele/utilisateurBD.php") ;
+			creation_annonce($nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAnnonce,$_SESSION['idUser']);
+            		$categorie = getCategorie();
+			echo "<script language='JavaScript'>alert('Création d annonce réussie ! Félicitation')</script>";
 			require('./vue/pageCreationAnnonce.tpl') ;
+			$nomAnnonce= " " ; 	$catAnnonce= " "; $desAnnonce= " ";
 		}
 
 }

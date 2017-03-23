@@ -528,7 +528,7 @@ input:checked + .slider:before {
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
                                                                           <li><a href="index.php?controle=creerAnnonce&action=creerAnnonce"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
-
+																		  <li><a href="index.php?controle=lesCandidatures&action=lesCandidatures"><i class="fa fa-caret-right"></i> les Candidatures</a></li>
                                                                       </ul>
                                                                   </li>
 
@@ -541,8 +541,8 @@ input:checked + .slider:before {
 
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
-                                                                          <li><a href="index.php?controle=lesCandidatures&action=lesCandidatures"><i class="fa fa-caret-right"></i> les Candidatures</a></li>
-
+                                                                          
+																			 <li><a href="index.php?controle=consulterAnnonce&action=consulterMesAnnonces"><i class="fa fa-caret-right"></i> Mes annonces</a></li>
                                                                           <li><a href="index.php?controle=editerProfil&action=editerProfil"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
 
 
@@ -647,7 +647,9 @@ input:checked + .slider:before {
                                                         <a href="index.php?controle=identification&action=afficherMurEmploye">
                                                           <button class="btn btn-default"> Employé </button>
                                                         </a>
-
+														</br>
+														</br>
+														<p style="color: white; font-weight: bold">vous êtes dans le mur Employeur</p>
 
 
                                                           </form>
