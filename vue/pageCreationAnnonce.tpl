@@ -468,7 +468,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
             <!--MAIN NAVIGATION-->
             <!--===================================================-->
-            <nav id="mainnav-container">
+           <nav id="mainnav-container">
                 <div id="mainnav">
 
                     <!--Menu-->
@@ -501,7 +501,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
                                                                           <li><a href="index.php?controle=creerAnnonce&action=creerAnnonce"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
-                                                                         <li><a href="index.php?controle=lesCandidatures&action=lesCandidatures"><i class="fa fa-caret-right"></i> les Candidatures</a></li>
+                                                                         <li><a href="index.php?controle=lesCandidatures&action=lesCandidatures"><i class="fa fa-caret-right"></i> Les Candidatures</a></li>
 																		 <!--<li><a href="index.php?controle=consulterAnnonce&action=consulterAnnonce"><i class="fa fa-caret-right"></i> Consulter les annonces du jours</a></li>-->
                                                                       </ul>
                                                                   </li>
@@ -515,8 +515,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
-                                                                          <li><a href="index.php?controle=consulterAnnonce&action=consulterMesAnnonces"><i class="fa fa-caret-right"></i> Mes annonces</a></li>
-
+                                                                          
                                                                           <li><a href="index.php?controle=editerProfil&action=editerProfil"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
 
                                                                           <!--<li><a href="#"><i class="fa fa-caret-right"></i> Mes candidatures</a></li>-->
@@ -615,7 +614,20 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
 
                                                             </ul>
+                                                            <center>
+                                                        <a href="index.php?controle=identification&action=afficherMurEmployeur">
+                                                          <button class="btn btn-default">Employeur</button>
+                                                        </a>
+                                                        <a href="index.php?controle=identification&action=afficherMurEmploye">
+                                                          <button class="btn btn-default"> Employé </button>
+                                                        </a>
+														</br>
+														</br>
+														<p style="color: white; font-weight: bold">vous êtes dans le mur Employeur</p>
 
+
+                                                          </form>
+                                                            </center>
 
                                                             <!--Widget-->
                                                             <!--================================-->
