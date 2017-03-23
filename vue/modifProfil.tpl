@@ -182,8 +182,13 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                           <div class="col-sm-8">
                                                              <!-- <select name="departement" class="form-control" data-parsley-group="experience" data-parsley-required>
                                                                   <option <?php if ($_SESSION['Departement'] == "Paris") {?> selected="selected"  <?php } ?>  value="Paris">Paris</option>
+<<<<<<< HEAD
                                                                   <option <?php if ($_SESSION['Departement'] == "Seine Saint Denis") {?> selected="selected"  <?php } ?>value="Seine Saint Denis">Seine Saint Denis</option>
                                                                   <option <?php if ($_SESSION['Departement'] == "Seine et Marne") {?> selected="selected"  <?php } ?>value="Seine et Marne">Seine et Marne</option>
+=======
+                                                                  <option <?php if ($_SESSION['Departement'] == "SSD") {?> selected="selected"  <?php } ?>value="Seine Saint Denis">Seine Saint Denis</option>
+                                                                  <option <?php if ($_SESSION['Departement'] == "SEM") {?> selected="selected"  <?php } ?>value="Seine et Marne">Seine et Marne</option>
+>>>>>>> origin/master
 
                                                               </select>--> 
                                                               <select name="departement"   class="form-control" data-parsley-group="experience" data-parsley-requiredstyle="width: 204px" onChange="affiche_ville(this.value)"><?php<option value=" echo $_SESSION['Departement'] "></option>?>
