@@ -454,7 +454,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                     <!--Menu list item-->
                                     <li>
-                                        <a href="index.html">
+                                        <a href="index.php?controle=identification&action=afficherMurEmployeur">
                                             <i class="fa fa-dashboard"></i>
                                             <span class="menu-title">
 												<strong>Mur</strong>
@@ -471,8 +471,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                       <!--Submenu-->
                                       <ul class="collapse">
-                                          <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
-                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
+                                          <li><a href="index.php?controle=creerAnnonce&action=creerAnnonce"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
+                                          <li><a href="index.php?controle=lesCandidatures&action=lesCandidatures"><i class="fa fa-caret-right"></i> les Candidatures</a></li>
                                       </ul>
                                     </li>
 
@@ -485,9 +485,9 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                       <!--Submenu-->
                                       <ul class="collapse">
-                                          <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
-                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>
-                                          <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Modifier mon profil </a></li>
+                                          <li><a href="index.php?controle=consulterAnnonce&action=consulterMesAnnonces"><i class="fa fa-caret-right"></i> Mes annonces</a></li>
+
+                                          <li><a href="index.php?controle=editerProfil&action=editerProfil"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
                                       </ul>
                                     </li>
 
@@ -496,32 +496,6 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                     <li class="list-divider"></li>
 
-
-                                    <!--Category name-->
-
-                                    <!--Category name-->
-                                    <li class="list-header">Lot Secondaire</li>
-                                    <!--Menu list item-->
-
-                                    <!--Category name-->
-                                    <li class="list-header">Lot Tertiaire</li>
-                                    <!--Menu list item-->
-                                    <li>
-                                      <a href="#">
-                                          <i class="fa fa-envelope"></i>
-                                          <span class="menu-title">Profil</span>
-                                          <i class="arrow"></i>
-                                      </a>
-
-                                      <!--Submenu-->
-                                      <ul class="collapse">
-                                          <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
-                                          <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Mes candidatures </a></li>
-                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
-                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Modifier paramètre </a></li>
-
-                                      </ul>
-                                    </li>
                                     <!--Category name-->
                                     <li class="list-header">Lot Falcultatif</li>
                                     <!--Menu list item-->

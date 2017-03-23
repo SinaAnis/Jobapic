@@ -140,7 +140,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                     <h5 class="semibold text-primary">
                                                         <i class="fa fa-user"></i> Information Générale
                                                     </h5>
-                                                    <p class="text-muted"> Entrez vos information générale </p>
+                                                    <p class="text-muted"> Modifiez les informations que vous souhaitez </p>
                                                 </div>
                                             </div>
                                             <form action="./index.php?controle=editerProfil&action=editerProfil" method="post">
@@ -148,16 +148,17 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <input type="hidden" name="mail" value = <?php echo $_SESSION['Mail'];?> >
-                                                          <input type="hidden" name="mdp" value = <?php echo $_SESSION['mdp'];?> >
+                                                     <label>Mail: <span class="text-danger">*</span> </label>
+                                                        <input type="text" class="form-control"  data-parsley-group="information" data-parsley-required  name="mail" value = <?php echo $_SESSION['Mail'];?> >
+                                                          <!--<input type="hidden" name="mdp" value = <?php echo $_SESSION['mdp'];?> -->
                                                         <label>Prénom: <span class="text-danger">*</span> </label>
                                                         <!-- CHANGER $POST prenom par $SESSION -->
-                                                        <input type="text" name="prenom" class="form-control"  data-parsley-group="information" data-parsley-required  placeholder="Prénom" value=<?php echo $_SESSION['prenom'];?> >
+                                                        <input type="text" name="prenom" class="form-control"  data-parsley-group="information" data-parsley-required  placeholder="Prénom" value=<?php echo $_SESSION['prenom'];?> disabled >
                                                     </div>
                                                     
                                                     <div class="col-md-6">
                                                         <label>Nom: <span class="text-danger">*</span> </label>
-                                                        <input type="text" name="nom" class="form-control" placeholder="Nom" data-parsley-group="information" data-parsley-required value=<?php echo $_SESSION['nom'];?> />
+                                                        <input type="text" name="nom" class="form-control" placeholder="Nom" data-parsley-group="information" data-parsley-required value=<?php echo $_SESSION['nom'];?> disabled/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -169,7 +170,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label>Date de naissance:</label>
-                                                        <input type="text" name="date" placeholder="9999-99-99" data-mask="9999-99-99" value=<?php echo $_SESSION['dateNaissance'];?> class="form-control" />
+                                                        <input type="text" name="date" placeholder="9999-99-99" data-mask="9999-99-99" value=<?php echo $_SESSION['dateNaissance'];?> class="form-control" disabled />
                                                     </div>
                                                 </div>
                                             </div>
@@ -179,12 +180,215 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                       <label> Département: </label>
                                                       <div class="row">
                                                           <div class="col-sm-8">
-                                                              <select name="departement" class="form-control" data-parsley-group="experience" data-parsley-required>
+                                                             <!-- <select name="departement" class="form-control" data-parsley-group="experience" data-parsley-required>
                                                                   <option <?php if ($_SESSION['Departement'] == "Paris") {?> selected="selected"  <?php } ?>  value="Paris">Paris</option>
                                                                   <option <?php if ($_SESSION['Departement'] == "Seine Saint Denis") {?> selected="selected"  <?php } ?>value="Seine Saint Denis">Seine Saint Denis</option>
                                                                   <option <?php if ($_SESSION['Departement'] == "Seine et Marne") {?> selected="selected"  <?php } ?>value="Seine et Marne">Seine et Marne</option>
 
-                                                              </select>
+                                                              </select>--> 
+                                                              <select name="departement"   class="form-control" data-parsley-group="experience" data-parsley-requiredstyle="width: 204px" onChange="affiche_ville(this.value)"><?php<option value=" echo $_SESSION['Departement'] "></option>?>
+ 
+                                                        <option value='01' <?php if(isset($_SESSION['Département'])&&$_SESSION['Département'] == "01 - Ain") echo "selected='selected'"; ?>>01 - Ain</option>
+ 
+                                                        <option value='02' <?php if(isset($_SESSION['Département'])&&$_SESSION['Département'] == "02 - Aisne") echo "selected='selected'"; ?>>02 - Aisne</option>
+ 
+                                                        <option value='03'>03 - Allier</option>
+ 
+                                                        <option value='04'>04 - Alpes de Haute Provence</option>
+ 
+                                                        <option value='05'>05 - Alpes (Hautes)</option>
+ 
+                                                        <option value='06'>06 - Alpes Maritimes</option>
+ 
+                                                        <option value='07'>07 - Ard&egrave;che</option>
+ 
+                                                        <option value='08'>08 - Ardennes</option>
+ 
+                                                        <option value='09'>09 - Ari&egrave;ge</option>
+ 
+                                                        <option value='10'>10 - Aube</option>
+ 
+                                                        <option value='11'>11 - Aude</option>
+ 
+                                                        <option value='12'>12 - Aveyron</option>
+ 
+                                                        <option value='13'>13 - Bouches du Rh&ocirc;ne</option>
+ 
+                                                        <option value='14'>14 - Calvados</option>
+ 
+                                                        <option value='15'>15 - Cantal</option>
+ 
+                                                        <option value='16'>16 - Charente</option>
+ 
+                                                        <option value='17'>17 - Charente Maritime</option>
+ 
+                                                        <option value='18'>18 - Cher</option>
+ 
+                                                        <option value='19'>19 - Corr&egrave;ze</option>
+ 
+                                                        <option value='20'>20 - Corse</option>
+ 
+                                                        <option value='21'>21 - C&ocirc;te d&acute;Or</option>
+ 
+                                                        <option value='22'>22 - C&ocirc;tes d&acute;Armor</option>
+ 
+                                                        <option value='23'>23 - Creuse</option>
+ 
+                                                        <option value='24'>24 - Dordogne</option>
+ 
+                                                        <option value='25'>25 - Doubs</option>
+ 
+                                                        <option value='26'>26 - Dr&ocirc;me</option>
+ 
+                                                        <option value='27'>27 - Eure</option>
+ 
+                                                        <option value='28'>28 - Eure et Loir</option>
+ 
+                                                        <option value='29'>29 - Finist&egrave;re</option>
+ 
+                                                        <option value='30'>30 - Gard</option>
+ 
+                                                        <option value='31'>31 - Garonne (Haute)</option>
+ 
+                                                        <option value='32'>32 - Gers</option>
+ 
+                                                        <option value='33'>33 - Gironde</option>
+ 
+                                                        <option value='34'>34 - H&eacute;rault</option>
+ 
+                                                        <option value='35'>35 - Ille et Vilaine</option>
+ 
+                                                        <option value='36'>36 - Indre</option>
+ 
+                                                        <option value='37'>37 - Indre et Loire</option>
+ 
+                                                        <option value='38'>38 - Is&egrave;re</option>
+ 
+                                                        <option value='39'>39 - Jura</option>
+ 
+                                                        <option value='40'>40 - Landes</option>
+ 
+                                                        <option value='41'>41 - Loir et Cher</option>
+ 
+                                                        <option value='42'>42 - Loire</option>
+ 
+                                                        <option value='43'>43 - Loire (Haute)</option>
+ 
+                                                        <option value='44'>44 - Loire Atlantique</option>
+ 
+                                                        <option value='45'>45 - Loiret</option>
+ 
+                                                        <option value='46'>46 - Lot</option>
+ 
+                                                        <option value='47'>47 - Lot et Garonne</option>
+ 
+                                                        <option value='48'>48 - Loz&egrave;re</option>
+ 
+                                                        <option value='49'>49 - Maine et Loire</option>
+ 
+                                                        <option value='50'>50 - Manche</option>
+ 
+                                                        <option value='51'>51 - Marne</option>
+ 
+                                                        <option value='52'>52 - Marne (Haute)</option>
+ 
+                                                        <option value='53'>53 - Mayenne</option>
+ 
+                                                        <option value='54'>54 - Meurthe et Moselle</option>
+ 
+                                                        <option value='55'>55 - Meuse</option>
+ 
+                                                        <option value='56'>56 - Morbihan</option>
+ 
+                                                        <option value='57'>57 - Moselle</option>
+ 
+                                                        <option value='58'>58 - Ni&egrave;vre</option>
+ 
+                                                        <option value='59'>59 - Nord</option>
+ 
+                                                        <option value='60'>60 - Oise</option>
+ 
+                                                        <option value='61'>61 - Orne</option>
+ 
+                                                        <option value='62'>62 - Pas de Calais</option>
+ 
+                                                        <option value='63'>63 - Puy de D&ocirc;me</option>
+ 
+                                                        <option value='64'>64 - Pyr&eacute;n&eacute;es Atlantiques</option>
+ 
+                                                        <option value='65'>65 - Pyr&eacute;n&eacute;es (Hautes)</option>
+ 
+                                                        <option value='66'>66 - Pyr&eacute;n&eacute;es Orientales</option>
+ 
+                                                        <option value='67'>67 - Rhin (Bas)</option>
+ 
+                                                        <option value='68'>68 - Rhin (Haut)</option>
+ 
+                                                        <option value='69'>69 - Rh&ocirc;ne</option>
+ 
+                                                        <option value='70'>70 - Sa&ocirc;ne (Haute)</option>
+ 
+                                                        <option value='71'>71 - Sa&ocirc;ne et Loire</option>
+ 
+                                                        <option value='72'>72 - Sarthe</option>
+ 
+                                                        <option value='73'>73 - Savoie</option>
+ 
+                                                        <option value='74'>74 - Savoie (Haute)</option>
+ 
+                                                        <option value='75'>75 - Paris (Dept.)</option>
+ 
+                                                        <option value='76'>76 - Seine Maritime</option>
+ 
+                                                        <option value='77'>77 - Seine et Marne</option>
+ 
+                                                        <option value='78'>78 - Yvelines</option>
+ 
+                                                        <option value='79'>79 - S&egrave;vres (Deux)</option>
+ 
+                                                        <option value='80'>80 - Somme</option>
+ 
+                                                        <option value='81'>81 - Tarn</option>
+ 
+                                                        <option value='82'>82 - Tarn et Garonne</option>
+ 
+                                                        <option value='83'>83 - Var</option>
+ 
+                                                        <option value='84'>84 - Vaucluse</option>
+ 
+                                                        <option value='85'>85 - Vend&eacute;e</option>
+ 
+                                                        <option value='86'>86 - Vienne</option>
+ 
+                                                        <option value='87'>87 - Vienne (Haute)</option>
+ 
+                                                        <option value='88'>88 - Vosges</option>
+ 
+                                                        <option value='89'>89 - Yonne</option>
+ 
+                                                        <option value='90'>90 - Belfort (Territoire de)</option>
+ 
+                                                        <option value='91'>91 - Essonne</option>
+ 
+                                                        <option value='92'>92 - Hauts de Seine</option>
+ 
+                                                        <option value='93'>93 - Seine Saint Denis</option>
+ 
+                                                        <option value='94'>94 - Val de Marne</option>
+ 
+                                                        <option value='95'>95 - Val d&acute;Oise</option>
+ 
+                                                        <option value='98'>98 - Mayotte</option>
+ 
+                                                        <option value='9A'>9A - Guadeloupe</option>
+ 
+                                                        <option value='9B'>9B - Guyane</option>
+ 
+                                                        <option value='9C'>9C - Martinique</option>
+ 
+                                                        <option value='9D'>9D - R&eacute;union</option>
+ 
+                                                 </select>
                                                           </div>
 
                                                       </div>
@@ -277,8 +481,158 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
             </div>
             <!--===================================================-->
             <!--END CONTENT CONTAINER-->
+		
+
+            <!--MAIN NAVIGATION-->
+            <!--===================================================-->
+            <nav id="mainnav-container">
+                <div id="mainnav">
+
+                    <!--Menu-->
+                    <!--================================-->
+                    <div id="mainnav-menu-wrap">
+                        <div class="nano">
+                            <div class="nano-content">
+                                <ul id="mainnav-menu" class="list-group">
+
+                                    <!--Category name-->
+                                    <li class="list-header">Lot Primaire</li>
+
+                                    <!--Menu list item-->
+                                    <li>
+                                        <a href="index.php?controle=identification&action=afficherMurEmployeur">
+                                            <i class="fa fa-dashboard"></i>
+                                            <span class="menu-title">
+												<strong>Mur</strong>
+											</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                      <a href="#">
+                                          <i class="fa fa-envelope"></i>
+                                          <span class="menu-title">Annonce(s)</span>
+                                          <i class="arrow"></i>
+                                      </a>
+
+                                      <!--Submenu-->
+                                      <ul class="collapse">
+                                           <li><a href="index.php?controle=creerAnnonce&action=creerAnnonce"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
+                                           <li><a href="index.php?controle=lesCandidatures&action=lesCandidatures"><i class="fa fa-caret-right"></i> les Candidatures</a></li>
+                                      </ul>
+                                    </li>
+
+                                    <li>
+                                      <a href="#">
+                                          <i class="fa fa-envelope"></i>
+                                          <span class="menu-title">Profil</span>
+                                          <i class="arrow"></i>
+                                      </a>
+
+                                      <!--Submenu-->
+                                      <ul class="collapse">
+                                        <li><a href="index.php?controle=consulterAnnonce&action=consulterMesAnnonces"><i class="fa fa-caret-right"></i> Mes annonces</a></li>
+										<li><a href="index.php?controle=editerProfil&action=editerProfil"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
+                                      </ul>
+                                    </li>
+
+
+                                    <!--Menu list item-->
+
+                                    <li class="list-divider"></li>
+
+                                 
+                                    <!--Category name-->
+                                    <li class="list-header">Lot Falcultatif</li>
+                                    <!--Menu list item-->
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-envelope"></i>
+                                            <span class="menu-title">Email</span>
+                                            <i class="arrow"></i>
+                                        </a>
+
+                                        <!--Submenu-->
+                                        <ul class="collapse">
+                                            <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Inbox</a></li>
+                                            <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> View Message</a></li>
+                                            <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Compose Message</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!--Menu list item-->
+                                    <li>
+                                        <a href="calendar.html">
+                                            <i class="fa fa-calendar"></i>
+                                            <span class="menu-title">
+                        Calendar
+                      </span>
+                                        </a>
+                                    </li>
+
+
+
+                                    <!--Menu list item-->
+
+
+                                    <!--Menu list item-->
+
+
+                                    <!--Menu list item-->
+
+                                    <!--Menu list item-->
+
+
+                                    <!--Menu list item-->
+
+
+                                    <li class="list-divider"></li>
+
+
+
+                                    <!--Menu list item-->
+
+
+                                    <!--Menu list item-->
+
+
+                                    <!--Menu list item-->
+
+
+                                </ul>
+
+
+                                <!--Widget-->
+                                <!--================================-->
+                                <div class="mainnav-widget">
+
+                                    <!-- Show the button on collapsed navigation -->
+                                    <div class="show-small">
+                                        <a href="#" data-toggle="menu-widget" data-target="#demo-wg-server">
+                                            <i class="fa fa-desktop"></i>
+                                        </a>
+                                    </div>
+
+                                    <!-- Hide the content on collapsed navigation -->
+
+                                </div>
+                                <!--================================-->
+                                <!--End widget-->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--================================-->
+                    <!--End menu-->
+
+                </div>
+            </nav>
+            <!--===================================================-->
+            <!--END MAIN NAVIGATION-->
+			
         </div>
 
+		 
         <!-- FOOTER -->
         <!--===================================================-->
         <footer id="footer">
