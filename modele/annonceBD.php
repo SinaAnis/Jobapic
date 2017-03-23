@@ -68,5 +68,22 @@ function postulerSQL($iduser,$id){
   $res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
 }
 
+function getPostuleById($id){
+    require ("modele/connectBD.php");
+	$select = "SELECT * FROM `annonce`, `postule` WHERE postule.idUser = %s AND annonce.idAnnonce = postule.idAnnonce ";
+	$req = sprintf($select,$id);
+	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
+
+	return mysqli_fetch_all($res);
+}
+
+function getStatutWithIdAnnonceAndUser($iduser, $idann){
+    require ("modele/connectBD.php");
+	$select = "SELECT statut FROM `postule` WHERE postule.idUser = %s AND postule.idAnnonce = %s ";
+	$req = sprintf($select,$iduser, $idann);
+	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
+
+	return mysqli_fetch_all($res);
+}
 
 ?>
