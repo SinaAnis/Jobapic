@@ -618,7 +618,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
-                                                                          <li><a href="index.php?controle=editerProfil&action=editerProfil"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
+                                                                          <li><a href="index.php?controle=editerProfil&action=editerProfilEmploye"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
                                                                         
                                                                           <li><a href="index.php?controle=mesCandidatures&action=mesCandidatures"><i class="fa fa-caret-right"></i> Mes candidatures</a></li>
                                                                     </ul>
@@ -714,6 +714,19 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
 
                                                             </ul>
+<center>
+                                                        <a href="index.php?controle=identification&action=afficherMurEmployeur">
+                                                          <button class="btn btn-default">Employeur</button>
+</a>
+														  <a href="index.php?controle=identification&action=afficherMurEmploye">
+														  <button class="btn btn-default"> Employé </button>
+														  </a>
+														</br>
+														</br>
+														<p style="color: white; font-weight: bold">vous êtes dans le mur Employé</p>
+
+                                                          </form>
+                                                            </center>
 
 
                                                             <!--Widget-->
