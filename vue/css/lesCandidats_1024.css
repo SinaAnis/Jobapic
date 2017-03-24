@@ -154,7 +154,7 @@ body {
   display: block;
   clear: both;
 }
-.container .column {
+.container .column {/*CHANGEMENTS*/
   width: 130%;
   padding: 0 25px;
   -webkti-box-sizing: border-box;
@@ -177,7 +177,7 @@ body {
   margin: 50px auto;
   text-align: center;
 }
-.container .info h1 {
+.container .info h1 {/*CHANGEMENTS POUR CENTRER LE TITRE*/
   margin: 0 0 15px;
   padding: 0;
   font-size: 24px;

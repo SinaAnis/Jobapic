@@ -140,7 +140,7 @@ input:checked + .slider:before {
                 <div class="navbar-header">
                     <a href="index.php?controle=identification&action=afficherMurEmploye" class="navbar-brand"> <i class="fa fa-cube brand-icon"></i>
                         <div class="brand-title"> <span class="brand-text">Job'Apic</span> </div>
-			
+
                     </a>
                 </div>
                 <!--================================-->
@@ -1036,6 +1036,7 @@ input:checked + .slider:before {
 <!--Fast Click [ OPTIONAL ]-->
 <script src="vue/plugins/fast-click/fastclick.min.js"></script>
 
+<
 <!--Jasmine Admin [ RECOMMENDED ]-->
 <script src="vue/js/scripts.js"></script>
 
@@ -1073,7 +1074,7 @@ input:checked + .slider:before {
 
 
 <!--Demo script [ DEMONSTRATION ]-->
-<script src="vue/js/demo/jasmine.js"></script>
+<script src="vue/js/jasmine.js"></script>
 
 <!--Demo script [ DEMONSTRATION ]-->
 <script src="vue/js/demo/homepage-2.js"></script>

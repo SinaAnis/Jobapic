@@ -154,14 +154,15 @@ body {
   display: block;
   clear: both;
 }
-.container .column {
+.container .column {/*CHANGEMENTS*/
   width: 45%;
   padding: 0 25px;
   -webkti-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   float: left;
-  margin-left: -35px;
+  /**/
+  margin-left: -5px;
   margin-right: 50px;
 
 }
@@ -177,13 +178,13 @@ body {
   margin: 50px auto;
   text-align: center;
 }
-.container .info h1 {
+.container .info h1 {/*CHANGEMENTS*/
   margin: 0 0 15px;
   padding: 0;
   font-size: 24px;
   font-weight: bold;
   color: #333333;
-  margin-left: -18%;/**/
+  margin-left: 2%;/**/
 }
 .container .info span {
   color: #666666;
