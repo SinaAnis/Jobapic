@@ -5,7 +5,7 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Composer un Message | Jasmine - Responsive admin template </title>
+    <title> Composer un Message | | Job'Apic - Enfin un job à pic. </title>
 
 
     <!--STYLESHEET-->
