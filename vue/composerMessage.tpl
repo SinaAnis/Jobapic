@@ -5,7 +5,7 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Mail Compose | Jasmine - Responsive admin template </title>
+    <title> Composer un Message | Jasmine - Responsive admin template </title>
 
 
     <!--STYLESHEET-->
