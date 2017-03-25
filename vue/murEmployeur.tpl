@@ -364,7 +364,7 @@ input:checked + .slider:before {
                                                                                     <a href="#">  <i class="fa fa-gear fa-fw fa-lg"></i> Paramètre </a>
                                                                                 </li>
                                                                                 <li>
-                                                                                    <a href="#"> <i class="fa fa-sign-out fa-fw"></i> Déconnection  </a>
+                                                                                   <a href="index.php?controle=identification&action=deconnexion"> <i class="fa fa-sign-out fa-fw"></i> Déconnexion  </a>
                                                                                 </li>
                                                                             </ul>
                                                                         </div>
