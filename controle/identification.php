@@ -8,7 +8,7 @@
 function ident(){
 	require ("modele/utilisateurBD.php") ;
 	require ("modele/annonceBD.php");
-	$emailConnexion= isset($_POST['mail'])?($_POST['mail']):'';
+	/*$emailConnexion= isset($_POST['mail'])?($_POST['mail']):'';
 	$_SESSION['mdp']= isset($_POST['mdp'])?($_POST['mdp']):'';
     $_SESSION['prenom'] = "SALUT";
 	$emailInscription= isset($_POST['email'])?($_POST['email']):'';
@@ -20,7 +20,24 @@ function ident(){
 	$telephone = isset($_POST['telephone'])?($_POST['telephone']):'';
 	$situation = isset($_POST['situation'])?($_POST['situation']):'';
 	//$_SESSION['categorie']=getCategorieFavoris($_SESSION['idUser']);
-	//$iduser=$_SESSION['idUser'];
+	//$iduser=$_SESSION['idUser'];*/
+	
+	$emailConnexion= isset($_POST['mail'])?($_POST['mail']):'';
+	$_SESSION['mdp']= isset($_POST['mdp'])?($_POST['mdp']):'';
+	$mdp1= isset($_POST['mdp1'])?($_POST['mdp1']):'';
+
+    $_SESSION['prenom'] = "SALUT";
+	$emailInscription= isset($_POST['email'])?($_POST['email']):'';
+	$_SESSION['nom'] =isset($_POST['nom'])?($_POST['nom']):'';
+	$_SESSION['prenom'] = isset($_POST['prenom'])?($_POST['prenom']):'';
+	$genre = isset($_POST['sexe'])?($_POST['sexe']):'';
+	$date = isset($_POST['date'])?($_POST['date']):'';
+	$ville = isset($_POST['ville'])?($_POST['ville']):'';
+	$telephone = isset($_POST['telephone'])?($_POST['telephone']):'';
+	$situation = isset($_POST['situation'])?($_POST['situation']):'';
+
+	$categorie1 = isset($_POST['cat1'])?($_POST['cat1']):'';
+	$categorie2 = isset($_POST['cat2'])?($_POST['cat2']):'';
 	$msg='';
 
 	if (count($_POST)==0)
@@ -59,9 +76,30 @@ function ident(){
 		//  require('./vue/inscription.tpl') ;
 
 		  echo "<script language='JavaScript'>alert('Etape suivante !')</script>";
-		  require('./vue/inscription.tpl') ;
+		   $categorie=getCategorie(); // NEW
+			require('./vue/inscription.tpl') ;
 		}
+	
+if(isset($_POST['finis'])){
 
+			$emailConnexion = $_POST['email'];//
+			$_SESSION['prenom'] = $_POST['prenom'];
+			//$_SESSION['nom'] = $_POST['nom'];
+			$_SESSION['telephone'] = $_POST['telephone'];//
+			$_SESSION['date'] = $_POST['date'];//
+			$_SESSION['adresse'] = $_POST['adresse'];//
+			$_SESSION['departement']= $_POST['departement'];//
+			$_SESSION['ville'] = $_POST['ville'];//
+			$_SESSION['sexe'] = $_POST['sexe'];//
+			$_SESSION['situation'] = $_POST['situation'];//
+
+inscription($_SESSION['nom'],$_SESSION['prenom'], $_SESSION['sexe'], $_SESSION['date'], $_SESSION['adresse'] ,$_SESSION['ville'], $_SESSION['departement'], $_SESSION['email']  ,$_SESSION['telephone'],  $_SESSION['situation'],0, $mdp1,0);
+			echo "<script language='JavaScript'>alert('Vous etes maintenant inscrit !')</script>";
+				  getProfil($emailConnexion,$_SESSION['mdp']);
+				 	/*$questionAfficher=afficherAnnonceEmploye($_SESSION['idUser']);*/
+					 require('./vue/murEmploye.tpl') ;
+
+		}
 		/*else if (mail_disponible($emailInscription) && isset($_POST['email'])){
 			$_SESSION['profil'] = $profil;
 		  echo "<script language='JavaScript'>alert('Etape suivante !')</script>";
