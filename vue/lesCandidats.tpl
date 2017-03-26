@@ -365,19 +365,23 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 <?php 
   require ("modele/connectBD.php");
   foreach ($annonce as $key => $value) {
-    echo("<div class=\"container\"><div class=\"info\"><h1>".$value[0]."</h1></div>");
+    echo("<div class=\"container\"><div class=\"info\"><h4>Annonce n° : $value[0] , ".$value[1]."</h4></div>");
     $candid = getCandidatsIDWithAnnonceId($value[0]);
     //print_r($candid);
     $cpt = 1;
-    foreach ($candid as $key => $valu) {
-        $uncandid = getUserByID($valu[0]);
-        
+    $result = count($candid);
+    if ($result == 0){
+    echo(" Il n'y a aucun candidats pour le moment désolé..."); // a corriger ça l'annonce d'en bas n'affiche pas Il n'y a aucun candidats pour le moment désolé...
+    } else {
+        foreach ($candid as $key => $valu) {
+        $uncandid = getUserByID($valu[0]);   
         foreach ($uncandid as $key => $val) {
             echo("<div class=\"column\"><div class=\"demo-title\"></div><div class=\"post-module\"><div class=\"thumbnail\"><div class=\"date\">");
             echo("<div class=\"day\">".$cpt."</div>");
             $cpt = $cpt + 1;
-            echo("</div><img src=\"http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg\"/></div><div class=\"post-content\"><div class=\"category\">".$val[7]."</div><h1 class=\"title\">".$val[1]."</h1><h2 class=\"sub_title\">".$val[2]."</h2><p>".$val[10]."</p><p></p><p></p></div></div></div>");
+            echo("</div><img src=\"http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg\"/></div><div class=\"post-content\"><div class=\"category\">".$val[7]."</div><h1 class=\"title\">".$val[1]."</h1><h2 class=\"sub_title\">".$val[2]."</h2><p>".$val[10]."</p><p></p><p><td><a class=\"plusdinfo\" href='index.php?controle=consulterProfil&action=afficheProfil&id=". utf8_encode($val[0]) ."'>Voir le candidat</a></td></p></div></div></div>");
         }
+    }
     }
     echo("</div>");
   }
