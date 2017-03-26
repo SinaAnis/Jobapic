@@ -32,14 +32,23 @@
 		else return true;
 	}
 
-	function inscription($mail,$prenom,$nom,$mdp, $genre, $date, $adresse , $telephone, $situation,$departement , $ville, $photo, &$profil) {
+	/*function inscription($mail,$prenom,$nom,$mdp, $genre, $date, $adresse , $telephone, $situation,$departement , $ville, $photo, &$profil) {
 		require ("./modele/connectBD.php");
 		$req= "INSERT INTO utilisateur (Nom,Prenom,Genre,DateNaissance,Adresse,Mail,Telephone,Situation,Mdp,Departement,Ville,Photo)
 		VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')";
 		$sql = sprintf ($req , $nom, $prenom, $genre ,$date , $adresse, $mail, $telephone ,$situation , $mdp ,$departement , $ville, $photo);
 		$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
 
+	}*/
+
+function inscription($nom, $prenom, $genre, $date, $adresse, $ville, $departement, $mail, $telephone, $situation, $note, $mdp, $photo) {
+		require ("./modele/connectBD.php");
+		$req= "INSERT INTO utilisateur (Nom,Prenom,Genre,DateNaissance,Adresse,Ville,Departement, Mail,Telephone,Situation,NoteMoyenne,Mdp,Photo)
+		VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')";
+		$sql = sprintf ($req , $nom, $prenom, $genre, $date, $adresse, $ville, $departement, $mail, $telephone, $situation, $note, $mdp, $photo);
+		$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
 	}
+
 
 
 	function editerProfilBD($mail, $genre, $telephone, $situation,$departement , $ville, $photo , $log) {
