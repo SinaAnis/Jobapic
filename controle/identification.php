@@ -59,7 +59,7 @@ function ident(){
 		//  require('./vue/inscription.tpl') ;
 
 		  echo "<script language='JavaScript'>alert('Etape suivante !')</script>";
-		  require('./vue/contrat.tpl') ;
+		  require('./vue/inscription.tpl') ;
 		}
 
 		/*else if (mail_disponible($emailInscription) && isset($_POST['email'])){

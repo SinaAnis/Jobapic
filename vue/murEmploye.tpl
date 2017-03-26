@@ -376,7 +376,7 @@ input:checked + .slider:before {
                                                                     <!--Navigation toogle button-->
                                                                     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                                                                     <li class="tgl-menu-btn">
-                                                                        <a id="demo-toggle-aside" class="shortcut-grid" href="#"> <i class="fa fa-dedent"></i> </a>
+                                                                      <a class="mainnav-toggle" href="#"> <i class="fa fa-navicon fa-lg"></i> </a>
                                                                     </li>
                                                                     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                                                                     <!--End Navigation toogle button-->
@@ -405,9 +405,6 @@ input:checked + .slider:before {
                                                                     </ol>
                                                                 </div>
                                                             </header>
-
-
-
                                                             <!--Page content-->
                                                             <!--===================================================-->
                                                             <section id="page-content">
@@ -416,65 +413,12 @@ input:checked + .slider:before {
                                                                 <div class="row">
                                                                     <div class="col-md-4 col-lg-3">
 
-                                                                    </div>
-                                                                    <div class="col-md-8-2 col-lg-9-2">
-                                                                        <div class="panel">
-                                                                            <div class="panel-heading">
-                                                                                <h3 class="panel-title">Icones</h3>
-                                                                            </div>
-
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-8-1 col-lg-9-1">
-                                                                        <div class="panel">
-                                                                            <div class="panel-heading">
-                                                                                <h3 class="panel-title">Calendar</h3>
-                                                                            </div>
-                                                                            <div class="panel-body">
-
-                                                                                <!-- Calendar placeholder-->
-                                                                                <!-- ============================================ -->
-                                                                                <div id='demo-calendar'></div>
-                                                                                <!-- ============================================ -->
-
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-8-3 col-lg-9-3">
-                                                                        <div class="panel">
-                                                                            <div class="panel-heading">
-                                                                                <h3 class="panel-title">Tuto</h3>
-                                                                            </div>
-                                                                            <div class="panel-body">
-
-                                                                                <!-- Calendar placeholder-->
-                                                                                <!-- ============================================ -->
-                                                                                <div id='demo-calendar'></div>
-                                                                                <!-- ============================================ -->
-
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-8-3 col-lg-9-3">
-                                                                        <div class="panel">
-                                                                            <div class="panel-heading, panel-heading-1">
-                                                                                <h3 class="panel-title">Faq</h3>
-                                                                            </div>
-                                                                            <div class="panel-body">
-
-                                                                                <!-- Calendar placeholder-->
-                                                                                <!-- ============================================ -->
-                                                                                <div id='demo-calendar'></div>
-                                                                                <!-- ============================================ -->
-
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
+                                                                    </div
                                                                     <!-- CARTE -->
                                                                     <div id="map-canvas"></div>
-                                                                    </br>
-                                                                    <div class="col-md-8-4 col-lg-9-4">
+                                                                  </br>
+
+                                                                    <div class="col-md-8-2 col-lg-9-4" id="annonce">
                                                                      <div class="panel">
                                                                         <h3 class="panel-title">Listes</h3>
                                                                         <div id="liste">
@@ -503,7 +447,62 @@ input:checked + .slider:before {
                                                             <a class = "btnRet" href ="index.php?controle=consulterAnnonce&action=afficherMesAnnonces"> Plus d'offres... </a>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div>  <div class="col-md-8-1 col-lg-9-1" id="calendrier">
+                                                          <div class="panel">
+                                                              <div class="panel-heading">
+                                                                  <h3 class="panel-title">Calendar</h3>
+                                                              </div>
+                                                              <div class="panel-body">
+
+                                                                  <!-- Calendar placeholder-->
+                                                                  <!-- ============================================ -->
+                                                                  <div id='demo-calendar'></div>
+                                                                  <!-- ============================================ -->
+
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                                    <div class="col-md-8-2 col-lg-9-2" id="icones">
+                                                                        <div class="panel">
+                                                                            <div class="panel-heading">
+                                                                                <h3 class="panel-title">Icones</h3>
+                                                                            </div>
+
+                                                                            <div class="panel-body">
+                                                                                <div class="container">
+
+
+
+                                                                                <div class="block x-2 y-2 block-1"></div>
+                                                                                <div class="block x-2 y-2 block-1"></div>
+                                                                                <div class="block x-2 y-2 block-1"></div>
+                                                                                <div class="block x-2 y-2 block-1"></div>
+
+                                                                                <div class="block x-2 y-2 block-1"></div>
+                                                                                <div class="block x-2 y-2 block-1"></div>
+                                                                                <div class="block x-2 y-2 block-1"></div>
+                                                                                <div class="block x-2 y-2 block-1"></div>
+
+                                                                                <div class="block x-2 y-2 block-1"></div>
+                                                                                <div class="block x-2 y-2 block-1"></div>
+                                                                                <div class="block x-2 y-2 block-1"></div>
+                                                                                <div class="block x-2 y-2 block-1"></div>
+
+                                                                                <div class="block x-2 y-2 block-1"></div>
+                                                                                <div class="block x-2 y-2 block-1"></div>
+                                                                                <div class="block x-2 y-2 block-1"></div>
+                                                                                <div class="block x-2 y-2 block-1"></div>
+
+                                                                              </div>
+
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                    </br>
+
                                                 </section>
                                                 <!--===================================================-->
                                                 <!--End page content-->
@@ -630,21 +629,28 @@ input:checked + .slider:before {
                                                                     </a>
                                                                 </li>
 
+    <li class="list-header">Espaces :</li>
+                                                                <li>
+                                                                    <a href="index.php?controle=identification&action=afficherMurEmployeur">
+                                                                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                                                        <span class="menu-title">
+                                                                            Employeur
+                                                                        </span>
+                                                                        &nbsp;
+                                                                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                                                    </a>
+                                                                </li>
 
-
-                                                                <!--Menu list item-->
-
-
-                                                                <!--Menu list item-->
-
-
-                                                                <!--Menu list item-->
-
-                                                                <!--Menu list item-->
-
-
-                                                                <!--Menu list item-->
-
+                                                                <li>
+                                                                    <a href="index.php?controle=identification&action=afficherMurEmploye">
+                                                                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                                                        <span class="menu-title">
+                                                                            Employé(e)
+                                                                        </span>
+                                                                        &nbsp;
+                                                                          <i class="fa fa-user-circle-o" aria-hidden="true"> </i>
+                                                                    </a>
+                                                                </li>
 
                                                                 <li class="list-divider"></li>
 
@@ -661,12 +667,8 @@ input:checked + .slider:before {
 
                                                             </ul>
 <center>
-                                                        <a href="index.php?controle=identification&action=afficherMurEmployeur">
-                                                          <button class="btn btn-default">Employeur</button>
-</a>
-														  <a href="index.php?controle=identification&action=afficherMurEmploye">
-														  <button class="btn btn-default"> Employé </button>
-														  </a>
+
+
 														</br>
 														</br>
 														<p style="color: white; font-weight: bold">vous êtes dans le mur Employé</p>
@@ -1132,7 +1134,7 @@ input:checked + .slider:before {
 <script src="vue/js/demo/jasmine.js"></script>
 
 <!--Map [ DEMONSTRATION ]-->
-<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'></script>
+<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBXlGQcqGiGNQ3O_oQNyrXrFJRd5afXjfk&exp&sensor=false&libraries=places'></script>
 <script src="vue/js/index.js"></script>
 
 

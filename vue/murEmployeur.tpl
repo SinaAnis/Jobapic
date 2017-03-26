@@ -412,19 +412,27 @@ input:checked + .slider:before {
                                                             <section id="page-content">
 
 
+
                                                                 <div class="row">
                                                                     <div class="col-md-4 col-lg-3">
 
                                                                     </div>
-                                                                    <div class="col-md-8-2 col-lg-9-2">
-                                                                        <div class="panel">
-                                                                            <div class="panel-heading">
-                                                                                <h3 class="panel-title">Icones</h3>
-                                                                            </div>
+                                                                    <!-- CARTE -->
+                                                                    <div id="map-canvas"></div>
 
-                                                                        </div>
+                                                                    <div class="col-md-8-2 col-lg-9-4" id="annonce">
+                                                                     <div class="panel">
+                                                                        <h3 class="panel-title">Listes</h3>
+                                                                        <div id="liste">
+                                                                        </br>
+                                                                        <h2> Bienvenue sur l'espace employeur !</h3>
+                                                                    </br>
+                                                                    <a class = "btnRet" href ="index.php?controle=consulterAnnonce&action=afficherMesAnnonces"> Plus d'offres... </a>
                                                                     </div>
-                                                                    <div class="col-md-8-1 col-lg-9-1">
+                                                                    </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-8-1 col-lg-9-1" id="calendrier">
                                                                         <div class="panel">
                                                                             <div class="panel-heading">
                                                                                 <h3 class="panel-title">Calendar</h3>
@@ -439,6 +447,42 @@ input:checked + .slider:before {
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    <div class="col-md-8-2 col-lg-9-2" id="icones">
+                                                                        <div class="panel">
+                                                                            <div class="panel-heading">
+                                                                                <h3 class="panel-title">Icones</h3>
+                                                                            </div>
+                                                                            <div class="panel-body">
+                                                                                                                                                            <div class="container">
+
+
+
+                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
+                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
+                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
+                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
+
+                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
+                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
+                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
+                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
+
+                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
+                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
+                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
+                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
+
+                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
+                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
+                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
+                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
+
+                                                                                                                                                          </div>
+
+                                                                                                                                                        </div>
+                                                                        </div>
+                                                                    </div>
+
                                                                     <div class="col-md-8-3 col-lg-9-3">
                                                                         <div class="panel">
                                                                             <div class="panel-heading">
@@ -470,20 +514,9 @@ input:checked + .slider:before {
                                                                         </div>
                                                                     </div>
 
-                                                                    <!-- CARTE -->
-                                                                    <div id="map-canvas"></div>
+
                                                                     </br>
-                                                                    <div class="col-md-8-4 col-lg-9-4">
-                                                                     <div class="panel">
-                                                                        <h3 class="panel-title">Listes</h3>
-                                                                        <div id="liste">
-                                                                        </br>
-                                                                        <h2> Bienvenue sur l'espace employeur !</h3>
-                                                                </br>
-                                                            <a class = "btnRet" href ="index.php?controle=consulterAnnonce&action=afficherMesAnnonces"> Plus d'offres... </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+
                                                 </section>
                                                 <!--===================================================-->
                                                 <!--End page content-->
@@ -541,7 +574,7 @@ input:checked + .slider:before {
 
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
-                                                                          
+
                                                                           <li><a href="index.php?controle=editerProfil&action=editerProfilEmployeur"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
 
 
@@ -704,7 +737,7 @@ input:checked + .slider:before {
                                                         <!--================================-->
                                                         <!--End nav tabs-->
 
-              
+
 
 <!--Second tab (Settings)-->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -950,7 +983,7 @@ input:checked + .slider:before {
 <script src="vue/js/demo/jasmine.js"></script>
 
 <!--Map [ DEMONSTRATION ]-->
-<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'></script>
+<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBXlGQcqGiGNQ3O_oQNyrXrFJRd5afXjfk&exp&sensor=false&libraries=places'></script>
 <script src="vue/js/index.js"></script>
 
 

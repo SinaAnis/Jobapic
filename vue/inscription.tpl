@@ -53,6 +53,96 @@
     <script src="vue/plugins/pace/pace.min.js"></script>
 
 
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.1.min.js"></script>
+
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.ui/1.8.10/jquery-ui.js"></script>
+
+<link rel="Stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" />
+
+<!--<script src="vue/js/index2.js"></script>
+
+ <script type="text/javascript">
+                var cache = {};
+                $(document).ready(function()
+                {
+                $("#cp, #ville").autocomplete({
+                    source: function (request, response)
+                    {
+                        //Si la réponse est dans le cache
+                        if (('FR' + '-' + request.term) in cache)
+                        {   alert(20);
+                            response($.map(cache['FR' + '-' + request.term], function (item)
+                            {
+ 
+                                return {
+                                    label: item.CodePostal + ", " + item.Ville,
+                                    value: function ()
+                                    {
+                                        if ($(this).attr('id') == 'cp')
+                                        {
+                                            $('#ville').val(item.Ville);
+                                            return item.CodePostal;
+                                        }
+                                        else
+                                        {
+                                            $('#cp').val(item.CodePostal);
+                                            return item.Ville;
+                                        }
+                                    }
+                                }
+                            }));
+                        }
+                        //Sinon -> Requete Ajax
+                        else
+                        {
+                            alert(10);
+                            var objData = {};
+                            if ($(this.element).attr('id') == 'cp')
+                            {
+                                objData = { codePostal: request.term, pays: 'FR', maxRows: 10 };
+                            }
+                            else
+                            {
+                                objData = { ville: request.term, pays: 'FR', maxRows: 10 };
+                            }
+                            $.ajax({
+                                url: "../AutoCompletion.php",
+                                dataType: "json",
+                                data: objData,
+                                type: 'POST',
+                                success: function (data)
+                                {alert(30);
+                                    //Ajout de reponse dans le cache
+                                    cache[('FR' + '-' + request.term)] = data;
+                                    response($.map(data, function (item)
+                                    {
+ 
+                                        return {
+                                            label: item.CodePostal + ", " + item.Ville,
+                                            value: function ()
+                                            {
+                                                if ($(this).attr('id') == 'cp')
+                                                {
+                                                    $('#ville').val(item.Ville);
+                                                    return item.CodePostal;
+                                                }
+                                                else
+                                                {
+                                                    $('#cp').val(item.CodePostal);
+                                                    return item.Ville;
+                                                }
+                                            }
+                                        }
+                                    }));
+                                }
+                            });
+                        }
+                    },
+                    minLength: 3,
+                    delay: 600
+                });
+            });
+        </script>-->
 </head>
 
 <!--TIPS-->
@@ -148,15 +238,17 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <input type="hidden" name="email" value = <?php echo $_POST['prenom'];?> >
-                                                         <!-- <input type="hidden" name="mdp" value = <?php echo $_POST['mdp'];?> --->
+                                                     <label>Mail: <span class="text-danger">*</span> </label>
+                                                        <input type="text" class="form-control"  data-parsley-group="information" data-parsley-required  name="email" value = <?php echo $_POST['email'];?> readonly/>
+                                                        <input type="hidden" name="prenom" value = <?php echo $_POST['prenom'];?> >
+                                                         <input type="hidden" name="mdp1" value = <?php echo $_POST['mdp1'];?> 
                                                         <label>Prénom: <span class="text-danger">*</span> </label>
                                                         <!-- CHANGER $POST prenom par $SESSION -->
-                                                        <input type="text" name="prenom" class="form-control"  data-parsley-group="information" data-parsley-required  placeholder="Prénom" value=<?php echo $_SESSION['prenom'];?> >
+                                                        <input type="text" name="prenom" class="form-control"  data-parsley-group="information" data-parsley-required  placeholder="Prénom" value=<?php echo $_SESSION['prenom'];?> readonly/>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label>Nom: <span class="text-danger">*</span> </label>
-                                                        <input type="text" name="nom" class="form-control" placeholder="Nom" data-parsley-group="information" data-parsley-required value=<?php echo $_SESSION['nom'];?> />
+                                                        <input type="text" name="nom" class="form-control" placeholder="Nom" data-parsley-group="information" data-parsley-required value=<?php echo $_SESSION['nom'];?> readonly/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -164,45 +256,256 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <label>Téléphone:</label>
-                                                        <input type="text" name="telephone" placeholder="99-99-99-99-99" data-mask="9999999999" class="form-control" />
+                                                        <input id="phone" type="text" name="telephone" placeholder=" Ex: 0199897969" maxlength="10" data-mask="0999999999"class="form-control" />
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label>Date de naissance:</label>
-                                                        <input type="text" name="date" placeholder="9999-99-99" data-mask="9999-99-99" class="form-control" />
+                                                        <input type="date" name="date" placeholder="JJ/MM/AAAA" pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" title="Exemple : 22/04/1997" data-mask="99/99/9999" class="form-control" />
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>  
+                                            
                                             <div class="form-group">
                                                 <div class="row">
+                                                
+                                                <div class="col-md-6">
+                                                        <label>Adresse:</label>
+                                                        <input type="text" name="adresse" placeholder="Adresse" maxlength="50" class="form-control" />
+                                                  </div>
+                                                  
                                                   <div class="col-md-3">
                                                       <label> Département: </label>
                                                       <div class="row">
                                                           <div class="col-sm-8">
-                                                              <select name="departement" class="form-control" data-parsley-group="experience" data-parsley-required>
-                                                                  <option value="Paris">Paris</option>
-                                                                  <option value="SSD">Seine Saint Denis</option>
-                                                                  <option value="SEM">Seine et Marne</option>
-
-                                                              </select>
+                                                             
+                                                              <select name="departement"   class="form-control" data-parsley-group="experience" data-parsley-requiredstyle="width: 204px" ></option>?>
+ 
+                                                        <option value='01' <?php if(isset($_SESSION['Département'])&&$_SESSION['Département'] == "01 - Ain") echo "selected='selected'"; ?>>01 - Ain</option>
+ 
+                                                        <option value='02' <?php if(isset($_SESSION['Département'])&&$_SESSION['Département'] == "02 - Aisne") echo "selected='selected'"; ?>>02 - Aisne</option>
+ 
+                                                        <option value='03'>03 - Allier</option>
+ 
+                                                        <option value='04'>04 - Alpes de Haute Provence</option>
+ 
+                                                        <option value='05'>05 - Alpes (Hautes)</option>
+ 
+                                                        <option value='06'>06 - Alpes Maritimes</option>
+ 
+                                                        <option value='07'>07 - Ard&egrave;che</option>
+ 
+                                                        <option value='08'>08 - Ardennes</option>
+ 
+                                                        <option value='09'>09 - Ari&egrave;ge</option>
+ 
+                                                        <option value='10'>10 - Aube</option>
+ 
+                                                        <option value='11'>11 - Aude</option>
+ 
+                                                        <option value='12'>12 - Aveyron</option>
+ 
+                                                        <option value='13'>13 - Bouches du Rh&ocirc;ne</option>
+ 
+                                                        <option value='14'>14 - Calvados</option>
+ 
+                                                        <option value='15'>15 - Cantal</option>
+ 
+                                                        <option value='16'>16 - Charente</option>
+ 
+                                                        <option value='17'>17 - Charente Maritime</option>
+ 
+                                                        <option value='18'>18 - Cher</option>
+ 
+                                                        <option value='19'>19 - Corr&egrave;ze</option>
+ 
+                                                        <option value='20'>20 - Corse</option>
+ 
+                                                        <option value='21'>21 - C&ocirc;te d&acute;Or</option>
+ 
+                                                        <option value='22'>22 - C&ocirc;tes d&acute;Armor</option>
+ 
+                                                        <option value='23'>23 - Creuse</option>
+ 
+                                                        <option value='24'>24 - Dordogne</option>
+ 
+                                                        <option value='25'>25 - Doubs</option>
+ 
+                                                        <option value='26'>26 - Dr&ocirc;me</option>
+ 
+                                                        <option value='27'>27 - Eure</option>
+ 
+                                                        <option value='28'>28 - Eure et Loir</option>
+ 
+                                                        <option value='29'>29 - Finist&egrave;re</option>
+ 
+                                                        <option value='30'>30 - Gard</option>
+ 
+                                                        <option value='31'>31 - Garonne (Haute)</option>
+ 
+                                                        <option value='32'>32 - Gers</option>
+ 
+                                                        <option value='33'>33 - Gironde</option>
+ 
+                                                        <option value='34'>34 - H&eacute;rault</option>
+ 
+                                                        <option value='35'>35 - Ille et Vilaine</option>
+ 
+                                                        <option value='36'>36 - Indre</option>
+ 
+                                                        <option value='37'>37 - Indre et Loire</option>
+ 
+                                                        <option value='38'>38 - Is&egrave;re</option>
+ 
+                                                        <option value='39'>39 - Jura</option>
+ 
+                                                        <option value='40'>40 - Landes</option>
+ 
+                                                        <option value='41'>41 - Loir et Cher</option>
+ 
+                                                        <option value='42'>42 - Loire</option>
+ 
+                                                        <option value='43'>43 - Loire (Haute)</option>
+ 
+                                                        <option value='44'>44 - Loire Atlantique</option>
+ 
+                                                        <option value='45'>45 - Loiret</option>
+ 
+                                                        <option value='46'>46 - Lot</option>
+ 
+                                                        <option value='47'>47 - Lot et Garonne</option>
+ 
+                                                        <option value='48'>48 - Loz&egrave;re</option>
+ 
+                                                        <option value='49'>49 - Maine et Loire</option>
+ 
+                                                        <option value='50'>50 - Manche</option>
+ 
+                                                        <option value='51'>51 - Marne</option>
+ 
+                                                        <option value='52'>52 - Marne (Haute)</option>
+ 
+                                                        <option value='53'>53 - Mayenne</option>
+ 
+                                                        <option value='54'>54 - Meurthe et Moselle</option>
+ 
+                                                        <option value='55'>55 - Meuse</option>
+ 
+                                                        <option value='56'>56 - Morbihan</option>
+ 
+                                                        <option value='57'>57 - Moselle</option>
+ 
+                                                        <option value='58'>58 - Ni&egrave;vre</option>
+ 
+                                                        <option value='59'>59 - Nord</option>
+ 
+                                                        <option value='60'>60 - Oise</option>
+ 
+                                                        <option value='61'>61 - Orne</option>
+ 
+                                                        <option value='62'>62 - Pas de Calais</option>
+ 
+                                                        <option value='63'>63 - Puy de D&ocirc;me</option>
+ 
+                                                        <option value='64'>64 - Pyr&eacute;n&eacute;es Atlantiques</option>
+ 
+                                                        <option value='65'>65 - Pyr&eacute;n&eacute;es (Hautes)</option>
+ 
+                                                        <option value='66'>66 - Pyr&eacute;n&eacute;es Orientales</option>
+ 
+                                                        <option value='67'>67 - Rhin (Bas)</option>
+ 
+                                                        <option value='68'>68 - Rhin (Haut)</option>
+ 
+                                                        <option value='69'>69 - Rh&ocirc;ne</option>
+ 
+                                                        <option value='70'>70 - Sa&ocirc;ne (Haute)</option>
+ 
+                                                        <option value='71'>71 - Sa&ocirc;ne et Loire</option>
+ 
+                                                        <option value='72'>72 - Sarthe</option>
+ 
+                                                        <option value='73'>73 - Savoie</option>
+ 
+                                                        <option value='74'>74 - Savoie (Haute)</option>
+ 
+                                                        <option value='75'>75 - Paris (Dept.)</option>
+ 
+                                                        <option value='76'>76 - Seine Maritime</option>
+ 
+                                                        <option value='77'>77 - Seine et Marne</option>
+ 
+                                                        <option value='78'>78 - Yvelines</option>
+ 
+                                                        <option value='79'>79 - S&egrave;vres (Deux)</option>
+ 
+                                                        <option value='80'>80 - Somme</option>
+ 
+                                                        <option value='81'>81 - Tarn</option>
+ 
+                                                        <option value='82'>82 - Tarn et Garonne</option>
+ 
+                                                        <option value='83'>83 - Var</option>
+ 
+                                                        <option value='84'>84 - Vaucluse</option>
+ 
+                                                        <option value='85'>85 - Vend&eacute;e</option>
+ 
+                                                        <option value='86'>86 - Vienne</option>
+ 
+                                                        <option value='87'>87 - Vienne (Haute)</option>
+ 
+                                                        <option value='88'>88 - Vosges</option>
+ 
+                                                        <option value='89'>89 - Yonne</option>
+ 
+                                                        <option value='90'>90 - Belfort (Territoire de)</option>
+ 
+                                                        <option value='91'>91 - Essonne</option>
+ 
+                                                        <option value='92'>92 - Hauts de Seine</option>
+ 
+                                                        <option value='93'>93 - Seine Saint Denis</option>
+ 
+                                                        <option value='94'>94 - Val de Marne</option>
+ 
+                                                        <option value='95'>95 - Val d&acute;Oise</option>
+ 
+                                                        <option value='98'>98 - Mayotte</option>
+ 
+                                                        <option value='9A'>9A - Guadeloupe</option>
+ 
+                                                        <option value='9B'>9B - Guyane</option>
+ 
+                                                        <option value='9C'>9C - Martinique</option>
+ 
+                                                        <option value='9D'>9D - R&eacute;union</option>
+ 
+                                                 </select>
                                                           </div>
 
                                                       </div>
                                                   </div>
-                                                  <div class="col-md-6">
+                                                  <div class="col-md-3">
                                                       <label>Ville: <span class="text-danger">*</span> </label>
                                                       <input type="text" name="ville" class="form-control" placeholder="Ville" data-parsley-group="information" data-parsley-required />
 
                                                   </div>
                                                 </div>
                                             </div>
-
+                                                        
                                         </div>
+
+
+                   <!-- <form action="#">
+            CP :<input type="text" id="cp" size="6" name="cp" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" />
+            Ville : <input type="text" id="ville2"  name="ville" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" />
+        </form>-->
                                         <!--/ Wizard Container 2 -->
                                         <!-- Wizard Container 3 -->
 
                                         <!--/ Wizard Container 3 -->
                                         <!-- Wizard Container 4 -->
-                                        <div class="wizard-title"> Situation </div>
+                                       
                                         <div class="wizard-container">
                                             <div class="form-group">
                                                 <div class="col-md-12">
@@ -216,7 +519,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                 <div class="row">
 
                                                     <div class="col-md-3">
-                                                        <label> Genre: </label>
+                                                        <label> Genre : </label>
                                                         <div class="row">
                                                             <div class="col-sm-8">
                                                                 <select name="sexe" class="form-control" data-parsley-group="experience" data-parsley-required>
@@ -230,7 +533,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <label> Situation: </label>
+                                                        <label> Situation : </label>
                                                         <div class="row">
                                                             <div class="col-sm-8">
                                                                 <select name="situation" class="form-control" data-parsley-group="experience" data-parsley-required>
@@ -243,19 +546,100 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                                         </div>
                                                     </div>
+                                                    
                                                 </div>
+                                                
                                             </div>
+                                            
+                                        <div class="wizard-container">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <h5 class="semibold text-primary">
+                                                        <i class="fa fa-cog"></i> Intérêts
+                                                    </h5>
+                                                    <p class="text-muted"> Choisissez vos préférences d'annonces </p>
+                                                </div>
+                                                
+                                            </div>
+                                            
                                             <div class="form-group">
                                                 <div class="row">
+                                                    
+                                                    <div class="col-md-3">
+                                                        <label> Catégorie préferée 1 :</label>
+                                                        <div class="row">
+                                                                <div class="col-sm-8">
+                                                                  <select name="cat1" class="form-control" data-parsley-group="experience" data-parsley-required>
+                                            
+                                            <?php
 
-                                                        <label>Catégories: (2 minimums) </label>
-                                                        <label> <input type="de" > Voici la première case   </label>
+                                         
+                                                 foreach ($categorie as $value) {
+                                                     echo ("<OPTION value='".$value['IdCategorie']."'>".$value['NomCategorie']);
+                                                 }
 
-                                                </div>
-                                            </div>
-                                            <input name="finis" type="hidden"  />
+
+                                            ?>
+                                            
+                                          </select>
+                                          
+                                          </div>
+                                          </div>
+                                          </div>
+                                                                
+                                                    
+                                                    <div class="col-md-3">
+                                                        <label> Catégorie préferée 2 :</label>
+                                                        <div class="row">
+                                                                <div class="col-sm-8">
+                                                                  <select name="cat2" class="form-control" data-parsley-group="experience" data-parsley-required>
+                                            
+                                            <?php
+
+                                         
+                                                 foreach ($categorie as $value) {
+                                                     echo ("<OPTION value='".$value['IdCategorie']."'>".$value['NomCategorie']);
+                                                 }
+
+
+                                            ?>
+                                            
+                                          </select>
+                                          
+                                           </div>
+                                          </div>
+                                          </div>
+
+                                        <div class="col-md-3">
+                                                        <label> Catégorie préferée 3 :</label>
+                                                        <div class="row">
+                                                                <div class="col-sm-8">
+                                                                  <select name="cat3" class="form-control" data-parsley-group="experience" data-parsley-required>
+                                            
+                                            <?php
+
+                                         
+                                                 foreach ($categorie as $value) {
+                                                     echo ("<OPTION value='".$value['IdCategorie']."'>".$value['NomCategorie']);
+                                                 }
+
+
+                                            ?>
+                                            
+                                          </select>
+                                          
+                                           </div>
+                                          
+
+                                           <input name="finis" type="hidden"  />
                                             <input role="menuitem" type="submit" class="btn btn-primary" value="Finis">
+                                          </div>
+                                          
+                                          </div>
+                                   
+                                           
                                         </div>
+                                        
                                         <!-- Wizard Container 4 -->
                                     </form>
                                     <!--/ END Form Wizard -->

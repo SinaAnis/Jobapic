@@ -64,7 +64,7 @@
    <div class="form-item sign-up">
      <div class="table">
        <div class="table-cell">
-         <form  action="./index.php" method="post" onsubmit="return validation(this)">
+         <form  action="index.php?controle=inscription&action=pageinscription"  method="post" onsubmit="return validation(this)">
          <input name="email" placeholder="Email" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Veuillez entrez un mail correct" required/>
          <input name="prenom" placeholder="Prénom" type="text" onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);" required/>
          <input name="nom" placeholder="Nom" type="text" onchange="this.value = this.value.toUpperCase()" required/>

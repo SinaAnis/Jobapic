@@ -1,9 +1,4 @@
-#map-canvas {
-  height: 25%;
-  width : 35%;
-  margin-left: 3%;
-  padding-top: 15%;
-}
+
 
 
 /* The switch - the box around the slider */
@@ -95,3 +90,116 @@ a.button{
 		text-indent:30px;
 		display:block;
 	}
+
+
+
+@media screen and (max-width: 640px) {
+  #map-canvas {
+    height: 25%;
+    width : 94%;
+    margin-left: 3%;
+    float:left;
+  }
+
+  #calendrier{
+    width: 100%;
+  }
+
+  #icones{
+    width: 100%;
+  }
+
+  #annonce{
+    padding-top: 2%;
+    width: 100%;
+  }
+.container{
+    width:100%;
+    height:auto;
+}
+
+.block{
+    display: inline-block;
+    color:white;
+    font-size:24px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.block-1{
+    background-image: url(http://icon-icons.com/icons2/870/PNG/72/square_tumblr_icon-icons.com_68019.png);
+    background-repeat: no-repeat;
+    max-width: 50px;
+    background-size: 100%;
+    padding-top: :3%;
+}
+
+.x-2{
+    width:72px;
+}
+
+.y-2{
+    height:72px;
+}
+  }
+
+  @media screen and (min-width: 640px) {
+
+    #map-canvas {
+      height: 25%;
+      width : 96.3%;
+      margin-left: 3%;
+      padding-top: 15%;
+      margin-bottom: 1%;
+    }
+
+    #annonce{
+      padding-left: 3%;
+    }
+
+    #calendrier{
+      height: 60%;
+      width: 40%;
+    }
+
+  .container{
+      width:auto;
+      height:auto;
+  }
+
+  .block{
+      display: inline-block;
+      color:white;
+      font-size:24px;
+      text-align: center;
+      line-height: 50px;
+  }
+
+  .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+  }
+
+  .block-1{
+      background-image: url(http://icon-icons.com/icons2/870/PNG/72/square_tumblr_icon-icons.com_68019.png);
+
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+  }
+
+  .x-2{
+      width:72px;
+  }
+
+  .y-2{
+      height:72px;
+  }
+    }
