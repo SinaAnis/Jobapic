@@ -8,13 +8,21 @@
 /*changement*/
 
 /*@media (min-width: 992px)*/
+
 .col-md-8-1 {
     width:30%;
 	float : left;
 
 }
 .col-md-8-2 {
-    width:30%;
+    width:25%;
+    height: auto;
+	float : left;
+
+}
+
+.col-md-8-2-5 {
+    width:35%;
     height: auto;
 	float : left;
 

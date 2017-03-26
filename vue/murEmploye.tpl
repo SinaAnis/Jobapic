@@ -418,31 +418,63 @@ input:checked + .slider:before {
                                                                     <div id="map-canvas"></div>
                                                                   </br>
 
-                                                                    <div class="col-md-8-2 col-lg-9-4" id="annonce">
+                                                                    <div class="col-md-8-2-5 col-lg-9-4" id="annonce">
                                                                      <div class="panel">
                                                                         <h3 class="panel-title">Listes</h3>
                                                                         <div id="liste">
-                                                                        </br>
-                                                                        <?php
-                                                                        if ($questionAfficher != false){
-                                                                    // BOUCLE FOR
-                                                                        foreach ($questionAfficher as $key => $value) {
-                                                                        echo('</br>');
-                                                                        echo ('<table>');
-                                                                        echo ('<tr><th> N° </th> <th> Annonce : '.$value[0].'</th>'. "\n");
-                                                                        echo "<tr class='question'>";
-                                                                        echo ("<td>" . utf8_encode($value[1]) . "</td>". "\n");
-                                                                        echo ("<td>" . utf8_encode($value[2]) . "</td>". "\n");
-                                                                        echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
-                                                                        echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
-                                                                        echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
-                                                                        echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
-                                                                        echo ('</table>');
-                                                                        echo ('</table>');
-                                                                        echo "</tr>\n";
+                                                                          <div class="container">
+                                                                            <?php
+                                                                            if ($questionAfficher != false){
+                                                                          // BOUCLE FOR
+                                                                            foreach ($questionAfficher as $key => $value) {
+                                                                            echo('</br>');
+                                                                            echo ('<table>');
+                                                                            echo ('<tr><th> N° </th> <th> Annonce : '.$value[0].'</th>'. "\n");
+                                                                            echo "<tr class='question'>";
+                                                                            echo ("<td>" . utf8_encode($value[1]) . "</td>". "\n");
+                                                                            echo ("<td>" . utf8_encode($value[2]) . "</td>". "\n");
+                                                                            echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                            echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                            echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                            echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                            echo ('</table>');
+                                                                            echo ('</table>');
+                                                                            echo "</tr>\n"; ?>
+
+                                                                          <div class="block x-AnnonAdre y-annonce block-AnnonAdre">
+                                                                          <div class="block x-2 y-logo block-LogoAnnonceTumblr"></div>
+                                                                          <div class="texteAnnonce">
+                                                                            <?php
+                                                                            echo (utf8_encode($value[1]));
+                                                                            ?>
+                                                                          </div>
+
+                                                                          </div>
+                                                                     <?php
                                                                         }
-                                                                }
-                                                                ?>
+                                                                      }
+                                                                      ?>
+
+                                                                        </br>
+
+                                                                        <div class="block x-AnnonAdre y-annonce block-AnnonAdrePin">
+                                                                        <div class="block x-2 y-logo block-LogoAnnonceIn"></div>
+                                                                        </div>
+
+                                                                      </br>
+
+                                                                      <div class="block x-AnnonAdre y-annonce block-AnnonAdreBad">
+                                                                      <div class="block x-2 y-logo block-LogoAnnonceBad"></div>
+                                                                      </div>
+
+
+
+
+
+
+                                                                        </div>
+                                                                        </br>
+
                                                                 </br>
                                                             <a class = "btnRet" href ="index.php?controle=consulterAnnonce&action=afficherMesAnnonces"> Plus d'offres... </a>
                                                             </div>
@@ -502,6 +534,41 @@ input:checked + .slider:before {
 
 
                                                                     </br>
+
+                                                                    <div class="col-md-8-2 col-lg-9-2" id="icones">
+                                                                        <div class="panel">
+                                                                            <div class="panel-heading">
+                                                                                <h3 class="panel-title">TUTO</h3>
+                                                                            </div>
+
+                                                                            <div class="panel-body">
+                                                                                <div class="container">
+
+                                                                              </div>
+
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-8-2 col-lg-9-2" id="icones">
+                                                                        <div class="panel">
+                                                                            <div class="panel-heading">
+                                                                                <h3 class="panel-title">FAQ</h3>
+                                                                            </div>
+
+                                                                            <div class="panel-body">
+                                                                                <div class="container">
+
+                                                                              </div>
+
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+
+
+
 
                                                 </section>
                                                 <!--===================================================-->

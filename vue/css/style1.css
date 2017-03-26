@@ -181,6 +181,14 @@ a.button{
       line-height: 50px;
   }
 
+  .annonce{
+    display: inline-block;
+    color:white;
+    font-size:24px;
+    text-align: center;
+    line-height: 50px;
+  }
+
   .clearfix::after {
       content: "";
       clear: both;
@@ -195,11 +203,92 @@ a.button{
       padding-top: :3%;
   }
 
+  .block-LogoAnnonceTumblr{
+      background-image: url(http://icon-icons.com/icons2/870/PNG/72/square_tumblr_icon-icons.com_68019.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+  }
+
+  .block-LogoAnnonceIn{
+      background-image: url(http://icon-icons.com/icons2/870/PNG/72/square_pinterest_icon-icons.com_68015.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+  }
+
+  .block-LogoAnnonceBad{
+      background-image: url(http://icon-icons.com/icons2/870/PNG/72/square_badoo_icon-icons.com_68023.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+  }
+
+
+
+  .block-AnnonAdre{
+      background-color: #294055;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      padding-right: 95%;
+      border-radius: 50px;
+      border: 8px solid white;
+      margin-bottom: 10px;
+  }
+
+  .block-AnnonAdrePin{
+      background-color: #A71D22;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      padding-right: 95%;
+      border-radius: 50px;
+      border: 8px solid white;
+      margin-bottom: 10px;
+  }
+
+  .block-AnnonAdreBad{
+      background-color: #05A43A;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      padding-right: 95%;
+      border-radius: 50px;
+      border: 8px solid white;
+      margin-bottom: 10px;
+  }
+
+
+
+
+
+
+  .LigneAnnonce {
+    background-color: #395976;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    border: 8px solid white;
+  }
+
   .x-2{
       width:72px;
+  }
+
+  .x-AnnonAdre{
+      width:40%;
   }
 
   .y-2{
       height:72px;
   }
+
+  .y-logo{
+      height:72px;
+  }
+
+  .y-annonce{
+      height:71px;
+  }
+
+
     }
