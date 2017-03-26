@@ -361,32 +361,18 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 			<div id="listeAnnonces">
 			</br>
 			<style type='text/css'>
-                .plusdinfo{
-                    text-decoration:none; 
-                    color:#333; 
-                    border:1px solid #333; 
-                    border-radius:3px;
-                    background-color:#ddd;
-                    padding:2px;
-                    margin:2px;
-                    transition:1s;
-                }
-                .plusdinfo:hover{
-                    background-color:#4af;
-                    border:1px solid #14c; 
-                    border-radius:3px;
-                    transition:1s;
-                }
+               
                 td{
                     height:30px;
                 }
             </style>
+			<h3 class="centrer" > Voici la liste des annonces du jour </h3>
 			<?php
 			//print_r($test);
 			if($_SESSION['idUser']== $_SESSION['idUser']){
 				if ($tabAnnonces != false){
-					echo ('<table border="1">');
-					echo ('<tr><th> N° </th> <th> Nom annonce : </th> <th> Categorie </th>  <th> Adresse </th> <th> Date </th> <th> Recompense </th> <th> Plus d\'infos </th></tr>');
+					echo ('<table border="1" class="table">');
+					echo ('<tr class="tr"><th><h5 class="ecriture"> N°</h3> </th> <th><h5 class="ecriture"> Nom annonce : </h5></th> <th><h5 class="ecriture"> Categorie </h5></th>  <th><h5 class="ecriture"> Adresse </h5></th> <th><h5 class="ecriture"> Date </h5></th> <th><h5 class="ecriture"> Recompense </h5></th> <th><h5 class="ecriture"> Plus d\'infos </h5></th></tr>');
 					foreach ($tabAnnonces as $key => $value) {
 						echo "<tr class='annonces'>";
 					
@@ -397,7 +383,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 						echo ("<td>" . utf8_encode($value[6]) . "</td>");
 						echo ("<td>" . utf8_encode($value[3]) . "</td>");
 						echo ("<td>" . utf8_encode($value[2]) . "</td>");
-						echo ("<td>" . utf8_encode($value[5]) . "</td>");
+						echo ("<td>" . utf8_encode($value[5]) ."€". "</td>");
                         			echo ("<td><a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></td>");
 						
 
