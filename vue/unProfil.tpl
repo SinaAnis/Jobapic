@@ -49,6 +49,7 @@
         <link href="vue/css/demo/jasmine.css" rel="stylesheet">
 
 	<link rel="stylesheet" href="vue/css/style1.css">
+	<link rel="stylesheet" href="vue/css/lavy.css">
 
     <!--SCRIPT-->
     <!--=================================================-->
