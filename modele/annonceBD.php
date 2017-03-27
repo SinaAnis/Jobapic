@@ -73,7 +73,7 @@ function creation_annonce($nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAn
 
 function postulerSQL($iduser,$id){
   require ("./modele/connectBD.php");
-  $req= "INSERT INTO `postule`(`IdAnnonce`, `IdUser`) VALUES (%s,%s)";
+  $req= "INSERT INTO `postule`(`IdAnnonce`, `IdUser`, `statut`) VALUES (%s,%s,0)";
   $sql = sprintf ($req,$id,$iduser);
   $res = mysqli_query($link,$sql);// or die ('erreur de requete : ' . $sql);
 }
@@ -103,6 +103,17 @@ function getUserByID($iduser){
 	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
 
 	return mysqli_fetch_all($res);
+}
+
+function validerCandidat($id,$idA){
+    require ("modele/connectBD.php");
+	$select = "UPDATE `postule` SET statut = 1 WHERE idUser = %s AND idAnnonce = %s";
+	$req = sprintf($select,$id,$idA);
+	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
+    $select = "DELETE FROM `postule` WHERE idUser <> %s AND idAnnonce = %s";
+	$req = sprintf($select,$id, $idA);
+	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
+	//return mysqli_fetch_all($res);
 }
 
 ?>

@@ -356,67 +356,46 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                 <!--  require ("./controle/espaceEmploy.php") ; -->
                 <div>
                 </div>
-                <style>
-                    td{
-                        border-bottom:1px solid;
-                        text-align:center;
-                    }
+                <style type='text/css'>
+                .plusdinfo{
+                    text-decoration:none; 
+                    text-align:center;
+                    color:#333; 
+                    border:1px solid #333; 
+                    border-radius:3px;
+                    background-color:#ddd;
+                    padding:2px;
+                    margin:2px;
+                    transition:1s;
+                }
+                .plusdinfo:hover{
+                    background-color:#4af;
+                    border:1px solid #14c; 
+                    border-radius:3px;
+                    transition:1s;
+                }
                 </style>
-               <table class="listAnnonce">
-                    <tr class="titres">
-                        <td class="col-md-2">
-                            Catégorie
-                        </td>
-                        <td class="col-md-2">
-                            Nom du poste
-                        </td>
-                        <td class="col-md-2">
-                            Nom du recruteur
-                        </td>   
-                        <td class="col-md-2">
-                            Adresse
-                        </td>
-                        <td class="col-md-2">
-                            Date de publication
-                        </td>
-                        <td class="col-md-2">
-                            Postuler
-                        </td>
-                        
-                    </tr>
-                    <tr class="lespace">
-                        <td></td>
-                        <td></td>
-                        <td></td>   
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
                     <?php 
                         foreach ($annonce as $key => $value) {
-                            echo "<tr>";
-					
-                            //echo ("<td>" . utf8_encode($value[2]) . " : Choix simple</td>");
-                            
+                            echo('<div class="row"><div class="col-md-2">');
+                            echo('</div>');
                             foreach ($tomcat as $key => $valuee) {
-                                echo ("<td>" . utf8_encode($valuee[0]) . "</td>");
+                                //echo (utf8_encode($valuee[0]));
+                                echo('<div class="col-md-1" style="height:72px; width:72px; background-image: url(http://icon-icons.com/icons2/870/PNG/72/square_tumblr_icon-icons.com_68019.png); background-repeat: no-repeat; background-size: auto;"></div>');
                             }
-                            echo ("<td>" . utf8_encode($value[1]) . "</td>");
+                            echo('<div class="col-md-9" style="font-size:20px;">Annonce n°'.utf8_encode($value[0]).'</div>');
+                            echo('<div class="col-md-3" style="font-size:16px;">Nom : '.utf8_encode($value[1]).'</div>');
+                            echo('<div class="col-md-9" style="font-size:14px;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]));
                             foreach ($neme as $key => $valu) {
-                                echo ("<td>" . utf8_encode($valu[0]) . "</td>");
+                                echo (", proposé par : " . utf8_encode($valu[0]) . "</div>");
                             }
-                            echo ("<td>" . utf8_encode($value[3]) . "</td>");
-                            echo ("<td>" . utf8_encode($value[2]) . "</td>");
-                            echo ("<td><a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></td>");
-                        
-
-                            echo "</tr>\n";
+                            echo('<div class="col-md-4" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'€</div>');
+                            echo('<div class="col-md-1" style="text-align:right;">');
+                            echo("<a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></div>");
+                            echo("<p class style=\"height:20px;\"></p></div>");
                         }
                     
                     ?>
-                    
-                    
-                </table>
                 </ul>
 
                             </div>
