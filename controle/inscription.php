@@ -58,7 +58,7 @@ function inscription(){
 }
 
 function pageinscription(){
-require('./vue/inscription.tpl')
+require('./vue/inscription.tpl');
 /*
 		if (isset($_POST['cocher'])) {
 				require('./vue/inscription.tpl') ;
