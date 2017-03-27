@@ -167,7 +167,7 @@ input:checked + .slider:before {
                             <!--Message dropdown menu-->
                             <div class="dropdown-menu dropdown-menu-md with-arrow">
                                 <div class="pad-all bord-btm">
-                                    <p class="text-lg text-muted text-thin mar-no">Vous avez 9 messages.</p>
+                                    <p class="text-lg text-muted text-thin mar-no">Vous avez <?php echo $_POST['nbMessage'] ?> messages.</p>
                                 </div>
                                 <div class="nano scrollable">
                                     <div class="nano-content">

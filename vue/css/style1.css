@@ -133,7 +133,7 @@ a.button{
 }
 
 .block-1{
-    background-image: url(http://icon-icons.com/icons2/870/PNG/72/square_tumblr_icon-icons.com_68019.png);
+    background-image: url(/vue/img/icones/baby.png);
     background-repeat: no-repeat;
     max-width: 50px;
     background-size: 100%;
@@ -196,11 +196,12 @@ a.button{
   }
 
   .block-1{
-      background-image: url(http://icon-icons.com/icons2/870/PNG/72/square_tumblr_icon-icons.com_68019.png);
+        background-image: url(./../img/icones/baby.png);
 
       background-repeat: no-repeat;
       background-size: auto;
       padding-top: :3%;
+      background-size: 100%;
   }
 
   .block-LogoAnnonceTumblr{

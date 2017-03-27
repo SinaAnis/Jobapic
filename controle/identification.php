@@ -22,7 +22,7 @@ function ident(){
 	$situation = isset($_POST['situation'])?($_POST['situation']):'';
 	//$_SESSION['categorie']=getCategorieFavoris($_SESSION['idUser']);
 	//$iduser=$_SESSION['idUser'];*/
-	
+
 	$emailConnexion= isset($_POST['mail'])?($_POST['mail']):'';
 	$_SESSION['mdp']= isset($_POST['mdp'])?($_POST['mdp']):'';
 	$mdp1= isset($_POST['mdp1'])?($_POST['mdp1']):'';
@@ -56,6 +56,7 @@ function ident(){
 				 echo "<script language='JavaScript'>alert('Connexion réussie !')</script>";
 				 getProfil($emailConnexion,$_SESSION['mdp']);
 				 $questionAfficher=afficherAnnonceEmploye($_SESSION['idUser']);
+				 $nbMessage = "5";
 				 require('./vue/murEmploye.tpl') ;
 
 			}
@@ -80,7 +81,7 @@ function ident(){
 		   $categorie=getCategorie(); // NEW
 			require_once('./vue/inscription.tpl') ;
 		}
-	
+
 if(isset($_POST['finis'])){
 
 			//$emailConnexion = $_POST['email'];//
