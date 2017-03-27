@@ -8,6 +8,7 @@
 function ident(){
 	require ("modele/utilisateurBD.php") ;
 	require ("modele/annonceBD.php");
+	require ("modele/categorieBD.php");
 	/*$emailConnexion= isset($_POST['mail'])?($_POST['mail']):'';
 	$_SESSION['mdp']= isset($_POST['mdp'])?($_POST['mdp']):'';
     $_SESSION['prenom'] = "SALUT";
@@ -77,12 +78,13 @@ function ident(){
 
 		  echo "<script language='JavaScript'>alert('Etape suivante !')</script>";
 		   $categorie=getCategorie(); // NEW
-			require('./vue/inscription.tpl') ;
+			require_once('./vue/inscription.tpl') ;
 		}
 	
 if(isset($_POST['finis'])){
 
-			$emailConnexion = $_POST['email'];//
+			//$emailConnexion = $_POST['email'];//
+	$_SESSION['email'] = $_POST['email'];//
 			$_SESSION['prenom'] = $_POST['prenom'];
 			//$_SESSION['nom'] = $_POST['nom'];
 			$_SESSION['telephone'] = $_POST['telephone'];//
@@ -94,7 +96,13 @@ if(isset($_POST['finis'])){
 			$_SESSION['situation'] = $_POST['situation'];//
 
 inscription($_SESSION['nom'],$_SESSION['prenom'], $_SESSION['sexe'], $_SESSION['date'], $_SESSION['adresse'] ,$_SESSION['ville'], $_SESSION['departement'], $_SESSION['email']  ,$_SESSION['telephone'],  $_SESSION['situation'],0, $mdp1,0);
-			echo "<script language='JavaScript'>alert('Vous etes maintenant inscrit !')</script>";
+			// ENREGISTREMENT DES CATEGORIE, reconnais ni $categorie ni $idus
+		    /*$idus= getIdUserByMail($_SESSION['email']);
+		    echo($idus);
+			enregistrerCategorie($categorie1, $idus);//)
+			enregistrerCategorie($categorie2, $idus);
+			enregistrerCategorie($categorie3, $idus);*/
+	echo "<script language='JavaScript'>alert('Vous etes maintenant inscrit !')</script>";
 				  getProfil($emailConnexion,$_SESSION['mdp']);
 				 	/*$questionAfficher=afficherAnnonceEmploye($_SESSION['idUser']);*/
 					 require('./vue/murEmploye.tpl') ;
