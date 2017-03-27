@@ -425,7 +425,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                     <h1><i class="fa fa-home logo"></i></h1>
                 
                     
-                </div>
+     </div>
 				
 				<!--<div class="profil2">
 					<h4 class="prof2">Formation</h4>
@@ -455,7 +455,9 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 					<h1><i class="fa fa-home logo"></i></h1>
 				
 					
-				</div>-->
+				</div>
+        
+        
 				
    
    
