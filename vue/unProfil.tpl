@@ -49,6 +49,7 @@
         <link href="vue/css/demo/jasmine.css" rel="stylesheet">
 
 	<link rel="stylesheet" href="vue/css/style1.css">
+    <link rel="stylesheet" href="vue/css/lavy.css">
 
     <!--SCRIPT-->
     <!--=================================================-->
@@ -340,7 +341,12 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
             <!--===================================================-->
             <section id="content-container">
                 <header class="pageheader">
-                    <h3><i class="fa fa-home"></i> Consulter un Profil  </h3>
+                    <h3><i class="fa fa-home"></i> Profil de <?php 
+                    foreach($candidat as $key => $cand) {
+                    $name = strtoupper($cand[1]);
+                    $surname = ucfirst($cand[2]);
+                    echo("$name $surname" ) ;}
+                     ?></h3>
                     <div class="breadcrumb-wrapper"> <span class="label">Vous êtes ici:</span>
                         <ol class="breadcrumb">
                             <li> <a href="#"> Home </a> </li>
@@ -353,19 +359,75 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                 <!--Page content-->
                 <!--===================================================-->
-					
-				<div class="profil">
-					
-					<img class="photo" src="vue/img/profil.jpg" alt="1"/>
-					<h3 class="nom"><?php echo $_SESSION['nom']; ?></h3>
-					<h4 class="prenom"><?php echo $_SESSION['prenom']; ?></h4>
-					<h4 class="prenom">19 ans</h4>
-					<h4 class="prenom">18 allée Saint Exupéry 92390 Villeneuve la Garenne</h4>
-					<h4 class="prenom">Etudiante</h4>
-					
-				</div>
+                <?php
+				 require ("modele/connectBD.php");
+
+        foreach ($candidat as $key => $val) {
+            echo("<div class=\"profil\">");
+            //echo("<div class=\"day\">".$cpt."</div>");
+            //$cpt = $cpt + 1;
+            echo("<img class=\"photo\" src=\"http://fr.thierryseguin.com/wp-content/uploads/2015/12/04-10579-product/Portrait-de-valorisation-professionnel-pour-Amplement-LinkedIn-Viadeo-CV-266x400.jpg\"/>
+            <h3 class=\"nom\">".$val[1]."</h3> <h4 class=\"prenom\">".$val[2]."</h4>
+             <h4 class=\"prenom\">".$val[3]."</h4>
+            <h4 class=\"prenom\">".$val[4]."</h4>
+            <h4 class=\"prenom\">".$val[6]."</h4>
+            <h4 class=\"prenom\">".$val[10]."</h4></div>");
+        }
+
+        // A RAJOUTER LES CSS DESCRIPTIONS
+        echo("<div class=\"profil2\">"); 
+        echo("<h4 class=\"prof2\">Formation</h4>");
+        $result = count($formation);
+        if ($result == 0) {
+             echo(" <h4 class=\"prof3\">Aucune formation(s) mentionnée(s)</h4>");
+        }else{
+            foreach ($formation as $key => $form) { 
+                  echo(" <h4 class=\"prof3\">- ".$form[1]."</h4>");
+                  echo(" <h5 class=\"prof4\">".$form[2]."</h5>");
+            }
+        }
+
+        echo("<h4 class=\"prof2\">Expérience</h4>");
+        $result2 = count($experience);
+        if ($result2 == 0) {
+             echo(" <h4 class=\"prof3\">Aucune expérience(s) mentionnée(s)</h4>");
+        }else{
+            foreach ($experience as $key => $exp) { 
+                  echo(" <h4 class=\"prof3\">- ".$exp[2]."</h4>");
+                  echo(" <h5 class=\"prof4\">".$exp[3]."</h5>");
+            }
+        }
+
+        echo("<h4 class=\"prof2\">Loisir</h4>");
+        $result3 = count($loisir);
+        if ($result3 == 0) {
+             echo(" <h4 class=\"prof3\">Aucun loisir(s) mentionné(s)</h4>");
+        }else{
+            foreach ($loisir as $key => $loi) { 
+                  echo(" <h4 class=\"prof3\">- ".$loi[2]."</h4>");
+                  echo(" <h5 class=\"prof4\">".$loi[3]."</h5>");
+            }
+        }
+
+        echo("</div>");
+
+    
+  ?>
+
+  <div class="profil3">
+                    <h4 class="prof2">Notes</h4>
+                    <h1><i class="fa fa-home logo"></i></h1>
+                    <h1><i class="fa fa-home logo"></i></h1>
+                    <h1><i class="fa fa-home logo"></i></h1>
+                    <h1><i class="fa fa-home logo"></i></h1>
+                    <h1><i class="fa fa-home logo"></i></h1>
+                    <h1><i class="fa fa-home logo"></i></h1>
+                    <h1><i class="fa fa-home logo"></i></h1>
+                
+                    
+                </div>
 				
-				<div class="profil2">
+				<!--<div class="profil2">
 					<h4 class="prof2">Formation</h4>
 						<h4 class="prof3">- 2ème année de DUT Info, Paris Descartes</h4>
 						<h4 class="prof3">- 1ère année de DUT Info, Paris Descartes</h4>
@@ -393,7 +455,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 					<h1><i class="fa fa-home logo"></i></h1>
 				
 					
-				</div>
+				</div>-->
 				
    
    
@@ -407,9 +469,9 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
             <!--===================================================-->
             <!--END CONTENT CONTAINER-->
 
-             <!--MAIN NAVIGATION-->
+            <!--MAIN NAVIGATION-->
             <!--===================================================-->
-            <nav id="mainnav-container">
+          <nav id="mainnav-container">
                 <div id="mainnav">
 
                     <!--Menu-->
@@ -424,11 +486,11 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                     <!--Menu list item-->
                                     <li>
-                                        <a href="index.html">
+                                        <a href="index.php?controle=identification&action=afficherMurEmployeur">
                                             <i class="fa fa-dashboard"></i>
                                             <span class="menu-title">
-												<strong>Mur</strong>
-											</span>
+                                                <strong>Mur</strong>
+                                            </span>
                                         </a>
                                     </li>
 
@@ -441,8 +503,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                       <!--Submenu-->
                                       <ul class="collapse">
-                                          <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
-                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
+                                           <li><a href="index.php?controle=creerAnnonce&action=creerAnnonce"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
+                                           <li><a href="index.php?controle=lesCandidatures&action=lesCandidatures"><i class="fa fa-caret-right"></i> Les Candidatures</a></li>
                                       </ul>
                                     </li>
 
@@ -455,9 +517,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                       <!--Submenu-->
                                       <ul class="collapse">
-                                          <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
-                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
-                                          <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
+                                       
+                                        <li><a href="index.php?controle=editerProfil&action=editerProfilEmployeur"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
                                       </ul>
                                     </li>
 
@@ -466,32 +527,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                     <li class="list-divider"></li>
 
-
-                                    <!--Category name-->
-
-                                    <!--Category name-->
-                                    <li class="list-header">Lot Secondaire</li>
-                                    <!--Menu list item-->
-
-                                    <!--Category name-->
-                                    <li class="list-header">Lot Tertiaire</li>
-                                    <!--Menu list item-->
-                                    <li>
-                                      <a href="#">
-                                          <i class="fa fa-envelope"></i>
-                                          <span class="menu-title">Profil</span>
-                                          <i class="arrow"></i>
-                                      </a>
-
-                                      <!--Submenu-->
-                                      <ul class="collapse">
-                                          <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
-                                          <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Mes candidatures </a></li>
-                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
-                                          <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Modifier paramètre </a></li>
-
-                                      </ul>
-                                    </li>
+                                 
                                     <!--Category name-->
                                     <li class="list-header">Lot Falcultatif</li>
                                     <!--Menu list item-->
@@ -550,6 +586,19 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
 
                                 </ul>
+<center>
+                                                        <a href="index.php?controle=identification&action=afficherMurEmployeur">
+                                                          <button class="btn btn-default">Employeur</button>
+</a>
+                                                          <a href="index.php?controle=identification&action=afficherMurEmploye">
+                                                          <button class="btn btn-default"> Employé </button>
+                                                          </a>
+                                                        </br>
+                                                        </br>
+                                                        <p style="color: white; font-weight: bold">vous êtes dans le mur Employeur</p>
+
+                                                          </form>
+                                                            </center>
 
 
                                 <!--Widget-->
@@ -577,9 +626,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                 </div>
             </nav>
-            <!--===================================================-->
-            <!--END MAIN NAVIGATION-->
-
+        <!--===================================================-->
+        <!--END MAIN NAVIGATION-->
 
             <!--ASIDE-->
             <!--===================================================-->
