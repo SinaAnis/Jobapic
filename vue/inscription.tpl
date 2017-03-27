@@ -166,11 +166,11 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <label>Téléphone:</label>
-                                                        <input id="phone" type="text" name="telephone" placeholder=" Ex: 0199897969" maxlength="10" data-mask="0999999999"class="form-control" />
+                                                        <input id="phone" type="text" name="telephone" placeholder=" Ex: 0199897969" maxlength="10" data-mask="0999999999"class="form-control" required/>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label>Date de naissance:</label>
-                                                        <input type="date" name="date" placeholder="JJ/MM/AAAA" pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" title="Exemple : 22/04/1997" data-mask="99/99/9999" class="form-control" />
+                                                        <input type="date" name="date" placeholder="JJ/MM/AAAA" pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" title="Exemple : 22/04/1997" data-mask="99/99/9999" class="form-control" required/>
                                                     </div>
                                                 </div>
                                             </div>  
@@ -180,7 +180,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                 
                                                 <div class="col-md-6">
                                                         <label>Adresse:</label>
-                                                        <input type="text" name="adresse" placeholder="Adresse" maxlength="50" class="form-control" />
+                                                        <input type="text" name="adresse" placeholder="Adresse" maxlength="50" class="form-control" required />
                                                   </div>
                                                   
                                                   <div class="col-md-3">
