@@ -1,5 +1,16 @@
 $(".info-item .btn").click(function(){
   $(".container").toggleClass("log-in");
+  if (window.matchMedia("(max-width: 700px)").matches) {
+	  var elm = document.getElementById("sign");
+	elm.style.marginLeft = "-27%";
+	elm.style.height = "265px";
+	
+		//var h = document.getElementById("txt");
+		//h.style.display = "none";
+}
+else{
+	
+}
 });
 $(".container-form .btn").click(function(){
  
