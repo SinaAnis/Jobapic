@@ -105,4 +105,15 @@ function getUserByID($iduser){
 	return mysqli_fetch_all($res);
 }
 
+function validerCandidat($id,$idA){
+    require ("modele/connectBD.php");
+	$select = "UPDATE `postule` SET statut = 1 WHERE idUser = %s AND idAnnonce = %s";
+	$req = sprintf($select,$id,$idA);
+	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
+    $select = "DELETE FROM `postule` WHERE idUser <> %s AND idAnnonce = %s";
+	$req = sprintf($select,$id, $idA);
+	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
+	//return mysqli_fetch_all($res);
+}
+
 ?>
