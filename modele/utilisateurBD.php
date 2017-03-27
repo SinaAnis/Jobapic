@@ -33,8 +33,8 @@
 		$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
 
 		if (mysqli_num_rows($res)>0) {
-			$profil=mysqli_fetch_assoc($res);
-			$_SESSION['profil']= $profil;	//Inclure dans une variable session le profil de l'user
+			//$profil=mysqli_fetch_assoc($res);
+			//$_SESSION['profil']= $profil;	//Inclure dans une variable session le profil de l'user
 			return false;
 		}
 		else return true;

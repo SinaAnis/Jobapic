@@ -58,11 +58,18 @@ $mdp2= isset($_POST['mdp2'])?($_POST['mdp2']):'';
 		}
 
 		// SI ON SOUHAITE S'INSCRIRE
-		if(isset($_POST['email']) && isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['mdp1']) && isset($_POST['mdp2'])){
-			$emailInscription = $_POST['email'];
-			$_SESSION['mdp1'] = $_POST['mdp1'];
-			$profil = array();
-		}
+		if(isset($_POST['email']) && isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['mdp1']) && isset($_POST['mdp2']) && mail_disponible($_POST['email'])){
+
+				$emailInscription = $_POST['email'];
+				$_SESSION['mdp1'] = $_POST['mdp1'];
+				$profil = array();
+			}
+
+			else if(isset($_POST['email']) && isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['mdp1']) && isset($_POST['mdp2']) && !mail_disponible($_POST['email'])) {
+				echo "<script language='JavaScript'>alert('Ce mail n'est pas disponible')</script>";
+				 require('./vue/Connexion/connexion.tpl') ;
+			}
+
    if(isset($_SESSION['mdp1'])){
 		if(!empty($emailInscription) && !empty($prenom) && !empty($nom) && !empty($mdp1) && !empty($mdp2) ) {
 		    $_SESSION['email'] = $emailInscription;
