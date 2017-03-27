@@ -8,34 +8,18 @@
 function ident(){
 	require ("modele/utilisateurBD.php") ;
 	require ("modele/annonceBD.php");
-	require ("modele/categorieBD.php");
-	/*$emailConnexion= isset($_POST['mail'])?($_POST['mail']):'';
-	$_SESSION['mdp']= isset($_POST['mdp'])?($_POST['mdp']):'';
-    $_SESSION['prenom'] = "SALUT";
-	$emailInscription= isset($_POST['email'])?($_POST['email']):'';
-	$_SESSION['nom'] =isset($_POST['nom'])?($_POST['nom']):'';
-	$_SESSION['prenom'] = isset($_POST['prenom'])?($_POST['prenom']):'';
-	$genre = isset($_POST['sexe'])?($_POST['sexe']):'';
-	$date = isset($_POST['date'])?($_POST['date']):'';
-	$ville = isset($_POST['ville'])?($_POST['ville']):'';
-	$telephone = isset($_POST['telephone'])?($_POST['telephone']):'';
-	$situation = isset($_POST['situation'])?($_POST['situation']):'';
-	//$_SESSION['categorie']=getCategorieFavoris($_SESSION['idUser']);
-	//$iduser=$_SESSION['idUser'];*/
 
-	$emailConnexion= isset($_POST['mail'])?($_POST['mail']):'';
-	$_SESSION['mdp']= isset($_POST['mdp'])?($_POST['mdp']):'';
-	$mdp1= isset($_POST['mdp1'])?($_POST['mdp1']):'';
 
-    $_SESSION['prenom'] = "SALUT";
-	$emailInscription= isset($_POST['email'])?($_POST['email']):'';
-	$_SESSION['nom'] =isset($_POST['nom'])?($_POST['nom']):'';
-	$_SESSION['prenom'] = isset($_POST['prenom'])?($_POST['prenom']):'';
-	$genre = isset($_POST['sexe'])?($_POST['sexe']):'';
-	$date = isset($_POST['date'])?($_POST['date']):'';
-	$ville = isset($_POST['ville'])?($_POST['ville']):'';
-	$telephone = isset($_POST['telephone'])?($_POST['telephone']):'';
-	$situation = isset($_POST['situation'])?($_POST['situation']):'';
+// Connexion
+$emailConnexion= isset($_POST['mail'])?($_POST['mail']):'';
+$mdp= isset($_POST['mdp'])?($_POST['mdp']):'';
+// INSCRIPTION
+$emailInscription= isset($_POST['email'])?($_POST['email']):'';
+$prenom= isset($_POST['prenom'])?($_POST['prenom']):'';
+$nom= isset($_POST['nom'])?($_POST['nom']):'';
+$mdp1= isset($_POST['mdp1'])?($_POST['mdp1']):'';
+$mdp2= isset($_POST['mdp2'])?($_POST['mdp2']):'';
+
 
 	$categorie1 = isset($_POST['cat1'])?($_POST['cat1']):'';
 	$categorie2 = isset($_POST['cat2'])?($_POST['cat2']):'';
@@ -51,6 +35,17 @@ function ident(){
 		$profil = array(); //profil affecté par l'appel à verif_ident
 	}
 
+	else if(empty($emailConnexion) && !empty($mdp)){
+		echo "<script language='JavaScript'>alert('Veuillez entrer un identifiant.')</script>";
+		require_once('./vue/Connexion/connexion.tpl') ;
+	}
+	else if(empty($mdp) && !empty($emailConnexion)){
+		echo "<script language='JavaScript'>alert('Veuillez entrer un mdp.')</script>";
+		require_once('./vue/Connexion/connexion.tpl') ;
+	}
+
+	// CONNEXION
+	if(isset($_SESSION['mdp'])){
 		if (verif_ident($emailConnexion,$_SESSION['mdp'],$profil) && !isset($_POST['ville']) ) {
 				 $_SESSION['profil'] = $profil;
 				 echo "<script language='JavaScript'>alert('Connexion réussie !')</script>";
@@ -60,65 +55,111 @@ function ident(){
 				 require('./vue/murEmploye.tpl') ;
 
 			}
-			else if(!empty($emailConnexion) && !empty($_SESSION['mdp'])) {
-				echo "<script language='JavaScript'>alert('Mauvais Identifiant ou Mot de Passe ! Veuillez réessayer.')</script>";
-				require('./vue/Connexion/connexion.tpl') ;
-			}
-			else if(!isset($_POST['email'])&&!isset($_POST['ville'])) {
-				require_once('./vue/Connexion/connexion.tpl');
-			}
-
-		else if(validEmail($emailInscription)==false){
-			//echo "<script language='JavaScript'>alert('Mail non valable !')</script>";
-			require('./vue/Connexion/connexion.tpl') ;
-		}
-		else if (mail_disponible($emailInscription) && isset($_POST['email'])){
-			$_SESSION['profil'] = $profil;
-		//  echo "<script language='JavaScript'>alert('Inscription !')</script>";
-		//  require('./vue/inscription.tpl') ;
-
-		  echo "<script language='JavaScript'>alert('Etape suivante !')</script>";
-		   $categorie=getCategorie(); // NEW
-			require_once('./vue/inscription.tpl') ;
 		}
 
-if(isset($_POST['finis'])){
+		// SI ON SOUHAITE S'INSCRIRE
+		if(isset($_POST['email']) && isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['mdp1']) && isset($_POST['mdp2'])){
+			$emailInscription = $_POST['email'];
+			$_SESSION['mdp1'] = $_POST['mdp1'];
+			$profil = array();
+		}
+   if(isset($_SESSION['mdp1'])){
+		if(!empty($emailInscription) && !empty($prenom) && !empty($nom) && !empty($mdp1) && !empty($mdp2) ) {
+		    $_SESSION['email'] = $emailInscription;
+				$_SESSION['prenom'] = $prenom;
+				$_SESSION['nom'] = $nom;
+		    require('./vue/contrat.tpl');
+		  }
+			else if(isset($_SESSION['email']))
+		  {
+				if (isset($_POST['cocher'])) {
 
-			//$emailConnexion = $_POST['email'];//
-	$_SESSION['email'] = $_POST['email'];//
-			$_SESSION['prenom'] = $_POST['prenom'];
-			//$_SESSION['nom'] = $_POST['nom'];
-			$_SESSION['telephone'] = $_POST['telephone'];//
-			$_SESSION['date'] = $_POST['date'];//
-			$_SESSION['adresse'] = $_POST['adresse'];//
-			$_SESSION['departement']= $_POST['departement'];//
-			$_SESSION['ville'] = $_POST['ville'];//
-			$_SESSION['sexe'] = $_POST['sexe'];//
-			$_SESSION['situation'] = $_POST['situation'];//
+					$categorie = getCategorie();
+					require('./vue/inscription.tpl') ;
+				}
+				else if(isset($_POST['contrat']) && !isset($_POST['cocher']))
+			  {
+			   echo "<script language='JavaScript'>alert('Veuillez accepter le contrat pour continuer!!')</script>";
+			    require('./vue/contrat.tpl') ;
+			  }
+				else if(isset($_POST['finis']))
+				{
+					$emailInscription= isset($_POST['email'])?($_POST['email']):'';
+				  $prenom= isset($_POST['prenom'])?($_POST['prenom']):'';
+				  $nom= isset($_POST['nom'])?($_POST['nom']):'';
+				  $telephone= isset($_POST['telephone'])?($_POST['telephone']):'';
+				  $date= isset($_POST['date'])?($_POST['date']):'';
+				  $adresse= isset($_POST['adresse'])?($_POST['adresse']):'';
+				  $departement= isset($_POST['departement'])?($_POST['departement']):'';
+				  $ville= isset($_POST['ville'])?($_POST['ville']):'';
+				  $sexe= isset($_POST['sexe'])?($_POST['sexe']):'';
+				  $situation= isset($_POST['situation'])?($_POST['situation']):'';
+				  $cat1= isset($_POST['cat1'])?($_POST['cat1']):'';
+				  $cat2= isset($_POST['cat2'])?($_POST['cat2']):'';
+				  $cat3= isset($_POST['cat3'])?($_POST['cat3']):'';
+				  $mdp= $_SESSION['mdp'];
 
-inscription($_SESSION['nom'],$_SESSION['prenom'], $_SESSION['sexe'], $_SESSION['date'], $_SESSION['adresse'] ,$_SESSION['ville'], $_SESSION['departement'], $_SESSION['email']  ,$_SESSION['telephone'],  $_SESSION['situation'],0, $mdp1,0);
-			// ENREGISTREMENT DES CATEGORIE, reconnais ni $categorie ni $idus
-		    /*$idus= getIdUserByMail($_SESSION['email']);
-		    echo($idus);
-			enregistrerCategorie($categorie1, $idus);//)
-			enregistrerCategorie($categorie2, $idus);
-			enregistrerCategorie($categorie3, $idus);*/
-	echo "<script language='JavaScript'>alert('Vous etes maintenant inscrit !')</script>";
-				  getProfil($emailConnexion,$_SESSION['mdp']);
-				 	/*$questionAfficher=afficherAnnonceEmploye($_SESSION['idUser']);*/
-					 require('./vue/murEmploye.tpl') ;
+					if(!empty($_POST['nom']) && !empty($_POST['adresse']) && !empty($_POST['prenom']) && !empty($_POST['telephone']) && !empty($_POST['date']) && !empty($_POST['sexe']) && !empty($_POST['ville'])   ) {
+            if ($cat1 <> $cat2 && $cat1 <> $cat3 && $cat2 <> $cat3 ) {
+							inscription($nom, $prenom, $sexe, $date, $adresse, $ville, $departement, $emailInscription, $telephone, $situation, $mdp);
+							$idUser = getIdUser($nom,$mdp);
+							setCategorieFavoris($cat1,$idUser);
+							setCategorieFavoris($cat2,$idUser);
+							setCategorieFavoris($cat3,$idUser);
+							getProfil($idUser,$mdp);
+							$questionAfficher=afficherAnnonceEmploye($idUser[0]);
+							require('./vue/murEmploye.tpl');
+            }
+						else {
+ 						 echo "<script language='JavaScript'>alert('Veuillez selectionner différentes catégories !!')</script>";
+ 						 $categorie = getCategorie();
+             $_SESSION['telephone'] = $_POST['telephone'];
+						 $_SESSION['date'] = $_POST['date'];
+						 $_SESSION['ville'] = $_POST['ville'];
+						 $_SESSION['adresse'] = $_POST['adresse'];
+ 						 require('./vue/inscription.tpl');
+ 					 }
+					}
+
+					else if((!empty($_POST['nom']) && !empty($_POST['adresse']) && !empty($_POST['prenom']) && empty($_POST['telephone']) && !empty($_POST['date']) && !empty($_POST['sexe']) && !empty($_POST['ville'])   )){
+           echo "<script language='JavaScript'>alert('Veuillez entrer un numéro de téléphone!!')</script>";
+					 $categorie = getCategorie();
+					 $_SESSION['date'] = $_POST['date'];
+					 $_SESSION['ville'] = $_POST['ville'];
+					 $_SESSION['adresse'] = $_POST['adresse'];
+					 require('./vue/inscription.tpl');
+					}
+
+					else if((!empty($_POST['nom']) &&  !empty($_POST['adresse'])  && !empty($_POST['prenom']) && !empty($_POST['telephone']) && empty($_POST['date']) && !empty($_POST['sexe']) && !empty($_POST['ville'])   )){
+           echo "<script language='JavaScript'>alert('Veuillez entrer une date de naissance!!')</script>";
+					 $categorie = getCategorie();
+					 $_SESSION['telephone'] = $_POST['telephone'];
+					 $_SESSION['ville'] = $_POST['ville'];
+					 $_SESSION['adresse'] = $_POST['adresse'];
+					 require('./vue/inscription.tpl');
+					}
+
+					else if((!empty($_POST['nom']) && !empty($_POST['adresse']) && !empty($_POST['prenom']) && !empty($_POST['telephone']) && !empty($_POST['date']) && !empty($_POST['sexe']) && empty($_POST['ville'])   )){
+           echo "<script language='JavaScript'>alert('Veuillez entrer une ville!!')</script>";
+					 $categorie = getCategorie();
+					 $_SESSION['telephone'] = $_POST['telephone'];
+					 $_SESSION['date'] = $_POST['date'];
+					 $_SESSION['adresse'] = $_POST['adresse'];
+					 require('./vue/inscription.tpl');
+				   }
+					else if((!empty($_POST['nom']) && empty($_POST['adresse']) && !empty($_POST['prenom']) && !empty($_POST['telephone']) && !empty($_POST['date']) && !empty($_POST['sexe']) && !empty($_POST['ville']) )){
+           echo "<script language='JavaScript'>alert('Veuillez entrer une adresse!!')</script>";
+					 $categorie = getCategorie();
+					 $_SESSION['telephone'] = $_POST['telephone'];
+					 $_SESSION['date'] = $_POST['date'];
+					 $_SESSION['ville'] = $_POST['ville'];
+					 require('./vue/inscription.tpl');
+					}
+
+				}
+		  }
 
 		}
-		/*else if (mail_disponible($emailInscription) && isset($_POST['email'])){
-			$_SESSION['profil'] = $profil;
-		  echo "<script language='JavaScript'>alert('Etape suivante !')</script>";
-		  require('./vue/inscription.tpl') ;
-		}*/
-		else if(isset($_POST['email']) && isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['mdp']) && !isset($_POST['finis']) ) {
-			echo "<script language='JavaScript'>alert('Mail pas disponible !')</script>";
-		}
-
-
 	}
 
 /*function ident(){

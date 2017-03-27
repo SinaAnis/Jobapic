@@ -20,7 +20,10 @@ else {
 	//echo ('controle : ' . $controle . ' et <br/> action : ' . $action);
 	require ('./controle/' . $controle . '.php');
     if (isset($_GET['id'])){
-        $action ($_GET['id']);
+        if(isset($_GET['idAnnonce'])){
+            $action ($_GET['id'],$_GET['idAnnonce']);
+        }else
+            $action ($_GET['id']);
     } else 
         $action ();
 }

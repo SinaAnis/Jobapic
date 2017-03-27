@@ -15,7 +15,15 @@
 			$_SESSION['profil']= $profil;	//Inclure dans une variable session le profil de l'user
 			return true;
 		}
-		else return false;
+	 return false;
+	}
+
+	function setCategorieFavoris($cat,$iduser){
+		require ("./modele/connectBD.php");
+		$req= "INSERT INTO categoriepref (IdCategorie,IdUser)
+		VALUES ('%s','%s')";
+		$sql = sprintf ($req , $cat, $iduser);
+		$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
 	}
 
 	function mail_disponible($mail=''){
@@ -32,20 +40,11 @@
 		else return true;
 	}
 
-	/*function inscription($mail,$prenom,$nom,$mdp, $genre, $date, $adresse , $telephone, $situation,$departement , $ville, $photo, &$profil) {
+function inscription($nom, $prenom, $genre, $date, $adresse, $ville, $departement, $mail, $telephone, $situation, $mdp) {
 		require ("./modele/connectBD.php");
-		$req= "INSERT INTO utilisateur (Nom,Prenom,Genre,DateNaissance,Adresse,Mail,Telephone,Situation,Mdp,Departement,Ville,Photo)
-		VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')";
-		$sql = sprintf ($req , $nom, $prenom, $genre ,$date , $adresse, $mail, $telephone ,$situation , $mdp ,$departement , $ville, $photo);
-		$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
-
-	}*/
-
-function inscription($nom, $prenom, $genre, $date, $adresse, $ville, $departement, $mail, $telephone, $situation, $note, $mdp, $photo) {
-		require ("./modele/connectBD.php");
-		$req= "INSERT INTO utilisateur (Nom,Prenom,Genre,DateNaissance,Adresse,Ville,Departement, Mail,Telephone,Situation,NoteMoyenne,Mdp,Photo)
-		VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')";
-		$sql = sprintf ($req , $nom, $prenom, $genre, $date, $adresse, $ville, $departement, $mail, $telephone, $situation, $note, $mdp, $photo);
+		$req= "INSERT INTO utilisateur (Nom,Prenom,Genre,DateNaissance,Adresse,Ville,Departement, Mail,Telephone,Situation,Mdp)
+		VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')";
+		$sql = sprintf ($req , $nom, $prenom, $genre, $date, $adresse, $ville, $departement, $mail, $telephone, $situation, $mdp);
 		$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
 	}
 
@@ -60,11 +59,12 @@ function inscription($nom, $prenom, $genre, $date, $adresse, $ville, $departemen
 		$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
 	}
 
-	function getProfil($log='',$num=''){
+	function getProfil($log,$num){
 		require ("./modele/connectBD.php");
 			$req= "SELECT idUser,nom,prenom,genre,dateNaissance,Adresse,Mail,Telephone,Situation,mdp,Departement,Ville,Photo FROM Utilisateur WHERE idUser='%s' AND Mdp='%s'";
-			$sql = sprintf ($req, $log, $num);
-			$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
+				$sql = sprintf ($req,$log,$num);
+			  $res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
+			//$row = mysqli_fetch_assoc($res);
 				foreach($res as $row){
 					$_SESSION['idUser'] = $row['idUser'];
 				  $_SESSION['nom'] = $row['nom'];
@@ -82,7 +82,14 @@ function inscription($nom, $prenom, $genre, $date, $adresse, $ville, $departemen
 				}
 
 	}
-
+  function getIdUser($nom,$mdp){
+		require ("./modele/connectBD.php");
+			$req= "SELECT idUser FROM `utilisateur` WHERE nom = '%s' AND mdp='%s' ";
+			$sql = sprintf ($req , $nom,$mdp );
+			$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
+      $row = mysqli_fetch_assoc($res);
+			   return $row['idUser'];
+	}
 	function getCategorieFavoris($id){
 		require ("./modele/connectBD.php");
 			$req= "SELECT categorie.IdCategorie,categorie.NomCategorie

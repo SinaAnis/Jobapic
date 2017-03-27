@@ -455,6 +455,7 @@ input:checked + .slider:before {
                                                                       }
                                                                       ?>
 
+
                                                                         </br>
 
                                                                         <div class="block x-AnnonAdre y-annonce block-AnnonAdrePin">
@@ -468,6 +469,8 @@ input:checked + .slider:before {
                                                                       </div>
 
 
+                                                                      <div class="annonceBaby">
+                                                                      </div>
 
 
 
