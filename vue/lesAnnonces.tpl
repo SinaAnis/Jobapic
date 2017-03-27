@@ -360,9 +360,10 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 				
 			<div id="listeAnnonces">
 			</br>
-			<style type='text/css'>
+	     <style type='text/css'>
                 .plusdinfo{
                     text-decoration:none; 
+                    text-align:center;
                     color:#333; 
                     border:1px solid #333; 
                     border-radius:3px;
@@ -382,28 +383,23 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                 }
             </style>
 			<?php
-			//print_r($test);
 			if($_SESSION['idUser']== $_SESSION['idUser']){
 				if ($tabAnnonces != false){
-					echo ('<table border="1">');
-					echo ('<tr><th> N° </th> <th> Nom annonce : </th> <th> Categorie </th>  <th> Adresse </th> <th> Date </th> <th> Recompense </th> <th> Plus d\'infos </th></tr>');
 					foreach ($tabAnnonces as $key => $value) {
-						echo "<tr class='annonces'>";
-					
-						//echo ("<td>" . utf8_encode($value[2]) . " : Choix simple</td>");
-			
-						echo ("<td>" . utf8_encode($value[0]) . "</td>");
-						echo ("<td>" . utf8_encode($value[1]) . "</td>");
-						echo ("<td>" . utf8_encode($value[6]) . "</td>");
-						echo ("<td>" . utf8_encode($value[3]) . "</td>");
-						echo ("<td>" . utf8_encode($value[2]) . "</td>");
-						echo ("<td>" . utf8_encode($value[5]) . "</td>");
-                        			echo ("<td><a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></td>");
-						
-
-					echo "</tr>\n";
+                        $cat = getCatNameWithAnnonceId($value[0]);
+                        //echo('<div class="col-md-5"></div><div class="col-md-7" ></div>');
+                        echo('<div class="row"><div class="col-md-1"></div><div class="col-md-1" style="height:72px; width:72px; background-image: url(http://icon-icons.com/icons2/870/PNG/72/square_tumblr_icon-icons.com_68019.png); background-repeat: no-repeat; background-size: auto;"></div><div class="col-md-10" style="font-size:20px;">Annonce n°'.utf8_encode($value[0]).'</div>');
+                        echo('<div class="col-md-3" style="font-size:16px;">Nom : '.utf8_encode($value[1]).'</div>');
+                        foreach ($cat as $key => $valuee) {
+                            echo ('<div class="col-md-7" style="font-size:16px;">Catégorie : ' . utf8_encode($valuee[0]) . '</div>');
+                        }
+                        echo('<div class="col-md-8" style="font-size:14px;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+                        echo('<div class="col-md-2" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'</div>');
+                        echo('<div class="col-md-10" style="height:20px;"></div>');
+                        echo('<div class="col-md-11" style="text-align:right;">');
+                        echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+                        echo("<hr style=\"color:black; background-color:#444;\" class=\"col-md-11\"></hr></div>");
 					}
-					echo ('</table>');
 				}
 				else
 					echo ('pas d\'annonces');
