@@ -569,12 +569,13 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
             <!--END CONTENT CONTAINER-->
 
            <!--MAIN NAVIGATION-->
-            <!--===================================================-->
-            <nav id="mainnav-container">
-                <div id="mainnav">
+                                            <!--===================================================-->
+                                            <nav id="mainnav-container">
+                                                <div id="mainnav">
 
-                     <!--Menu-->
+                                                    <!--Menu-->
                                                     <!--================================-->
+
                                                     <div id="mainnav-menu-wrap">
                                                         <div class="nano">
                                                             <div class="nano-content">
@@ -602,7 +603,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
-                                                                         <li><a href="index.php?controle=consulterAnnonce&action=consulterLesAnnonces"><i class="fa fa-caret-right"></i> Consulter les annonces du jours</a></li>
+
+                                                                          <li><a href="index.php?controle=consulterAnnonce&action=consulterLesAnnonces"><i class="fa fa-caret-right"></i> Consulter les annonces du jours</a></li>
                                                                       </ul>
                                                                   </li>
 
@@ -615,9 +617,15 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
+
+									<?php 
+                                                                            echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfil&id='.$_SESSION['idUser'].'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
+                                                                          ?>
                                                                           <li><a href="index.php?controle=editerProfil&action=editerProfilEmploye"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
-                                                                        
+
                                                                           <li><a href="index.php?controle=mesCandidatures&action=mesCandidatures"><i class="fa fa-caret-right"></i> Mes candidatures</a></li>
+
+                                                                          <!--<li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Modifier paramètres </a></li>-->
                                                                     </ul>
                                                                   </li>
 
@@ -646,13 +654,10 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                                       <!--Submenu
 
                                                                       <ul class="collapse">
-								      <?php 
-                                                                            echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfil&id='.$_SESSION['idUser'].'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
-                                                                          ?>
                                                                           <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
                                                                           <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Mes candidatures </a></li>
                                                                           <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
-                                                                          
+
 
                                                                       </ul>
                                                                   </li>-->
@@ -662,15 +667,14 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                                   <li>
                                                                     <a href="#">
                                                                         <i class="fa fa-envelope"></i>
-                                                                        <span class="menu-title">Email</span>
+                                                                        <span class="menu-title">Messagerie</span>
                                                                         <i class="arrow"></i>
                                                                     </a>
 
                                                                     <!--Submenu-->
                                                                     <ul class="collapse">
-                                                                        <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Inbox</a></li>
-                                                                        <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> View Message</a></li>
-                                                                        <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Compose Message</a></li>
+                                                                        <li><a href="index.php?controle=composerMessage&action=afficherMessages"><i class="fa fa-caret-right"></i>Mes Messages</a></li>
+                                                                        <li><a href="index.php?controle=composerMessage&action=creerMessage"><i class="fa fa-caret-right"></i> Composer un Message</a></li>
                                                                     </ul>
                                                                 </li>
 
@@ -684,21 +688,28 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                                     </a>
                                                                 </li>
 
+    <li class="list-header">Espaces :</li>
+                                                                <li>
+                                                                    <a href="index.php?controle=identification&action=afficherMurEmployeur">
+                                                                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                                                        <span class="menu-title">
+                                                                            Employeur
+                                                                        </span>
+                                                                        &nbsp;
+                                                                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                                                    </a>
+                                                                </li>
 
-
-                                                                <!--Menu list item-->
-
-
-                                                                <!--Menu list item-->
-
-
-                                                                <!--Menu list item-->
-
-                                                                <!--Menu list item-->
-
-
-                                                                <!--Menu list item-->
-
+                                                                <li>
+                                                                    <a href="index.php?controle=identification&action=afficherMurEmploye">
+                                                                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                                                        <span class="menu-title">
+                                                                            Employé(e)
+                                                                        </span>
+                                                                        &nbsp;
+                                                                          <i class="fa fa-user-circle-o" aria-hidden="true"> </i>
+                                                                    </a>
+                                                                </li>
 
                                                                 <li class="list-divider"></li>
 
@@ -715,15 +726,11 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                                             </ul>
 <center>
-                                                        <a href="index.php?controle=identification&action=afficherMurEmployeur">
-                                                          <button class="btn btn-default">Employeur</button>
-</a>
-														  <a href="index.php?controle=identification&action=afficherMurEmploye">
-														  <button class="btn btn-default"> Employé </button>
-														  </a>
+
+
 														</br>
 														</br>
-														<p style="color: white; font-weight: bold">vous êtes dans le mur Employé</p>
+														<p style="color: white; font-weight: bold">Vous êtes sur le mur Employé</p>
 
                                                           </form>
                                                             </center>
