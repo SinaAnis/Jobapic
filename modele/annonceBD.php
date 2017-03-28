@@ -87,6 +87,15 @@ function getPostuleById($id){
 	return mysqli_fetch_all($res);
 }
 
+function getPostuleWithIdProprio($id){
+    require ("modele/connectBD.php");
+	$select = "SELECT * FROM `POSTULE`, `ANNONCE` WHERE annonce.idAnnonce = postule.idAnnonce AND annonce.idUser = %s AND statut = 1";
+	$req = sprintf($select,$id);
+	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
+
+	return mysqli_fetch_all($res);
+}
+
 function getStatutWithIdAnnonceAndUser($iduser, $idann){
     require ("modele/connectBD.php");
 	$select = "SELECT statut FROM `postule` WHERE postule.idUser = %s AND postule.idAnnonce = %s ";
