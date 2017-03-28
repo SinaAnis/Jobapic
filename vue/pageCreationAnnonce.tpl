@@ -392,7 +392,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                        <label class="col-xs-3 control-label">Catégorie</label>
                                        <div class="col-xs-6">
 
-                                         <select name="cat">
+                                         <select name="cat" class="form-control" data-parsley-group="experience" data-parsley-required>
                                             
                                             <?php
 
