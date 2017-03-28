@@ -359,7 +359,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         <div class="panel">
                            <!-- Panel heading -->
                            <div class="panel-heading">
-                               <h3 class="panel-title">Mon Annonce</h3>
+                               <h3 class="panel-title">Ma nouvelle annonce</h3>
                            </div>
                            <!-- Panel body -->
                             <form  action="index.php?controle=creerAnnonce&action=create" method="post">
@@ -377,7 +377,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                    <div class="form-group">
                                        <label class="col-xs-3 control-label">Date de l'annonce</label>
                                        <div class="col-xs-5">
-                                           <input type="date" class="form-control" name="date" value=date />
+                                           <input type="date" class="form-control" name="date" placeholder="Date du jour"  />
+										   <!-- <input type="date" class="form-control" name="date" value=date placeholder="Date"  />-->
                                        </div>
                                    </div>
                                    <div class="form-group">
@@ -392,7 +393,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                        <label class="col-xs-3 control-label">Catégorie</label>
                                        <div class="col-xs-6">
 
-                                         <select name="cat">
+                                         <select name="cat" class="form-control" data-parsley-group="experience" data-parsley-required>
                                             
                                             <?php
 
@@ -413,7 +414,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                        <label class="col-xs-3 control-label">Description de l'annonce</label>
                                        <div class="col-xs-9">
                                            <div  />
-                                           <input name="des" type="text"  size="50" style="border: 1px solid #e5e5e5; overflow: hidden;  "  />
+                                           <input name="des" class="form-control" type="text"  size="20"  placeholder="Décrivez l'annonce le plus exactement possible (ex : avec qui ? compétences requises ? etc...)"/>
 
 
                                                </div>
@@ -422,7 +423,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                    <div class="form-group">
                                        <label class="col-xs-3 control-label">Récompense</label>
                                        <div class="col-xs-5">
-                                           <input type="recompense" class="form-control" name="rec" />
+                                           <input type="recompense" class="form-control" name="rec" placeholder="Prix de la récompense" />
                                        </div>
                                    </div>
                                    <div class="form-group">
