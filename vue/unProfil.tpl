@@ -521,7 +521,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                       <!--Submenu-->
                                       <ul class="collapse">
                                        <?php 
-                                                                            echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfil&id='.$iduser.'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
+                                                                            echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfil&id='.$_SESSION['idUser'].'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
                                                                           ?>
                                         <li><a href="index.php?controle=editerProfil&action=editerProfilEmployeur"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
                                       </ul>
