@@ -4,7 +4,7 @@
 session_start();
 
 if ((count($_GET)!=0) && !(isset($_GET['controle']) && isset ($_GET['action'])))
-		require ('./vue/erreur404.tpl'); //cas d'un appel à index.php avec des paramètres incorrects
+		require ('./vue/error418.tpl'); //cas d'un appel à index.php avec des paramètres incorrects
 
 else {
 	if ((! isset($_SESSION['profil'])) || count($_GET)==0)	{
@@ -17,15 +17,21 @@ else {
 			$action = 	 $_GET['action'];	//avec les 2 paramètres controle et action
 		}
 	}
-	//echo ('controle : ' . $controle . ' et <br/> action : ' . $action);
-	require ('./controle/' . $controle . '.php');
-    if (isset($_GET['id'])){
+    if (file_exists("./controle/".$controle.".php")) {
+        require ('./controle/' . $controle . '.php');
+        if (isset($_GET['id'])){
         if(isset($_GET['idAnnonce'])){
             $action ($_GET['id'],$_GET['idAnnonce']);
         }else
             $action ($_GET['id']);
     } else 
         $action ();
+    }
+    else {
+        require('./vue/error418.tpl');
+    }
+    
 }
 
 ?>
+
