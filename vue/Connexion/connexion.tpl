@@ -71,27 +71,14 @@
    <div  class="form-item sign-up">
      <div class="table">
        <div class="table-cell">
-<<<<<<< HEAD
-<<<<<<< HEAD
+
          <form  action="./index.php?controle=inscription&action=preinscription" method="post" onsubmit="return validation(this)">
          <input name="email" placeholder="Email" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Veuillez entrez un mail correct" required/>
          <input name="prenom" placeholder="Prénom" type="text" onchange="this.value = this.value.charAt(0).toUpperCase() + this.value.substr(1);" required/>
          <input name="nom" placeholder="Nom" type="text" onchange="this.value = this.value.toUpperCase()" required/>
          <input name="mdp1" placeholder="Mot de passe" type=Password required/>
          <input name="mdp2" placeholder="Confirmer votre mot de passe" type=Password required/>
-=======
-=======
->>>>>>> refs/remotes/origin/master
-         <form  action="./index.php" method="post">
-         <input id="mail" name="email" placeholder="Email" type="text" />
-         <input id="mail" name="prenom" placeholder="Prénom" type="text" />
-         <input id="mail" name="nom" placeholder="Nom" type="text" />
-         <input id="mail" name="mdp" placeholder="Mot de passe" type=Password />
-         <input id="mail" name="mdp" placeholder="Confirmer votre mot de passe" type=Password />
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> refs/remotes/origin/master
+
          <input name="inscription" VALUE="inscription" type="hidden" />
              <!-- <div class="btn">
            Inscription

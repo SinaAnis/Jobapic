@@ -104,7 +104,6 @@ $mdp2= isset($_POST['mdp2'])?($_POST['mdp2']):'';
 				  $cat1= isset($_POST['cat1'])?($_POST['cat1']):'';
 				  $cat2= isset($_POST['cat2'])?($_POST['cat2']):'';
 				  $cat3= isset($_POST['cat3'])?($_POST['cat3']):'';
-				  $mdp= $_SESSION['mdp'];
 
 					if(!empty($_POST['nom']) && !empty($_POST['adresse']) && !empty($_POST['prenom']) && !empty($_POST['telephone']) && !empty($_POST['date']) && !empty($_POST['sexe']) && !empty($_POST['ville'])   ) {
             if ($cat1 <> $cat2 && $cat1 <> $cat3 && $cat2 <> $cat3 ) {
