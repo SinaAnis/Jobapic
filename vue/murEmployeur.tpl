@@ -683,7 +683,7 @@ input:checked + .slider:before {
                                                         </a>
 														</br>
 														</br>
-														<p style="color: white; font-weight: bold">vous êtes dans le mur Employeur</p>
+														<p style="color: white; font-weight: bold">Vous êtes sur le mur Employeur</p>
 
 
                                                           </form>
