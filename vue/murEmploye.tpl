@@ -167,78 +167,34 @@ input:checked + .slider:before {
                             <!--Message dropdown menu-->
                             <div class="dropdown-menu dropdown-menu-md with-arrow">
                                 <div class="pad-all bord-btm">
-                                    <p class="text-lg text-muted text-thin mar-no">Vous avez <?php echo $_POST['nbMessage'] ?> messages.</p>
+                                  <?php foreach ($nbMessage as $value) { ?>
+                                    <p class="text-lg text-muted text-thin mar-no">Vous avez <?php echo $nbMes;?> messages.</p>
+                                    <?php } ?>
                                 </div>
                                 <div class="nano scrollable">
                                     <div class="nano-content">
                                         <ul class="head-list">
-
+                                           <?php foreach ($messages as $value) { ?>
                                             <!-- Dropdown list-->
-                                            <li>
+                                          <!--  <li>
+
                                                 <a href="#" class="media">
                                                     <div class="media-left"> <img src="img/av2.png" alt="Profile Picture" class="img-circle img-sm"> </div>
                                                     <div class="media-body">
                                                         <div class="text-nowrap">Andy vous a envoyé un message</div>
                                                         <small class="text-muted">15 minutes ago</small> </div>
                                                     </a>
-                                                </li>
-
+                                                </li> -->
+                                                  <?php } ?>
                                                 <!-- Dropdown list-->
-                                                <li>
-                                                    <a href="#" class="media">
-                                                        <div class="media-left"> <img src="img/av4.png" alt="Profile Picture" class="img-circle img-sm"> </div>
-                                                        <div class="media-body">
-                                                            <div class="text-nowrap">Lucy vous a envoyé un message</div>
-                                                            <small class="text-muted">30 minutes ago</small> </div>
-                                                        </a>
-                                                    </li>
 
-                                                    <!-- Dropdown list-->
-                                                    <li>
-                                                        <a href="#" class="media">
-                                                            <div class="media-left"> <img src="img/av3.png" alt="Profile Picture" class="img-circle img-sm"> </div>
-                                                            <div class="media-body">
-                                                                <div class="text-nowrap">Jackson vous a envoyé un message</div>
-                                                                <small class="text-muted">40 minutes ago</small> </div>
-                                                            </a>
-                                                        </li>
-
-                                                        <!-- Dropdown list-->
-                                                        <li>
-                                                            <a href="#" class="media">
-                                                                <div class="media-left"> <img src="img/av6.png" alt="Profile Picture" class="img-circle img-sm"> </div>
-                                                                <div class="media-body">
-                                                                    <div class="text-nowrap">Donna vous a envoyé un message</div>
-                                                                    <small class="text-muted">5 hours ago</small> </div>
-                                                                </a>
-                                                            </li>
-
-                                                            <!-- Dropdown list-->
-                                                            <li>
-                                                                <a href="#" class="media">
-                                                                    <div class="media-left"> <img src="img/av4.png" alt="Profile Picture" class="img-circle img-sm"> </div>
-                                                                    <div class="media-body">
-                                                                        <div class="text-nowrap">Lucy vous a envoyé un message</div>
-                                                                        <small class="text-muted">Yesterday</small> </div>
-                                                                    </a>
-                                                                </li>
-
-                                                                <!-- Dropdown list-->
-                                                                <li>
-                                                                    <a href="#" class="media">
-                                                                        <div class="media-left"> <img src="img/av3.png" alt="Profile Picture" class="img-circle img-sm"> </div>
-                                                                        <div class="media-body">
-                                                                            <div class="text-nowrap">Jackson vous a envoyé un message</div>
-                                                                            <small class="text-muted">Yesterday</small> </div>
-                                                                        </a>
-                                                                    </li>
                                                                 </ul>
                                                             </div>
                                                         </div>
 
                                                         <!--Dropdown footer-->
                                                         <div class="pad-all bord-top">
-                                                            <a href="#" class="btn-link text-dark box-block"> <i class="fa fa-angle-right fa-lg pull-right"></i>Montrer tous les messages </a>
+                                                            <a href="index.php?controle=composerMessage&action=afficherMessages" class="btn-link text-dark box-block"> <i class="fa fa-angle-right fa-lg pull-right"></i>Montrer tous les messages </a>
                                                         </div>
                                                     </div>
                                                 </li>

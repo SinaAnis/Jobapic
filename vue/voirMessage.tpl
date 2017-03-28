@@ -381,106 +381,7 @@ window.uabInject = function() {};
                                     <li class="list-group-item"><a href="javascript:;"> Annonce 5 <i class="fa fa-circle pull-right"></i> </a></li>
                                 </ul>
                             </section>
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"> <i class="fa fa-users"></i> Contacts en ligne </h4>
-                                </div>
-                                <div class="panel-body">
-                                    <ul class="list-inline">
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av1.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av2.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av3.png" alt="" class="img-sm">
-                                             <i class="busy bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av4.png" alt="" class="img-sm">
-                                             <i class="busy bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av5.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av6.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av7.png" alt="" class="img-sm">
-                                             <i class="busy bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av1.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av2.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av3.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av4.png" alt="" class="img-sm">
-                                             <i class="busy bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av5.png" alt="" class="img-sm">
-                                             <i class="busy bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av6.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av7.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av4.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                          </div>
                         <div class="col-lg-9">
                             <div class="panel">
                                 <div class="btn-toolbar pad-all">
@@ -541,46 +442,42 @@ window.uabInject = function() {};
                                             <li><a href="http://squaredesigns.net/jasmine/mail-mailview.html#">Separated link</a> </li>
                                         </ul>
                                     </div>
-                                    <div class="btn-group pull-right">
-                                        <button class="btn btn-sm btn-default" type="button">
-                                            <i class="fa fa-chevron-left"></i>
-                                        </button>
-                                        <button class="btn btn-sm btn-default" type="button">
-                                            <i class="fa fa-chevron-right"></i>
-                                        </button>
-                                    </div>
-                                    <h6 class="pull-right">
-                                        Showing 1 - 15 of 2368
-                                    </h6>
+
+
                                 </div>
                                 <div class="panel-body">
-
+                                <?php foreach($message as $value) { ?>
                                     <div class="mail-list">
                                         <div class="mail-sender">
                                             <div class="media">
-                                                <a href="http://squaredesigns.net/jasmine/mail-mailview.html#" class="pull-left"> <img alt="" src="img/av4.png" class="media-object"> </a> <span class="media-meta pull-right">Yesterday at 1:30am</span>
+                                                <a href="http://squaredesigns.net/jasmine/mail-mailview.html#" class="pull-left"> <img alt="" src="img/av4.png" class="media-object"> </a> <span class="media-meta pull-right"><?php echo $value['Date']; ?></span>
                                                 <h5>
-                                                    Nusja Nawancali
+                                                <?php  foreach($dest as $value2) {
+                                                      echo $value2['Prenom']." ".$value2['Nom'];
+                                                    }?>
                                                 </h5>
-                                                <small class="text-muted">From: hisemail@hisemail.com</small> </div>
+                                            <!--    <small class="text-muted">From: hisemail@hisemail.com</small> </div> -->
                                         </div>
                                         <div class="view-mail">
-                                            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h4>
-                                            <p>Donec ultrices faucibus rutrum. Phasellus sodales vulputate urna, vel accumsan augue egestas ac. Donec vitae leo at sem lobortis porttitor eu consequat risus. Mauris sed congue orci. Donec ultrices faucibus rutrum. Phasellus sodales vulputate urna, vel accumsan augue egestas ac.</p>
-                                            <p> Donec vitae leo at sem lobortis porttitor eu consequat risus. Mauris sed congue orci. Donec ultrices faucibus rutrum. Phasellus sodales vulputate urna, vel accumsan augue egestas ac. Donec vitae leo at sem lobortis porttitor eu consequat risus. Mauris sed congue orci. </p>
-                                            <blockquote>
-                                                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis sem ante, nec aliquet elit semper vitae. Sed finibus ligula eu ante tempus malesuada. Phasellus interdum condimentum commodo. Vivamus sed ullamcorper mi, ac blandit ante. </p>
-                                                <small>Someone famous <cite title="Source Title">Source Title</cite></small> </blockquote>
-                                            <p>Sodales vulputate urna, vel accumsan augue egestas ac . Donec vitae leo at sem lobortis porttitor eu consequat risus. Mauris sed congue orci. Donec ultrices faucibus rutrum. Phasellus sodales vulputate urna, vel accumsan augue egestas ac. Donec vitae leo at sem lobortis porttitor eu consequat risus. Mauris sed congue orci. </p>
-                                        </div>
+                                            <h4><?php echo $value['objet']; ?></h4>
+                                            <p> <?php echo nl2br($value['Texte']); ?> </p>
+                                            </div>
                                       </br>
                                         <div class="mail-comment">
                                             <a href="http://squaredesigns.net/jasmine/mail-mailview.html#" class="pull-left"> <img alt="" src="img/av2.png" class="media-object img-rounded"> </a>
                                             <div class="pull-left col-md-11 no-padding">
-                                                <textarea class="form-control" placeholder="Votre réponse ..."></textarea>
+                                                <form  class="form-horizontal form-bordered" action="index.php?controle=composerMessage&action=repondre" method="post">
+                                                  <input name="destinataire" type="hidden" value=<?php echo $value['destinataire']; ?> />
+                                                  <input name="objet" type="hidden" value=<?php echo $value['objet']; ?> />
+                                                <textarea class="form-control"  name= "message" placeholder="Votre réponse ..."></textarea>
+                                                <button type="submit" class="btn btn-primary" name="signup" style="margin-top:2%;" >
+                                                    Envoyer
+                                                </button>
+                                              </form>
                                             </div>
                                         </div>
                                     </div>
+                                    <?php }  ?>
                                 </div>
                             </div>
                         </div>

@@ -108,4 +108,19 @@ AND categorie.idCategorie = categoriepref.idCategorie";
 			return $res;
 	}
 
+	function getUser(){
+		require ("./modele/connectBD.php");
+			$sql= "SELECT Prenom , Nom , IdUser FROM `utilisateur`";
+			$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
+			return $res;
+	}
+
+	function getUserId($idUser){
+	  require ("./modele/connectBD.php");
+	  $req= "SELECT Prenom , Nom FROM utilisateur WHERE idUser = '%s' ";
+	  $sql = sprintf ($req,$idUser);
+	  $res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
+	  return $res;
+	}
+
 ?>

@@ -369,105 +369,7 @@ window.uabInject = function() {};
                                     <li class="list-group-item"><a href="javascript:;"> Annonce 5 <i class="fa fa-circle pull-right"></i> </a></li>
                                 </ul>
                             </section>
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"> <i class="fa fa-users"></i> Contact(s) en ligne </h4>
-                                </div>
-                                <div class="panel-body">
-                                    <ul class="list-inline">
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av1.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av2.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av3.png" alt="" class="img-sm">
-                                             <i class="busy bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av4.png" alt="" class="img-sm">
-                                             <i class="busy bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av5.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av6.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av7.png" alt="" class="img-sm">
-                                             <i class="busy bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av1.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av2.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av3.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av4.png" alt="" class="img-sm">
-                                             <i class="busy bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av5.png" alt="" class="img-sm">
-                                             <i class="busy bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av6.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av7.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="javascript:void(0)" class="pull-left avatar">
-                                             <img src="img/av4.png" alt="" class="img-sm">
-                                             <i class="on bottom text-light"></i>
-                                          </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+
                         </div>
                         <div class="col-lg-9">
                             <div class="panel">
@@ -536,7 +438,10 @@ window.uabInject = function() {};
                                         <div class="tab-content">
                                             <div id="demo-lft-tab-1" class="tab-pane fade active in">
                                                 <table class="table table-responsive">
-                                                    <tbody><tr class="mail-unread">
+                                                    <tbody>
+                                                 <?php if(isset($messages)) {
+                                                      foreach ($messages as $value) { ?>
+                                                      <tr class="mail-unread">
                                                         <td>
                                                             <label class="form-checkbox form-icon">
                                                                 <input type="checkbox">
@@ -545,73 +450,17 @@ window.uabInject = function() {};
                                                         <td class="hidden-xs">
                                                             <div class="inbox-star"><span class="fa fa-star-o"></span></div>
                                                         </td>
-                                                        <td class="hidden-xs"><span class="label label-success"> Primary </span></td>
-                                                        <td>Jane Swift </td>
-                                                        <td>Nice to meet you</td>
+                                                        <td class="hidden-xs"><a href="http://localhost/jobapic/index.php?controle=composerMessage&action=voirMessage&idMessage=<?php echo $value['idMessage']; ?>"> Voir</a></a></td>
+                                                        <td> <?php echo $value['destinataire']; ?> </td>
+                                                        <td> <?php echo $value['objet']; ?></td>
                                                         <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                        <td>3/11/14 2:30 PM</td>
+                                                        <td><?php echo $value['Date']; ?></td>
                                                     </tr>
-                                                    <tr class="mail-unread">
-                                                        <td>
-                                                            <label class="form-checkbox form-icon">
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </td>
-                                                        <td class="hidden-xs">
-                                                            <div class="inbox-star"><span class="fa fa-star-o"></span></div>
-                                                        </td>
-                                                        <td class="hidden-xs"><span class="label label-success"> Primary </span></td>
-                                                        <td>Gmail</td>
-                                                        <td>Please confirm your registeration</td>
-                                                        <td class="hidden-xs"></td>
-                                                        <td>2/19/14 2:00 PM</td>
-                                                    </tr>
-                                                    <tr class="mail-unread">
-                                                        <td>
-                                                            <label class="form-checkbox form-icon">
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </td>
-                                                        <td class="hidden-xs">
-                                                            <div class="inbox-star"><span class="fa fa-star-o"></span></div>
-                                                        </td>
-                                                        <td class="hidden-xs"><span class="label label-success"> Primary </span></td>
-                                                        <td>John Smith </td>
-                                                        <td>Lorem ipsum dolor sit amet</td>
-                                                        <td class="hidden-xs"></td>
-                                                        <td>2/15/14 5:00 AM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <label class="form-checkbox form-icon">
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </td>
-                                                        <td class="hidden-xs">
-                                                            <div class="inbox-star"><span class="fa fa-star-o"></span></div>
-                                                        </td>
-                                                        <td class="hidden-xs"><span class="label label-success"> Primary </span></td>
-                                                        <td>no-reply</td>
-                                                        <td>Consectetur adipisicing elit.</td>
-                                                        <td class="hidden-xs"></td>
-                                                        <td>2/11/14 2:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <label class="form-checkbox form-icon">
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </td>
-                                                        <td class="hidden-xs">
-                                                            <div class="inbox-star"><span class="fa fa-star-o"></span></div>
-                                                        </td>
-                                                        <td class="hidden-xs"><span class="label label-success"> Primary </span></td>
-                                                        <td>no-reply</td>
-                                                        <td>Ea totam libero dignissimos dicta eos</td>
-                                                        <td class="hidden-xs"></td>
-                                                        <td>2/11/14 2:00 PM</td>
-                                                    </tr>
-                                                    <tr class="mail-hightlight">
+                                                        <?php
+                                                      }
+                                                   } ?>
+
+                                                  <!--  <tr class="mail-hightlight">
                                                         <td>
                                                             <label class="form-checkbox form-icon">
                                                                 <input type="checkbox">
@@ -626,201 +475,8 @@ window.uabInject = function() {};
                                                         <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
                                                         <td>2/11/14 2:00 PM</td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <label class="form-checkbox form-icon">
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </td>
-                                                        <td class="hidden-xs">
-                                                            <div class="inbox-star"><span class="fa fa-star-o"></span></div>
-                                                        </td>
-                                                        <td class="hidden-xs"><span class="label label-success"> Primary </span></td>
-                                                        <td>Emma Bebier </td>
-                                                        <td>Rerum dolore commodi nobis quaerat</td>
-                                                        <td class="hidden-xs"></td>
-                                                        <td>2/11/14 2:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <label class="form-checkbox form-icon">
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </td>
-                                                        <td class="hidden-xs">
-                                                            <div class="inbox-star"><span class="fa fa-star-o"></span></div>
-                                                        </td>
-                                                        <td class="hidden-xs"><span class="label label-success"> Primary </span></td>
-                                                        <td>Service</td>
-                                                        <td>abore id dignissimos non minus</td>
-                                                        <td class="hidden-xs"></td>
-                                                        <td>2/11/14 2:00 PM</td>
-                                                    </tr>
-                                                    <tr class="mail-hightlight">
-                                                        <td>
-                                                            <label class="form-checkbox form-icon">
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </td>
-                                                        <td class="hidden-xs">
-                                                            <div class="inbox-star"><span class="fa fa-star-o"></span></div>
-                                                        </td>
-                                                        <td class="hidden-xs"><span class="label label-success"> Primary </span></td>
-                                                        <td>Service</td>
-                                                        <td>Fugit ducimus quidem</td>
-                                                        <td class="hidden-xs"></td>
-                                                        <td>2/11/14 2:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <label class="form-checkbox form-icon">
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </td>
-                                                        <td class="hidden-xs">
-                                                            <div class="inbox-star"><span class="fa fa-star-o"></span></div>
-                                                        </td>
-                                                        <td class="hidden-xs"><span class="label label-success"> Primary </span></td>
-                                                        <td>Big ant</td>
-                                                        <td>Laboriosam, minima totam</td>
-                                                        <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                        <td>2/11/14 2:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <label class="form-checkbox form-icon">
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </td>
-                                                        <td class="hidden-xs">
-                                                            <div class="inbox-star"><span class="fa fa-star-o"></span></div>
-                                                        </td>
-                                                        <td class="hidden-xs"><span class="label label-success"> Primary </span></td>
-                                                        <td>Tyler Doe </td>
-                                                        <td>Laborum consequatur quae</td>
-                                                        <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                        <td>2/11/14 2:00 PM</td>
-                                                    </tr>
-                                                    <tr class="mail-hightlight">
-                                                        <td>
-                                                            <label class="form-checkbox form-icon">
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </td>
-                                                        <td class="hidden-xs">
-                                                            <div class="inbox-star"><span class="fa fa-star-o"></span></div>
-                                                        </td>
-                                                        <td class="hidden-xs"><span class="label label-success"> Primary </span></td>
-                                                        <td>Small Tomato</td>
-                                                        <td>Nemo aliquid</td>
-                                                        <td class="hidden-xs"></td>
-                                                        <td>2/11/14 2:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <label class="form-checkbox form-icon">
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </td>
-                                                        <td class="hidden-xs">
-                                                            <div class="inbox-star"><span class="fa fa-star-o"></span></div>
-                                                        </td>
-                                                        <td class="hidden-xs"><span class="label label-success"> Primary </span></td>
-                                                        <td>Service</td>
-                                                        <td>Laudantium rerum ab similique aliquam</td>
-                                                        <td class="hidden-xs"></td>
-                                                        <td>2/11/14 2:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <label class="form-checkbox form-icon">
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </td>
-                                                        <td class="hidden-xs">
-                                                            <div class="inbox-star"><span class="fa fa-star-o"></span></div>
-                                                        </td>
-                                                        <td class="hidden-xs"><span class="label label-success"> Primary </span></td>
-                                                        <td>Private </td>
-                                                        <td>Voluptatum reprehenderit</td>
-                                                        <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                        <td>2/11/14 2:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <label class="form-checkbox form-icon">
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </td>
-                                                        <td class="hidden-xs">
-                                                            <div class="inbox-star"><span class="fa fa-star-o"></span></div>
-                                                        </td>
-                                                        <td class="hidden-xs"><span class="label label-success"> Primary </span></td>
-                                                        <td>Big ant</td>
-                                                        <td>Deleniti veniam aperiam</td>
-                                                        <td class="hidden-xs"></td>
-                                                        <td>2/11/14 2:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <label class="form-checkbox form-icon">
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </td>
-                                                        <td class="hidden-xs">
-                                                            <div class="inbox-star"><span class="fa fa-star-o"></span></div>
-                                                        </td>
-                                                        <td class="hidden-xs"><span class="label label-success"> Primary </span></td>
-                                                        <td>Service</td>
-                                                        <td>Facere ullam totam!</td>
-                                                        <td class="hidden-xs"></td>
-                                                        <td>2/11/14 2:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <label class="form-checkbox form-icon">
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </td>
-                                                        <td class="hidden-xs">
-                                                            <div class="inbox-star"><span class="fa fa-star-o"></span></div>
-                                                        </td>
-                                                        <td class="hidden-xs"><span class="label label-success"> Primary </span></td>
-                                                        <td>Private </td>
-                                                        <td>Fugit ducimus quidem</td>
-                                                        <td class="hidden-xs"></td>
-                                                        <td>2/11/14 2:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <label class="form-checkbox form-icon">
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </td>
-                                                        <td class="hidden-xs">
-                                                            <div class="inbox-star"><span class="fa fa-star-o"></span></div>
-                                                        </td>
-                                                        <td class="hidden-xs"><span class="label label-success"> Primary </span></td>
-                                                        <td>Small Tomato</td>
-                                                        <td>Laboriosam, minima totam</td>
-                                                        <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
-                                                        <td>2/11/14 2:00 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <label class="form-checkbox form-icon">
-                                                                <input type="checkbox">
-                                                            </label>
-                                                        </td>
-                                                        <td class="hidden-xs">
-                                                            <div class="inbox-star"><span class="fa fa-star-o"></span></div>
-                                                        </td>
-                                                        <td class="hidden-xs"><span class="label label-success"> Primary </span></td>
-                                                        <td>Tyler Doe </td>
-                                                        <td>Aborum consequatur quae</td>
-                                                        <td class="hidden-xs"></td>
-                                                        <td>2/11/14 2:00 PM</td>
-                                                    </tr>
+                                                  -->
+
                                                 </tbody></table>
                                             </div>
                                             <div id="demo-lft-tab-2" class="tab-pane fade">

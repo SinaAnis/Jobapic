@@ -297,6 +297,12 @@ $mdp2= isset($_POST['mdp2'])?($_POST['mdp2']):'';
 		require ("modele/annonceBD.php");
 		require ("modele/utilisateurBD.php") ;
 		$categorie=getCategorieFavoris($_SESSION['idUser']);
+    require ("modele/messageBD.php") ;
+		$nbMessage = getNbMessages($_SESSION['idUser']);
+		foreach ($nbMessage as $value) {
+			$nbMes = $value['total'];
+		}
+		$messages = getMessages($_SESSION['idUser']);
 		echo "<script language='JavaScript'>alert('Section Employé !!')</script>";
 		$questionAfficher=afficherAnnonceEmploye($_SESSION['idUser']);
 		require('./vue/murEmploye.tpl');
