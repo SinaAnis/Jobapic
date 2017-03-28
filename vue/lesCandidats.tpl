@@ -396,12 +396,13 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
             <!--END CONTENT CONTAINER-->
 
             <!--MAIN NAVIGATION-->
-            <!--===================================================-->
-            <nav id="mainnav-container">
-                <div id="mainnav">
+                                            <!--===================================================-->
+                                            <nav id="mainnav-container">
+                                                <div id="mainnav">
 
-                    <!--Menu-->
+                                                    <!--Menu-->
                                                     <!--================================-->
+
                                                     <div id="mainnav-menu-wrap">
                                                         <div class="nano">
                                                             <div class="nano-content">
@@ -430,9 +431,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
                                                                           <li><a href="index.php?controle=creerAnnonce&action=creerAnnonce"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
-                                                                         <li><a href="index.php?controle=lesCandidatures&action=lesCandidatures"><i class="fa fa-caret-right"></i> Les Candidatures</a></li>
-									<li><a href="index.php?controle=historique&action=afficheHisto"><i class="fa fa-caret-right"></i> Historique</a></li>
-									<!--<li><a href="index.php?controle=consulterAnnonce&action=consulterAnnonce"><i class="fa fa-caret-right"></i> Consulter les annonces du jours</a></li>-->
+																		  <li><a href="index.php?controle=lesCandidatures&action=lesCandidatures"><i class="fa fa-caret-right"></i> Les candidatures</a></li>
                                                                       </ul>
                                                                   </li>
 
@@ -445,14 +444,13 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
-                                                                          <?php 
+										<?php 
                                                                             echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfil&id='.$_SESSION['idUser'].'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
                                                                           ?>
                                                                           <li><a href="index.php?controle=editerProfil&action=editerProfilEmployeur"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
 
-                                                                          <!--<li><a href="#"><i class="fa fa-caret-right"></i> Mes candidatures</a></li>-->
 
-                                                                          <!--<li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Modifier paramètres </a></li>-->
+                                                                           <!--<li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Modifier paramètres </a></li>-->
                                                                     </ul>
                                                                   </li>
 
@@ -555,11 +553,12 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                         </a>
 														</br>
 														</br>
-														<p style="color: white; font-weight: bold">vous êtes dans le mur Employeur</p>
+														<p style="color: white; font-weight: bold">Vous êtes sur le mur Employeur</p>
 
 
                                                           </form>
                                                             </center>
+
 
                                                             <!--Widget-->
                                                             <!--================================-->
@@ -586,8 +585,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                             </div>
                                         </nav>
-            <!--===================================================-->
-            <!--END MAIN NAVIGATION-->
+                                        <!--===================================================-->
+                                        <!--END MAIN NAVIGATION-->
 
 
             <!--ASIDE-->
