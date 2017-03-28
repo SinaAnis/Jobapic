@@ -108,7 +108,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                 <!--Page Title-->
                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <div class="pageheader">
-                    <h3><i class="fa fa-home"></i> Formulaire de modification du profil</h3>
+                    <h3><i class="fa fa-home"></i> Formulaire de modification du profil employeur</h3>
 
                 </div>
                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -123,7 +123,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                             <section class="panel">
 
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"> Modification du profil </h3>
+                                    <h3 class="panel-title"> Modification du profil employeur</h3>
                                 </div>
                                 <div class="panel-body">
                                     <!-- START Form Wizard -->
@@ -457,14 +457,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <div class="row">
-
-                                                        <label>Catégories: (2 minimums) </label>
-                                                        <label> <input type="de" > Voici la première case   </label>
-
-                                                </div>
-                                            </div>
+                                            
                                             <input name="finis" type="hidden"  />
                                             <input role="menuitem" type="submit" class="btn btn-primary" value="Finis">
                                         </div>
