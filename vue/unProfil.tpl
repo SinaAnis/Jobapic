@@ -508,7 +508,9 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                       <ul class="collapse">
                                            <li><a href="index.php?controle=creerAnnonce&action=creerAnnonce"><i class="fa fa-caret-right"></i> Créer une annonce </a></li>
                                            <li><a href="index.php?controle=lesCandidatures&action=lesCandidatures"><i class="fa fa-caret-right"></i> Les Candidatures</a></li>
-                                      </ul>
+                                      	<li><a href="index.php?controle=historique&action=afficheHisto"><i class="fa fa-caret-right"></i> Historique</a></li>
+					
+				      </ul>
                                     </li>
 
                                     <li>
