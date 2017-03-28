@@ -19,7 +19,7 @@ function create () {
 	$recAnnonce=  isset($_POST['rec'])?($_POST['rec']):'';
 	$catAnnonce=  isset($_POST['cat'])?($_POST['cat']):'';
 
-    
+
 
 	if  (count($_POST)==0) {
 	  //  echo("Veuillez remplir les champs");
@@ -38,7 +38,7 @@ function create () {
 		else{
             		require ("modele/annonceBD.php") ;
 			require ("modele/utilisateurBD.php") ;
-			creation_annonce($nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAnnonce,$_SESSION['idUser']);
+			creation_annonce($nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAnnonce,$_SESSION['idUser'],$_SESSION['Longitude'],$_SESSION['Latitude']);
             		$categorie = getCategorie();
 			echo "<script language='JavaScript'>alert('Création d annonce réussie ! Félicitation')</script>";
 			require('./vue/pageCreationAnnonce.tpl') ;

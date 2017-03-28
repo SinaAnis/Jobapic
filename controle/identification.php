@@ -51,7 +51,6 @@ $mdp2= isset($_POST['mdp2'])?($_POST['mdp2']):'';
 				 echo "<script language='JavaScript'>alert('Connexion réussie !')</script>";
 				 getProfil($emailConnexion,$_SESSION['mdp']);
 				 $questionAfficher=afficherAnnonceEmploye($_SESSION['idUser']);
-				 $nbMessage = "5";
 				 require('./vue/murEmploye.tpl') ;
 
 			}

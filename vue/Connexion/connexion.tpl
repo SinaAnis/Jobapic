@@ -14,13 +14,30 @@
 	<link rel="stylesheet" media="all and (max-width: 1024px) and (min-width: 600px)" href="vue/Connexion/css/connex_1024.css">
   </head>
   <body>
-  
-  
-	
 
-	
+    <script>
+
+    if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position)
+    {
+      <?php $_SESSION['Latitude']  = ?> position.coords.latitude <?php ; ?>
+      <?php $_SESSION['Longitude'] = ?> position.coords.longitude<?php ; ?>
+            
+        //alert("Latitude : " + position.coords.latitude + ", longitude : " + position.coords.longitude);
+    });
+    }
+   else
+    alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
+
+    </script>
+
+
+
+
+
+
     <header id="first">
-	
+
         <div class="header-content">
 		<img id="logo" class="imagelogo" src="vue/connexion/img/logo.png" alt="logo" />
           <div class="container">

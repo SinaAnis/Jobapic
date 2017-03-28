@@ -63,11 +63,11 @@ function afficherAnnonceEmployeur($idEmployeur) {
 	return mysqli_fetch_all($res);
 }
 
-function creation_annonce($nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAnnonce,$idUser){
+function creation_annonce($nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAnnonce,$idUser,$long,$lat){
   require ("./modele/connectBD.php");
-  $req= "INSERT INTO `annonce`(`NomAnnonce`, `DateAnnonce`, `AdrAnnonce`, `DescripAnnonce`, `Recompense`, `IdCategorie`, `IdUser`)
-  VALUES ('%s',CURRENT_TIME,'%s','%s',%s,%s,%s)";
-  $sql = sprintf ($req,$nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAnnonce,$idUser);
+  $req= "INSERT INTO `annonce`(`NomAnnonce`, `DateAnnonce`, `AdrAnnonce`, `DescripAnnonce`, `Recompense`, `IdCategorie`, `IdUser`,  `Longitude`, `Latitude`)
+  VALUES ('%s',CURRENT_TIME,'%s','%s',%s,%s,%s,%s,%s)";
+  $sql = sprintf ($req,$nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAnnonce,$idUser,$long,$lat);
   $res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
 }
 
