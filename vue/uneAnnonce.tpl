@@ -456,6 +456,9 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                       <!--Submenu-->
                                       <ul class="collapse">
+				      <?php 
+                                                                            echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfil&id='.$iduser.'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
+                                                                          ?>
                                           <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
                                           <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
                                           <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
