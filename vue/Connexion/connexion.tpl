@@ -15,25 +15,23 @@
   </head>
   <body>
 
-    <script>
+    <script type="text/javascript">
+      if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position)
+      {
 
-    if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position)
-    {
-      <?php $_SESSION['Latitude']  = ?> position.coords.latitude <?php ; ?>
-      <?php $_SESSION['Longitude'] = ?> position.coords.longitude<?php ; ?>
-            
-        //alert("Latitude : " + position.coords.latitude + ", longitude : " + position.coords.longitude);
-    });
-    }
-   else
-    alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
+
+          alert("Latitude : " + position.coords.latitude + ", longitude : " + position.coords.longitude);
+          document.getElementById('Longitude').value = position.coords.longitude;
+          document.getElementById('Latitude').value = position.coords.latitude;
+
+      });
+      }
+     else
+      alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
+
 
     </script>
-
-
-
-
 
 
     <header id="first">
@@ -73,9 +71,11 @@
    <div id="log" class="form-item log-in">
      <div class="table">
        <div class="table-cell">
-       <form  action="./index.php?controle=connexion&action=connexionUtilisateur" method="post">
+       <form name="connex" action="./index.php?controle=connexion&action=connexionUtilisateur" method="post">
          <input id="mail" name="mail" placeholder="Email" type="text" />
          <input name="mdp" id="mdp" placeholder="Mot de passe" type=Password />
+         <input type="hidden" name="Longitude"  id="Longitude" />
+         <input type="hidden" name="Latitude"  id="Latitude" />
 
         <!-- <div class="btn">
            Connexion

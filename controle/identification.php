@@ -49,6 +49,7 @@ $mdp2= isset($_POST['mdp2'])?($_POST['mdp2']):'';
 		if (verif_ident($emailConnexion,$_SESSION['mdp'],$profil) && !isset($_POST['ville']) ) {
 				 $_SESSION['profil'] = $profil;
 				 echo "<script language='JavaScript'>alert('Connexion réussie !')</script>";
+				 echo "<script language='JavaScript'>alert('Ma Longitude : '".$_POST['Longitude'].")</script>";
 				 getProfil($emailConnexion,$_SESSION['mdp']);
 				 $questionAfficher=afficherAnnonceEmploye($_SESSION['idUser']);
 				 require('./vue/murEmploye.tpl') ;
