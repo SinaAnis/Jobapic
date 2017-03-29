@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Page d'Accueil | Job'Apic - Enfin un job à pic.</title>
+    <title> Page d'Accueil Employé| Job'Apic - Enfin un job à pic.</title>
 
     <!--STYLESHEET-->
     <!--=================================================-->
@@ -495,7 +495,9 @@ input:checked + .slider:before {
                                                                                   //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
                                                                                   // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
                                                                                   echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
-                                                                                  echo ('<a style="text-decoration: none; float: right; color: black" href ="index.php?controle=consulterAnnonce&action=consulterAnnonceDetails"> voir plus<a>');
+                                                                                  /*echo ('<a style="text-decoration: none; float: right; color: black" href ="index.php?controle=consulterAnnonce&action=consulterAnnonceDetails"> voir plus<a>');*/
+										  // NEW ICI !! à tester
+										   echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
                                                                                   echo "</tr>\n";
                                                                                   echo ('</table>');
                                                                                   echo ('</div>');
@@ -767,7 +769,7 @@ input:checked + .slider:before {
                                                                         </br>
 
                                                                 </br>
-                                                            <a class = "btnRet" href ="index.php?controle=consulterAnnonce&action=afficherMesAnnonces"> Plus d'offres... </a>
+                                                            <a class = "btnRet" href ="index.php?controle=consulterAnnonce&action=consulterLesAnnonces"> Plus d'offres... </a>
                                                             </div>
                                                         </div>
                                                     </div>  <div class="col-md-8-1 col-lg-9-1" id="calendrier">
@@ -921,7 +923,7 @@ input:checked + .slider:before {
                                                                         <a href="index.php?controle=identification&action=afficherMurEmploye">
                                                                             <i class="fa fa-dashboard"></i>
                                                                             <span class="menu-title">
-                                                                                <strong>Mur</strong>
+                                                                                <strong>Mur employé</strong>
                                                                             </span>
                                                                         </a>
                                                                     </li>
