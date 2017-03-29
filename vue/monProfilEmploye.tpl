@@ -358,6 +358,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 				<div class="profil">
 
 					<img class="photo" src="vue/img/profil.jpg" alt="1"/>
+<<<<<<< HEAD
 
           <?php foreach($candidat as $value) {
             echo('<h3 class="nom"><?php echo $value['Nom']; ?></h3>');
@@ -388,6 +389,39 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
 				</div>
 
+=======
+					<?php 
+                        foreach ($candidat as $key => $value) {
+                            list( $year, $month, $day) = explode ( "-" , $value[4], PHP_INT_MAX);
+                            $age = 2017 - $year;
+                            echo "<h3 class=\"nom\">$value[1]</h3><h4 class=\"prenom\">$value[2]</h4><h4 class=\"prenom\">$age</h4>";
+                            echo "<h4 class=\"prenom\">$value[5] $value[7] $value[6]</h4>";
+                            echo "<h4 class=\"prenom\">$value[10]</h4>";
+                        }
+                    ?>
+                    </div>
+                    <div class="profil2">
+                    <h4 class="prof2">Formation</h4>
+                    <?php
+                        foreach ($formation as $key => $value) {
+                            echo '<h4 class="prof3">'.$value[1].'</h4>';
+                        }
+                    ?>
+					<h4 class="prof2">Expérience</h4>
+					<?php 
+                        foreach ($experience as $key => $value) {
+                            echo '<h4 class="prof3">'.$value[1].'</h4>';
+                        }
+                    ?>
+                    <h4 class="prof2">Loisir</h4>
+                    <?php 
+                        foreach ($loisir as $key => $value) {
+                            echo '<h4 class="prof3">'.$value[1].'</h4>';
+                        }
+                    ?>
+                    </div>
+					
+>>>>>>> origin/master
 				<div class="profil3">
 					<h4 class="prof2">Notes</h4>
 					<h1><i class="fa fa-home logo"></i></h1>
