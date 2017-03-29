@@ -54,8 +54,10 @@ $mdp2= isset($_POST['mdp2'])?($_POST['mdp2']):'';
 				 echo "<script language='JavaScript'>alert('".$_POST['Longitude']."')</script>";
 				 $_SESSION['Latitude'] = $_POST['Latitude'];
 				 $_SESSION['Longitude'] = $_POST['Longitude'];
+
 				 getProfil($emailConnexion,$_SESSION['mdp']);
 				 $questionAfficher=afficherAnnonceEmploye($_SESSION['idUser']);
+				 editerPosition($_SESSION['Longitude'],$_SESSION['Latitude'],$_SESSION['idUser']);
 				 $icones = geticones();
 		 		 $messages = getMessages($_SESSION['idUser']);
 				 require('./vue/murEmploye.tpl') ;

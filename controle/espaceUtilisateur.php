@@ -1,10 +1,17 @@
 <?php
 
 
-fonction accueil(){
+function accueil(){
 	require ("vue/test.tpl") ;
 }
 
+function faqEmploye(){
+	require ("vue/faq.tpl") ;
+}
+
+function faqEmployeur(){
+	require ("vue/faq2.tpl") ;
+}
 
 function getCategorieFavoris($idUser){
  require ("./modele/utilisateurBD.php") ;

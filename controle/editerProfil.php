@@ -101,8 +101,23 @@ function editerProfilEmploye(){
 	$departement = isset($_POST['departement'])?($_POST['departement']):'';
 	$ville = isset($_POST['ville'])?($_POST['ville']):'';
 	$photo = isset($_POST['photo'])?($_POST['photo']):'';
+	$cat1 = isset($_POST['cat1'])?($_POST['cat1']):'';
+	$cat2 = isset($_POST['cat2'])?($_POST['cat2']):'';
+	$cat3 = isset($_POST['cat3'])?($_POST['cat3']):'';
 
-	$mesCatego = getCategorieFavoris($idUser);
+	$mesCategoFavo = getCategorieFavoris($idUser);
+	$mesCatego = getCategorie();
+	$fav = array();
+
+	foreach($mesCategoFavo as $value){
+    $array[] = $value['IdCategorie'];
+	}
+
+	$_SESSION['cat1'] = $array[0];
+	$_SESSION['cat2'] = $array[1];
+	$_SESSION['cat3'] = $array[2];
+
+
 
 	 if  (count($_POST)==0) {
 	 require('./vue/modifProfilEmploye.tpl');
@@ -115,10 +130,14 @@ function editerProfilEmploye(){
 	 */
    else if($mail != $_SESSION['Mail'] || $genre != $_SESSION['genre']
 	 ||    $telephone != $_SESSION['Telephone']
-	  || $situation != $_SESSION['Situation'] || $departement != $_SESSION['Departement'] || $ville != $_SESSION['Ville'] || $photo != $_SESSION['Photo'] ) {
+	  || $situation != $_SESSION['Situation'] || $departement != $_SESSION['Departement'] || $ville != $_SESSION['Ville'] || $photo != $_SESSION['Photo']
+	  || $cat1 != $_SESSION['cat1'] || $cat2 != $_SESSION['cat2']  || $cat3 != $_SESSION['cat3']  ) {
 		//echo "<script language='JavaScript'>alert('Profil edité avec succes !!')</script>";
 		//require ("./modele/utilisateurBD.php") ;
 		editerProfilBD($mail, $genre,  $telephone, $situation,$departement , $ville, $photo ,$_SESSION['idUser']);
+	//	editerCategorie($cat1,$_SESSION['idUser']);
+	//	editerCategorie($cat2,$_SESSION['idUser']);
+  //		editerCategorie($cat3,$_SESSION['idUser']);
 		getProfil($_SESSION['idUser'],$_SESSION['mdp']);
     require('./vue/modifProfilEmploye.tpl');
    }

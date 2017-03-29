@@ -16,7 +16,7 @@
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
     <link href="vue/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <link href="vue/css/styleAnnonce.css" rel="stylesheet">
 
     <!--Jasmine Stylesheet [ REQUIRED ]-->
@@ -80,9 +80,9 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                 <!--Brand logo & name-->
                 <!--================================-->
                 <div class="navbar-header">
-                    <a href="index.php?controle=identification&action=afficherMurEmploye" class="navbar-brand"> 
+                    <a href="index.php?controle=identification&action=afficherMurEmploye" class="navbar-brand">
                         <div class="brand-title"><img style="margin-left: -2.3em; margin-top: -0.3em" src="vue/Connexion/img/logo.png" height="80px"/>
-			
+
                     </a>
                 </div>
                 <!--================================-->
@@ -339,12 +339,12 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
             <!--===================================================-->
             <section id="content-container">
                 <header class="pageheader">
-                    <h3><i class="fa fa-home"></i> Mes Annonces </h3>
+                    <h3><i class="fa fa-home"></i> Les Annonces </h3>
                     <div class="breadcrumb-wrapper"> <span class="label">Vous êtes ici:</span>
                         <ol class="breadcrumb">
                             <li> <a href="#"> Home </a> </li>
                             <li class="active"> <a href="#"> Profil </a>   </li>
-                            <li class="active"> Mes Annonces </li>
+                            <li class="active"> Les Annonces </li>
                         </ol>
                     </div>
                 </header>
@@ -354,18 +354,18 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                             <div class="panel">
 							  <h3 class="panel-title" style="font-size:25px;">Listes</h3>
                 <ul>-->
-				
+
                 <!--  require ("./controle/espaceEmploy.php") ; -->
-				
-				
+
+
 			<div id="listeAnnonces">
 			</br>
 	     <style type='text/css'>
                 .plusdinfo{
-                    text-decoration:none; 
+                    text-decoration:none;
                     text-align:center;
-                    color:#333; 
-                    border:1px solid #333; 
+                    color:#333;
+                    border:1px solid #333;
                     border-radius:3px;
                     background-color:#ddd;
                     padding:2px;
@@ -374,7 +374,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                 }
                 .plusdinfo:hover{
                     background-color:#4af;
-                    border:1px solid #14c; 
+                    border:1px solid #14c;
                     border-radius:3px;
                     transition:1s;
                 }
@@ -386,27 +386,255 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 			if($_SESSION['idUser']== $_SESSION['idUser']){
 				if ($tabAnnonces != false){
 					foreach ($tabAnnonces as $key => $value) {
-                        $cat = getCatNameWithAnnonceId($value[0]);
-                        //echo('<div class="col-md-5"></div><div class="col-md-7" ></div>');
-                        echo('<div class="row"><div class="col-md-1"></div><div class="col-md-1" style="height:72px; width:72px; background-image: url(http://icon-icons.com/icons2/870/PNG/72/square_tumblr_icon-icons.com_68019.png); background-repeat: no-repeat; background-size: auto;"></div><div class="col-md-10" style="font-size:20px;">Annonce n°'.utf8_encode($value[0]).'</div>');
-                        echo('<div class="col-md-3" style="font-size:16px;">Nom : '.utf8_encode($value[1]).'</div>');
-                        foreach ($cat as $key => $valuee) {
-                            echo ('<div class="col-md-7" style="font-size:16px;">Catégorie : ' . utf8_encode($valuee[0]) . '</div>');
-                        }
-                        echo('<div class="col-md-8" style="font-size:14px;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
-                        echo('<div class="col-md-2" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'</div>');
-                        echo('<div class="col-md-10" style="height:20px;"></div>');
-                        echo('<div class="col-md-11" style="text-align:right;">');
-                        echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
-                        echo("<hr style=\"color:black; background-color:#444;\" class=\"col-md-11\"></hr></div>");
+            if($value[6] == 1) {
+              $cat = getCatNameWithAnnonceId($value[0]);
+              //echo('<div class="col-md-5"></div><div class="col-md-7" ></div>');
+              echo('<div class="row"><div class="col-md-1"></div><div class="block-baby" style="height:72px; width:72px; background-repeat: no-repeat;margin-left:2%;"></div><div class="col-md-10" style="font-size:20px; margin-left: 1%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+              echo('<div class="col-md-3" style="font-size:16px; margin-left: 1%;">Nom : '.utf8_encode($value[1]).'</div>');
+              foreach ($cat as $key => $valuee) {
+                  echo ('<div class="col-md-7" style="font-size:16px; ">Catégorie : ' . utf8_encode($valuee[0]) . '</div>');
+              }
+              echo('<div class="col-md-8" style="font-size:14px; margin-left: 1%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+              echo('<div class="col-md-2" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'</div>');
+              echo('<div class="col-md-10" style="height:20px;"></div>');
+              echo('<div class="col-md-11" style="text-align:right;">');
+              echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+              echo("<hr style=\"color:black; background-color:#444;\" class=\"col-md-11\"></hr></div>");
+            }
+            if($value[6] == 2) {
+              $cat = getCatNameWithAnnonceId($value[0]);
+              //echo('<div class="col-md-5"></div><div class="col-md-7" ></div>');
+              echo('<div class="row"><div class="col-md-1"></div><div class="block-bricolage" style="height:72px; width:72px; background-repeat: no-repeat;margin-left:2%;"></div><div class="col-md-10" style="font-size:20px; margin-left: 1%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+              echo('<div class="col-md-3" style="font-size:16px; margin-left: 1%;">Nom : '.utf8_encode($value[1]).'</div>');
+              foreach ($cat as $key => $valuee) {
+                  echo ('<div class="col-md-7" style="font-size:16px; ">Catégorie : ' . utf8_encode($valuee[0]) . '</div>');
+              }
+              echo('<div class="col-md-8" style="font-size:14px; margin-left: 1%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+              echo('<div class="col-md-2" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'</div>');
+              echo('<div class="col-md-10" style="height:20px;"></div>');
+              echo('<div class="col-md-11" style="text-align:right;">');
+              echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+              echo("<hr style=\"color:black; background-color:#444;\" class=\"col-md-11\"></hr></div>");
+            }
+            if($value[6] == 3) {
+              $cat = getCatNameWithAnnonceId($value[0]);
+              //echo('<div class="col-md-5"></div><div class="col-md-7" ></div>');
+              echo('<div class="row"><div class="col-md-1"></div><div class="block-aide" style="height:72px; width:72px; background-repeat: no-repeat;margin-left:2%;"></div><div class="col-md-10" style="font-size:20px; margin-left: 1%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+              echo('<div class="col-md-3" style="font-size:16px; margin-left: 1%;">Nom : '.utf8_encode($value[1]).'</div>');
+              foreach ($cat as $key => $valuee) {
+                  echo ('<div class="col-md-7" style="font-size:16px; ">Catégorie : ' . utf8_encode($valuee[0]) . '</div>');
+              }
+              echo('<div class="col-md-8" style="font-size:14px; margin-left: 1%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+              echo('<div class="col-md-2" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'</div>');
+              echo('<div class="col-md-10" style="height:20px;"></div>');
+              echo('<div class="col-md-11" style="text-align:right;">');
+              echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+              echo("<hr style=\"color:black; background-color:#444;\" class=\"col-md-11\"></hr></div>");
+            }
+            if($value[6] == 4) {
+              $cat = getCatNameWithAnnonceId($value[0]);
+              //echo('<div class="col-md-5"></div><div class="col-md-7" ></div>');
+              echo('<div class="row"><div class="col-md-1"></div><div class="block-coursdeDessin" style="height:72px; width:72px; background-repeat: no-repeat;margin-left:2%;"></div><div class="col-md-10" style="font-size:20px; margin-left: 1%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+              echo('<div class="col-md-3" style="font-size:16px; margin-left: 1%;">Nom : '.utf8_encode($value[1]).'</div>');
+              foreach ($cat as $key => $valuee) {
+                  echo ('<div class="col-md-7" style="font-size:16px; ">Catégorie : ' . utf8_encode($valuee[0]) . '</div>');
+              }
+              echo('<div class="col-md-8" style="font-size:14px; margin-left: 1%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+              echo('<div class="col-md-2" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'</div>');
+              echo('<div class="col-md-10" style="height:20px;"></div>');
+              echo('<div class="col-md-11" style="text-align:right;">');
+              echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+              echo("<hr style=\"color:black; background-color:#444;\" class=\"col-md-11\"></hr></div>");
+            }
+            if($value[6] == 5) {
+              $cat = getCatNameWithAnnonceId($value[0]);
+              //echo('<div class="col-md-5"></div><div class="col-md-7" ></div>');
+              echo('<div class="row"><div class="col-md-1"></div><div class="block-animaux" style="height:72px; width:72px; background-repeat: no-repeat;margin-left:2%;"></div><div class="col-md-10" style="font-size:20px; margin-left: 1%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+              echo('<div class="col-md-3" style="font-size:16px; margin-left: 1%;">Nom : '.utf8_encode($value[1]).'</div>');
+              foreach ($cat as $key => $valuee) {
+                  echo ('<div class="col-md-7" style="font-size:16px; ">Catégorie : ' . utf8_encode($valuee[0]) . '</div>');
+              }
+              echo('<div class="col-md-8" style="font-size:14px; margin-left: 1%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+              echo('<div class="col-md-2" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'</div>');
+              echo('<div class="col-md-10" style="height:20px;"></div>');
+              echo('<div class="col-md-11" style="text-align:right;">');
+              echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+              echo("<hr style=\"color:black; background-color:#444;\" class=\"col-md-11\"></hr></div>");
+            }
+            if($value[6] == 6) {
+              $cat = getCatNameWithAnnonceId($value[0]);
+              //echo('<div class="col-md-5"></div><div class="col-md-7" ></div>');
+              echo('<div class="row"><div class="col-md-1"></div><div class="block-sport" style="height:72px; width:72px; background-repeat: no-repeat;margin-left:2%;"></div><div class="col-md-10" style="font-size:20px; margin-left: 1%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+              echo('<div class="col-md-3" style="font-size:16px; margin-left: 1%;">Nom : '.utf8_encode($value[1]).'</div>');
+              foreach ($cat as $key => $valuee) {
+                  echo ('<div class="col-md-7" style="font-size:16px; ">Catégorie : ' . utf8_encode($valuee[0]) . '</div>');
+              }
+              echo('<div class="col-md-8" style="font-size:14px; margin-left: 1%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+              echo('<div class="col-md-2" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'</div>');
+              echo('<div class="col-md-10" style="height:20px;"></div>');
+              echo('<div class="col-md-11" style="text-align:right;">');
+              echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+              echo("<hr style=\"color:black; background-color:#444;\" class=\"col-md-11\"></hr></div>");
+            }
+            if($value[6] == 7) {
+              $cat = getCatNameWithAnnonceId($value[0]);
+              //echo('<div class="col-md-5"></div><div class="col-md-7" ></div>');
+              echo('<div class="row"><div class="col-md-1"></div><div class="block-informatique" style="height:72px; width:72px; background-repeat: no-repeat;margin-left:2%;"></div><div class="col-md-10" style="font-size:20px; margin-left: 1%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+              echo('<div class="col-md-3" style="font-size:16px; margin-left: 1%;">Nom : '.utf8_encode($value[1]).'</div>');
+              foreach ($cat as $key => $valuee) {
+                  echo ('<div class="col-md-7" style="font-size:16px; ">Catégorie : ' . utf8_encode($valuee[0]) . '</div>');
+              }
+              echo('<div class="col-md-8" style="font-size:14px; margin-left: 1%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+              echo('<div class="col-md-2" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'</div>');
+              echo('<div class="col-md-10" style="height:20px;"></div>');
+              echo('<div class="col-md-11" style="text-align:right;">');
+              echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+              echo("<hr style=\"color:black; background-color:#444;\" class=\"col-md-11\"></hr></div>");
+            }
+            if($value[6] == 8) {
+              $cat = getCatNameWithAnnonceId($value[0]);
+              //echo('<div class="col-md-5"></div><div class="col-md-7" ></div>');
+              echo('<div class="row"><div class="col-md-1"></div><div class="block-jardinage" style="height:72px; width:72px; background-repeat: no-repeat;margin-left:2%;"></div><div class="col-md-10" style="font-size:20px; margin-left: 1%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+              echo('<div class="col-md-3" style="font-size:16px; margin-left: 1%;">Nom : '.utf8_encode($value[1]).'</div>');
+              foreach ($cat as $key => $valuee) {
+                  echo ('<div class="col-md-7" style="font-size:16px; ">Catégorie : ' . utf8_encode($valuee[0]) . '</div>');
+              }
+              echo('<div class="col-md-8" style="font-size:14px; margin-left: 1%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+              echo('<div class="col-md-2" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'</div>');
+              echo('<div class="col-md-10" style="height:20px;"></div>');
+              echo('<div class="col-md-11" style="text-align:right;">');
+              echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+              echo("<hr style=\"color:black; background-color:#444;\" class=\"col-md-11\"></hr></div>");
+            }
+            if($value[6] == 9) {
+              $cat = getCatNameWithAnnonceId($value[0]);
+              //echo('<div class="col-md-5"></div><div class="col-md-7" ></div>');
+              echo('<div class="row"><div class="col-md-1"></div><div class="block-coiffure" style="height:72px; width:72px; background-repeat: no-repeat;margin-left:2%;"></div><div class="col-md-10" style="font-size:20px; margin-left: 1%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+              echo('<div class="col-md-3" style="font-size:16px; margin-left: 1%;">Nom : '.utf8_encode($value[1]).'</div>');
+              foreach ($cat as $key => $valuee) {
+                  echo ('<div class="col-md-7" style="font-size:16px; ">Catégorie : ' . utf8_encode($valuee[0]) . '</div>');
+              }
+              echo('<div class="col-md-8" style="font-size:14px; margin-left: 1%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+              echo('<div class="col-md-2" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'</div>');
+              echo('<div class="col-md-10" style="height:20px;"></div>');
+              echo('<div class="col-md-11" style="text-align:right;">');
+              echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+              echo("<hr style=\"color:black; background-color:#444;\" class=\"col-md-11\"></hr></div>");
+            }
+            if($value[6] == 10) {
+              $cat = getCatNameWithAnnonceId($value[0]);
+              //echo('<div class="col-md-5"></div><div class="col-md-7" ></div>');
+              echo('<div class="row"><div class="col-md-1"></div><div class="block-maquillage" style="height:72px; width:72px; background-repeat: no-repeat;margin-left:2%;"></div><div class="col-md-10" style="font-size:20px; margin-left: 1%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+              echo('<div class="col-md-3" style="font-size:16px; margin-left: 1%;">Nom : '.utf8_encode($value[1]).'</div>');
+              foreach ($cat as $key => $valuee) {
+                  echo ('<div class="col-md-7" style="font-size:16px; ">Catégorie : ' . utf8_encode($valuee[0]) . '</div>');
+              }
+              echo('<div class="col-md-8" style="font-size:14px; margin-left: 1%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+              echo('<div class="col-md-2" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'</div>');
+              echo('<div class="col-md-10" style="height:20px;"></div>');
+              echo('<div class="col-md-11" style="text-align:right;">');
+              echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+              echo("<hr style=\"color:black; background-color:#444;\" class=\"col-md-11\"></hr></div>");
+            }
+            if($value[6] == 11) {
+              $cat = getCatNameWithAnnonceId($value[0]);
+              //echo('<div class="col-md-5"></div><div class="col-md-7" ></div>');
+              echo('<div class="row"><div class="col-md-1"></div><div class="block-menage" style="height:72px; width:72px; background-repeat: no-repeat;margin-left:2%;"></div><div class="col-md-10" style="font-size:20px; margin-left: 1%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+              echo('<div class="col-md-3" style="font-size:16px; margin-left: 1%;">Nom : '.utf8_encode($value[1]).'</div>');
+              foreach ($cat as $key => $valuee) {
+                  echo ('<div class="col-md-7" style="font-size:16px; ">Catégorie : ' . utf8_encode($valuee[0]) . '</div>');
+              }
+              echo('<div class="col-md-8" style="font-size:14px; margin-left: 1%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+              echo('<div class="col-md-2" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'</div>');
+              echo('<div class="col-md-10" style="height:20px;"></div>');
+              echo('<div class="col-md-11" style="text-align:right;">');
+              echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+              echo("<hr style=\"color:black; background-color:#444;\" class=\"col-md-11\"></hr></div>");
+            }
+            if($value[6] == 12) {
+              $cat = getCatNameWithAnnonceId($value[0]);
+              //echo('<div class="col-md-5"></div><div class="col-md-7" ></div>');
+              echo('<div class="row"><div class="col-md-1"></div><div class="block-plomberie" style="height:72px; width:72px; background-repeat: no-repeat;margin-left:2%;"></div><div class="col-md-10" style="font-size:20px; margin-left: 1%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+              echo('<div class="col-md-3" style="font-size:16px; margin-left: 1%;">Nom : '.utf8_encode($value[1]).'</div>');
+              foreach ($cat as $key => $valuee) {
+                  echo ('<div class="col-md-7" style="font-size:16px; ">Catégorie : ' . utf8_encode($valuee[0]) . '</div>');
+              }
+              echo('<div class="col-md-8" style="font-size:14px; margin-left: 1%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+              echo('<div class="col-md-2" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'</div>');
+              echo('<div class="col-md-10" style="height:20px;"></div>');
+              echo('<div class="col-md-11" style="text-align:right;">');
+              echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+              echo("<hr style=\"color:black; background-color:#444;\" class=\"col-md-11\"></hr></div>");
+            }
+            if($value[6] == 13) {
+              $cat = getCatNameWithAnnonceId($value[0]);
+              //echo('<div class="col-md-5"></div><div class="col-md-7" ></div>');
+              echo('<div class="row"><div class="col-md-1"></div><div class="block-peinture" style="height:72px; width:72px; background-repeat: no-repeat;margin-left:2%;"></div><div class="col-md-10" style="font-size:20px; margin-left: 1%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+              echo('<div class="col-md-3" style="font-size:16px; margin-left: 1%;">Nom : '.utf8_encode($value[1]).'</div>');
+              foreach ($cat as $key => $valuee) {
+                  echo ('<div class="col-md-7" style="font-size:16px; ">Catégorie : ' . utf8_encode($valuee[0]) . '</div>');
+              }
+              echo('<div class="col-md-8" style="font-size:14px; margin-left: 1%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+              echo('<div class="col-md-2" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'</div>');
+              echo('<div class="col-md-10" style="height:20px;"></div>');
+              echo('<div class="col-md-11" style="text-align:right;">');
+              echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+              echo("<hr style=\"color:black; background-color:#444;\" class=\"col-md-11\"></hr></div>");
+            }
+            if($value[6] == 14) {
+              $cat = getCatNameWithAnnonceId($value[0]);
+              //echo('<div class="col-md-5"></div><div class="col-md-7" ></div>');
+              echo('<div class="row"><div class="col-md-1"></div><div class="block-courdeMusique" style="height:72px; width:72px; background-repeat: no-repeat;margin-left:2%;"></div><div class="col-md-10" style="font-size:20px; margin-left: 1%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+              echo('<div class="col-md-3" style="font-size:16px; margin-left: 1%;">Nom : '.utf8_encode($value[1]).'</div>');
+              foreach ($cat as $key => $valuee) {
+                  echo ('<div class="col-md-7" style="font-size:16px; ">Catégorie : ' . utf8_encode($valuee[0]) . '</div>');
+              }
+              echo('<div class="col-md-8" style="font-size:14px; margin-left: 1%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+              echo('<div class="col-md-2" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'</div>');
+              echo('<div class="col-md-10" style="height:20px;"></div>');
+              echo('<div class="col-md-11" style="text-align:right;">');
+              echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+              echo("<hr style=\"color:black; background-color:#444;\" class=\"col-md-11\"></hr></div>");
+            }
+            if($value[6] == 15) {
+              $cat = getCatNameWithAnnonceId($value[0]);
+              //echo('<div class="col-md-5"></div><div class="col-md-7" ></div>');
+              echo('<div class="row"><div class="col-md-1"></div><div class="block-danse" style="height:72px; width:72px; background-repeat: no-repeat;margin-left:2%;"></div><div class="col-md-10" style="font-size:20px; margin-left: 1%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+              echo('<div class="col-md-3" style="font-size:16px; margin-left: 1%;">Nom : '.utf8_encode($value[1]).'</div>');
+              foreach ($cat as $key => $valuee) {
+                  echo ('<div class="col-md-7" style="font-size:16px; ">Catégorie : ' . utf8_encode($valuee[0]) . '</div>');
+              }
+              echo('<div class="col-md-8" style="font-size:14px; margin-left: 1%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+              echo('<div class="col-md-2" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'</div>');
+              echo('<div class="col-md-10" style="height:20px;"></div>');
+              echo('<div class="col-md-11" style="text-align:right;">');
+              echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+              echo("<hr style=\"color:black; background-color:#444;\" class=\"col-md-11\"></hr></div>");
+            }
+            if($value[6] == 16) {
+              $cat = getCatNameWithAnnonceId($value[0]);
+              //echo('<div class="col-md-5"></div><div class="col-md-7" ></div>');
+              echo('<div class="row"><div class="col-md-1"></div><div class="block-animateur" style="height:72px; width:72px; background-repeat: no-repeat;margin-left:2%;"></div><div class="col-md-10" style="font-size:20px; margin-left: 1%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+              echo('<div class="col-md-3" style="font-size:16px; margin-left: 1%;">Nom : '.utf8_encode($value[1]).'</div>');
+              foreach ($cat as $key => $valuee) {
+                  echo ('<div class="col-md-7" style="font-size:16px; ">Catégorie : ' . utf8_encode($valuee[0]) . '</div>');
+              }
+              echo('<div class="col-md-8" style="font-size:14px; margin-left: 1%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+              echo('<div class="col-md-2" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'</div>');
+              echo('<div class="col-md-10" style="height:20px;"></div>');
+              echo('<div class="col-md-11" style="text-align:right;">');
+              echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+              echo("<hr style=\"color:black; background-color:#444;\" class=\"col-md-11\"></hr></div>");
+            }
+
 					}
 				}
 				else
-					echo ('pas d\'annonces');
+					echo ('  pas d\'annonces');
 			}
 			?>
 		</div>
-		
+
                 <!--<div>
                 </div>
                 <table class="listAnnonce">
@@ -419,31 +647,31 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         </td>
                         <td class="col-md-3" style="border-bottom:1px solid">
                             Nom du recruteur
-                        </td>   
+                        </td>
                         <td class="col-md-2" style="border-bottom:1px solid">
                             Date de publication
                         </td>
                         <td class="col-md-2" style="border-bottom:1px solid">
                             Distance
                         </td>
-						
-						
+
+
                     </tr>
                     <tr class="lespace">
                         <td class="col-md-2">
-                            
+
                         </td>
                         <td class="col-md-3">
-                            
+
                         </td>
                         <td class="col-md-3">
-                            
-                        </td>   
-                        <td class="col-md-2">
-                            
+
                         </td>
                         <td class="col-md-2">
-                            
+
+                        </td>
+                        <td class="col-md-2">
+
                         </td>
                     </tr>
                     <tr>
@@ -455,7 +683,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         </td>
                         <td class="col-md-3">
                             Nom du recruteur
-                        </td>   
+                        </td>
                         <td class="col-md-2">
                             Date de publication
                         </td>
@@ -476,7 +704,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         </td>
                         <td class="col-md-3">
                             Nom du recruteur
-                        </td>   
+                        </td>
                         <td class="col-md-2">
                             Date de publication
                         </td>
@@ -493,7 +721,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         </td>
                         <td class="col-md-3">
                             Nom du recruteur
-                        </td>   
+                        </td>
                         <td class="col-md-2" >
                             Date de publication
                         </td>
@@ -510,7 +738,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         </td>
                         <td class="col-md-3" >
                             Nom du recruteur
-                        </td>   
+                        </td>
                         <td class="col-md-2" >
                             Date de publication
                         </td>
@@ -527,7 +755,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         </td>
                         <td class="col-md-3" >
                             Nom du recruteur
-                        </td>   
+                        </td>
                         <td class="col-md-2" >
                             Date de publication
                         </td>
@@ -544,7 +772,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                         </td>
                         <td class="col-md-3" >
                             Nom du recruteur
-                        </td>   
+                        </td>
                         <td class="col-md-2" >
                             Date de publication
                         </td>
@@ -558,8 +786,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                             </div>
                         </div>-->
-						
-						
+
+
                 <!--===================================================-->
                 <!--===================================================-->
                 <!--End page content-->
@@ -616,7 +844,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
                                                                           <li><a href="index.php?controle=editerProfil&action=editerProfilEmploye"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
-                                                                        
+
                                                                           <li><a href="index.php?controle=mesCandidatures&action=mesCandidatures"><i class="fa fa-caret-right"></i> Mes candidatures</a></li>
                                                                     </ul>
                                                                   </li>
@@ -646,13 +874,13 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                                       <!--Submenu
 
                                                                       <ul class="collapse">
-								      <?php 
+								      <?php
                                                                             echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfil&id='.$_SESSION['idUser'].'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
                                                                           ?>
                                                                           <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
                                                                           <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Mes candidatures </a></li>
                                                                           <li><a href="mail-mailview.html"><i class="fa fa-caret-right"></i> Consulter les annonces </a></li>
-                                                                          
+
 
                                                                       </ul>
                                                                   </li>-->

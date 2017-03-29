@@ -81,7 +81,8 @@
       var infoWindow = new google.maps.InfoWindow;
 
         // Change this depending on the name of your PHP or XML file
-        downloadUrl('http://localhost/map-master/data/data.php', function(data) {
+      //  downloadUrl('http://localhost/map-master/data/data.php', function(data) {
+      downloadUrl('http://localhost/jobapic/controle/data.php', function(data) {
           var xml = data.responseXML;
           var markers = xml.documentElement.getElementsByTagName('marker');
           Array.prototype.forEach.call(markers, function(markerElem) {
@@ -215,149 +216,64 @@ input:checked + .slider:before {
 
                 <!--Brand logo & name-->
                 <!--================================-->
-                <div class="navbar-header">
-                    <a href="index.php?controle=identification&action=afficherMurEmploye" class="navbar-brand">
-                        <div class="brand-title"><img style=" margin-right:3%; margin-top: -0.3em" src="vue/Connexion/img/logo.png" height="80px"/>
-
-                    </a>
-                </div>
+              
                 <!--================================-->
                 <!--End brand logo & name-->
 
                 <!--Navbar Dropdown-->
                 <!--================================-->
                 <div class="navbar-content clearfix">
+                  <a href="index.php?controle=identification&action=afficherMurEmploye" class="navbar-brand">
+                      <div class="brand-title"><img style=" margin-right:3%; margin-top: -0.3em" src="vue/Connexion/img/logo.png" height="80px"/>
+
+                  </a>
                     <ul class="nav navbar-top-links pull-left">
-
-                        <!--Navigation toogle button-->
-                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                        <li class="tgl-menu-btn">
-                            <a class="mainnav-toggle" href="#"> <i class="fa fa-navicon fa-lg"></i> </a>
-                        </li>
-                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                        <!--End Navigation toogle button-->
-
-                        <!--Messages Dropdown-->
-                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                        <li class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle"> <i class="fa fa-envelope fa-lg"></i> <span class="badge badge-header badge-warning">9</span> </a>
-
-                            <!--Message dropdown menu-->
-                            <div class="dropdown-menu dropdown-menu-md with-arrow">
-                                <div class="pad-all bord-btm">
-                                  <?php foreach ($nbMessage as $value) { ?>
-                                    <p class="text-lg text-muted text-thin mar-no">Vous avez <?php echo $nbMes;?> messages.</p>
-                                    <?php } ?>
-                                </div>
-                                <div class="nano scrollable">
-                                    <div class="nano-content">
-                                        <ul class="head-list">
-                                           <?php foreach ($messages as $value) { ?>
-                                            <!-- Dropdown list-->
-                                          <!--  <li>
-
-                                                <a href="#" class="media">
-                                                    <div class="media-left"> <img src="img/av2.png" alt="Profile Picture" class="img-circle img-sm"> </div>
-                                                    <div class="media-body">
-                                                        <div class="text-nowrap">Andy vous a envoyé un message</div>
-                                                        <small class="text-muted">15 minutes ago</small> </div>
-                                                    </a>
-                                                </li> -->
-                                                  <?php } ?>
-                                                <!-- Dropdown list-->
-
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-
-                                                        <!--Dropdown footer-->
-                                                        <div class="pad-all bord-top">
-                                                            <a href="index.php?controle=composerMessage&action=afficherMessages" class="btn-link text-dark box-block"> <i class="fa fa-angle-right fa-lg pull-right"></i>Montrer tous les messages </a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                                                <!--End message dropdown-->
 
                                                 <!--Notification dropdown-->
                                                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                                                <li class="dropdown">
-                                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"> <i class="fa fa-bell fa-lg"></i> <span class="badge badge-header badge-danger">5</span> </a>
 
-                                                    <!--Notification dropdown menu-->
-                                                    <div class="dropdown-menu dropdown-menu-md with-arrow">
-                                                        <div class="pad-all bord-btm">
-                                                            <p class="text-lg text-muted text-thin mar-no">Vous avez 5 notifications.</p>
-                                                        </div>
-                                                        <div class="nano scrollable">
-                                                            <div class="nano-content">
-                                                                <ul class="head-list">
-
-                                                                    <!-- Dropdown list-->
-                                                                    <li>
-                                                                        <a href="#" class="media">
-                                                                            <div class="media-left"> <span class="icon-wrap icon-circle bg-primary"> <i class="fa fa-comment fa-lg"></i> </span> </div>
-                                                                            <div class="media-body">
-                                                                                <div class="text-nowrap">New comments waiting approval</div>
-                                                                                <small class="text-muted">15 minutes ago</small> </div>
-                                                                            </a>
-                                                                        </li>
-
-                                                                        <!-- Dropdown list-->
-                                                                        <li>
-                                                                            <a href="#" class="media"> <span class="badge badge-success pull-right">90%</span>
-                                                                                <div class="media-left"> <span class="icon-wrap icon-circle bg-danger"> <i class="fa fa-hdd-o fa-lg"></i> </span> </div>
-                                                                                <div class="media-body">
-                                                                                    <div class="text-nowrap">HDD is full</div>
-                                                                                    <small class="text-muted">50 minutes ago</small> </div>
-                                                                                </a>
-                                                                            </li>
-
-                                                                            <!-- Dropdown list-->
-                                                                            <li>
-                                                                                <a href="#" class="media">
-                                                                                    <div class="media-left"> <span class="icon-wrap icon-circle bg-info"> <i class="fa fa-file-word-o fa-lg"></i> </span> </div>
-                                                                                    <div class="media-body">
-                                                                                        <div class="text-nowrap">Write a news article</div>
-                                                                                        <small class="text-muted">Last Update 8 hours ago</small> </div>
-                                                                                    </a>
-                                                                                </li>
-
-                                                                                <!-- Dropdown list-->
-                                                                                <li>
-                                                                                    <a href="#" class="media"> <span class="label label-danger pull-right">New</span>
-                                                                                        <div class="media-left"> <span class="icon-wrap icon-circle bg-purple"> <i class="fa fa-comment fa-lg"></i> </span> </div>
-                                                                                        <div class="media-body">
-                                                                                            <div class="text-nowrap">Comment Sorting</div>
-                                                                                            <small class="text-muted">Last Update 8 hours ago</small> </div>
-                                                                                        </a>
-                                                                                    </li>
-
-                                                                                    <!-- Dropdown list-->
-                                                                                    <li>
-                                                                                        <a href="#" class="media">
-                                                                                            <div class="media-left"> <span class="icon-wrap icon-circle bg-success"> <i class="fa fa-user fa-lg"></i> </span> </div>
-                                                                                            <div class="media-body">
-                                                                                                <div class="text-nowrap">New User Registered</div>
-                                                                                                <small class="text-muted">4 minutes ago</small> </div>
-                                                                                            </a>
-                                                                                        </li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <!--Dropdown footer-->
-                                                                            <div class="pad-all bord-top">
-                                                                                <a href="#" class="btn-link text-dark box-block"> <i class="fa fa-angle-right fa-lg pull-right"></i>Show All Notifications </a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                                                                    <!--End notifications dropdown-->
 
 
                                                                 </ul>
                                                                 <ul class="nav navbar-top-links pull-right">
+
+                                                                  <li class="dropdown">
+                                                                      <a href="#" data-toggle="dropdown" class="dropdown-toggle"> <i class="fa fa-envelope fa-lg"></i> <span class="badge badge-header badge-warning">9</span> </a>
+
+                                                                      <!--Message dropdown menu-->
+                                                                      <div class="dropdown-menu dropdown-menu-md with-arrow">
+                                                                          <div class="pad-all bord-btm">
+                                                                            <?php foreach ($nbMessage as $value) { ?>
+                                                                              <p class="text-lg text-muted text-thin mar-no">Vous avez <?php echo $nbMes;?> messages.</p>
+                                                                              <?php } ?>
+                                                                          </div>
+                                                                          <div class="nano scrollable">
+                                                                              <div class="nano-content">
+                                                                                  <ul class="head-list">
+                                                                                     <?php foreach ($messages as $value) { ?>
+                                                                                      <!-- Dropdown list-->
+                                                                                    <!--  <li>
+
+                                                                                          <a href="#" class="media">
+                                                                                              <div class="media-left"> <img src="img/av2.png" alt="Profile Picture" class="img-circle img-sm"> </div>
+                                                                                              <div class="media-body">
+                                                                                                  <div class="text-nowrap">Andy vous a envoyé un message</div>
+                                                                                                  <small class="text-muted">15 minutes ago</small> </div>
+                                                                                              </a>
+                                                                                          </li> -->
+                                                                                            <?php } ?>
+                                                                                          <!-- Dropdown list-->
+
+                                                                                                          </ul>
+                                                                                                      </div>
+                                                                                                  </div>
+
+                                                                                                  <!--Dropdown footer-->
+                                                                                                  <div class="pad-all bord-top">
+                                                                                                      <a href="index.php?controle=composerMessage&action=afficherMessages" class="btn-link text-dark box-block"> <i class="fa fa-angle-right fa-lg pull-right"></i>Montrer tous les messages </a>
+                                                                                                  </div>
+                                                                                              </div>
+                                                                                          </li>
 
                                                                     <!--Language selector-->
                                                                     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -775,7 +691,7 @@ input:checked + .slider:before {
                                                     </div>  <div class="col-md-8-1 col-lg-9-1" id="calendrier">
                                                           <div class="panel">
                                                               <div class="panel-heading">
-                                                                  <h3 class="panel-title">Calendar</h3>
+                                                                  <h3 class="panel-title">Calendrier</h3>
                                                               </div>
                                                               <div class="panel-body">
 
@@ -798,56 +714,88 @@ input:checked + .slider:before {
                                                                         <?php
                                                                         foreach ($icones as $value) {
                                                                             if($value['IdCategorie'] == 1 ) {
+                                                                                echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=1" >');
                                                                                 echo('<div class="block x-2 y-2 block-baby"></div>');
+                                                                                echo('</a>');
                                                                             }
                                                                             else if($value['IdCategorie'] == 2){
+                                                                                echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=2" >');
                                                                                 echo('<div class="block x-2 y-2 block-bricolage"></div>');
+                                                                                echo('</a>');
                                                                             }
                                                                             else if($value['IdCategorie'] == 3){
+                                                                                echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=3" >');
                                                                                 echo('<div class="block x-2 y-2 block-aide"></div>');
+                                                                                echo('</a>');
                                                                             }
                                                                             else if($value['IdCategorie'] == 4){
+                                                                                echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=4" >');
                                                                                 echo('<div class="block x-2 y-2 block-coursdeDessin"></div>');
+                                                                                echo('</a>');
                                                                             }
 
                                                                             else if($value['IdCategorie'] == 5){
+                                                                                echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=5" >');
                                                                                 echo('<div class="block x-2 y-2 block-animaux"></div>');
+                                                                                echo('</a>');
                                                                             }
 
                                                                           else if($value['IdCategorie'] == 6){
+                                                                              echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=6" >');
                                                                             echo('<div class="block x-2 y-2 block-sport"></div>');
+                                                                            echo('</a>');
                                                                         }
 
                                                                         else if($value['IdCategorie'] == 7){
+                                                                            echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=7" >');
                                                                             echo('<div class="block x-2 y-2 block-informatique"></div>');
+                                                                            echo('</a>');
                                                                         }
                                                                         else if($value['IdCategorie'] == 8){
+                                                                            echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=8" >');
                                                                             echo('<div class="block x-2 y-2 block-jardinage"></div>');
+                                                                            echo('</a>');
                                                                         }
                                                                         else if($value['IdCategorie'] == 9){
+                                                                            echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=9" >');
                                                                             echo('<div class="block x-2 y-2 block-coiffure"></div>');
+                                                                            echo('</a>');
                                                                         }
                                                                         else if($value['IdCategorie'] == 10){
+                                                                            echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=10" >');
                                                                             echo('<div class="block x-2 y-2 block-maquillage"></div>');
+                                                                            echo('</a>');
                                                                         }
                                                                         else if($value['IdCategorie'] == 11){
+                                                                            echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=11" >');
                                                                             echo('<div class="block x-2 y-2 block-menage"></div>');
+                                                                            echo('</a>');
                                                                         }
                                                                         else if($value['IdCategorie'] == 12){
+                                                                            echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=12" >');
                                                                             echo('<div class="block x-2 y-2 block-plomberie"></div>');
+                                                                            echo('</a>');
                                                                         }
                                                                         else if($value['IdCategorie'] == 13){
+                                                                            echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=13" >');
                                                                             echo('<div class="block x-2 y-2 block-peinture"></div>');
+                                                                            echo('</a>');
                                                                         }
                                                                         else if($value['IdCategorie'] == 14){
+                                                                            echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=14" >');
                                                                             echo('<div class="block x-2 y-2 block-courdeMusique"></div>');
+                                                                            echo('</a>');
                                                                         }
                                                                         else if($value['IdCategorie'] == 15){
+                                                                            echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=15" >');
                                                                                 echo('<div class="block x-2 y-2 block-danse"></div>');
+                                                                                echo('</a>');
                                                                             }
 
                                                                             else if($value['IdCategorie'] == 16){
+                                                                                echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=16" >');
                                                                                 echo('<div class="block x-2 y-2 block-animateur"></div>');
+                                                                                echo('</a>');
                                                                             }
                                                                       } ?>
 
@@ -859,10 +807,10 @@ input:checked + .slider:before {
                                                                  </div>
                                                                     </br>
 
-                                                                    <div class="col-md-8-3 col-lg-9-3">
+                                                                    <div class="col-md-8-2 col-lg-9-2">
                                                                         <div class="panel">
                                                                             <div class="panel-heading">
-                                                                                <h3 class="panel-title">TUTO</h3>
+                                                                                <h3 class="panel-title">Tuto</h3>
                                                                             </div>
 
                                                                             <div class="panel-body">
@@ -878,11 +826,14 @@ input:checked + .slider:before {
                                                                     <div class="col-md-8-2 col-lg-9-2" >
                                                                         <div class="panel">
                                                                             <div class="panel-heading">
-                                                                                <h3 class="panel-title">FAQ</h3>
+                                                                                <h3 class="panel-title">Faq</h3>
                                                                             </div>
 
                                                                             <div class="panel-body">
                                                                                 <div class="container">
+                                                                                  <a href="index.php?controle=espaceUtilisateur&action=faqEmploye">
+                                                                                  <h3> Plus d'infos </h3>
+                                                                                  </a>
 
                                                                               </div>
 

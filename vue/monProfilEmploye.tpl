@@ -9,11 +9,11 @@
 
     <!--STYLESHEET-->
     <!--=================================================-->
-	
+
 	   <link href="vue/css/lavy.css" rel="stylesheet">
 	<!--stylesheet new -->
 	<link href="css/new.css" rel="stylesheet">
-	
+
     <!--Roboto Slab Font [ OPTIONAL ] -->
     <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Roboto:500,400italic,100,700italic,300,700,500italic,400" rel="stylesheet">
@@ -83,7 +83,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                 <!--Brand logo & name-->
                 <!--================================-->
                 <div class="navbar-header">
-                    <a href="index.html" class="navbar-brand"> 
+                    <a href="index.html" class="navbar-brand">
                         <div class="brand-title"><img style="margin-left: -2.3em; margin-top: -0.3em" src="vue/Connexion/img/logo.png" height="80px"/>
                     </a>
                 </div>
@@ -354,18 +354,23 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                 <!--Page content-->
                 <!--===================================================-->
-					
+
 				<div class="profil">
-					
+
 					<img class="photo" src="vue/img/profil.jpg" alt="1"/>
-					<h3 class="nom"><?php echo $_SESSION['nom']; ?></h3>
-					<h4 class="prenom"><?php echo $_SESSION['prenom']; ?></h4>
-					<h4 class="prenom">19 ans</h4>
-					<h4 class="prenom">18 allée Saint Exupéry 92390 Villeneuve la Garenne</h4>
-					<h4 class="prenom">Etudiante</h4>
-					
+
+          <?php foreach($candidat as $value) {
+            echo('<h3 class="nom"><?php echo $value['Nom']; ?></h3>');
+            echo('<h4 class="prenom"><?php echo $value['Prenom']; ?></h4>');
+  					echo('<h4 class="prenom">19 ans</h4>');
+            echo('<h4 class="prenom">18 allée Saint Exupéry 92390 Villeneuve la Garenne</h4>');
+  					echo('<h4 class="prenom"><?php echo </h4>');
+
+          }
+
+
 				</div>
-				
+
 				<div class="profil2">
 					<h4 class="prof2">Formation</h4>
 						<h4 class="prof3">- 2ème année de DUT Info, Paris Descartes</h4>
@@ -379,10 +384,10 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 						<h4 class="prof3">- basket ball</h4>
 						<h4 class="prof3">- Art, dessin, peinture, ...</h4>
 						<h4 class="prof3">- Séries</h4>
-				
-					
+
+
 				</div>
-					
+
 				<div class="profil3">
 					<h4 class="prof2">Notes</h4>
 					<h1><i class="fa fa-home logo"></i></h1>
@@ -392,15 +397,15 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 					<h1><i class="fa fa-home logo"></i></h1>
 					<h1><i class="fa fa-home logo"></i></h1>
 					<h1><i class="fa fa-home logo"></i></h1>
-				
-					
+
+
 				</div>
-				
-   
-   
-   
-   
-   
+
+
+
+
+
+
                 <!--===================================================-->
                 <!--End page content-->
 
@@ -458,7 +463,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
 
-									<?php 
+									<?php
                                                                             echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfilEmploye&id='.$_SESSION['idUser'].'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
                                                                           ?>
                                                                           <li><a href="index.php?controle=editerProfil&action=editerProfilEmploye"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>

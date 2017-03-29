@@ -81,7 +81,7 @@
       var infoWindow = new google.maps.InfoWindow;
 
         // Change this depending on the name of your PHP or XML file
-        downloadUrl('http://localhost/map-master/data/data.php', function(data) {
+        downloadUrl('http://localhost/jobapic/controle/data2.php', function(data) {
           var xml = data.responseXML;
           var markers = xml.documentElement.getElementsByTagName('marker');
           Array.prototype.forEach.call(markers, function(markerElem) {
@@ -820,7 +820,7 @@ input:checked + .slider:before {
                                                   </div>  <div class="col-md-8-1 col-lg-9-1" id="calendrier">
                                                         <div class="panel">
                                                             <div class="panel-heading">
-                                                                <h3 class="panel-title">Calendar</h3>
+                                                                <h3 class="panel-title">Calendrier</h3>
                                                             </div>
                                                             <div class="panel-body">
 
@@ -843,56 +843,88 @@ input:checked + .slider:before {
                                                                       <?php
                                                                       foreach ($icones as $value) {
                                                                           if($value['IdCategorie'] == 1 ) {
+                                                                              echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=1" >');
                                                                               echo('<div class="block x-2 y-2 block-baby"></div>');
+                                                                              echo('</a>');
                                                                           }
                                                                           else if($value['IdCategorie'] == 2){
+                                                                              echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=2" >');
                                                                               echo('<div class="block x-2 y-2 block-bricolage"></div>');
+                                                                              echo('</a>');
                                                                           }
                                                                           else if($value['IdCategorie'] == 3){
+                                                                              echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=3" >');
                                                                               echo('<div class="block x-2 y-2 block-aide"></div>');
+                                                                              echo('</a>');
                                                                           }
                                                                           else if($value['IdCategorie'] == 4){
+                                                                              echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=4" >');
                                                                               echo('<div class="block x-2 y-2 block-coursdeDessin"></div>');
+                                                                              echo('</a>');
                                                                           }
 
                                                                           else if($value['IdCategorie'] == 5){
+                                                                              echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=5" >');
                                                                               echo('<div class="block x-2 y-2 block-animaux"></div>');
+                                                                              echo('</a>');
                                                                           }
 
                                                                         else if($value['IdCategorie'] == 6){
+                                                                            echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=6" >');
                                                                           echo('<div class="block x-2 y-2 block-sport"></div>');
+                                                                          echo('</a>');
                                                                       }
 
                                                                       else if($value['IdCategorie'] == 7){
+                                                                          echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=7" >');
                                                                           echo('<div class="block x-2 y-2 block-informatique"></div>');
+                                                                          echo('</a>');
                                                                       }
                                                                       else if($value['IdCategorie'] == 8){
+                                                                          echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=8" >');
                                                                           echo('<div class="block x-2 y-2 block-jardinage"></div>');
+                                                                          echo('</a>');
                                                                       }
                                                                       else if($value['IdCategorie'] == 9){
+                                                                          echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=9" >');
                                                                           echo('<div class="block x-2 y-2 block-coiffure"></div>');
+                                                                          echo('</a>');
                                                                       }
                                                                       else if($value['IdCategorie'] == 10){
+                                                                          echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=10" >');
                                                                           echo('<div class="block x-2 y-2 block-maquillage"></div>');
+                                                                          echo('</a>');
                                                                       }
                                                                       else if($value['IdCategorie'] == 11){
+                                                                          echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=11" >');
                                                                           echo('<div class="block x-2 y-2 block-menage"></div>');
+                                                                          echo('</a>');
                                                                       }
                                                                       else if($value['IdCategorie'] == 12){
+                                                                          echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=12" >');
                                                                           echo('<div class="block x-2 y-2 block-plomberie"></div>');
+                                                                          echo('</a>');
                                                                       }
                                                                       else if($value['IdCategorie'] == 13){
+                                                                          echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=13" >');
                                                                           echo('<div class="block x-2 y-2 block-peinture"></div>');
+                                                                          echo('</a>');
                                                                       }
                                                                       else if($value['IdCategorie'] == 14){
+                                                                          echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=14" >');
                                                                           echo('<div class="block x-2 y-2 block-courdeMusique"></div>');
+                                                                          echo('</a>');
                                                                       }
                                                                       else if($value['IdCategorie'] == 15){
+                                                                          echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=15" >');
                                                                               echo('<div class="block x-2 y-2 block-danse"></div>');
+                                                                              echo('</a>');
                                                                           }
 
                                                                           else if($value['IdCategorie'] == 16){
+                                                                              echo('<a href="index.php?controle=consulterAnnonce&action=consulterLesAnnoncesCategorie&categorie=16" >');
                                                                               echo('<div class="block x-2 y-2 block-animateur"></div>');
+                                                                              echo('</a>');
                                                                           }
                                                                     } ?>
 
@@ -907,7 +939,7 @@ input:checked + .slider:before {
                                                                   <div class="col-md-8-2 col-lg-9-2">
                                                                       <div class="panel">
                                                                           <div class="panel-heading">
-                                                                              <h3 class="panel-title">TUTO</h3>
+                                                                              <h3 class="panel-title">Tuto</h3>
                                                                           </div>
 
                                                                           <div class="panel-body">
@@ -923,11 +955,14 @@ input:checked + .slider:before {
                                                                   <div class="col-md-8-2 col-lg-9-2" >
                                                                       <div class="panel">
                                                                           <div class="panel-heading">
-                                                                              <h3 class="panel-title">FAQ</h3>
+                                                                              <h3 class="panel-title">Faq</h3>
                                                                           </div>
 
                                                                           <div class="panel-body">
                                                                               <div class="container">
+                                                                                <a href="index.php?controle=espaceUtilisateur&action=faqEmployeur">
+                                                                                <h3> Plus d'infos </h3>
+                                                                                </a>
 
                                                                             </div>
 
@@ -935,7 +970,6 @@ input:checked + .slider:before {
 
                                                                       </div>
                                                                   </div>
-
 
 
 

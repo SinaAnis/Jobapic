@@ -59,6 +59,25 @@ function inscription($nom, $prenom, $genre, $date, $adresse, $ville, $departemen
 		$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
 	}
 
+	function editerCategorie($cat1, $idUser) {
+		require ("./modele/connectBD.php");
+		$req= "UPDATE categoriepref
+		SET IdCategorie  ='%s' WHERE IdUser='%s'";
+		$sql = sprintf ($req , $cat1,$idUser);
+		$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
+	}
+
+
+
+		function editerPosition($Longitude, $Latitude,$idUser) {
+			require ("./modele/connectBD.php");
+			$req= "UPDATE utilisateur
+			SET Longitude  ='%s',Latitude  ='%s'
+			WHERE idUser='%s'";
+			$sql = sprintf ($req ,$Longitude, $Latitude , $idUser);
+			$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
+		}
+
 	function getProfil($log,$num){
 		require ("./modele/connectBD.php");
 			$req= "SELECT idUser,nom,prenom,genre,dateNaissance,Adresse,Mail,Telephone,Situation,mdp,Departement,Ville,Photo FROM Utilisateur WHERE idUser='%s' AND Mdp='%s'";
@@ -90,16 +109,18 @@ function inscription($nom, $prenom, $genre, $date, $adresse, $ville, $departemen
       $row = mysqli_fetch_assoc($res);
 			   return $row['idUser'];
 	}
+
 	function getCategorieFavoris($id){
 		require ("./modele/connectBD.php");
 			$req= "SELECT categorie.IdCategorie,categorie.NomCategorie
-FROM `categorie`,`categoriepref`
-WHERE idUser='%s'
-AND categorie.idCategorie = categoriepref.idCategorie";
+      FROM `categorie`,`categoriepref`
+      WHERE idUser='%s'
+      AND categorie.idCategorie = categoriepref.idCategorie";
 			$sql = sprintf ($req, $id);
 			$res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
 			return $res;
 	}
+
 
 	function getCategorie(){
 		require ("./modele/connectBD.php");

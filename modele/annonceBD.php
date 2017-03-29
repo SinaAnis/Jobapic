@@ -1,5 +1,14 @@
 <?php
 
+function afficherAnnonceEmployeCat($iduser,$cat) {
+ require ("modele/connectBD.php");
+	$select = "SELECT * FROM `annonce` where annonce.idUser <> %s and annonce.idCategorie = '%s' ORDER BY idAnnonce";
+	$req = sprintf($select,$iduser,$cat);
+	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
+
+	return mysqli_fetch_all($res);
+}
+
 function afficherAnnonceEmploye($iduser) {
  require ("modele/connectBD.php");
 	$select = "SELECT * FROM `annonce` where annonce.idUser <> %s and annonce.idCategorie in (select idCategorie from `categoriepref`, `utilisateur` where utilisateur.IdUser = categoriepref.IdUser) ORDER BY idAnnonce";
@@ -111,7 +120,7 @@ function getUserByID($iduser){
 	$req = sprintf($select,$iduser);
 	$res = mysqli_query($link,$req) or die (utf8_encode("erreur de requête : ") . $req);
 
-	return mysqli_fetch_all($res);
+	return $res;
 }
 
 function validerCandidat($id,$idA){

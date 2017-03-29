@@ -9,28 +9,28 @@
 
     <!--STYLESHEET-->
     <!--=================================================-->
-	
+
     <!--Roboto Slab Font [ OPTIONAL ] -->
     <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Roboto:500,400italic,100,700italic,300,700,500italic,400" rel="stylesheet">
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
     <link href="vue/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <link href="vue/css/styleAnnonce.css" rel="stylesheet">
-	
-	
+
+
 	<!--style les candidats-->
 	<link href="vue/css/lesCandidats.css" rel="stylesheet">
 	<link rel="stylesheet" media="all and (max-width: 700px)" href="vue/css/lesCandidats_mobile.css">
 	<link rel="stylesheet" media="all and (max-width: 1024px)" href="vue/css/lesCandidats_1024.css">
 	<script type="text/javascript" src="vue/js/lesCandidats.js"></script>
 
-	
-	
+
+
     <!--Jasmine Stylesheet [ REQUIRED ]-->
     <link href="vue/css/style.css" rel="stylesheet">
-	
+
 	<link href="vue/css/lavy.css" rel="stylesheet">
 
     <!--Font Awesome [ OPTIONAL ]-->
@@ -91,7 +91,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                 <!--Brand logo & name-->
                 <!--================================-->
                 <div class="navbar-header">
-                    <a href="index.php?controle=identification&action=afficherMurEmployeur" class="navbar-brand"> 
+                    <a href="index.php?controle=identification&action=afficherMurEmployeur" class="navbar-brand">
                         <div class="brand-title"><img style="margin-left: -2.3em; margin-top: -0.3em" src="vue/Connexion/img/logo.png" height="80px"/>
                     </a>
                 </div>
@@ -362,7 +362,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 <!--Page content-->
 
   <!-- Normal Demo-->
-<?php 
+<?php
   require ("modele/connectBD.php");
   foreach ($annonce as $key => $value) {
     echo("<div class=\"container\"><div class=\"info\"><h4>Annonce n° : ".$value[0]." , ".$value[1]."</h4></div>");
@@ -374,7 +374,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
     echo(" Il n'y a aucun candidats pour le moment désolé..."); // a corriger ça l'annonce d'en bas n'affiche pas Il n'y a aucun candidats pour le moment désolé...
     } else {
         foreach ($candid as $key => $valu) {
-        $uncandid = getUserByID($valu[0]);   
+        $uncandid = getUserByID($valu[0]);
         foreach ($uncandid as $key => $val) {
             echo("<div class=\"column\"><div class=\"demo-title\"></div><div class=\"post-module\"><div class=\"thumbnail\"><div class=\"date\">");
             echo("<div class=\"day\">".$cpt."</div>");
@@ -445,7 +445,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
-                                                                          <?php 
+                                                                          <?php
                                                                             echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfil&id='.$_SESSION['idUser'].'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
                                                                           ?>
                                                                           <li><a href="index.php?controle=editerProfil&action=editerProfilEmployeur"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>

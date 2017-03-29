@@ -37,6 +37,7 @@ function afficheProfilEmployeur($id){
     //$neme = getUserNameWithAnnonceId($id);
     //$tomcat = getCatNameWithAnnonceId($id);
 	$candidat = getUserByID($id);
+  
 	$formation = getFormationWithIdUser($id);
 	$experience = getExperienceWithIdUser($id);
 	$loisir = getLoisirWithIdUser($id);
@@ -59,4 +60,3 @@ function afficheProfilEmploye($id){
     require('./vue/monProfilEmploye.tpl') ;
 }
 ?>
-
