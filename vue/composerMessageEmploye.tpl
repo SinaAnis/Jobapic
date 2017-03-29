@@ -654,8 +654,10 @@ window.uabInject = function() {};
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
 
-									<?php 
+
+									<?php
                                                                             echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfilEmploye&id='.$_SESSION['idUser'].'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
+
                                                                           ?>
                                                                           <li><a href="index.php?controle=editerProfil&action=editerProfilEmploye"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
 
@@ -723,7 +725,13 @@ window.uabInject = function() {};
                                                                         </span>
                                                                     </a>
                                                                 </li>
-
+																<li>
+																 <a href="index.php?controle=espaceUtilisateur&action=faqEmploye">
+                                                                        <i class="fa fa-exclamation"></i>
+                                                                        <span class="menu-title">FAQ</span>
+                                                                        <i class="arrow"></i>
+                                                                    </a>
+											</li>
     <li class="list-header">Espaces :</li>
                                                                 <li>
                                                                     <a href="index.php?controle=identification&action=afficherMurEmployeur">
