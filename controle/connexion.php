@@ -10,30 +10,15 @@ function connexionUtilisateur(){
   if (count($_POST)==0)
     require('./vue/Connexion/connexion.tpl');
 
-  if (verif_ident($emailConnexion,$mdp,$profil)) {
+    if (verif_ident($emailConnexion,$mdp,$profil)) {
          $_SESSION['profil'] = $profil;
          echo "<script language='JavaScript'>alert('Connexion réussie !')</script>";
-         getProfil($emailConnexion,$mdp);
-         $questionAfficher=afficherAnnonceEmploye($_SESSION['idUser']);
-         $nbMessage= "5";
          require('./vue/murEmploye.tpl') ;
 
-      }
-      else if(empty($emailConnexion) && !empty($mdp)){
-				echo "<script language='JavaScript'>alert('Veuillez entrer un identifiant.')</script>";
-				require_once('./vue/Connexion/connexion.tpl') ;
-      }
-      else if(empty($mdp) && !empty($emailConnexion)){
-				echo "<script language='JavaScript'>alert('Veuillez entrer un mdp.')</script>";
-				require_once('./vue/Connexion/connexion.tpl') ;
       }
       else{
             echo "<script language='JavaScript'>alert('Erreur d'authentification.')</script>";
 			require_once('./vue/Connexion/connexion.tpl') ;
-      }
-      else if(!verif_ident($emailConnexion,$mdp,$profil)) {
-        echo "<script language='JavaScript'>alert('Mauvais Identifiant ou Mot de Passe ! Veuillez réessayer.')</script>";
-				require_once('./vue/Connexion/connexion.tpl') ;
       }
       
 
