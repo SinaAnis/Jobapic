@@ -12,4 +12,8 @@ function consulterMesAnnonces(){
 	require('./vue/mesAnnonces.tpl');
 }
 
+function consulterAnnonceDetails(){
+	require('./vue/uneAnnonce.tpl');
+}
+
 ?>
