@@ -358,30 +358,36 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 				<div class="profil">
 					
 					<img class="photo" src="vue/img/profil.jpg" alt="1"/>
-					<h3 class="nom"><?php echo $_SESSION['nom']; ?></h3>
-					<h4 class="prenom"><?php echo $_SESSION['prenom']; ?></h4>
-					<h4 class="prenom">19 ans</h4>
-					<h4 class="prenom">18 allée Saint Exupéry 92390 Villeneuve la Garenne</h4>
-					<h4 class="prenom">Etudiante</h4>
-					
-				</div>
-				
-				<div class="profil2">
-					<h4 class="prof2">Formation</h4>
-						<h4 class="prof3">- 2ème année de DUT Info, Paris Descartes</h4>
-						<h4 class="prof3">- 1ère année de DUT Info, Paris Descartes</h4>
-						<h4 class="prof3">- Lycée Michel Ange</h4>
+					<?php 
+                        foreach ($candidat as $key => $value) {
+                            list( $year, $month, $day) = explode ( "-" , $value[4], PHP_INT_MAX);
+                            $age = 2017 - $year;
+                            echo "<h3 class=\"nom\">$value[1]</h3><h4 class=\"prenom\">$value[2]</h4><h4 class=\"prenom\">$age</h4>";
+                            echo "<h4 class=\"prenom\">$value[5] $value[7] $value[6]</h4>";
+                            echo "<h4 class=\"prenom\">$value[10]</h4>";
+                        }
+                    ?>
+                    </div>
+                    <div class="profil2">
+                    <h4 class="prof2">Formation</h4>
+                    <?php
+                        foreach ($formation as $key => $value) {
+                            echo '<h4 class="prof3">'.$value[1].'</h4>';
+                        }
+                    ?>
 					<h4 class="prof2">Expérience</h4>
-						<h4 class="prof3">- Aide au devoirs primaire 1an</h4>
-						<h4 class="prof3">- Baby-sitting</h4>
-						<h4 class="prof3">- Vendeuse à séphora 6mois</h4>
-					<h4 class="prof2">Loisir</h4>
-						<h4 class="prof3">- basket ball</h4>
-						<h4 class="prof3">- Art, dessin, peinture, ...</h4>
-						<h4 class="prof3">- Séries</h4>
-				
-					
-				</div>
+					<?php 
+                        foreach ($experience as $key => $value) {
+                            echo '<h4 class="prof3">'.$value[1].'</h4>';
+                        }
+                    ?>
+                    <h4 class="prof2">Loisir</h4>
+                    <?php 
+                        foreach ($loisir as $key => $value) {
+                            echo '<h4 class="prof3">'.$value[1].'</h4>';
+                        }
+                    ?>
+                    </div>
 					
 				<div class="profil3">
 					<h4 class="prof2">Notes</h4>
