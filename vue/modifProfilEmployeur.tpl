@@ -143,7 +143,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                     <p class="text-muted"> Modifiez les informations que vous souhaitez </p>
                                                 </div>
                                             </div>
-                                            <form action="./index.php?controle=editerProfil&action=editerProfil" method="post">
+                                            <form action="./index.php?controle=editerProfil&action=editerProfilEmployeur" method="post">
                                             <div class="form-group">
 
                                                 <div class="row">
