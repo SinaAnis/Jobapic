@@ -339,7 +339,7 @@ $(document).ready(function() {
         grid: true
     });
     $("#customValue_rangeSlider").ionRangeSlider({
-        values: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        values: ["Janvier", "Fevrier", "Mars", "Avril", "Mai, "June", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Decembre"],
         type: "single",
         grid: true
     })

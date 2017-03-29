@@ -629,12 +629,12 @@
 
     // LOCALES
 
-    var defaultLocaleMonths = 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_');
+    var defaultLocaleMonths = 'Janvier_Fevrier_Mars_Avril_Juin_Juillet_Août_Septembre_Octobre_Novembre_Decembre'.split('_');
     function localeMonths (m) {
         return this._months[m.month()];
     }
 
-    var defaultLocaleMonthsShort = 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_');
+    var defaultLocaleMonthsShort = 'Jan_Feb_Mar_Apr_MaiJun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_');
     function localeMonthsShort (m) {
         return this._monthsShort[m.month()];
     }

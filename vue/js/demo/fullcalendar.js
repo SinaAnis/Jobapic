@@ -55,7 +55,7 @@ $(document).ready(function() {
 				$(this).remove();
 			}
 		},
-		defaultDate: '2015-01-12',
+		defaultDate: '2017-03-30',
         selectable: true,
         selectHelper: true,
         select: function(start, end) {
@@ -74,7 +74,7 @@ $(document).ready(function() {
 		eventLimit: true, // allow "more" link when too many events
 		events: [
 			{
-				title: 'Happy Hour',
+				title: 'RDV Dentiste',
 				start: '2015-01-05',
 				end: '2015-01-07',
 				className: 'purple'

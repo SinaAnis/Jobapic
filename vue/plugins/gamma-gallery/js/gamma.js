@@ -16,7 +16,7 @@
  * Into:
  * 		{"a":1,"b":{"c":3,"d":"four"},"a_false_value":false,"a_null_value":null}
  * @version 1.1.0
- * @date July 16, 2010
+ * @date Juillet 16, 2010
  * @since 1.0.0, June 30, 2010
  * @package jquery-sparkle {@link http://www.balupton/projects/jquery-sparkle}
  * @author Benjamin "balupton" Lupton {@link http://www.balupton.com}
