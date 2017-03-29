@@ -552,16 +552,21 @@ input:checked + .slider:before {
                                                                           // BOUCLE FOR
                                                                             foreach ($questionAfficher as $key => $value) {
                                                                             echo('</br>');
+																			echo('<div class="annonceBaby">');
+																			echo('<div style ="margin-left: 6em">');
                                                                             echo ('<table>');
-                                                                            echo ('<tr><th> N° </th> <th> Annonce : '.$value[0].'</th>'. "\n");
+																			echo ("<p style='font-size: 16px; font-weight: bold'>Annonce n° :" . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . "</p>" );
+                                                                            //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
                                                                             echo "<tr class='question'>";
-                                                                            echo ("<td>" . utf8_encode($value[1]) . "</td>". "\n");
-                                                                            echo ("<td>" . utf8_encode($value[2]) . "</td>". "\n");
+                                                                            //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                           // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
                                                                             echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
                                                                             echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
                                                                             echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
                                                                             echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
                                                                             echo ('</table>');
+																			echo ('</div>');							
+																			echo ('</div>');
                                                                             echo ('</table>');
                                                                             echo "</tr>\n"; ?>
 
@@ -593,7 +598,7 @@ input:checked + .slider:before {
                                                                       </div>
 
 
-                                                                      <div class="annonceBaby">
+                                                                      <div class="annonceBaby"><p style="margin-left: 10em; padding-top: 1em; font-size: 20px">hola</p>
                                                                       </div>
 
 
@@ -603,7 +608,7 @@ input:checked + .slider:before {
                                                                         </br>
 
                                                                 </br>
-                                                            <a class = "btnRet" href ="index.php?controle=consulterAnnonce&action=afficherMesAnnonces"> Plus d''offres... </a>
+                                                            <a class = "btnRet" href ="index.php?controle=consulterAnnonce&action=afficherMesAnnonces"> Plus d'offres... </a>
                                                             </div>
                                                         </div>
                                                     </div>  <div class="col-md-8-1 col-lg-9-1" id="calendrier">
