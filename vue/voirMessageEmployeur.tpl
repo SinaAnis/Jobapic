@@ -5,7 +5,7 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voir les messages | Job'aPic - Enfin un job à pic.</title>
+    <title> Vue mail | Job'aPic - Enfin un job à pic.</title>
 
 
     <!--STYLESHEET-->
@@ -368,11 +368,11 @@ window.uabInject = function() {};
             <!--===================================================-->
             <section id="content-container">
                 <header class="pageheader">
-                    <h3><i class="fa fa-home"></i> Message : </h3>
+                    <h3><i class="fa fa-home"></i> Vue mail : </h3>
                     <div class="breadcrumb-wrapper"> <span class="label">Vous êtes ici:</span>
                         <ol class="breadcrumb">
                             <li> <a href="http://squaredesigns.net/jasmine/mail-mailview.html#"> Home </a> </li>
-                            <li class="active"> Message </li>
+                            <li class="active"> Vue mail </li>
                         </ol>
                     </div>
                 </header>
@@ -526,7 +526,7 @@ window.uabInject = function() {};
             <!--END CONTENT CONTAINER-->
 
 
-            <!--MAIN NAVIGATION-->
+           <!--MAIN NAVIGATION-->
                                             <!--===================================================-->
                                             <nav id="mainnav-container">
                                                 <div id="mainnav">
@@ -643,7 +643,13 @@ window.uabInject = function() {};
                                                                         </span>
                                                                     </a>
                                                                 </li>
-
+<li>
+																 <a href="index.php?controle=espaceUtilisateur&action=faqEmployeur">
+                                                                        <i class="fa fa-exclamation"></i>
+                                                                        <span class="menu-title">FAQ</span>
+                                                                        <i class="arrow"></i>
+                                                                    </a>
+											</li>
     <li class="list-header">Espaces :</li>
                                                                 <li>
                                                                     <a href="index.php?controle=identification&action=afficherMurEmployeur">
