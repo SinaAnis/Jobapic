@@ -448,7 +448,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                    <div class="form-group">
                                        <label class="col-xs-3 control-label">Récompense</label>
                                        <div class="col-xs-5">
-                                           <input type="recompense" class="form-control" name="rec" placeholder="Prix de la récompense" />
+                                           <input type="number" class="form-control" name="rec" placeholder="Prix de la récompense" />
                                        </div>
                                    </div>
                                    <div class="form-group">
