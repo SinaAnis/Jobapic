@@ -338,12 +338,21 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
             <!--===================================================-->
             <section id="content-container">
                 <header class="pageheader">
-                    <h3><i class="fa fa-home"></i> Mes Annonces </h3>
+                    <?php 
+                        foreach ($annonce as $key => $value) {
+                            echo('<h3><i class="fa fa-home"></i>Annonce n°'.utf8_encode($value[0]).'</h3>');
+                        }
+                    ?>
                     <div class="breadcrumb-wrapper"> <span class="label">Vous êtes ici:</span>
                         <ol class="breadcrumb">
                             <li> <a href="#"> Home </a> </li>
                             <li class="active"> <a href="#"> Profil </a>   </li>
                             <li class="active"> Mes Annonces </li>
+                            <?php 
+                            foreach ($annonce as $key => $value) {
+                                echo('<li class="active">Annonce n°'.utf8_encode($value[0]).'</li>');
+                            }
+                            ?>
                         </ol>
                     </div>
                 </header>
