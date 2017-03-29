@@ -32,7 +32,7 @@
         $destinataire= " " ; 	$expediteur= " "; $texteMes= " "; $objet = " ";
       }
   }*/
-  
+
   function creerMessageEmploye(){
   $destinataire=  isset($_POST['destinataire'])?($_POST['destinataire']):'';
 	$expediteur = $_SESSION['idUser'];
@@ -65,7 +65,7 @@
         $destinataire= " " ; 	$expediteur= " "; $texteMes= " "; $objet = " ";
       }
   }
-  
+
   function creerMessageEmployeur(){
   $destinataire=  isset($_POST['destinataire'])?($_POST['destinataire']):'';
 	$expediteur = $_SESSION['idUser'];
@@ -120,7 +120,7 @@ function afficherMessagesEmployeur(){
   require('./vue/consulterMessageEmployeur.tpl');
 }
 
-// CEST OU ?? 
+// CEST OU ??
 
 /*function voirMessage(){
   require ("modele/messageBD.php") ;
@@ -139,7 +139,7 @@ function voirMessageEmploye(){
       require ("modele/utilisateurBD.php") ;
       $dest = getUserId($value['expediteur']);
   }
-  require('./vue/voirMessageEmploye.tpl');
+  require('./vue/voirMessage.tpl');
 }
 function voirMessageEmployeur(){
   require ("modele/messageBD.php") ;

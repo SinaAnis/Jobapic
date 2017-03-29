@@ -31,9 +31,9 @@
     <!--Demo [ DEMONSTRATION ]-->
     <link href="vue/css/jasmine.css" rel="stylesheet">
 
-	
+
 	<!-- css en plus --->
-	
+
 	<!--Bootstrap Stylesheet [ REQUIRED ]-->
     <link href="vue/css/bootstrap.min.css" rel="stylesheet">
 
@@ -492,7 +492,7 @@ window.uabInject = function() {};
                                                         <td class="hidden-xs">
                                                             <div class="inbox-star"><span class="fa fa-star-o"></span></div>
                                                         </td>
-                                                        <td class="hidden-xs"><a href="http://localhost/jobapic/index.php?controle=composerMessage&action=voirMessage&idMessage=<?php echo $value['idMessage']; ?>"> Voir</a></a></td>
+                                                        <td class="hidden-xs"><a href="http://localhost/jobapic/index.php?controle=composerMessage&action=voirMessageEmployeur&idMessage=<?php echo $value['idMessage']; ?>"> Voir</a></a></td>
                                                         <td> <?php echo $value['destinataire']; ?> </td>
                                                         <td> <?php echo $value['objet']; ?></td>
                                                         <td class="hidden-xs"><i class="fa fa-paperclip"></i></td>
@@ -1168,7 +1168,7 @@ window.uabInject = function() {};
 
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
-										<?php 
+										<?php
                                                                             echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfilEmployeur&id='.$_SESSION['idUser'].'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
                                                                           ?>
                                                                           <li><a href="index.php?controle=editerProfil&action=editerProfilEmployeur"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>

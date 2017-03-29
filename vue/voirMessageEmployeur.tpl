@@ -40,7 +40,7 @@
     <link href="vue/css/jasmine.css" rel="stylesheet">
 
 	<!-- css en plus --->
-	
+
 	<!--Bootstrap Stylesheet [ REQUIRED ]-->
     <link href="vue/css/bootstrap.min.css" rel="stylesheet">
 
@@ -501,7 +501,7 @@ window.uabInject = function() {};
                                         <div class="mail-comment">
                                             <a href="http://squaredesigns.net/jasmine/mail-mailview.html#" class="pull-left"> <img alt="" src="img/av2.png" class="media-object img-rounded"> </a>
                                             <div class="pull-left col-md-11 no-padding">
-                                                <form  class="form-horizontal form-bordered" action="index.php?controle=composerMessage&action=repondre" method="post">
+                                                <form  class="form-horizontal form-bordered" action="index.php?controle=composerMessage&action=repondreEmployeur" method="post">
                                                   <input name="destinataire" type="hidden" value=<?php echo $value['destinataire']; ?> />
                                                   <input name="objet" type="hidden" value=<?php echo $value['objet']; ?> />
                                                 <textarea class="form-control"  name= "message" placeholder="Votre réponse ..."></textarea>
@@ -575,7 +575,7 @@ window.uabInject = function() {};
 
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
-										<?php 
+										<?php
                                                                             echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfilEmployeur&id='.$_SESSION['idUser'].'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
                                                                           ?>
                                                                           <li><a href="index.php?controle=editerProfil&action=editerProfilEmployeur"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>

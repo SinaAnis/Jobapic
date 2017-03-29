@@ -466,7 +466,7 @@ window.uabInject = function() {};
                                         <div class="mail-comment">
                                             <a href="http://squaredesigns.net/jasmine/mail-mailview.html#" class="pull-left"> <img alt="" src="img/av2.png" class="media-object img-rounded"> </a>
                                             <div class="pull-left col-md-11 no-padding">
-                                                <form  class="form-horizontal form-bordered" action="index.php?controle=composerMessage&action=repondre" method="post">
+                                                <form  class="form-horizontal form-bordered" action="index.php?controle=composerMessage&action=repondreEmploye" method="post">
                                                   <input name="destinataire" type="hidden" value=<?php echo $value['destinataire']; ?> />
                                                   <input name="objet" type="hidden" value=<?php echo $value['objet']; ?> />
                                                 <textarea class="form-control"  name= "message" placeholder="Votre réponse ..."></textarea>
