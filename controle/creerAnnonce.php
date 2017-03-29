@@ -18,6 +18,8 @@ function create () {
 	$desAnnonce=  isset($_POST['des'])?($_POST['des']):'';
 	$recAnnonce=  isset($_POST['rec'])?($_POST['rec']):'';
 	$catAnnonce=  isset($_POST['cat'])?($_POST['cat']):'';
+  $longitude= isset($_POST['longitude'])?($_POST['longitude']):'';
+  $latitude= isset($_POST['latitude'])?($_POST['latitude']):'';
 
 
 
@@ -38,7 +40,7 @@ function create () {
 		else{
             		require ("modele/annonceBD.php") ;
 			require ("modele/utilisateurBD.php") ;
-			creation_annonce($nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAnnonce,$_SESSION['idUser'],$_SESSION['Longitude'],$_SESSION['Latitude']);
+			creation_annonce($nomAnnonce,$adrAnnonce,$desAnnonce,$recAnnonce,$catAnnonce,$_SESSION['idUser'],$longitude,$latitude);
             		$categorie = getCategorie();
 			echo "<script language='JavaScript'>alert('Création d annonce réussie ! Félicitation')</script>";
 			require('./vue/pageCreationAnnonce.tpl') ;

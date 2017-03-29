@@ -46,13 +46,23 @@
         <link href="vue/css/demo/jasmine.css" rel="stylesheet">
 
 	<link rel="stylesheet" href="vue/css/style1.css">
+  <link rel="stylesheet" href="vue/css/style0.css">
 
-    <!--SCRIPT-->
-    <!--=================================================-->
+  <!--SCRIPT-->
+  <!--=================================================-->
 
-    <!--Page Load Progress Bar [ OPTIONAL ]-->
-    <link href="vue/plugins/pace/pace.min.css" rel="stylesheet">
-    <script src="vue/plugins/pace/pace.min.js"></script>
+  <!--Page Load Progress Bar [ OPTIONAL ]-->
+  <link href="vue/plugins/pace/pace.min.css" rel="stylesheet">
+  <script src="vue/plugins/pace/pace.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src='http://maps.google.com/maps/api/js?key=AIzaSyCtEztC32KkV0V-cX2roY6LkqZLd5MhfKw&sensor=false&libraries=places'></script>
+  <script src="vue/js/locationpicker.jquery.js"></script>
+
+
+
+
+
 </head>
 
 <body>
@@ -348,7 +358,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                 <!--Page content-->
                 <!--===================================================-->
-   <section id="page-content">
+    <section id="page-content">
 
 
                     <div class="row">
@@ -381,13 +391,27 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 										   <!-- <input type="date" class="form-control" name="date" value=date placeholder="Date"  />-->
                                        </div>
                                    </div>
+
                                    <div class="form-group">
-                                       <label class="col-xs-3 control-label">Adresse de l'annonce</label>
-                                       <div class="col-xs-5">
-                                          <!-- donne par default l'adresse de l'utilisateur -->
-                                           <input type="text" class="form-control" name="adr" value='<?php echo $_SESSION['Adresse'] ?>'>
-                                       </div>
-                                   </div>
+                    <label class="col-xs-3 control-label">Adresse de l'annonce</label>
+                     <div class="col-xs-5">
+                    <input type="text"  name="adr" class="form-control" id="us3-address" required>
+                  </div>
+                  </div>
+                     <div class="form-group">
+                    <label class="col-xs-3 control-label">Latitude</label>
+                     <div class="col-xs-5">
+                    <input type="text" name="latitude" class="form-control" id="us3-lat" required>
+                  </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-xs-3 control-label">Longitude</label>
+                     <div class="col-xs-5">
+                    <input type="text" name="longitude" class="form-control" id="us3-lon" required>
+                  </div>
+                  </div>
+
+
 
                                    <div class="form-group">
                                        <label class="col-xs-3 control-label">Catégorie</label>
@@ -395,16 +419,17 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                          <select name="cat" class="form-control" data-parsley-group="experience" data-parsley-required>
                                             
+
                                             <?php
 
-                                         
+
                                                  foreach ($categorie as $value) {
                                                      echo ("<OPTION value='".$value['IdCategorie']."'>".$value['NomCategorie']);
                                                  }
 
 
                                             ?>
-                                            
+
                                           </select>
 
                                        </div>
@@ -446,8 +471,16 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                </div>
                             </div>
+                            <div class="col-md-6">
+                              <div id="us3" ></div>
+                            </div>
                              </form>
+
+
+
+
                        </div>
+
 
 
 
@@ -517,7 +550,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
-                                                                          <?php 
+                                                                          <?php
                                                                             echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfil&id='.$_SESSION['idUser'].'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
                                                                           ?>
                                                                           <li><a href="index.php?controle=editerProfil&action=editerProfil"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
@@ -986,8 +1019,6 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
     <!--JAVASCRIPT-->
     <!--=================================================-->
 
-    <!--jQuery [ REQUIRED ]-->
-    <script src="vue/js/jquery-2.1.1.min.js"></script>
 
     <!--BootstrapJS [ RECOMMENDED ]-->
     <script src="vue/js/bootstrap.min.js"></script>
@@ -1037,9 +1068,6 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
     <!--Demo script [ DEMONSTRATION ]-->
     <script src="vue/js/demo/homepage-2.js"></script>
 
-	 <!--jQuery [ REQUIRED ]-->
-    <script src="vue/js/jquery-2.1.1.min.js"></script>
-<!-- Enfaite si je l'enleve j'ai plus de calendrier mais j'ai le menu des connectés -->
 
     <!--BootstrapJS [ RECOMMENDED ]
     <script src="js/bootstrap.min.js"></script>
@@ -1048,10 +1076,6 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
     <!--Fast Click [ OPTIONAL ]-->
     <script src="vue/plugins/fast-click/fastclick.min.js"></script>
 
-
-    <!--Jasmine Admin [ RECOMMENDED ]
-    <script src="js/scripts.js"></script>
-	-->
 
 
       <!--Switchery [ OPTIONAL ]-->
@@ -1089,13 +1113,29 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
     <!--Demo script [ DEMONSTRATION ]-->
     <script src="vue/js/demo/jasmine.js"></script>
 
-	<!--Map [ DEMONSTRATION ]-->
-	<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'></script>
-    <script src="vue/js/index.js"></script>
-
 
         <!--Form Wizard [ SAMPLE ]-->
         <script src="vue/js/demo/wizard.js"></script>
+
+        <script>
+
+        $('#us3').locationpicker({
+                            location: {
+                                latitude: 48.856614,
+                                longitude: 2.3522219000000177
+                            },
+                            radius:0,
+                            zoom:9,
+                            inputBinding: {
+                                latitudeInput: $('#us3-lat'),
+                                longitudeInput: $('#us3-lon'),
+                                radiusInput: $('#us3-radius'),
+                                locationNameInput: $('#us3-address')
+                            },
+                            enableAutocomplete: true
+                        });
+
+        </script>
 
 
 </body>
