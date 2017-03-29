@@ -306,7 +306,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                         <a href="#">  <i class="fa fa-gear fa-fw fa-lg"></i> Paramètre </a>
                                     </li>
                                     <li>
-                                        <a href="#"> <i class="fa fa-sign-out fa-fw"></i> Déconnection  </a>
+                                        <a href="index.php?controle=identification&action=deconnexion"> <i class="fa fa-sign-out fa-fw"></i> Déconnection  </a>
                                     </li>
                                 </ul>
                             </div>
