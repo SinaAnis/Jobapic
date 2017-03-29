@@ -489,15 +489,13 @@ input:checked + .slider:before {
                                                                                   echo('<div class="annoncebricolage">');
                                                                                   echo('<div style ="margin-left: 6em">');
                                                                                   echo ('<table>');
-                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    echo ("<p style='font-size: 16px; color: white'><strong>" . utf8_encode($value[1]) . '    publié le : ' . utf8_encode($value[2]) . "</strong>" . "</p>" );
                                                                                     //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
                                                                                   echo "<tr class='question'>";
                                                                                   //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
                                                                                   // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
                                                                                   echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo ('<a style="text-decoration: none; float: right; color: black" href ="index.php?controle=consulterAnnonce&action=consulterAnnonceDetails"> voir plus<a>');
                                                                                   echo "</tr>\n";
                                                                                   echo ('</table>');
                                                                                   echo ('</div>');
