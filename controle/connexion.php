@@ -31,12 +31,11 @@ function connexionUtilisateur(){
             echo "<script language='JavaScript'>alert('Erreur d'authentification.')</script>";
 			require_once('./vue/Connexion/connexion.tpl') ;
       }
-    /*
       else if(!verif_ident($emailConnexion,$mdp,$profil)) {
         echo "<script language='JavaScript'>alert('Mauvais Identifiant ou Mot de Passe ! Veuillez réessayer.')</script>";
 				require_once('./vue/Connexion/connexion.tpl') ;
       }
-      */
+      
 
 }
 
