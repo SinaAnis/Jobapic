@@ -240,7 +240,7 @@ CREATE TABLE `utilisateur` (
   `Adresse` varchar(20) DEFAULT NULL,
   `Ville` varchar(300) NOT NULL,
   `Departement` varchar(300) NOT NULL,
-  `Mail` varchar(20) DEFAULT NULL,
+  `Mail` varchar(40) DEFAULT NULL,
   `Telephone` int(10) DEFAULT NULL,
   `Situation` varchar(15) DEFAULT NULL,
   `NoteMoyenne` int(2) DEFAULT NULL,
