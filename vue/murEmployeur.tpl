@@ -138,8 +138,8 @@ input:checked + .slider:before {
                 <!--Brand logo & name-->
                 <!--================================-->
                 <div class="navbar-header">
-                    <a href="index.php?controle=identification&action=afficherMurEmployeur" class="navbar-brand"> <i class="fa fa-cube brand-icon"></i>
-                        <div class="brand-title"> <span class="brand-text">Job'Apic</span> </div>
+                    <a href="index.php?controle=identification&action=afficherMurEmployeur" class="navbar-brand">
+                       <div class="brand-title"><img style="margin-left: -2.3em; margin-top: -0.3em" src="vue/Connexion/img/logo.png" height="80px"/> 
                     </a>
                 </div>
                 <!--================================-->
