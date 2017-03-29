@@ -117,10 +117,10 @@ function editerProfilEmploye(){
 	 ||    $telephone != $_SESSION['Telephone']
 	  || $situation != $_SESSION['Situation'] || $departement != $_SESSION['Departement'] || $ville != $_SESSION['Ville'] || $photo != $_SESSION['Photo'] ) {
 		//echo "<script language='JavaScript'>alert('Profil edité avec succes !!')</script>";
-		require ("./modele/utilisateurBD.php") ;
+		//require ("./modele/utilisateurBD.php") ;
 		editerProfilBD($mail, $genre,  $telephone, $situation,$departement , $ville, $photo ,$_SESSION['idUser']);
 		getProfil($_SESSION['idUser'],$_SESSION['mdp']);
-    require('./vue/./vue/modifProfilEmploye.tpl.tpl');
+    require('./vue/modifProfilEmploye.tpl');
    }
 	 else {
 		 echo "<script language='JavaScript'>alert('Aucune Modification !!')</script>";
