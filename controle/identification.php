@@ -8,6 +8,7 @@
 function ident(){
 	require ("modele/utilisateurBD.php") ;
 	require ("modele/annonceBD.php");
+	require ("modele/messageBD.php");
 
 
 // Connexion
@@ -55,8 +56,9 @@ $mdp2= isset($_POST['mdp2'])?($_POST['mdp2']):'';
 				 $_SESSION['Longitude'] = $_POST['Longitude'];
 				 getProfil($emailConnexion,$_SESSION['mdp']);
 				 $questionAfficher=afficherAnnonceEmploye($_SESSION['idUser']);
+				 $icones = geticones();
+		 		 $messages = getMessages($_SESSION['idUser']);
 				 require('./vue/murEmploye.tpl') ;
-
 			}
 		}
 
@@ -305,6 +307,7 @@ $mdp2= isset($_POST['mdp2'])?($_POST['mdp2']):'';
 		foreach ($nbMessage as $value) {
 			$nbMes = $value['total'];
 		}
+		$icones = geticones();
 		$messages = getMessages($_SESSION['idUser']);
 		echo "<script language='JavaScript'>alert('Section Employé !!')</script>";
 		$questionAfficher=afficherAnnonceEmploye($_SESSION['idUser']);

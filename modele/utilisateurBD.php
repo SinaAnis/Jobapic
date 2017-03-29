@@ -123,4 +123,13 @@ AND categorie.idCategorie = categoriepref.idCategorie";
 	  return $res;
 	}
 
+	function geticones(){
+		require ("./modele/connectBD.php");
+	  $req= "SELECT IdCategorie,NomCategorie FROM categorie ";
+	  $sql = sprintf ($req);
+	  $res = mysqli_query($link,$sql) or die ('erreur de requete : ' . $sql);
+	  return $res;
+	}
+
+
 ?>

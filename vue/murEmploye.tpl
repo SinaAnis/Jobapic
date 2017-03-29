@@ -59,6 +59,94 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtEztC32KkV0V-cX2roY6LkqZLd5MhfKw&callback=initMap">
     </script>
+  <!--  <script>
+    function initialiseCarte(){
+      var mapOptions = {
+        zoom: 15,
+        center: new google.maps.LatLng(48.858565, 2.347198),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+
+      map = new google.maps.Map(document.getElementById('map-canvas'),
+          mapOptions);
+
+          $('.switch label').on('click', function(){
+            var indicator = $(this).parent('.switch').find('span');
+            if ( $(this).hasClass('right') ){
+              $(indicator).addClass('right');
+            } else {
+              $(indicator).removeClass('right');
+            }
+          });
+
+          if (navigator.geolocation)
+      var watchId = navigator.geolocation.watchPosition(successCallback,
+                                null,
+                                {enableHighAccuracy:true});
+      else
+      alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
+
+      function successCallback(position){
+      map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+        map: map
+      });
+      }
+
+      var pinz = [
+        {
+            'location':{
+                'lat' : -37.807817,
+                'lon' : 144.958377
+            },
+            'lable' : 2
+        },
+        {
+            'location':{
+                'lat' : -37.807885,
+                'lon' : 144.965415
+            },
+            'lable' : 42
+        },
+        {
+            'location':{
+                'lat' : -37.811377,
+                'lon' : 144.956596
+            },
+            'lable' : 87
+        },
+        {
+            'location':{
+                'lat' : -37.811293,
+                'lon' : 144.962883
+            },
+            'lable' : 145
+        },
+        {
+            'location':{
+                'lat' : -37.808089,
+                'lon' : 144.962089
+            },
+            'lable' : 999
+        },
+      ];
+
+      for(var i = 0; i <= pinz.length; i++){
+       var image = 'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2238%22%20height%3D%2238%22%20viewBox%3D%220%200%2038%2038%22%3E%3Cpath%20fill%3D%22%23808080%22%20stroke%3D%22%23ccc%22%20stroke-width%3D%22.5%22%20d%3D%22M34.305%2016.234c0%208.83-15.148%2019.158-15.148%2019.158S3.507%2025.065%203.507%2016.1c0-8.505%206.894-14.304%2015.4-14.304%208.504%200%2015.398%205.933%2015.398%2014.438z%22%2F%3E%3Ctext%20transform%3D%22translate%2819%2018.5%29%22%20fill%3D%22%23fff%22%20style%3D%22font-family%3A%20Arial%2C%20sans-serif%3Bfont-weight%3Abold%3Btext-align%3Acenter%3B%22%20font-size%3D%2212%22%20text-anchor%3D%22middle%22%3E' + pinz[i].lable + '%3C%2Ftext%3E%3C%2Fsvg%3E';
+
+
+       var myLatLng = new google.maps.LatLng(pinz[i].location.lat, pinz[i].location.lon);
+       var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          icon: image
+      });
+      }
+
+
+    }
+  </script> -->
 
 
 </head>
@@ -217,7 +305,7 @@ input:checked + .slider:before {
                 <!--Brand logo & name-->
                 <!--================================-->
                 <div class="navbar-header">
-                    <a href="index.php?controle=identification&action=afficherMurEmploye" class="navbar-brand"> 
+                    <a href="index.php?controle=identification&action=afficherMurEmploye" class="navbar-brand">
                         <div class="brand-title"><img style="margin-left: -2.3em; margin-top: -0.3em" src="vue/Connexion/img/logo.png" height="80px"/>
 
                     </a>
@@ -462,56 +550,304 @@ input:checked + .slider:before {
                                                                             <?php
                                                                             if ($questionAfficher != false){
                                                                           // BOUCLE FOR
+                                                                          $compteur = 0;
                                                                             foreach ($questionAfficher as $key => $value) {
-                                                                            echo('</br>');
-																			echo('<div class="annonceBaby">');
-																			echo('<div style ="margin-left: 6em">');
-                                                                            echo ('<table>');
-																			echo ("<p style='font-size: 16px; font-weight: bold'>Annonce n° :" . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . "</p>" );
-                                                                            //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
-                                                                            echo "<tr class='question'>";
-                                                                            //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
-                                                                           // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
-                                                                            echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
-                                                                            echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
-                                                                            echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
-                                                                            echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
-                                                                            echo ('</table>');
-																			echo ('</div>');							
-																			echo ('</div>');
-                                                                            echo ('</table>');
-                                                                            echo "</tr>\n"; ?>
+                                                                                if($value[6] == 1 AND $compteur<= 5) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+																			                                            echo('<div class="annonceBaby">');
+																			                                            echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+																			                                            echo ('</div>');
+																			                                            echo ('</div>');
+                                                                                }
+                                                                                if($value[6] == 2 AND $compteur<= 5 ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annoncebricolage">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+                                                                                if($value[6] == 3 AND $compteur<= 5 ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceAideAuDevoir">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+                                                                                if($value[6] == 4  AND $compteur<= 5) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceCourDessin">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
 
-                                                                          <div class="block x-AnnonAdre y-annonce block-AnnonAdre">
-                                                                          <div class="block x-2 y-logo block-LogoAnnonceTumblr"></div>
-                                                                          <div class="texteAnnonce">
-                                                                            <?php
-                                                                            echo (utf8_encode($value[1]));
-                                                                            ?>
-                                                                          </div>
+                                                                                if($value[6] == 5  AND $compteur<= 5) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceAnimaux">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
 
-                                                                          </div>
-                                                                     <?php
-                                                                        }
+                                                                                if($value[6] == 7 AND $compteur<= 5) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceInformatique">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+
+                                                                                if($value[6] == 8 AND $compteur<= 5 ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceJardinage">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+
+                                                                                if($value[6] == 9  AND $compteur<= 5  ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceCoiffure">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+
+                                                                                if($value[6] == 10  AND $compteur<= 5 ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceMaquillage">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+
+                                                                                if($value[6] == 11  AND $compteur<= 5 ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceMenage">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                      //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+
+                                                                                if($value[6] == 12  AND $compteur<= 5 ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annoncePlomberie">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+
+                                                                                if($value[6] == 13  AND $compteur<= 5 ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annoncePeinture">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                      //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+
+                                                                                if($value[6] == 14  AND $compteur<= 5 ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceCourMusique">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                  echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                  //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p style="color:black;">" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+
+                                                                                if($value[6] == 15  AND $compteur<= 5 ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceDanse">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+                                                                            }
                                                                       }
                                                                       ?>
 
 
-                                                                        </br>
 
-                                                                        <div class="block x-AnnonAdre y-annonce block-AnnonAdrePin">
-                                                                        <div class="block x-2 y-logo block-LogoAnnonceIn"></div>
-                                                                        </div>
-
-                                                                      </br>
-
-                                                                      <div class="block x-AnnonAdre y-annonce block-AnnonAdreBad">
-                                                                      <div class="block x-2 y-logo block-LogoAnnonceBad"></div>
-                                                                      </div>
-
-
-                                                                      <div class="annonceBaby"><p style="margin-left: 10em; padding-top: 1em; font-size: 20px">hola</p>
-                                                                      </div>
 
 
 
@@ -526,7 +862,7 @@ input:checked + .slider:before {
                                                     </div>  <div class="col-md-8-1 col-lg-9-1" id="calendrier">
                                                           <div class="panel">
                                                               <div class="panel-heading">
-                                                                  <h3 class="panel-title">Calendrier</h3>
+                                                                  <h3 class="panel-title">Calendar</h3>
                                                               </div>
                                                               <div class="panel-body">
 
@@ -546,28 +882,63 @@ input:checked + .slider:before {
 
                                                                             <div class="panel-body">
                                                                                 <div class="container">
+                                                                        <?php
+                                                                        foreach ($icones as $value) {
+                                                                            if($value['IdCategorie'] == 1 ) {
+                                                                                echo('<div class="block x-2 y-2 block-baby"></div>');
+                                                                            }
+                                                                            else if($value['IdCategorie'] == 2){
+                                                                                echo('<div class="block x-2 y-2 block-bricolage"></div>');
+                                                                            }
+                                                                            else if($value['IdCategorie'] == 3){
+                                                                                echo('<div class="block x-2 y-2 block-aide"></div>');
+                                                                            }
+                                                                            else if($value['IdCategorie'] == 4){
+                                                                                echo('<div class="block x-2 y-2 block-coursdeDessin"></div>');
+                                                                            }
 
+                                                                            else if($value['IdCategorie'] == 5){
+                                                                                echo('<div class="block x-2 y-2 block-animaux"></div>');
+                                                                            }
 
+                                                                            else if($value['IdCategorie'] == 6){
+                                                                                echo('<div class="block x-2 y-2 block-sport"></div>');
+                                                                            }
 
-                                                                                <div class="block x-2 y-2 block-1"></div>
-                                                                                <div class="block x-2 y-2 block-1"></div>
-                                                                                <div class="block x-2 y-2 block-1"></div>
-                                                                                <div class="block x-2 y-2 block-1"></div>
+                                                                            else if($value['IdCategorie'] == 7){
+                                                                                echo('<div class="block x-2 y-2 block-informatique"></div>');
+                                                                            }
+                                                                            else if($value['IdCategorie'] == 8){
+                                                                                echo('<div class="block x-2 y-2 block-jardinage"></div>');
+                                                                            }
+                                                                            else if($value['IdCategorie'] == 9){
+                                                                                echo('<div class="block x-2 y-2 block-coiffure"></div>');
+                                                                            }
+                                                                            else if($value['IdCategorie'] == 10){
+                                                                                echo('<div class="block x-2 y-2 block-maquillage"></div>');
+                                                                            }
+                                                                            else if($value['IdCategorie'] == 11){
+                                                                                echo('<div class="block x-2 y-2 block-menage"></div>');
+                                                                            }
+                                                                            else if($value['IdCategorie'] == 12){
+                                                                                echo('<div class="block x-2 y-2 block-plomberie"></div>');
+                                                                            }
+                                                                            else if($value['IdCategorie'] == 13){
+                                                                                echo('<div class="block x-2 y-2 block-peinture"></div>');
+                                                                            }
+                                                                            else if($value['IdCategorie'] == 14){
+                                                                                echo('<div class="block x-2 y-2 block-courdeMusique"></div>');
+                                                                            }
 
-                                                                                <div class="block x-2 y-2 block-1"></div>
-                                                                                <div class="block x-2 y-2 block-1"></div>
-                                                                                <div class="block x-2 y-2 block-1"></div>
-                                                                                <div class="block x-2 y-2 block-1"></div>
+                                                                            else if($value['IdCategorie'] == 15){
+                                                                                echo('<div class="block x-2 y-2 block-danse"></div>');
+                                                                            }
 
-                                                                                <div class="block x-2 y-2 block-1"></div>
-                                                                                <div class="block x-2 y-2 block-1"></div>
-                                                                                <div class="block x-2 y-2 block-1"></div>
-                                                                                <div class="block x-2 y-2 block-1"></div>
+                                                                            else if($value['IdCategorie'] == 16){
+                                                                                echo('<div class="block x-2 y-2 block-animateur"></div>');
+                                                                            }
 
-                                                                                <div class="block x-2 y-2 block-1"></div>
-                                                                                <div class="block x-2 y-2 block-1"></div>
-                                                                                <div class="block x-2 y-2 block-1"></div>
-                                                                                <div class="block x-2 y-2 block-1"></div>
+                                                                               } ?>
 
                                                                               </div>
 

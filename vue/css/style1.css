@@ -159,6 +159,110 @@ a.button{
       width: 100%;
     }
 
+    .annonceAideAuDevoir{
+      background-image: url(./../img/icones/barre_aideAuDevoir.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      height: 8%;
+      width: 100%;
+    }
+
+    .annonceAnimaux{
+      background-image: url(./../img/icones/barre_animaux.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      height: 8%;
+      width: 100%;
+    }
+
+    .annoncebricolage{
+      background-image: url(./../img/icones/barre_bricolage.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      height: 8%;
+      width: 100%;
+    }
+
+    .annonceCourDessin{
+      background-image: url(./../img/icones/barre_coursDeDessin.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      height: 8%;
+      width: 100%;
+    }
+
+    .annonceCourMusique{
+      background-image: url(./../img/icones/barre_coursDeMusique.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      height: 8%;
+      width: 100%;
+    }
+
+    .annonceDanse{
+      background-image: url(./../img/icones/barre_danse.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      height: 8%;
+      width: 100%;
+    }
+
+    .annonceInformatique{
+      background-image: url(./../img/icones/barre_informatique.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      height: 8%;
+      width: 100%;
+    }
+
+    .annonceJardinage{
+      background-image: url(./../img/icones/barre_jardinage.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      height: 8%;
+      width: 100%;
+    }
+
+    .annonceMaquillage{
+      background-image: url(./../img/icones/barre_maquillage.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      height: 8%;
+      width: 100%;
+    }
+
+    .annonceMenage{
+      background-image: url(./../img/icones/barre_menage.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      height: 8%;
+      width: 100%;
+    }
+
+    .annoncePeinture{
+      background-image: url(./../img/icones/barre_peinture.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      height: 8%;
+      width: 100%;
+    }
+
+    .annoncePlomberie{
+      background-image: url(./../img/icones/barre_plomberie.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      height: 8%;
+      width: 100%;
+    }
+
+    .annonceCoiffure{
+      background-image: url(./../img/icones/barre_coiffure.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      height: 8%;
+      width: 100%;
+    }
+
     #map {
       height: 25%;
       width : 96.3%;
@@ -203,9 +307,112 @@ a.button{
       display: table;
   }
 
-  .block-1{
-        background-image: url(./../img/icones/baby.png);
+  .block-baby{
+      background-image: url(./../img/icones/baby.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+      background-size: 100%;
+  }
 
+  .block-animaux{
+      background-image: url(./../img/icones/animaux.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+      background-size: 100%;
+  }
+
+  .block-aide{
+      background-image: url(./../img/icones/aideAuDevoir.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+      background-size: 100%;
+  }
+
+  .block-coursdeDessin{
+      background-image: url(./../img/icones/coursDeDessin.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+      background-size: 100%;
+  }
+
+  .block-bricolage{
+      background-image: url(./../img/icones/bricolage.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+      background-size: 100%;
+  }
+
+  .block-informatique{
+      background-image: url(./../img/icones/informatique.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+      background-size: 100%;
+  }
+
+  .block-jardinage{
+      background-image: url(./../img/icones/jardinage.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+      background-size: 100%;
+  }
+
+  .block-coiffure{
+      background-image: url(./../img/icones/coiffure.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+      background-size: 100%;
+  }
+
+  .block-maquillage{
+      background-image: url(./../img/icones/maquillage.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+      background-size: 100%;
+  }
+
+  .block-menage{
+      background-image: url(./../img/icones/menage.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+      background-size: 100%;
+  }
+
+  .block-plomberie{
+      background-image: url(./../img/icones/plomberie.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+      background-size: 100%;
+  }
+
+  .block-peinture{
+      background-image: url(./../img/icones/peinture.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+      background-size: 100%;
+  }
+
+  .block-courdeMusique{
+      background-image: url(./../img/icones/coursDeMusique.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+      background-size: 100%;
+  }
+
+  .block-danse{
+      background-image: url(./../img/icones/danse.png);
       background-repeat: no-repeat;
       background-size: auto;
       padding-top: :3%;

@@ -86,9 +86,9 @@ function editerProfilEmployeur(){
 
 
 function editerProfilEmploye(){
-	
+
 	require('./modele/utilisateurBD.php');
-	
+
 	$idUser = $_SESSION['idUser'];
 	$mail = isset($_POST['mail'])?($_POST['mail']):'';
 	$prenom = isset($_POST['prenom'])?($_POST['prenom']):'';
@@ -103,7 +103,7 @@ function editerProfilEmploye(){
 	$photo = isset($_POST['photo'])?($_POST['photo']):'';
 
 	$mesCatego = getCategorieFavoris($idUser);
-	
+
 	 if  (count($_POST)==0) {
 	 require('./vue/modifProfilEmploye.tpl');
     }
@@ -117,10 +117,10 @@ function editerProfilEmploye(){
 	 ||    $telephone != $_SESSION['Telephone']
 	  || $situation != $_SESSION['Situation'] || $departement != $_SESSION['Departement'] || $ville != $_SESSION['Ville'] || $photo != $_SESSION['Photo'] ) {
 		//echo "<script language='JavaScript'>alert('Profil edité avec succes !!')</script>";
-		require ("./modele/utilisateurBD.php") ;
+		//require ("./modele/utilisateurBD.php") ;
 		editerProfilBD($mail, $genre,  $telephone, $situation,$departement , $ville, $photo ,$_SESSION['idUser']);
 		getProfil($_SESSION['idUser'],$_SESSION['mdp']);
-    require('./vue/./vue/modifProfilEmploye.tpl.tpl');
+    require('./vue/modifProfilEmploye.tpl');
    }
 	 else {
 		 echo "<script language='JavaScript'>alert('Aucune Modification !!')</script>";

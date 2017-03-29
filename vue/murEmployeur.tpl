@@ -54,88 +54,9 @@
     <!--Page Load Progress Bar [ OPTIONAL ]-->
     <link href="vue/plugins/pace/pace.min.css" rel="stylesheet">
     <script src="vue/plugins/pace/pace.min.js"></script>
-
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtEztC32KkV0V-cX2roY6LkqZLd5MhfKw&callback=initMap">
-    </script>
 </head>
 
 <body>
-
-  <script>
-    var customLabel = {
-      restaurant: {
-        label: 'R'
-      },
-      bar: {
-        label: 'B'
-      }
-    };
-
-      function initMap() {
-      var map = new google.maps.Map(document.getElementById('map'), {
-        center: new google.maps.LatLng(48.856614, 2.3522219000000177),
-        zoom: 10
-      });
-      var infoWindow = new google.maps.InfoWindow;
-
-        // Change this depending on the name of your PHP or XML file
-        downloadUrl('http://localhost/map-master/data/data.php', function(data) {
-          var xml = data.responseXML;
-          var markers = xml.documentElement.getElementsByTagName('marker');
-          Array.prototype.forEach.call(markers, function(markerElem) {
-            var name = markerElem.getAttribute('name');
-            var address = markerElem.getAttribute('address');
-            var type = markerElem.getAttribute('type');
-            var point = new google.maps.LatLng(
-                parseFloat(markerElem.getAttribute('lat')),
-                parseFloat(markerElem.getAttribute('lng')));
-
-            var infowincontent = document.createElement('div');
-            var strong = document.createElement('strong');
-            strong.textContent = name
-            infowincontent.appendChild(strong);
-            infowincontent.appendChild(document.createElement('br'));
-
-            var text = document.createElement('text');
-            text.textContent = address
-            infowincontent.appendChild(text);
-            var icon = customLabel[type] || {};
-            var marker = new google.maps.Marker({
-              map: map,
-              position: point
-            });
-            marker.addListener('click', function() {
-              infoWindow.setContent(infowincontent);
-              infoWindow.open(map, marker);
-            });
-          });
-        });
-      }
-
-
-
-    function downloadUrl(url, callback) {
-      var request = window.ActiveXObject ?
-          new ActiveXObject('Microsoft.XMLHTTP') :
-          new XMLHttpRequest;
-
-      request.onreadystatechange = function() {
-        if (request.readyState == 4) {
-          request.onreadystatechange = doNothing;
-          callback(request, request.status);
-        }
-      };
-
-      request.open('GET', url, true);
-      request.send(null);
-    }
-
-    function doNothing() {}
-  </script>
-
-
-
 
 
     <!-- Copyright � 2004. Spidersoft Ltd -->
@@ -218,7 +139,7 @@ input:checked + .slider:before {
                 <!--================================-->
                 <div class="navbar-header">
                     <a href="index.php?controle=identification&action=afficherMurEmployeur" class="navbar-brand">
-                       <div class="brand-title"><img style="margin-left: -2.3em; margin-top: -0.3em" src="vue/Connexion/img/logo.png" height="80px"/> 
+                       <div class="brand-title"><img style="margin-left: -2.3em; margin-top: -0.3em" src="vue/Connexion/img/logo.png" height="80px"/>
                     </a>
                 </div>
                 <!--================================-->
@@ -497,7 +418,7 @@ input:checked + .slider:before {
 
                                                                     </div>
                                                                     <!-- CARTE -->
-                                                                    <div id="map"></div>
+                                                                    <div id="map-canvas"></div>
 
                                                                     <div class="col-md-8-2 col-lg-9-4" id="annonce">
                                                                      <div class="panel">
@@ -514,7 +435,7 @@ input:checked + .slider:before {
                                                                     <div class="col-md-8-1 col-lg-9-1" id="calendrier">
                                                                         <div class="panel">
                                                                             <div class="panel-heading">
-                                                                                <h3 class="panel-title">Calendrier</h3>
+                                                                                <h3 class="panel-title">Calendar</h3>
                                                                             </div>
                                                                             <div class="panel-body">
 
@@ -1065,8 +986,8 @@ input:checked + .slider:before {
 <script src="vue/js/demo/jasmine.js"></script>
 
 <!--Map [ DEMONSTRATION ]-->
-<!--<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBXlGQcqGiGNQ3O_oQNyrXrFJRd5afXjfk&exp&sensor=false&libraries=places'></script>
-<script src="vue/js/index.js"></script> -->
+<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBXlGQcqGiGNQ3O_oQNyrXrFJRd5afXjfk&exp&sensor=false&libraries=places'></script>
+<script src="vue/js/index.js"></script>
 
 
 <!--Form Wizard [ SAMPLE ]-->
