@@ -54,9 +54,86 @@
     <!--Page Load Progress Bar [ OPTIONAL ]-->
     <link href="vue/plugins/pace/pace.min.css" rel="stylesheet">
     <script src="vue/plugins/pace/pace.min.js"></script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtEztC32KkV0V-cX2roY6LkqZLd5MhfKw&callback=initMap">
+    </script>
+
 </head>
 
 <body>
+
+  <script>
+    var customLabel = {
+      restaurant: {
+        label: 'R'
+      },
+      bar: {
+        label: 'B'
+      }
+    };
+
+      function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: new google.maps.LatLng(48.856614, 2.3522219000000177),
+        zoom: 10
+      });
+      var infoWindow = new google.maps.InfoWindow;
+
+        // Change this depending on the name of your PHP or XML file
+        downloadUrl('http://localhost/map-master/data/data.php', function(data) {
+          var xml = data.responseXML;
+          var markers = xml.documentElement.getElementsByTagName('marker');
+          Array.prototype.forEach.call(markers, function(markerElem) {
+            var name = markerElem.getAttribute('name');
+            var address = markerElem.getAttribute('address');
+            var type = markerElem.getAttribute('type');
+            var point = new google.maps.LatLng(
+                parseFloat(markerElem.getAttribute('lat')),
+                parseFloat(markerElem.getAttribute('lng')));
+
+            var infowincontent = document.createElement('div');
+            var strong = document.createElement('strong');
+            strong.textContent = name
+            infowincontent.appendChild(strong);
+            infowincontent.appendChild(document.createElement('br'));
+
+            var text = document.createElement('text');
+            text.textContent = address
+            infowincontent.appendChild(text);
+            var icon = customLabel[type] || {};
+            var marker = new google.maps.Marker({
+              map: map,
+              position: point
+            });
+            marker.addListener('click', function() {
+              infoWindow.setContent(infowincontent);
+              infoWindow.open(map, marker);
+            });
+          });
+        });
+      }
+
+
+
+    function downloadUrl(url, callback) {
+      var request = window.ActiveXObject ?
+          new ActiveXObject('Microsoft.XMLHTTP') :
+          new XMLHttpRequest;
+
+      request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+          request.onreadystatechange = doNothing;
+          callback(request, request.status);
+        }
+      };
+
+      request.open('GET', url, true);
+      request.send(null);
+    }
+
+    function doNothing() {}
+  </script>
 
 
     <!-- Copyright � 2004. Spidersoft Ltd -->
@@ -418,104 +495,449 @@ input:checked + .slider:before {
 
                                                                     </div>
                                                                     <!-- CARTE -->
-                                                                    <div id="map-canvas"></div>
+                                                                    <div id="map"></div>
 
-                                                                    <div class="col-md-8-2 col-lg-9-4" id="annonce">
+                                                                    <div class="col-md-8-2-5 col-lg-9-4" id="annonce">
                                                                      <div class="panel">
                                                                         <h3 class="panel-title">Listes</h3>
                                                                         <div id="liste">
-                                                                        </br>
-                                                                        <h2> Bienvenue sur l'espace employeur !</h3>
-                                                                    </br>
-                                                                    <a class = "btnRet" href ="index.php?controle=consulterAnnonce&action=afficherMesAnnonces"> Plus d'offres... </a>
-                                                                    </div>
-                                                                    </div>
-                                                                    </div>
+                                                                          <div class="container">
+                                                                            <?php
+                                                                            if ($questionAfficher != false){
+                                                                          // BOUCLE FOR
+                                                                          $compteur = 0;
+                                                                            foreach ($questionAfficher as $key => $value) {
+                                                                                if($value[6] == 1 AND $compteur<= 5) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+																			                                            echo('<div class="annonceBaby">');
+																			                                            echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+																			                                            echo ('</div>');
+																			                                            echo ('</div>');
+                                                                                }
+                                                                                if($value[6] == 2 AND $compteur<= 5 ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annoncebricolage">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+                                                                                if($value[6] == 3 AND $compteur<= 5 ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceAideAuDevoir">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+                                                                                if($value[6] == 4  AND $compteur<= 5) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceCourDessin">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
 
-                                                                    <div class="col-md-8-1 col-lg-9-1" id="calendrier">
-                                                                        <div class="panel">
-                                                                            <div class="panel-heading">
-                                                                                <h3 class="panel-title">Calendar</h3>
-                                                                            </div>
-                                                                            <div class="panel-body">
+                                                                                if($value[6] == 5  AND $compteur<= 5) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceAnimaux">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
 
-                                                                                <!-- Calendar placeholder-->
-                                                                                <!-- ============================================ -->
-                                                                                <div id='demo-calendar'></div>
-                                                                                <!-- ============================================ -->
+                                                                                if($value[6] == 7 AND $compteur<= 5) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceInformatique">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
 
-                                                                            </div>
+                                                                                if($value[6] == 8 AND $compteur<= 5 ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceJardinage">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+
+                                                                                if($value[6] == 9  AND $compteur<= 5  ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceCoiffure">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+
+                                                                                if($value[6] == 10  AND $compteur<= 5 ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceMaquillage">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+
+                                                                                if($value[6] == 11  AND $compteur<= 5 ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceMenage">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                      //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+
+                                                                                if($value[6] == 12  AND $compteur<= 5 ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annoncePlomberie">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+
+                                                                                if($value[6] == 13  AND $compteur<= 5 ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annoncePeinture">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                      //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+
+                                                                                if($value[6] == 14  AND $compteur<= 5 ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceCourMusique">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                  echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                  //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p style="color:black;">" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+
+                                                                                if($value[6] == 15  AND $compteur<= 5 ) {
+                                                                                  $compteur++;
+                                                                                  echo('</br>');
+                                                                                  echo('<div class="annonceDanse">');
+                                                                                  echo('<div style ="margin-left: 6em">');
+                                                                                  echo ('<table>');
+                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                  echo "<tr class='question'>";
+                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
+                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
+                                                                                  echo "</tr>\n";
+                                                                                  echo ('</table>');
+                                                                                  echo ('</div>');
+                                                                                  echo ('</div>');
+                                                                                }
+
+
+                                                                            }
+                                                                      }
+                                                                      ?>
+
+
+
+
+
+
+
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="col-md-8-2 col-lg-9-2" id="icones">
-                                                                        <div class="panel">
-                                                                            <div class="panel-heading">
-                                                                                <h3 class="panel-title">Icones</h3>
+
+                                                                      </br>
+
+                                                              </br>
+                                                          <a class = "btnRet" href ="index.php?controle=consulterAnnonce&action=afficherMesAnnonces"> Plus d'offres... </a>
+                                                          </div>
+                                                      </div>
+                                                  </div>  <div class="col-md-8-1 col-lg-9-1" id="calendrier">
+                                                        <div class="panel">
+                                                            <div class="panel-heading">
+                                                                <h3 class="panel-title">Calendar</h3>
+                                                            </div>
+                                                            <div class="panel-body">
+
+                                                                <!-- Calendar placeholder-->
+                                                                <!-- ============================================ -->
+                                                                <div id='demo-calendar'></div>
+                                                                <!-- ============================================ -->
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8-2 col-lg-9-2" id="icones">
+                                                                      <div class="panel">
+                                                                          <div class="panel-heading">
+                                                                              <h3 class="panel-title">Icones</h3>
+                                                                          </div>
+
+                                                                          <div class="panel-body">
+                                                                              <div class="container">
+                                                                      <?php
+                                                                      foreach ($icones as $value) {
+                                                                          if($value['IdCategorie'] == 1 ) {
+                                                                              echo('<div class="block x-2 y-2 block-baby"></div>');
+                                                                          }
+                                                                          else if($value['IdCategorie'] == 2){
+                                                                              echo('<div class="block x-2 y-2 block-bricolage"></div>');
+                                                                          }
+                                                                          else if($value['IdCategorie'] == 3){
+                                                                              echo('<div class="block x-2 y-2 block-aide"></div>');
+                                                                          }
+                                                                          else if($value['IdCategorie'] == 4){
+                                                                              echo('<div class="block x-2 y-2 block-coursdeDessin"></div>');
+                                                                          }
+
+                                                                          else if($value['IdCategorie'] == 5){
+                                                                              echo('<div class="block x-2 y-2 block-animaux"></div>');
+                                                                          }
+
+                                                                        else if($value['IdCategorie'] == 6){
+                                                                          echo('<div class="block x-2 y-2 block-sport"></div>');
+                                                                      }
+
+                                                                      else if($value['IdCategorie'] == 7){
+                                                                          echo('<div class="block x-2 y-2 block-informatique"></div>');
+                                                                      }
+                                                                      else if($value['IdCategorie'] == 8){
+                                                                          echo('<div class="block x-2 y-2 block-jardinage"></div>');
+                                                                      }
+                                                                      else if($value['IdCategorie'] == 9){
+                                                                          echo('<div class="block x-2 y-2 block-coiffure"></div>');
+                                                                      }
+                                                                      else if($value['IdCategorie'] == 10){
+                                                                          echo('<div class="block x-2 y-2 block-maquillage"></div>');
+                                                                      }
+                                                                      else if($value['IdCategorie'] == 11){
+                                                                          echo('<div class="block x-2 y-2 block-menage"></div>');
+                                                                      }
+                                                                      else if($value['IdCategorie'] == 12){
+                                                                          echo('<div class="block x-2 y-2 block-plomberie"></div>');
+                                                                      }
+                                                                      else if($value['IdCategorie'] == 13){
+                                                                          echo('<div class="block x-2 y-2 block-peinture"></div>');
+                                                                      }
+                                                                      else if($value['IdCategorie'] == 14){
+                                                                          echo('<div class="block x-2 y-2 block-courdeMusique"></div>');
+                                                                      }
+                                                                      else if($value['IdCategorie'] == 15){
+                                                                              echo('<div class="block x-2 y-2 block-danse"></div>');
+                                                                          }
+
+                                                                          else if($value['IdCategorie'] == 16){
+                                                                              echo('<div class="block x-2 y-2 block-animateur"></div>');
+                                                                          }
+                                                                    } ?>
+
+                                                                         </div>
+
+                                                                       </div>
+
+                                                                   </div>
+                                                               </div>
+                                                                  </br>
+
+                                                                  <div class="col-md-8-2 col-lg-9-2">
+                                                                      <div class="panel">
+                                                                          <div class="panel-heading">
+                                                                              <h3 class="panel-title">TUTO</h3>
+                                                                          </div>
+
+                                                                          <div class="panel-body">
+                                                                              <div class="container">
+
                                                                             </div>
-                                                                            <div class="panel-body">
-                                                                                                                                                            <div class="container">
 
+                                                                          </div>
 
+                                                                      </div>
+                                                                  </div>
 
-                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
-                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
-                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
-                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
+                                                                  <div class="col-md-8-2 col-lg-9-2" >
+                                                                      <div class="panel">
+                                                                          <div class="panel-heading">
+                                                                              <h3 class="panel-title">FAQ</h3>
+                                                                          </div>
 
-                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
-                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
-                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
-                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
-
-                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
-                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
-                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
-                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
-
-                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
-                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
-                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
-                                                                                                                                                            <div class="block x-2 y-2 block-1"></div>
-
-                                                                                                                                                          </div>
-
-                                                                                                                                                        </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="col-md-8-3 col-lg-9-3">
-                                                                        <div class="panel">
-                                                                            <div class="panel-heading">
-                                                                                <h3 class="panel-title">Tuto</h3>
-                                                                            </div>
-                                                                            <div class="panel-body">
-
-                                                                                <!-- Calendar placeholder-->
-                                                                                <!-- ============================================ -->
-                                                                                <div id='demo-calendar'></div>
-                                                                                <!-- ============================================ -->
+                                                                          <div class="panel-body">
+                                                                              <div class="container">
 
                                                                             </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-8-3 col-lg-9-3">
-                                                                        <div class="panel">
-                                                                            <div class="panel-heading, panel-heading-1">
-                                                                                <h3 class="panel-title">Faq</h3>
-                                                                            </div>
-                                                                            <div class="panel-body">
 
-                                                                                <!-- Calendar placeholder-->
-                                                                                <!-- ============================================ -->
-                                                                                <div id='demo-calendar'></div>
-                                                                                <!-- ============================================ -->
+                                                                          </div>
 
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                                      </div>
+                                                                  </div>
 
 
-                                                                    </br>
+
 
                                                 </section>
                                                 <!--===================================================-->
@@ -720,164 +1142,323 @@ input:checked + .slider:before {
                                         <!--END MAIN NAVIGATION-->
 
 
-                                        <!--ASIDE-->
+
+                                                                                <!--ASIDE-->
+                                                                                <!--===================================================-->
+                                                                                <aside id="aside-container">
+                                                                                    <div id="aside">
+                                                                                        <div class="nano">
+                                                                                            <div class="nano-content">
+
+                                                                                                <!--Nav tabs-->
+                                                                                                <!--================================-->
+                                                                                                <ul class="nav nav-tabs nav-justified">
+                                                                                                    <li class="active">
+                                                                                                        <a href="#demo-asd-tab-1" data-toggle="tab"> <i class="fa fa-comments"></i> </a>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        <a href="#demo-asd-tab-3" data-toggle="tab"> <i class="fa fa-wrench"></i> </a>
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                                <!--================================-->
+                                                                                                <!--End nav tabs-->
+
+                                                                                                <!-- Tabs Content Start-->
+                                                                                                <!--================================-->
+                                                                                                <div class="tab-content">
+
+                                                                                                    <!--First tab (Contact list)-->
+                                                                                                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                                                                                    <div class="tab-pane fade in active" id="demo-asd-tab-1">
+                                                                                                        <h4 class="pad-hor text-thin"> Membres en ligne (7) </h4>
+                                                                                                        <div class="list-group bg-trans">
+                                                                                                           <div class="list-group-item">
+                                                                                                             <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                                                                                                <img src="img/av1.png" alt="" class="img-sm">
+                                                                                                                <i class="on bottom text-light"></i>
+                                                                                                            </a>
+                                                                                                            <div class="inline-block">
+                                                                                                             <div class="text-small">John Knight</div>
+                                                                                                             <small class="text-mute">Available</small>
+                                                                                                         </div>
+                                                                                                     </div>
+                                                                                                     <div class="list-group-item">
+                                                                                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                                                                                            <img src="img/av2.png" alt="" class="img-sm">
+                                                                                                            <i class="on bottom text-light"></i>
+                                                                                                        </a>
+                                                                                                        <div class="inline-block pad-ver-5">
+                                                                                                         <div class="text-small">Jose Knight</div>
+                                                                                                         <small class="text-mute">Available</small>
+                                                                                                     </div>
+                                                                                                 </div>
+                                                                                                 <div class="list-group-item">
+                                                                                                     <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                                                                                        <img src="img/av3.png" alt="" class="img-sm">
+                                                                                                        <i class="on bottom text-light"></i>
+                                                                                                    </a>
+                                                                                                    <div class="inline-block">
+                                                                                                     <div class="text-small">Roy Banks</div>
+                                                                                                     <small class="text-mute">Available</small>
+                                                                                                 </div>
+                                                                                             </div>
+                                                                                             <div class="list-group-item">
+                                                                                                 <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                                                                                    <img src="img/av7.png" alt="" class="img-sm">
+                                                                                                    <i class="on bottom text-light"></i>
+                                                                                                </a>
+                                                                                                <div class="inline-block">
+                                                                                                 <div class="text-small">Steven Jordan</div>
+                                                                                                 <small class="text-mute">Available</small>
+                                                                                             </div>
+                                                                                         </div>
+                                                                                         <div class="list-group-item">
+                                                                                             <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                                                                                <img src="img/av4.png" alt="" class="img-sm">
+                                                                                                <i class="on bottom text-light"></i>
+                                                                                            </a>
+                                                                                            <div class="inline-block">
+                                                                                             <div class="text-small">Scott Owens</div>
+                                                                                             <small class="text-mute">Available</small>
+                                                                                         </div>
+                                                                                     </div>
+                                                                                     <div class="list-group-item">
+                                                                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                                                                            <img src="img/av5.png" alt="" class="img-sm">
+                                                                                            <i class="on bottom text-light"></i>
+                                                                                        </a>
+                                                                                        <div class="inline-block">
+                                                                                         <div class="text-small">Melissa Hunt</div>
+                                                                                         <small class="text-mute">Available</small>
+                                                                                     </div>
+                                                                                 </div>
+                                                                             </div>
+                                                                             <hr>
+                                                                             <h4 class="pad-hor text-thin"> Membres occupés (4) </h4>
+                                                                             <div class="list-group bg-trans">
+                                                                               <div class="list-group-item">
+                                                                                 <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                                                                    <img src="img/av1.png" alt="" class="img-sm">
+                                                                                    <i class="busy bottom text-light"></i>
+                                                                                </a>
+                                                                                <div class="inline-block">
+                                                                                 <div class="text-small">John Knight</div>
+                                                                                 <small class="text-mute">Available</small>
+                                                                             </div>
+                                                                         </div>
+                                                                         <div class="list-group-item">
+                                                                             <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                                                                <img src="img/av2.png" alt="" class="img-sm">
+                                                                                <i class="busy bottom text-light"></i>
+                                                                            </a>
+                                                                            <div class="inline-block">
+                                                                             <div class="text-small">Jose Knight</div>
+                                                                             <small class="text-mute">Available</small>
+                                                                         </div>
+                                                                     </div>
+                                                                     <div class="list-group-item">
+                                                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                                                            <img src="img/av3.png" alt="" class="img-sm">
+                                                                            <i class="busy bottom text-light"></i>
+                                                                        </a>
+                                                                        <div class="inline-block">
+                                                                         <div class="text-small">Roy Banks</div>
+                                                                         <small class="text-mute">Available</small>
+                                                                     </div>
+                                                                 </div>
+                                                                 <div class="list-group-item">
+                                                                     <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                                                        <img src="img/av7.png" alt="" class="img-sm">
+                                                                        <i class="busy bottom text-light"></i>
+                                                                    </a>
+                                                                    <div class="inline-block">
+                                                                     <div class="text-small">Steven Jordan</div>
+                                                                     <small class="text-mute">Available</small>
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                         <hr>
+                                                         <h4 class="pad-hor text-thin"> Membres déconnectés (4) </h4>
+                                                         <div class="list-group bg-trans">
+                                                           <div class="list-group-item">
+                                                             <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                                                <img src="img/av1.png" alt="" class="img-sm">
+                                                                <i class="off bottom text-light"></i>
+                                                            </a>
+                                                            <div class="inline-block pad-ver-5">
+                                                             <div class="text-small">John Knight</div>
+                                                             <small class="text-mute">Available</small>
+                                                         </div>
+                                                     </div>
+                                                     <div class="list-group-item">
+                                                         <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                                            <img src="img/av2.png" alt="" class="img-sm">
+                                                            <i class="off bottom text-light"></i>
+                                                        </a>
+                                                        <div class="inline-block pad-ver-5">
+                                                         <div class="text-small">Jose Knight</div>
+                                                         <small class="text-mute">Available</small>
+                                                     </div>
+                                                 </div>
+                                                 <div class="list-group-item">
+                                                     <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                                        <img src="img/av3.png" alt="" class="img-sm">
+                                                        <i class="off bottom text-light"></i>
+                                                    </a>
+                                                    <div class="inline-block pad-ver-5">
+                                                     <div class="text-small">Roy Banks</div>
+                                                     <small class="text-mute">Available</small>
+                                                 </div>
+                                             </div>
+                                             <div class="list-group-item">
+                                                 <a herf="javascript:void(0)" class="pull-left avatar mar-rgt">
+                                                    <img src="img/av7.png" alt="" class="img-sm">
+                                                    <i class="off bottom text-light"></i>
+                                                </a>
+                                                <div class="inline-block">
+                                                 <div class="text-small">Steven Jordan</div>
+                                                 <small class="text-mute">Available</small>
+                                             </div>
+                                         </div>
+                                        </div>
+
+                                        </div>
+                                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                        <!--End first tab (Contact list)-->
+
+                                        <!--Second tab (Settings)-->
+                                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                        <div class="tab-pane fade" id="demo-asd-tab-3">
+                                            <ul class="list-group bg-trans">
+                                                <li class="list-header">
+                                                   <h4 class="text-thin">Parametre de compte</h4>
+                                               </li>
+                                               <li class="list-group-item">
+                                                   <div class="pull-right">
+                                                      <input class="demo-switch" type="checkbox" checked>
+                                                  </div>
+                                                  <p>Montrer mon statut personnel</p>
+                                                  <small class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small>
+                                              </li>
+                                              <li class="list-group-item">
+                                               <div class="pull-right">
+                                                  <input class="demo-switch" type="checkbox" checked>
+                                              </div>
+                                              <p>Show offline contact</p>
+                                              <small class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small>
+                                          </li>
+                                          <li class="list-group-item">
+                                           <div class="pull-right">
+                                              <input class="demo-switch" type="checkbox">
+                                          </div>
+                                          <p>Invisible mode </p>
+                                          <small class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small>
+                                        </li>
+                                        </ul>
+                                        <hr>
+                                        <ul class="list-group bg-trans">
+                                            <li class="list-header">
+                                                <h4 class="text-thin">Public Settings</h4>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="pull-right">
+                                                    <input class="demo-switch" type="checkbox" checked>
+                                                </div> Online status
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="pull-right">
+                                                    <input class="demo-switch" type="checkbox">
+                                                </div>
+                                                Show offline contact
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="pull-right">
+                                                    <input class="demo-switch" type="checkbox" checked>
+                                                </div>
+                                                Show my device icon
+                                            </li>
+                                        </ul>
+                                        <hr>
+                                        <h4 class="pad-hor text-thin">Task Progress</h4>
+                                        <div class="pad-all">
+                                            <p>Upgrade Progress</p>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar progress-bar-success" style="width: 15%;"><span class="sr-only">15%</span></div>
+                                            </div>
+                                            <small class="text-muted">15% Completed</small>
+                                        </div>
+                                        <div class="pad-hor">
+                                            <p>Database</p>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar progress-bar-danger" style="width: 75%;"><span class="sr-only">75%</span></div>
+                                            </div>
+                                            <small class="text-muted">17/23 Database</small>
+                                        </div>
+                                        </div>
+                                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                        <!--Second tab (Settings)-->
+
+                                        </div>
+                                        <!-- Tabs Content End -->
+                                        <!--================================-->
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </aside>
                                         <!--===================================================-->
-                                        <aside id="aside-container">
-                                            <div id="aside">
-                                                <div class="nano">
-                                                    <div class="nano-content">
+                                        <!--END ASIDE-->
 
-                                                        <!--Nav tabs-->
-                                                        <!--================================-->
-                                                        <ul class="nav nav-tabs nav-justified">
-                                                            <li class="active">
-                                                                <a href="#demo-asd-tab-1" data-toggle="tab"> <i class="fa fa-comments"></i> </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#demo-asd-tab-3" data-toggle="tab"> <i class="fa fa-wrench"></i> </a>
-                                                            </li>
-                                                        </ul>
-                                                        <!--================================-->
-                                                        <!--End nav tabs-->
+                                        </div>
 
+                                        <!-- FOOTER -->
+                                        <!--===================================================-->
+                                        <footer id="footer">
 
+                                            <!-- Visible when footer positions are fixed -->
+                                            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                                            <div class="show-fixed pull-right">
+                                                <ul class="footer-list list-inline">
+                                                    <li>
+                                                        <p class="text-sm">SEO Proggres</p>
+                                                        <div class="progress progress-sm progress-light-base">
+                                                            <div style="width: 80%" class="progress-bar progress-bar-danger"></div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <p class="text-sm">Online Tutorial</p>
+                                                        <div class="progress progress-sm progress-light-base">
+                                                            <div style="width: 80%" class="progress-bar progress-bar-primary"></div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <button class="btn btn-sm btn-dark btn-active-success">
+                                                            Checkout
+                                                        </button>
+                                                    </li>
+                                                </ul>
+                                            </div>
 
-<!--Second tab (Settings)-->
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<div class="tab-pane fade" id="demo-asd-tab-3">
-    <ul class="list-group bg-trans">
-        <li class="list-header">
-           <h4 class="text-thin">Parametre de compte</h4>
-       </li>
-       <li class="list-group-item">
-           <div class="pull-right">
-              <input class="demo-switch" type="checkbox" checked>
-          </div>
-          <p>Montrer mon statut personnel</p>
-          <small class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small>
-      </li>
-      <li class="list-group-item">
-       <div class="pull-right">
-          <input class="demo-switch" type="checkbox" checked>
-      </div>
-      <p>Show offline contact</p>
-      <small class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small>
-  </li>
-  <li class="list-group-item">
-   <div class="pull-right">
-      <input class="demo-switch" type="checkbox">
-  </div>
-  <p>Invisible mode </p>
-  <small class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small>
-</li>
-</ul>
-<hr>
-<ul class="list-group bg-trans">
-    <li class="list-header">
-        <h4 class="text-thin">Public Settings</h4>
-    </li>
-    <li class="list-group-item">
-        <div class="pull-right">
-            <input class="demo-switch" type="checkbox" checked>
-        </div> Online status
-    </li>
-    <li class="list-group-item">
-        <div class="pull-right">
-            <input class="demo-switch" type="checkbox">
-        </div>
-        Show offline contact
-    </li>
-    <li class="list-group-item">
-        <div class="pull-right">
-            <input class="demo-switch" type="checkbox" checked>
-        </div>
-        Show my device icon
-    </li>
-</ul>
-<hr>
-<h4 class="pad-hor text-thin">Task Progress</h4>
-<div class="pad-all">
-    <p>Upgrade Progress</p>
-    <div class="progress progress-sm">
-        <div class="progress-bar progress-bar-success" style="width: 15%;"><span class="sr-only">15%</span></div>
-    </div>
-    <small class="text-muted">15% Completed</small>
-</div>
-<div class="pad-hor">
-    <p>Database</p>
-    <div class="progress progress-sm">
-        <div class="progress-bar progress-bar-danger" style="width: 75%;"><span class="sr-only">75%</span></div>
-    </div>
-    <small class="text-muted">17/23 Database</small>
-</div>
-</div>
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<!--Second tab (Settings)-->
+                                            <!-- Visible when footer positions are static -->
+                                            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                                            <div class="hide-fixed pull-right pad-rgt">Currently v2.2</div>
 
-</div>
-<!-- Tabs Content End -->
-<!--================================-->
-</div>
-</div>
-</div>
-</aside>
-<!--===================================================-->
-<!--END ASIDE-->
+                                            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                                            <!-- Remove the class name "show-fixed" and "hide-fixed" to make the content always appears. -->
+                                            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-</div>
+                                            <p class="pad-lft">&#0169; 2015 - Job'A'pic</p>
+                                        </footer>
+                                        <!--===================================================-->
+                                        <!-- END FOOTER -->
 
-<!-- FOOTER -->
-<!--===================================================-->
-<footer id="footer">
+                                        <!-- SCROLL TOP BUTTON -->
+                                        <!--===================================================-->
+                                        <button id="scroll-top" class="btn">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </button>
+                                        <!--===================================================-->
 
-    <!-- Visible when footer positions are fixed -->
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <div class="show-fixed pull-right">
-        <ul class="footer-list list-inline">
-            <li>
-                <p class="text-sm">SEO Proggres</p>
-                <div class="progress progress-sm progress-light-base">
-                    <div style="width: 80%" class="progress-bar progress-bar-danger"></div>
-                </div>
-            </li>
-            <li>
-                <p class="text-sm">Online Tutorial</p>
-                <div class="progress progress-sm progress-light-base">
-                    <div style="width: 80%" class="progress-bar progress-bar-primary"></div>
-                </div>
-            </li>
-            <li>
-                <button class="btn btn-sm btn-dark btn-active-success">
-                    Checkout
-                </button>
-            </li>
-        </ul>
-    </div>
-
-    <!-- Visible when footer positions are static -->
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <div class="hide-fixed pull-right pad-rgt">Currently v2.2</div>
-
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <!-- Remove the class name "show-fixed" and "hide-fixed" to make the content always appears. -->
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
-    <p class="pad-lft">&#0169; 2015 - Job'Apic</p>
-</footer>
-<!--===================================================-->
-<!-- END FOOTER -->
-
-<!-- SCROLL TOP BUTTON -->
-<!--===================================================-->
-<button id="scroll-top" class="btn">
-    <i class="fa fa-chevron-up"></i>
-</button>
-<!--===================================================-->
-
-</div>
-<!--===================================================-->
-<!-- END OF CONTAINER -->
-
+                                        </div>
 
 <!--JAVASCRIPT-->
 <!--=================================================-->
@@ -986,8 +1567,8 @@ input:checked + .slider:before {
 <script src="vue/js/demo/jasmine.js"></script>
 
 <!--Map [ DEMONSTRATION ]-->
-<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBXlGQcqGiGNQ3O_oQNyrXrFJRd5afXjfk&exp&sensor=false&libraries=places'></script>
-<script src="vue/js/index.js"></script>
+<!--  <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBXlGQcqGiGNQ3O_oQNyrXrFJRd5afXjfk&exp&sensor=false&libraries=places'></script>
+<script src="vue/js/index.js"></script> -->
 
 
 <!--Form Wizard [ SAMPLE ]-->

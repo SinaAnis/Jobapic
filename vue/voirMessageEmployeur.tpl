@@ -5,7 +5,7 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> View Mail | Jasmine - Responsive admin template </title>
+    <title>Voir les messages | Job'aPic - Enfin un job à pic.</title>
 
 
     <!--STYLESHEET-->

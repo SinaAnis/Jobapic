@@ -75,7 +75,7 @@ function editerProfilEmployeur(){
 		require ("./modele/utilisateurBD.php") ;
 		editerProfilBD($mail, $genre,  $telephone, $situation,$departement , $ville, $photo ,$_SESSION['idUser']);
 		getProfil($_SESSION['idUser'],$_SESSION['mdp']);
-    require('./vue/./vue/modifProfilEmployeur.tpl.tpl');
+    require('./vue/modifProfilEmployeur.tpl');
    }
 	 else {
 		 echo "<script language='JavaScript'>alert('Aucune Modification !!')</script>";

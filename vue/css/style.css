@@ -407,7 +407,7 @@ display:block
 	position: relative;
 	font-size: 26px;
 	z-index: 2;
-	overflow: hidden;
+	/*overflow: hidden; */
 	width: 220px
 }
 .navbar-brand:hover, .navbar-brand:focus {
@@ -547,7 +547,10 @@ display:block
 	box-shadow: 0 1px 8px 0 rgba(51, 51, 51, 0.1)
 }
 .navbar-header {
+<<<<<<< HEAD
 	/*float: left;*/
+=======
+>>>>>>> origin/master
 	background-color: transparent
 }
 .navbar-header:before {
@@ -568,13 +571,13 @@ display:block
 }
 .navbar-content {
 	margin-left: 220px;
-	background-color: transparent
+	/* background-color: transparent */
 }
 #navbar .brand-title {
 	padding: 0 0 0 50px
 }
 #container.mainnav-in .navbar-brand, #container.mainnav-lg .navbar-brand, #container.mainnav-in .brand-title, #container.mainnav-lg .brand-title {
-	width: 220px
+	!/*width: 220px */
 }
 #container.mainnav-in .brand-icon, #container.mainnav-sm .brand-icon, #container.mainnav-lg .brand-icon {
 	color: #000;

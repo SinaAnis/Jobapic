@@ -14,7 +14,6 @@
     require('./vue/unProfil.tpl') ;
 }*/
 
-<?php
 function afficheProfil($id){
     require('./modele/annonceBD.php');
 	 require('./modele/formationBD.php');
@@ -61,4 +60,3 @@ function afficheProfilEmploye($id){
 }
 ?>
 
-?>

@@ -419,6 +419,22 @@ a.button{
       background-size: 100%;
   }
 
+  .block-sport{
+      background-image: url(./../img/icones/sport.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+      background-size: 100%;
+  }
+
+  .block-animateur{
+      background-image: url(./../img/icones/ballon.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: :3%;
+      background-size: 100%;
+  }
+
   .block-LogoAnnonceTumblr{
       background-image: url(http://icon-icons.com/icons2/870/PNG/72/square_tumblr_icon-icons.com_68019.png);
       background-repeat: no-repeat;

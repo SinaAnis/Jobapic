@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier mon profil (coté Employe) | Job'Apic - Enfin un job à pic..</title>
+    <title>Modifier mon profil | Job'aPic - Enfin un job à pic.</title>
 
 
     <!--STYLESHEET-->
@@ -143,7 +143,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                     <p class="text-muted"> Modifiez les informations que vous souhaitez </p>
                                                 </div>
                                             </div>
-                                            <form action="./index.php?controle=editerProfil&action=editerProfil" method="post">
+                                            <form action="./index.php?controle=editerProfil&action=editerProfilEmployeur" method="post">
                                             <div class="form-group">
 
                                                 <div class="row">

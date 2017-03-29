@@ -20,7 +20,7 @@ function create () {
 	$catAnnonce=  isset($_POST['cat'])?($_POST['cat']):'';
   $longitude= isset($_POST['longitude'])?($_POST['longitude']):'';
   $latitude= isset($_POST['latitude'])?($_POST['latitude']):'';
-
+  $agr = isset($_POST['agree'])?($_POST['agree']):'';
 
 
 	if  (count($_POST)==0) {
@@ -30,12 +30,12 @@ function create () {
 			require('./vue/pageCreationAnnonce.tpl') ;
 
 	}
-	else if ($nomAnnonce == ''|| $adrAnnonce == ''|| $desAnnonce == '' || $recAnnonce == ''){
+	else if ($nomAnnonce == ''|| $adrAnnonce == ''|| $desAnnonce == '' || $recAnnonce == '' || $agr != "checkay"){
             echo "<script language='JavaScript'>alert('Manque des informations')</script>";
             require ("modele/utilisateurBD.php") ;
 			$categorie=getCategorie();
 			require('./vue/pageCreationAnnonce.tpl') ;
-            print_r ($_POST);
+            //print_r ($_POST);
 		}
 		else{
             		require ("modele/annonceBD.php") ;

@@ -54,99 +54,10 @@
     <!--Page Load Progress Bar [ OPTIONAL ]-->
     <link href="vue/plugins/pace/pace.min.css" rel="stylesheet">
     <script src="vue/plugins/pace/pace.min.js"></script>
-  <!--  <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBXlGQcqGiGNQ3O_oQNyrXrFJRd5afXjfk&exp&sensor=false&libraries=places'></script>
--->
+
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtEztC32KkV0V-cX2roY6LkqZLd5MhfKw&callback=initMap">
     </script>
-  <!--  <script>
-    function initialiseCarte(){
-      var mapOptions = {
-        zoom: 15,
-        center: new google.maps.LatLng(48.858565, 2.347198),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-
-      map = new google.maps.Map(document.getElementById('map-canvas'),
-          mapOptions);
-
-          $('.switch label').on('click', function(){
-            var indicator = $(this).parent('.switch').find('span');
-            if ( $(this).hasClass('right') ){
-              $(indicator).addClass('right');
-            } else {
-              $(indicator).removeClass('right');
-            }
-          });
-
-          if (navigator.geolocation)
-      var watchId = navigator.geolocation.watchPosition(successCallback,
-                                null,
-                                {enableHighAccuracy:true});
-      else
-      alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
-
-      function successCallback(position){
-      map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-        map: map
-      });
-      }
-
-      var pinz = [
-        {
-            'location':{
-                'lat' : -37.807817,
-                'lon' : 144.958377
-            },
-            'lable' : 2
-        },
-        {
-            'location':{
-                'lat' : -37.807885,
-                'lon' : 144.965415
-            },
-            'lable' : 42
-        },
-        {
-            'location':{
-                'lat' : -37.811377,
-                'lon' : 144.956596
-            },
-            'lable' : 87
-        },
-        {
-            'location':{
-                'lat' : -37.811293,
-                'lon' : 144.962883
-            },
-            'lable' : 145
-        },
-        {
-            'location':{
-                'lat' : -37.808089,
-                'lon' : 144.962089
-            },
-            'lable' : 999
-        },
-      ];
-
-      for(var i = 0; i <= pinz.length; i++){
-       var image = 'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2238%22%20height%3D%2238%22%20viewBox%3D%220%200%2038%2038%22%3E%3Cpath%20fill%3D%22%23808080%22%20stroke%3D%22%23ccc%22%20stroke-width%3D%22.5%22%20d%3D%22M34.305%2016.234c0%208.83-15.148%2019.158-15.148%2019.158S3.507%2025.065%203.507%2016.1c0-8.505%206.894-14.304%2015.4-14.304%208.504%200%2015.398%205.933%2015.398%2014.438z%22%2F%3E%3Ctext%20transform%3D%22translate%2819%2018.5%29%22%20fill%3D%22%23fff%22%20style%3D%22font-family%3A%20Arial%2C%20sans-serif%3Bfont-weight%3Abold%3Btext-align%3Acenter%3B%22%20font-size%3D%2212%22%20text-anchor%3D%22middle%22%3E' + pinz[i].lable + '%3C%2Ftext%3E%3C%2Fsvg%3E';
-
-
-       var myLatLng = new google.maps.LatLng(pinz[i].location.lat, pinz[i].location.lon);
-       var marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,
-          icon: image
-      });
-      }
-
-
-    }
-  </script> -->
 
 
 </head>
@@ -306,7 +217,7 @@ input:checked + .slider:before {
                 <!--================================-->
                 <div class="navbar-header">
                     <a href="index.php?controle=identification&action=afficherMurEmploye" class="navbar-brand">
-                        <div class="brand-title"><img style="margin-left: -2.3em; margin-top: -0.3em" src="vue/Connexion/img/logo.png" height="80px"/>
+                        <div class="brand-title"><img style=" margin-right:3%; margin-top: -0.3em" src="vue/Connexion/img/logo.png" height="80px"/>
 
                     </a>
                 </div>
@@ -842,6 +753,8 @@ input:checked + .slider:before {
                                                                                   echo ('</div>');
                                                                                   echo ('</div>');
                                                                                 }
+
+
                                                                             }
                                                                       }
                                                                       ?>
@@ -874,7 +787,7 @@ input:checked + .slider:before {
                                                               </div>
                                                           </div>
                                                       </div>
-                                                                    <div class="col-md-8-2 col-lg-9-2" id="icones">
+                                                      <div class="col-md-8-2 col-lg-9-2" id="icones">
                                                                         <div class="panel">
                                                                             <div class="panel-heading">
                                                                                 <h3 class="panel-title">Icones</h3>
@@ -901,56 +814,52 @@ input:checked + .slider:before {
                                                                                 echo('<div class="block x-2 y-2 block-animaux"></div>');
                                                                             }
 
-                                                                            else if($value['IdCategorie'] == 6){
-                                                                                echo('<div class="block x-2 y-2 block-sport"></div>');
-                                                                            }
+                                                                          else if($value['IdCategorie'] == 6){
+                                                                            echo('<div class="block x-2 y-2 block-sport"></div>');
+                                                                        }
 
-                                                                            else if($value['IdCategorie'] == 7){
-                                                                                echo('<div class="block x-2 y-2 block-informatique"></div>');
-                                                                            }
-                                                                            else if($value['IdCategorie'] == 8){
-                                                                                echo('<div class="block x-2 y-2 block-jardinage"></div>');
-                                                                            }
-                                                                            else if($value['IdCategorie'] == 9){
-                                                                                echo('<div class="block x-2 y-2 block-coiffure"></div>');
-                                                                            }
-                                                                            else if($value['IdCategorie'] == 10){
-                                                                                echo('<div class="block x-2 y-2 block-maquillage"></div>');
-                                                                            }
-                                                                            else if($value['IdCategorie'] == 11){
-                                                                                echo('<div class="block x-2 y-2 block-menage"></div>');
-                                                                            }
-                                                                            else if($value['IdCategorie'] == 12){
-                                                                                echo('<div class="block x-2 y-2 block-plomberie"></div>');
-                                                                            }
-                                                                            else if($value['IdCategorie'] == 13){
-                                                                                echo('<div class="block x-2 y-2 block-peinture"></div>');
-                                                                            }
-                                                                            else if($value['IdCategorie'] == 14){
-                                                                                echo('<div class="block x-2 y-2 block-courdeMusique"></div>');
-                                                                            }
-
-                                                                            else if($value['IdCategorie'] == 15){
+                                                                        else if($value['IdCategorie'] == 7){
+                                                                            echo('<div class="block x-2 y-2 block-informatique"></div>');
+                                                                        }
+                                                                        else if($value['IdCategorie'] == 8){
+                                                                            echo('<div class="block x-2 y-2 block-jardinage"></div>');
+                                                                        }
+                                                                        else if($value['IdCategorie'] == 9){
+                                                                            echo('<div class="block x-2 y-2 block-coiffure"></div>');
+                                                                        }
+                                                                        else if($value['IdCategorie'] == 10){
+                                                                            echo('<div class="block x-2 y-2 block-maquillage"></div>');
+                                                                        }
+                                                                        else if($value['IdCategorie'] == 11){
+                                                                            echo('<div class="block x-2 y-2 block-menage"></div>');
+                                                                        }
+                                                                        else if($value['IdCategorie'] == 12){
+                                                                            echo('<div class="block x-2 y-2 block-plomberie"></div>');
+                                                                        }
+                                                                        else if($value['IdCategorie'] == 13){
+                                                                            echo('<div class="block x-2 y-2 block-peinture"></div>');
+                                                                        }
+                                                                        else if($value['IdCategorie'] == 14){
+                                                                            echo('<div class="block x-2 y-2 block-courdeMusique"></div>');
+                                                                        }
+                                                                        else if($value['IdCategorie'] == 15){
                                                                                 echo('<div class="block x-2 y-2 block-danse"></div>');
                                                                             }
 
                                                                             else if($value['IdCategorie'] == 16){
                                                                                 echo('<div class="block x-2 y-2 block-animateur"></div>');
                                                                             }
+                                                                      } ?>
 
-                                                                               } ?>
+                                                                           </div>
 
-                                                                              </div>
+                                                                         </div>
 
-                                                                            </div>
-
-                                                                        </div>
-                                                                    </div>
-
-
+                                                                     </div>
+                                                                 </div>
                                                                     </br>
 
-                                                                    <div class="col-md-8-2 col-lg-9-2" id="icones">
+                                                                    <div class="col-md-8-3 col-lg-9-3">
                                                                         <div class="panel">
                                                                             <div class="panel-heading">
                                                                                 <h3 class="panel-title">TUTO</h3>
@@ -966,7 +875,7 @@ input:checked + .slider:before {
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="col-md-8-2 col-lg-9-2" id="icones">
+                                                                    <div class="col-md-8-2 col-lg-9-2" >
                                                                         <div class="panel">
                                                                             <div class="panel-heading">
                                                                                 <h3 class="panel-title">FAQ</h3>

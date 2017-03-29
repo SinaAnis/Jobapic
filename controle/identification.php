@@ -319,6 +319,9 @@ $mdp2= isset($_POST['mdp2'])?($_POST['mdp2']):'';
     require ("modele/utilisateurBD.php") ;
 		$categorie=getCategorieFavoris($_SESSION['idUser']);
 		echo "<script language='JavaScript'>alert('Section Employeur !!')</script>";
+		  require ("modele/messageBD.php") ;
+		$icones = geticones();
+		$messages = getMessages($_SESSION['idUser']);
 		$questionAfficher=afficherAnnonceEmployeur($_SESSION['idUser']);
 		require('./vue/murEmployeur.tpl');
 }

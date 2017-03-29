@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Page d'Accueil | Job'Apic - Enfin un job à pic.</title>
+    <title> Une Annonce | Job'Apic - Enfin un job à pic.</title>
 
     <!--STYLESHEET-->
     <!--=================================================-->
@@ -306,7 +306,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                         <a href="#">  <i class="fa fa-gear fa-fw fa-lg"></i> Paramètre </a>
                                     </li>
                                     <li>
-                                        <a href="#"> <i class="fa fa-sign-out fa-fw"></i> Déconnection  </a>
+                                        <a href="index.php?controle=identification&action=deconnexion"> <i class="fa fa-sign-out fa-fw"></i> Déconnection  </a>
                                     </li>
                                 </ul>
                             </div>
@@ -338,12 +338,21 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
             <!--===================================================-->
             <section id="content-container">
                 <header class="pageheader">
-                    <h3><i class="fa fa-home"></i> Mes Annonces </h3>
+                    <?php 
+                        foreach ($annonce as $key => $value) {
+                            echo('<h3><i class="fa fa-home"></i>Annonce n°'.utf8_encode($value[0]).'</h3>');
+                        }
+                    ?>
                     <div class="breadcrumb-wrapper"> <span class="label">Vous êtes ici:</span>
                         <ol class="breadcrumb">
                             <li> <a href="#"> Home </a> </li>
                             <li class="active"> <a href="#"> Profil </a>   </li>
                             <li class="active"> Mes Annonces </li>
+                            <?php 
+                            foreach ($annonce as $key => $value) {
+                                echo('<li class="active">Annonce n°'.utf8_encode($value[0]).'</li>');
+                            }
+                            ?>
                         </ol>
                     </div>
                 </header>
@@ -384,11 +393,12 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                 echo('<div class="col-md-1" style="height:72px; width:72px; background-image: url(http://icon-icons.com/icons2/870/PNG/72/square_tumblr_icon-icons.com_68019.png); background-repeat: no-repeat; background-size: auto;"></div>');
                             }
                             echo('<div class="col-md-9" style="font-size:20px;">Annonce n°'.utf8_encode($value[0]).'</div>');
-                            echo('<div class="col-md-3" style="font-size:16px;">Nom : '.utf8_encode($value[1]).'</div>');
-                            echo('<div class="col-md-9" style="font-size:14px;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]));
+                            echo('<div class="col-md-2" style="font-size:16px;">Nom : '.utf8_encode($value[1]).'</div>');
+                            echo('<div class="col-md-8" style="font-size:14px;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]));
                             foreach ($neme as $key => $valu) {
-                                echo (", proposé par : " . utf8_encode($valu[0]) . "</div>");
+                                echo (", proposé par : " . utf8_encode($valu[0]));
                             }
+                            echo('</div>');
                             echo('<div class="col-md-4" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'€</div>');
                             echo('<div class="col-md-1" style="text-align:right;">');
                             echo("<a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></div>");
@@ -425,7 +435,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                     <!--Menu list item-->
                                     <li>
-                                        <a href="index.html">
+                                        <a href="index.php?controle=identification&action=afficherMurEmploye">
                                             <i class="fa fa-dashboard"></i>
                                             <span class="menu-title">
 												<strong>Mur</strong>

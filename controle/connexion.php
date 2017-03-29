@@ -5,6 +5,7 @@ function connexionUtilisateur(){
   $mdp = isset($_POST['mdp'])?($_POST['mdp']):'';
 
   require ("modele/utilisateurBD.php") ;
+  require ("modele/messageBD.php") ;
   require ("modele/annonceBD.php");
 
   if (count($_POST)==0)
@@ -15,7 +16,8 @@ function connexionUtilisateur(){
          echo "<script language='JavaScript'>alert('Connexion réussie !')</script>";
          getProfil($emailConnexion,$mdp);
          $questionAfficher=afficherAnnonceEmploye($_SESSION['idUser']);
-         $nbMessage= "5";
+         $icones = geticones();
+        $messages = getMessages($_SESSION['idUser']);
          require('./vue/murEmploye.tpl') ;
 
       }

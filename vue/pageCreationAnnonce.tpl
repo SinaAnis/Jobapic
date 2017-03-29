@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Page d'Accueil | Job'Apic - Enfin un job à pic.</title>
+    <title> Page création d'annonce | Job'Apic - Enfin un job à pic.</title>
 
     <!--STYLESHEET-->
     <!--=================================================-->
@@ -448,14 +448,14 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                    <div class="form-group">
                                        <label class="col-xs-3 control-label">Récompense</label>
                                        <div class="col-xs-5">
-                                           <input type="recompense" class="form-control" name="rec" placeholder="Prix de la récompense" />
+                                           <input type="number" class="form-control" name="rec" placeholder="Prix de la récompense" />
                                        </div>
                                    </div>
                                    <div class="form-group">
                                        <div class="col-xs-6 col-xs-offset-3">
                                            <div class="checkbox">
                                                <label class="form-checkbox form-icon">
-                                                   <input type="checkbox" name="agree" />
+                                                   <input type="checkbox" name="agree" value="checkay"/>
                                                    J'accepte les termes et les annonces
                                                </label>
                                            </div>
