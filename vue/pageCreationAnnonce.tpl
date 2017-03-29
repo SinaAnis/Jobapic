@@ -455,7 +455,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                        <div class="col-xs-6 col-xs-offset-3">
                                            <div class="checkbox">
                                                <label class="form-checkbox form-icon">
-                                                   <input type="checkbox" name="agree" />
+                                                   <input type="checkbox" name="agree" value="checkay"/>
                                                    J'accepte les termes et les annonces
                                                </label>
                                            </div>
