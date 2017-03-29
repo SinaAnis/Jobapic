@@ -4,7 +4,7 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Inbox | Jasmine - Responsive admin template.</title>
+    <title> Consulter mes messages | Job'Apic - Enfin un job à pic.</title>
 
     <!--STYLESHEET-->
     <!--=================================================-->
@@ -356,11 +356,11 @@ window.uabInject = function() {};
             <!--===================================================-->
             <section id="content-container">
                 <header class="pageheader">
-                    <h3><i class="fa fa-home"></i> Messagerie </h3>
-                    <div class="breadcrumb-wrapper"> <span class="label">You are here:</span>
+                    <h3><i class="fa fa-home"></i> Consulter mes messages </h3>
+                    <div class="breadcrumb-wrapper"> <span class="label">Vous êtes ici:</span>
                         <ol class="breadcrumb">
                             <li> <a href="http://squaredesigns.net/jasmine/mail-inbox.html#"> Home </a> </li>
-                            <li class="active"> Messagerie </li>
+                            <li class="active"> Consulter mes messages </li>
                         </ol>
                     </div>
                 </header>
@@ -1162,8 +1162,10 @@ window.uabInject = function() {};
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
 
+
 									<?php
                                                                             echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfilEmploye&id='.$_SESSION['idUser'].'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
+
                                                                           ?>
                                                                           <li><a href="index.php?controle=editerProfil&action=editerProfilEmploye"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
 
@@ -1231,7 +1233,13 @@ window.uabInject = function() {};
                                                                         </span>
                                                                     </a>
                                                                 </li>
-
+																<li>
+																 <a href="index.php?controle=espaceUtilisateur&action=faqEmploye">
+                                                                        <i class="fa fa-exclamation"></i>
+                                                                        <span class="menu-title">FAQ</span>
+                                                                        <i class="arrow"></i>
+                                                                    </a>
+											</li>
     <li class="list-header">Espaces :</li>
                                                                 <li>
                                                                     <a href="index.php?controle=identification&action=afficherMurEmployeur">
