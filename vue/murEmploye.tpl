@@ -755,8 +755,10 @@ input:checked + .slider:before {
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
 
-									<?php
-                                                                            echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfil&id='.$_SESSION['idUser'].'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
+
+									<?php 
+                                                                            echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfilEmploye&id='.$_SESSION['idUser'].'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
+
                                                                           ?>
                                                                           <li><a href="index.php?controle=editerProfil&action=editerProfilEmploye"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
 
@@ -810,8 +812,8 @@ input:checked + .slider:before {
 
                                                                     <!--Submenu-->
                                                                     <ul class="collapse">
-                                                                        <li><a href="index.php?controle=composerMessage&action=afficherMessages"><i class="fa fa-caret-right"></i>Mes Messages</a></li>
-                                                                        <li><a href="index.php?controle=composerMessage&action=creerMessage"><i class="fa fa-caret-right"></i> Composer un Message</a></li>
+                                                                        <li><a href="index.php?controle=composerMessage&action=afficherMessagesEmploye"><i class="fa fa-caret-right"></i>Mes Messages</a></li>
+                                                                        <li><a href="index.php?controle=composerMessage&action=creerMessageEmploye"><i class="fa fa-caret-right"></i> Composer un Message</a></li>
                                                                     </ul>
                                                                 </li>
 
@@ -867,7 +869,7 @@ input:checked + .slider:before {
 
 														</br>
 														</br>
-														<p style="color: white; font-weight: bold">vous êtes dans le mur Employé</p>
+														<p style="color: white; font-weight: bold">Vous êtes sur le mur Employé</p>
 
                                                           </form>
                                                             </center>
