@@ -54,9 +54,176 @@
     <!--Page Load Progress Bar [ OPTIONAL ]-->
     <link href="vue/plugins/pace/pace.min.css" rel="stylesheet">
     <script src="vue/plugins/pace/pace.min.js"></script>
+  <!--  <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBXlGQcqGiGNQ3O_oQNyrXrFJRd5afXjfk&exp&sensor=false&libraries=places'></script>
+-->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtEztC32KkV0V-cX2roY6LkqZLd5MhfKw&callback=initMap">
+    </script>
+  <!--  <script>
+    function initialiseCarte(){
+      var mapOptions = {
+        zoom: 15,
+        center: new google.maps.LatLng(48.858565, 2.347198),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+
+      map = new google.maps.Map(document.getElementById('map-canvas'),
+          mapOptions);
+
+          $('.switch label').on('click', function(){
+            var indicator = $(this).parent('.switch').find('span');
+            if ( $(this).hasClass('right') ){
+              $(indicator).addClass('right');
+            } else {
+              $(indicator).removeClass('right');
+            }
+          });
+
+          if (navigator.geolocation)
+      var watchId = navigator.geolocation.watchPosition(successCallback,
+                                null,
+                                {enableHighAccuracy:true});
+      else
+      alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
+
+      function successCallback(position){
+      map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+        map: map
+      });
+      }
+
+      var pinz = [
+        {
+            'location':{
+                'lat' : -37.807817,
+                'lon' : 144.958377
+            },
+            'lable' : 2
+        },
+        {
+            'location':{
+                'lat' : -37.807885,
+                'lon' : 144.965415
+            },
+            'lable' : 42
+        },
+        {
+            'location':{
+                'lat' : -37.811377,
+                'lon' : 144.956596
+            },
+            'lable' : 87
+        },
+        {
+            'location':{
+                'lat' : -37.811293,
+                'lon' : 144.962883
+            },
+            'lable' : 145
+        },
+        {
+            'location':{
+                'lat' : -37.808089,
+                'lon' : 144.962089
+            },
+            'lable' : 999
+        },
+      ];
+
+      for(var i = 0; i <= pinz.length; i++){
+       var image = 'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2238%22%20height%3D%2238%22%20viewBox%3D%220%200%2038%2038%22%3E%3Cpath%20fill%3D%22%23808080%22%20stroke%3D%22%23ccc%22%20stroke-width%3D%22.5%22%20d%3D%22M34.305%2016.234c0%208.83-15.148%2019.158-15.148%2019.158S3.507%2025.065%203.507%2016.1c0-8.505%206.894-14.304%2015.4-14.304%208.504%200%2015.398%205.933%2015.398%2014.438z%22%2F%3E%3Ctext%20transform%3D%22translate%2819%2018.5%29%22%20fill%3D%22%23fff%22%20style%3D%22font-family%3A%20Arial%2C%20sans-serif%3Bfont-weight%3Abold%3Btext-align%3Acenter%3B%22%20font-size%3D%2212%22%20text-anchor%3D%22middle%22%3E' + pinz[i].lable + '%3C%2Ftext%3E%3C%2Fsvg%3E';
+
+
+       var myLatLng = new google.maps.LatLng(pinz[i].location.lat, pinz[i].location.lon);
+       var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          icon: image
+      });
+      }
+
+
+    }
+  </script> -->
+
+
 </head>
 
 <body>
+  <script>
+    var customLabel = {
+      restaurant: {
+        label: 'R'
+      },
+      bar: {
+        label: 'B'
+      }
+    };
+
+      function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: new google.maps.LatLng(48.856614, 2.3522219000000177),
+        zoom: 10
+      });
+      var infoWindow = new google.maps.InfoWindow;
+
+        // Change this depending on the name of your PHP or XML file
+        downloadUrl('http://localhost/map-master/data/data.php', function(data) {
+          var xml = data.responseXML;
+          var markers = xml.documentElement.getElementsByTagName('marker');
+          Array.prototype.forEach.call(markers, function(markerElem) {
+            var name = markerElem.getAttribute('name');
+            var address = markerElem.getAttribute('address');
+            var type = markerElem.getAttribute('type');
+            var point = new google.maps.LatLng(
+                parseFloat(markerElem.getAttribute('lat')),
+                parseFloat(markerElem.getAttribute('lng')));
+
+            var infowincontent = document.createElement('div');
+            var strong = document.createElement('strong');
+            strong.textContent = name
+            infowincontent.appendChild(strong);
+            infowincontent.appendChild(document.createElement('br'));
+
+            var text = document.createElement('text');
+            text.textContent = address
+            infowincontent.appendChild(text);
+            var icon = customLabel[type] || {};
+            var marker = new google.maps.Marker({
+              map: map,
+              position: point
+            });
+            marker.addListener('click', function() {
+              infoWindow.setContent(infowincontent);
+              infoWindow.open(map, marker);
+            });
+          });
+        });
+      }
+
+
+
+    function downloadUrl(url, callback) {
+      var request = window.ActiveXObject ?
+          new ActiveXObject('Microsoft.XMLHTTP') :
+          new XMLHttpRequest;
+
+      request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+          request.onreadystatechange = doNothing;
+          callback(request, request.status);
+        }
+      };
+
+      request.open('GET', url, true);
+      request.send(null);
+    }
+
+    function doNothing() {}
+  </script>
+
 
 
     <!-- Copyright � 2004. Spidersoft Ltd -->
@@ -139,7 +306,7 @@ input:checked + .slider:before {
                 <!--================================-->
                 <div class="navbar-header">
                     <a href="index.php?controle=identification&action=afficherMurEmploye" class="navbar-brand"> <i class="fa fa-cube brand-icon"></i>
-                        <div class="brand-title"> <span class="brand-text">Job'Apic</span> </div>
+                        <div class="brand-title"> <span class="brand-text">Job'A'pic</span> </div>
 
                     </a>
                 </div>
@@ -371,7 +538,8 @@ input:checked + .slider:before {
 
                                                                     </div
                                                                     <!-- CARTE -->
-                                                                    <div id="map-canvas"></div>
+                                                                  <!-- <div id="map-canvas"></div> -->
+                                                                  <div id="map"></div>
                                                                   </br>
 
                                                                     <div class="col-md-8-2-5 col-lg-9-4" id="annonce">
@@ -435,7 +603,7 @@ input:checked + .slider:before {
                                                                         </br>
 
                                                                 </br>
-                                                            <a class = "btnRet" href ="index.php?controle=consulterAnnonce&action=afficherMesAnnonces"> Plus d'offres... </a>
+                                                            <a class = "btnRet" href ="index.php?controle=consulterAnnonce&action=afficherMesAnnonces"> Plus d''offres... </a>
                                                             </div>
                                                         </div>
                                                     </div>  <div class="col-md-8-1 col-lg-9-1" id="calendrier">
@@ -587,8 +755,10 @@ input:checked + .slider:before {
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
 
+
 									<?php 
                                                                             echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfilEmploye&id='.$_SESSION['idUser'].'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
+
                                                                           ?>
                                                                           <li><a href="index.php?controle=editerProfil&action=editerProfilEmploye"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
 
@@ -1037,7 +1207,7 @@ input:checked + .slider:before {
     <!-- Remove the class name "show-fixed" and "hide-fixed" to make the content always appears. -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-    <p class="pad-lft">&#0169; 2015 - Job'Apic</p>
+    <p class="pad-lft">&#0169; 2015 - Job'A'pic</p>
 </footer>
 <!--===================================================-->
 <!-- END FOOTER -->
@@ -1162,8 +1332,8 @@ input:checked + .slider:before {
 <script src="vue/js/demo/jasmine.js"></script>
 
 <!--Map [ DEMONSTRATION ]-->
-<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBXlGQcqGiGNQ3O_oQNyrXrFJRd5afXjfk&exp&sensor=false&libraries=places'></script>
-<script src="vue/js/index.js"></script>
+
+<!-- <script src="vue/js/index.js"></script> -->
 
 
 <!--Form Wizard [ SAMPLE ]-->

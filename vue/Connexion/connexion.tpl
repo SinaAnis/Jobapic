@@ -12,26 +12,29 @@
 	<link rel="stylesheet" media="all and (min-width: 1024px)" href="vue/Connexion/css/lavy.css" />
 	<link rel="stylesheet" media="all and (max-width: 600px)" href="vue/Connexion/css/connex_mobile.css">
 	<link rel="stylesheet" media="all and (max-width: 1024px) and (min-width: 600px)" href="vue/Connexion/css/connex_1024.css">
+  <script type="text/javascript">
+  function initialise(){
+    if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position)
+    {
+
+
+        alert("Latitude : " + position.coords.latitude + ", longitude : " + position.coords.longitude);
+        document.getElementById('Longitude').value = position.coords.longitude;
+        document.getElementById('Latitude').value = position.coords.latitude;
+
+    });
+    }
+   else
+    alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
+
+  }
+  </script>
+
   </head>
-  <body>
 
-    <script type="text/javascript">
-      if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position)
-      {
+  <body onload="initialise()">
 
-
-          alert("Latitude : " + position.coords.latitude + ", longitude : " + position.coords.longitude);
-          document.getElementById('Longitude').value = position.coords.longitude;
-          document.getElementById('Latitude').value = position.coords.latitude;
-
-      });
-      }
-     else
-      alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
-
-
-    </script>
 
 
     <header id="first">
@@ -74,8 +77,8 @@
        <form name="connex" action="./index.php?controle=connexion&action=connexionUtilisateur" method="post">
          <input id="mail" name="mail" placeholder="Email" type="text" />
          <input name="mdp" id="mdp" placeholder="Mot de passe" type=Password />
-         <input type="hidden" name="Longitude"  id="Longitude" />
-         <input type="hidden" name="Latitude"  id="Latitude" />
+         <input type="hidden" name="Longitude"  id="Longitude" value="" />
+         <input type="hidden" name="Latitude"  id="Latitude" value="" />
 
         <!-- <div class="btn">
            Connexion
