@@ -40,7 +40,7 @@
     <header id="first">
 
         <div class="header-content">
-		<img id="logo" class="imagelogo" src="vue/connexion/img/logo.png" alt="logo" />
+		<img id="logo" class="imagelogo" src="vue/connexion/img/logo2.png" alt="logo" />
           <div class="container">
 <div class="box"></div>
 <div class="container-forms">
