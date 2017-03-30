@@ -341,13 +341,13 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
             <!--===================================================-->
             <section id="content-container">
                 <header class="pageheader">
-                    <h3><i class="fa fa-home"></i> Consulter mon Profil  </h3>
+                    <h3><i class="fa fa-home"></i> Consulter mon profil  </h3>
                     <div class="breadcrumb-wrapper"> <span class="label">Vous êtes ici:</span>
                         <ol class="breadcrumb">
                             <li> <a href="#"> Home </a> </li>
                             <li class="active"> Mur </li>
 							<li class="active"> Profil </li>
-							<li class="active"> Conculter mon profil </li>
+							<li class="active"> Consulter mon profil </li>
                         </ol>
                     </div>
                 </header>
@@ -497,8 +497,10 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                                       <!--Submenu-->
                                                                       <ul class="collapse">
 
+
 									<?php
                                                                             echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfilEmploye&id='.$_SESSION['idUser'].'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
+
                                                                           ?>
                                                                           <li><a href="index.php?controle=editerProfil&action=editerProfilEmploye"><i class="fa fa-caret-right"></i> Editer mon profil </a></li>
 
@@ -552,8 +554,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                                                     <!--Submenu-->
                                                                     <ul class="collapse">
-                                                                        <li><a href="index.php?controle=composerMessage&action=afficherMessages"><i class="fa fa-caret-right"></i>Mes Messages</a></li>
-                                                                        <li><a href="index.php?controle=composerMessage&action=creerMessage"><i class="fa fa-caret-right"></i> Composer un Message</a></li>
+                                                                        <li><a href="index.php?controle=composerMessage&action=afficherMessagesEmploye"><i class="fa fa-caret-right"></i>Mes Messages</a></li>
+                                                                        <li><a href="index.php?controle=composerMessage&action=creerMessageEmploye"><i class="fa fa-caret-right"></i> Composer un Message</a></li>
                                                                     </ul>
                                                                 </li>
 
@@ -566,7 +568,13 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                                                                         </span>
                                                                     </a>
                                                                 </li>
-
+																<li>
+																 <a href="index.php?controle=espaceUtilisateur&action=faqEmploye">
+                                                                        <i class="fa fa-exclamation"></i>
+                                                                        <span class="menu-title">FAQ</span>
+                                                                        <i class="arrow"></i>
+                                                                    </a>
+											</li>
     <li class="list-header">Espaces :</li>
                                                                 <li>
                                                                     <a href="index.php?controle=identification&action=afficherMurEmployeur">
