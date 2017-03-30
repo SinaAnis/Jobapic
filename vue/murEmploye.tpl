@@ -216,18 +216,21 @@ input:checked + .slider:before {
 
                 <!--Brand logo & name-->
                 <!--================================-->
-              
+
                 <!--================================-->
                 <!--End brand logo & name-->
 
                 <!--Navbar Dropdown-->
                 <!--================================-->
-                <div class="navbar-content clearfix">
-                  <a href="index.php?controle=identification&action=afficherMurEmploye" class="navbar-brand">
+
+
                       <div class="brand-title"><img style=" margin-right:3%; margin-top: -0.3em" src="vue/Connexion/img/logo.png" height="80px"/>
 
-                  </a>
+
                     <ul class="nav navbar-top-links pull-left">
+                      <li class="tgl-menu-btn" id="menu">
+                        <a class="mainnav-toggle" href="#"> <i class="fa fa-navicon fa-lg"></i> </a>
+                      </li>
 
                                                 <!--Notification dropdown-->
                                                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -236,6 +239,8 @@ input:checked + .slider:before {
 
                                                                 </ul>
                                                                 <ul class="nav navbar-top-links pull-right">
+
+
 
                                                                   <li class="dropdown">
                                                                       <a href="#" data-toggle="dropdown" class="dropdown-toggle"> <i class="fa fa-envelope fa-lg"></i> <span class="badge badge-header badge-warning">9</span> </a>
@@ -336,7 +341,7 @@ input:checked + .slider:before {
                                                             <!--================================-->
                                                             <!--End Navbar Dropdown-->
 
-                                                        </div>
+
                                                     </header>
                                                     <!--===================================================-->
                                                     <!--END NAVBAR-->
@@ -382,19 +387,19 @@ input:checked + .slider:before {
                                                                                 if($value[6] == 1 AND $compteur<= 5) {
                                                                                   $compteur++;
                                                                                   echo('</br>');
-																			                                            echo('<div class="annonceBaby">');
+																			                                            echo('<div class="annonceBaby" style ="padding-bottom: 25%;">');
 																			                                            echo('<div style ="margin-left: 6em">');
-                                                                                  echo ('<table>');
-                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
-                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
-                                                                                  echo "<tr class='question'>";
-                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
-                                                                                  echo "</tr>\n";
+                                                                                    echo ('<table>');
+                                                                                      echo ("<p style='font-size: 16px; color: white;float: left;'><strong>" . utf8_encode($value[1]) . '    publié le : ' . utf8_encode($value[2]) . "</strong>" . "</p>" );
+                                                                                      //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                    echo "<tr class='question'>";
+                                                                                    //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                    // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  //  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                    /*echo ('<a style="text-decoration: none; float: right; color: black" href ="index.php?controle=consulterAnnonce&action=consulterAnnonceDetails"> voir plus<a>');*/
+  										  // NEW ICI !! à tester
+  										   echo("<a class=\"plusdinfo\" style='padding-left: 60%;' href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+                                                                                    echo "</tr>\n";
                                                                                   echo ('</table>');
 																			                                            echo ('</div>');
 																			                                            echo ('</div>');
@@ -402,18 +407,18 @@ input:checked + .slider:before {
                                                                                 if($value[6] == 2 AND $compteur<= 5 ) {
                                                                                   $compteur++;
                                                                                   echo('</br>');
-                                                                                  echo('<div class="annoncebricolage">');
+                                                                                  echo('<div class="annoncebricolage" style ="padding-bottom: 25%;">');
                                                                                   echo('<div style ="margin-left: 6em">');
                                                                                   echo ('<table>');
-                                                                                    echo ("<p style='font-size: 16px; color: white'><strong>" . utf8_encode($value[1]) . '    publié le : ' . utf8_encode($value[2]) . "</strong>" . "</p>" );
+                                                                                    echo ("<p style='font-size: 16px; color: white;float: left;'><strong>" . utf8_encode($value[1]) . '    publié le : ' . utf8_encode($value[2]) . "</strong>" . "</p>" );
                                                                                     //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
                                                                                   echo "<tr class='question'>";
                                                                                   //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
                                                                                   // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                //  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
                                                                                   /*echo ('<a style="text-decoration: none; float: right; color: black" href ="index.php?controle=consulterAnnonce&action=consulterAnnonceDetails"> voir plus<a>');*/
 										  // NEW ICI !! à tester
-										   echo("<a class=\"plusdinfo\" href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+										   echo("<a class=\"plusdinfo\" style='padding-left: 60%;' href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
                                                                                   echo "</tr>\n";
                                                                                   echo ('</table>');
                                                                                   echo ('</div>');
@@ -422,19 +427,19 @@ input:checked + .slider:before {
                                                                                 if($value[6] == 3 AND $compteur<= 5 ) {
                                                                                   $compteur++;
                                                                                   echo('</br>');
-                                                                                  echo('<div class="annonceAideAuDevoir">');
+                                                                                  echo('<div class="annonceAideAuDevoir" style ="padding-bottom: 25%;">');
                                                                                   echo('<div style ="margin-left: 6em">');
-                                                                                  echo ('<table>');
-                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
-                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
-                                                                                  echo "<tr class='question'>";
-                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
-                                                                                  echo "</tr>\n";
+                                                                                    echo ('<table>');
+                                                                                      echo ("<p style='font-size: 16px; color: white;float: left;'><strong>" . utf8_encode($value[1]) . '    publié le : ' . utf8_encode($value[2]) . "</strong>" . "</p>" );
+                                                                                      //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                    echo "<tr class='question'>";
+                                                                                    //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                    // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  //  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                    /*echo ('<a style="text-decoration: none; float: right; color: black" href ="index.php?controle=consulterAnnonce&action=consulterAnnonceDetails"> voir plus<a>');*/
+  										  // NEW ICI !! à tester
+  										   echo("<a class=\"plusdinfo\" style='padding-left: 60%;' href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+                                                                                    echo "</tr>\n";
                                                                                   echo ('</table>');
                                                                                   echo ('</div>');
                                                                                   echo ('</div>');
@@ -442,19 +447,19 @@ input:checked + .slider:before {
                                                                                 if($value[6] == 4  AND $compteur<= 5) {
                                                                                   $compteur++;
                                                                                   echo('</br>');
-                                                                                  echo('<div class="annonceCourDessin">');
+                                                                                  echo('<div class="annonceCourDessin" style ="padding-bottom: 25%;">');
                                                                                   echo('<div style ="margin-left: 6em">');
-                                                                                  echo ('<table>');
-                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
-                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
-                                                                                  echo "<tr class='question'>";
-                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
-                                                                                  echo "</tr>\n";
+                                                                                    echo ('<table>');
+                                                                                      echo ("<p style='font-size: 16px; color: white;float: left;'><strong>" . utf8_encode($value[1]) . '    publié le : ' . utf8_encode($value[2]) . "</strong>" . "</p>" );
+                                                                                      //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                    echo "<tr class='question'>";
+                                                                                    //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                    // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  //  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                    /*echo ('<a style="text-decoration: none; float: right; color: black" href ="index.php?controle=consulterAnnonce&action=consulterAnnonceDetails"> voir plus<a>');*/
+  										  // NEW ICI !! à tester
+  										   echo("<a class=\"plusdinfo\" style='padding-left: 60%;' href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+                                                                                    echo "</tr>\n";
                                                                                   echo ('</table>');
                                                                                   echo ('</div>');
                                                                                   echo ('</div>');
@@ -463,19 +468,19 @@ input:checked + .slider:before {
                                                                                 if($value[6] == 5  AND $compteur<= 5) {
                                                                                   $compteur++;
                                                                                   echo('</br>');
-                                                                                  echo('<div class="annonceAnimaux">');
+                                                                                  echo('<div class="annonceAnimaux" style ="padding-bottom: 25%;">');
                                                                                   echo('<div style ="margin-left: 6em">');
-                                                                                  echo ('<table>');
-                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
-                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
-                                                                                  echo "<tr class='question'>";
-                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
-                                                                                  echo "</tr>\n";
+                                                                                    echo ('<table>');
+                                                                                      echo ("<p style='font-size: 16px; color: white;float: left;'><strong>" . utf8_encode($value[1]) . '    publié le : ' . utf8_encode($value[2]) . "</strong>" . "</p>" );
+                                                                                      //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                    echo "<tr class='question'>";
+                                                                                    //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                    // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  //  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                    /*echo ('<a style="text-decoration: none; float: right; color: black" href ="index.php?controle=consulterAnnonce&action=consulterAnnonceDetails"> voir plus<a>');*/
+                        // NEW ICI !! à tester
+                         echo("<a class=\"plusdinfo\" style='padding-left: 60%;' href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+                                                                                    echo "</tr>\n";
                                                                                   echo ('</table>');
                                                                                   echo ('</div>');
                                                                                   echo ('</div>');
@@ -484,19 +489,19 @@ input:checked + .slider:before {
                                                                                 if($value[6] == 7 AND $compteur<= 5) {
                                                                                   $compteur++;
                                                                                   echo('</br>');
-                                                                                  echo('<div class="annonceInformatique">');
+                                                                                  echo('<div class="annonceInformatique" style ="padding-bottom: 25%;">');
                                                                                   echo('<div style ="margin-left: 6em">');
-                                                                                  echo ('<table>');
-                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
-                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
-                                                                                  echo "<tr class='question'>";
-                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
-                                                                                  echo "</tr>\n";
+                                                                                    echo ('<table>');
+                                                                                      echo ("<p style='font-size: 16px; color: white;float: left;'><strong>" . utf8_encode($value[1]) . '    publié le : ' . utf8_encode($value[2]) . "</strong>" . "</p>" );
+                                                                                      //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                    echo "<tr class='question'>";
+                                                                                    //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                    // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  //  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                    /*echo ('<a style="text-decoration: none; float: right; color: black" href ="index.php?controle=consulterAnnonce&action=consulterAnnonceDetails"> voir plus<a>');*/
+                        // NEW ICI !! à tester
+                         echo("<a class=\"plusdinfo\" style='padding-left: 60%;' href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+                                                                                    echo "</tr>\n";
                                                                                   echo ('</table>');
                                                                                   echo ('</div>');
                                                                                   echo ('</div>');
@@ -505,19 +510,19 @@ input:checked + .slider:before {
                                                                                 if($value[6] == 8 AND $compteur<= 5 ) {
                                                                                   $compteur++;
                                                                                   echo('</br>');
-                                                                                  echo('<div class="annonceJardinage">');
+                                                                                  echo('<div class="annonceJardinage" style ="padding-bottom: 25%;">');
                                                                                   echo('<div style ="margin-left: 6em">');
-                                                                                  echo ('<table>');
-                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
-                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
-                                                                                  echo "<tr class='question'>";
-                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
-                                                                                  echo "</tr>\n";
+                                                                                    echo ('<table>');
+                                                                                      echo ("<p style='font-size: 16px; color: white;float: left;'><strong>" . utf8_encode($value[1]) . '    publié le : ' . utf8_encode($value[2]) . "</strong>" . "</p>" );
+                                                                                      //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                    echo "<tr class='question'>";
+                                                                                    //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                    // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  //  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                    /*echo ('<a style="text-decoration: none; float: right; color: black" href ="index.php?controle=consulterAnnonce&action=consulterAnnonceDetails"> voir plus<a>');*/
+                        // NEW ICI !! à tester
+                         echo("<a class=\"plusdinfo\" style='padding-left: 60%;' href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+                                                                                    echo "</tr>\n";
                                                                                   echo ('</table>');
                                                                                   echo ('</div>');
                                                                                   echo ('</div>');
@@ -526,19 +531,19 @@ input:checked + .slider:before {
                                                                                 if($value[6] == 9  AND $compteur<= 5  ) {
                                                                                   $compteur++;
                                                                                   echo('</br>');
-                                                                                  echo('<div class="annonceCoiffure">');
+                                                                                  echo('<div class="annonceCoiffure" style ="padding-bottom: 25%;">');
                                                                                   echo('<div style ="margin-left: 6em">');
-                                                                                  echo ('<table>');
-                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
-                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
-                                                                                  echo "<tr class='question'>";
-                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
-                                                                                  echo "</tr>\n";
+                                                                                    echo ('<table>');
+                                                                                      echo ("<p style='font-size: 16px; color: white;float: left;'><strong>" . utf8_encode($value[1]) . '    publié le : ' . utf8_encode($value[2]) . "</strong>" . "</p>" );
+                                                                                      //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                    echo "<tr class='question'>";
+                                                                                    //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                    // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  //  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                    /*echo ('<a style="text-decoration: none; float: right; color: black" href ="index.php?controle=consulterAnnonce&action=consulterAnnonceDetails"> voir plus<a>');*/
+                        // NEW ICI !! à tester
+                         echo("<a class=\"plusdinfo\" style='padding-left: 60%;' href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+                                                                                    echo "</tr>\n";
                                                                                   echo ('</table>');
                                                                                   echo ('</div>');
                                                                                   echo ('</div>');
@@ -547,19 +552,19 @@ input:checked + .slider:before {
                                                                                 if($value[6] == 10  AND $compteur<= 5 ) {
                                                                                   $compteur++;
                                                                                   echo('</br>');
-                                                                                  echo('<div class="annonceMaquillage">');
+                                                                                  echo('<div class="annonceMaquillage" style ="padding-bottom: 25%;">');
                                                                                   echo('<div style ="margin-left: 6em">');
-                                                                                  echo ('<table>');
-                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
-                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
-                                                                                  echo "<tr class='question'>";
-                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
-                                                                                  echo "</tr>\n";
+                                                                                    echo ('<table>');
+                                                                                      echo ("<p style='font-size: 16px; color: white;float: left;'><strong>" . utf8_encode($value[1]) . '    publié le : ' . utf8_encode($value[2]) . "</strong>" . "</p>" );
+                                                                                      //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                    echo "<tr class='question'>";
+                                                                                    //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                    // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  //  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                    /*echo ('<a style="text-decoration: none; float: right; color: black" href ="index.php?controle=consulterAnnonce&action=consulterAnnonceDetails"> voir plus<a>');*/
+                        // NEW ICI !! à tester
+                         echo("<a class=\"plusdinfo\" style='padding-left: 60%;' href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+                                                                                    echo "</tr>\n";
                                                                                   echo ('</table>');
                                                                                   echo ('</div>');
                                                                                   echo ('</div>');
@@ -568,19 +573,19 @@ input:checked + .slider:before {
                                                                                 if($value[6] == 11  AND $compteur<= 5 ) {
                                                                                   $compteur++;
                                                                                   echo('</br>');
-                                                                                  echo('<div class="annonceMenage">');
+                                                                                  echo('<div class="annonceMenage" style ="padding-bottom: 25%;">');
                                                                                   echo('<div style ="margin-left: 6em">');
-                                                                                  echo ('<table>');
-                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    echo ('<table>');
+                                                                                      echo ("<p style='font-size: 16px; color: white;float: left;'><strong>" . utf8_encode($value[1]) . '    publié le : ' . utf8_encode($value[2]) . "</strong>" . "</p>" );
                                                                                       //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
-                                                                                  echo "<tr class='question'>";
-                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
-                                                                                  echo "</tr>\n";
+                                                                                    echo "<tr class='question'>";
+                                                                                    //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                    // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  //  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                    /*echo ('<a style="text-decoration: none; float: right; color: black" href ="index.php?controle=consulterAnnonce&action=consulterAnnonceDetails"> voir plus<a>');*/
+                        // NEW ICI !! à tester
+                         echo("<a class=\"plusdinfo\" style='padding-left: 60%;' href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+                                                                                    echo "</tr>\n";
                                                                                   echo ('</table>');
                                                                                   echo ('</div>');
                                                                                   echo ('</div>');
@@ -589,19 +594,19 @@ input:checked + .slider:before {
                                                                                 if($value[6] == 12  AND $compteur<= 5 ) {
                                                                                   $compteur++;
                                                                                   echo('</br>');
-                                                                                  echo('<div class="annoncePlomberie">');
+                                                                                  echo('<div class="annoncePlomberie" style ="padding-bottom: 25%;"> ');
                                                                                   echo('<div style ="margin-left: 6em">');
-                                                                                  echo ('<table>');
-                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
-                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
-                                                                                  echo "<tr class='question'>";
-                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
-                                                                                  echo "</tr>\n";
+                                                                                    echo ('<table>');
+                                                                                      echo ("<p style='font-size: 16px; color: white;float: left;'><strong>" . utf8_encode($value[1]) . '    publié le : ' . utf8_encode($value[2]) . "</strong>" . "</p>" );
+                                                                                      //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                    echo "<tr class='question'>";
+                                                                                    //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                    // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  //  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                    /*echo ('<a style="text-decoration: none; float: right; color: black" href ="index.php?controle=consulterAnnonce&action=consulterAnnonceDetails"> voir plus<a>');*/
+                        // NEW ICI !! à tester
+                         echo("<a class=\"plusdinfo\" style='padding-left: 60%;' href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+                                                                                    echo "</tr>\n";
                                                                                   echo ('</table>');
                                                                                   echo ('</div>');
                                                                                   echo ('</div>');
@@ -610,19 +615,19 @@ input:checked + .slider:before {
                                                                                 if($value[6] == 13  AND $compteur<= 5 ) {
                                                                                   $compteur++;
                                                                                   echo('</br>');
-                                                                                  echo('<div class="annoncePeinture">');
+                                                                                  echo('<div class="annoncePeinture" style ="padding-bottom: 25%;">');
                                                                                   echo('<div style ="margin-left: 6em">');
-                                                                                  echo ('<table>');
-                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
+                                                                                    echo ('<table>');
+                                                                                      echo ("<p style='font-size: 16px; color: white;float: left;'><strong>" . utf8_encode($value[1]) . '    publié le : ' . utf8_encode($value[2]) . "</strong>" . "</p>" );
                                                                                       //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
-                                                                                  echo "<tr class='question'>";
-                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
-                                                                                  echo "</tr>\n";
+                                                                                    echo "<tr class='question'>";
+                                                                                    //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                    // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  //  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                    /*echo ('<a style="text-decoration: none; float: right; color: black" href ="index.php?controle=consulterAnnonce&action=consulterAnnonceDetails"> voir plus<a>');*/
+                        // NEW ICI !! à tester
+                         echo("<a class=\"plusdinfo\" style='padding-left: 60%;' href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+                                                                                    echo "</tr>\n";
                                                                                   echo ('</table>');
                                                                                   echo ('</div>');
                                                                                   echo ('</div>');
@@ -631,19 +636,18 @@ input:checked + .slider:before {
                                                                                 if($value[6] == 14  AND $compteur<= 5 ) {
                                                                                   $compteur++;
                                                                                   echo('</br>');
-                                                                                  echo('<div class="annonceCourMusique">');
-                                                                                  echo('<div style ="margin-left: 6em">');
-                                                                                  echo ('<table>');
-                                                                                  echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
-                                                                                  //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
-                                                                                  echo "<tr class='question'>";
-                                                                                  //echo ("<p style="color:black;">" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
-                                                                                  echo "</tr>\n";
+                                                                                  echo('<div class="annonceCourMusique" style ="padding-bottom: 25%;">');
+                                                                                  echo('<div style ="margin-left: 6em">');                                                                                    echo ('<table>');
+                                                                                      echo ("<p style='font-size: 16px; color: white;float: left;'><strong>" . utf8_encode($value[1]) . '    publié le : ' . utf8_encode($value[2]) . "</strong>" . "</p>" );
+                                                                                      //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                    echo "<tr class='question'>";
+                                                                                    //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                    // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  //  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                    /*echo ('<a style="text-decoration: none; float: right; color: black" href ="index.php?controle=consulterAnnonce&action=consulterAnnonceDetails"> voir plus<a>');*/
+                        // NEW ICI !! à tester
+                         echo("<a class=\"plusdinfo\" style='padding-left: 60%;' href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+                                                                                    echo "</tr>\n";
                                                                                   echo ('</table>');
                                                                                   echo ('</div>');
                                                                                   echo ('</div>');
@@ -652,19 +656,19 @@ input:checked + .slider:before {
                                                                                 if($value[6] == 15  AND $compteur<= 5 ) {
                                                                                   $compteur++;
                                                                                   echo('</br>');
-                                                                                  echo('<div class="annonceDanse">');
+                                                                                  echo('<div class="annonceDanse"style ="padding-bottom: 25%;">');
                                                                                   echo('<div style ="margin-left: 6em">');
-                                                                                  echo ('<table>');
-                                                                                    echo ('<p style="color:white;font-size: 16px; font-weight: bold">' . 'Annonce n° :' . utf8_encode($value[0]) . " " . utf8_encode($value[1]) . "    publié le : " . utf8_encode($value[2]) . '</p>' );
-                                                                                    //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
-                                                                                  echo "<tr class='question'>";
-                                                                                  //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[4]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[5]) . "</td>". "\n");
-                                                                                  echo ("<td>" . utf8_encode($value[6]) . "</td>". "\n");
-                                                                                  echo "</tr>\n";
+                                                                                    echo ('<table>');
+                                                                                      echo ("<p style='font-size: 16px; color: white;float: left;'><strong>" . utf8_encode($value[1]) . '    publié le : ' . utf8_encode($value[2]) . "</strong>" . "</p>" );
+                                                                                      //echo ('<tr><th> N° </th> <th style="margin-left: 6em"> Annonce : '.$value[0].'</th>'. "\n");
+                                                                                    echo "<tr class='question'>";
+                                                                                    //echo ("<p>" . utf8_encode($value[1]) . " " . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                    // echo ("<p>" . utf8_encode($value[2]) . "</p>". "\n");
+                                                                                  //  echo ("<td>" . utf8_encode($value[3]) . "</td>". "\n");
+                                                                                    /*echo ('<a style="text-decoration: none; float: right; color: black" href ="index.php?controle=consulterAnnonce&action=consulterAnnonceDetails"> voir plus<a>');*/
+                        // NEW ICI !! à tester
+                         echo("<a class=\"plusdinfo\" style='padding-left: 60%;' href='index.php?controle=afficherAnnonce&action=afficheAnnonce&id=". utf8_encode($value[0]) ."'>Plus d'infos!</a></div>");
+                                                                                    echo "</tr>\n";
                                                                                   echo ('</table>');
                                                                                   echo ('</div>');
                                                                                   echo ('</div>');
@@ -674,6 +678,7 @@ input:checked + .slider:before {
                                                                             }
                                                                       }
                                                                       ?>
+                                                                    </br>
 
 
 
@@ -807,7 +812,7 @@ input:checked + .slider:before {
                                                                  </div>
                                                                     </br>
 
-                                                                    <div class="col-md-8-2 col-lg-9-2">
+                                                                    <div class="col-md-8-2 col-lg-9-2"  id="faq">
                                                                         <div class="panel">
                                                                             <div class="panel-heading">
                                                                                 <h3 class="panel-title">Tuto</h3>
@@ -823,7 +828,7 @@ input:checked + .slider:before {
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="col-md-8-2 col-lg-9-2" >
+                                                                    <div class="col-md-8-2 col-lg-9-2"  id="faq" >
                                                                         <div class="panel">
                                                                             <div class="panel-heading">
                                                                                 <h3 class="panel-title">Faq</h3>

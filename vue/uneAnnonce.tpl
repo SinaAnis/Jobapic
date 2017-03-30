@@ -16,7 +16,7 @@
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
     <link href="vue/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <link href="vue/css/styleAnnonce.css" rel="stylesheet">
 
     <!--Jasmine Stylesheet [ REQUIRED ]-->
@@ -80,8 +80,8 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                 <!--Brand logo & name-->
                 <!--================================-->
                 <div class="navbar-header">
-                    <a href="index.html" class="navbar-brand"> 
-                        <div class="brand-title"><img style="margin-left: -2.3em; margin-top: -0.3em" src="vue/Connexion/img/logo.png" height="80px"/> 
+                    <a href="index.html" class="navbar-brand">
+                        <div class="brand-title"><img style="margin-left: -2.3em; margin-top: -0.3em" src="vue/Connexion/img/logo.png" height="80px"/>
                     </a>
                 </div>
                 <!--================================-->
@@ -338,7 +338,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
             <!--===================================================-->
             <section id="content-container">
                 <header class="pageheader">
-                    <?php 
+                    <?php
                         foreach ($annonce as $key => $value) {
                             echo('<h3><i class="fa fa-home"></i>Annonce n°'.utf8_encode($value[0]).'</h3>');
                         }
@@ -348,7 +348,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                             <li> <a href="#"> Home </a> </li>
                             <li class="active"> <a href="#"> Profil </a>   </li>
                             <li class="active"> Mes Annonces </li>
-                            <?php 
+                            <?php
                             foreach ($annonce as $key => $value) {
                                 echo('<li class="active">Annonce n°'.utf8_encode($value[0]).'</li>');
                             }
@@ -358,19 +358,20 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                 </header>
 
                 <!--Page content-->
-                <div class="col-md-12 col-lg-12">
+
+                <div class="col-md-5 col-lg-8" style="padding-left:27%;">
                             <div class="panel">
-							  <h3 class="panel-title" style="font-size:25px;">Listes</h3>
+							  <h3 class="panel-title" style="font-size:25px;">Annonce</h3>
                 <ul>
                 <!--  require ("./controle/espaceEmploy.php") ; -->
                 <div>
                 </div>
                 <style type='text/css'>
                 .plusdinfo{
-                    text-decoration:none; 
+                    text-decoration:none;
                     text-align:center;
-                    color:#333; 
-                    border:1px solid #333; 
+                    color:#333;
+                    border:1px solid #333;
                     border-radius:3px;
                     background-color:#ddd;
                     padding:2px;
@@ -379,32 +380,385 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
                 }
                 .plusdinfo:hover{
                     background-color:#4af;
-                    border:1px solid #14c; 
+                    border:1px solid #14c;
                     border-radius:3px;
                     transition:1s;
                 }
                 </style>
-                    <?php 
+                    <?php
                         foreach ($annonce as $key => $value) {
-                            echo('<div class="row"><div class="col-md-2">');
+                          if($value[6] == 1) {
+                            echo('<div class="row" style="padding-bottom:10%"><div class="col-md-2">');
                             echo('</div>');
                             foreach ($tomcat as $key => $valuee) {
                                 //echo (utf8_encode($valuee[0]));
-                                echo('<div class="col-md-1" style="height:72px; width:72px; background-image: url(http://icon-icons.com/icons2/870/PNG/72/square_tumblr_icon-icons.com_68019.png); background-repeat: no-repeat; background-size: auto;"></div>');
+                                echo('<div class="block-baby" style="height:72px; width:72px ;margin-left: 40%; background-repeat: no-repeat;  ;"></div>');
                             }
-                            echo('<div class="col-md-9" style="font-size:20px;">Annonce n°'.utf8_encode($value[0]).'</div>');
-                            echo('<div class="col-md-2" style="font-size:16px;">Nom : '.utf8_encode($value[1]).'</div>');
-                            echo('<div class="col-md-8" style="font-size:14px;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]));
+                            echo('<div class="col-md-9" style="font-size:20px;margin-left: 35%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 37%;width:30%;">Nom : '.utf8_encode($value[1]).'</div>');
+                            echo('<div class="col-md-8" style="font-size:14px;margin-left: 31%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 27%;width:100%;">Description : '.utf8_encode($value[4]).'</div>');
+
                             foreach ($neme as $key => $valu) {
                                 echo (", proposé par : " . utf8_encode($valu[0]));
                             }
-                            echo('</div>');
-                            echo('<div class="col-md-4" style="font-size:14px;">Récompense : '.utf8_encode($value[5]).'€</div>');
-                            echo('<div class="col-md-1" style="text-align:right;">');
+
+                            echo('<div class="col-md-4" style="font-size:14px;margin-left: 35%;">Récompense : '.utf8_encode($value[5]).'€</div>');
+                            echo('<div class="col-md-1" style="text-align:right;margin-left: 41%;">');
+                            echo('</br>');
                             echo("<a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></div>");
                             echo("<p class style=\"height:20px;\"></p></div>");
+                            echo('</div>');
+                          }
+                          if($value[6] == 2) {
+                            echo('<div class="row" style="padding-bottom:10%"><div class="col-md-2">');
+                            echo('</div>');
+                            foreach ($tomcat as $key => $valuee) {
+                                //echo (utf8_encode($valuee[0]));
+                                echo('<div class="block-bricolage" style="height:72px; width:72px ;margin-left: 40%; background-repeat: no-repeat;  ;"></div>');
+                            }
+                            echo('<div class="col-md-9" style="font-size:20px;margin-left: 35%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 37%;width:30%;">Nom : '.utf8_encode($value[1]).'</div>');
+                            echo('<div class="col-md-8" style="font-size:14px;margin-left: 31%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 27%;width:100%;">Description : '.utf8_encode($value[4]).'</div>');
+
+                            foreach ($neme as $key => $valu) {
+                                echo (", proposé par : " . utf8_encode($valu[0]));
+                            }
+
+                            echo('<div class="col-md-4" style="font-size:14px;margin-left: 35%;">Récompense : '.utf8_encode($value[5]).'€</div>');
+                            echo('<div class="col-md-1" style="text-align:right;margin-left: 41%;">');
+                            echo('</br>');
+                            echo("<a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></div>");
+                            echo("<p class style=\"height:20px;\"></p></div>");
+                            echo('</div>');
+                          }
+                          if($value[6] == 3) {
+                            echo('<div class="row" style="padding-bottom:10%"><div class="col-md-2">');
+                            echo('</div>');
+                            foreach ($tomcat as $key => $valuee) {
+                                //echo (utf8_encode($valuee[0]));
+                                echo('<div class="block-aide" style="height:72px; width:72px ;margin-left: 40%; background-repeat: no-repeat;  ;"></div>');
+                            }
+                            echo('<div class="col-md-9" style="font-size:20px;margin-left: 35%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 37%;width:30%;">Nom : '.utf8_encode($value[1]).'</div>');
+                            echo('<div class="col-md-8" style="font-size:14px;margin-left: 31%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 27%;width:100%;">Description : '.utf8_encode($value[4]).'</div>');
+
+                            foreach ($neme as $key => $valu) {
+                                echo (", proposé par : " . utf8_encode($valu[0]));
+                            }
+
+                            echo('<div class="col-md-4" style="font-size:14px;margin-left: 35%;">Récompense : '.utf8_encode($value[5]).'€</div>');
+                            echo('<div class="col-md-1" style="text-align:right;margin-left: 41%;">');
+                            echo('</br>');
+                            echo("<a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></div>");
+                            echo("<p class style=\"height:20px;\"></p></div>");
+                            echo('</div>');
+                          }
+                          if($value[6] == 4) {
+                            echo('<div class="row" style="padding-bottom:10%"><div class="col-md-2">');
+                            echo('</div>');
+                            foreach ($tomcat as $key => $valuee) {
+                                //echo (utf8_encode($valuee[0]));
+                                echo('<div class="block-coursdeDessin" style="height:72px; width:72px ;margin-left: 40%; background-repeat: no-repeat;  ;"></div>');
+                            }
+                            echo('<div class="col-md-9" style="font-size:20px;margin-left: 35%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 37%;width:30%;">Nom : '.utf8_encode($value[1]).'</div>');
+                            echo('<div class="col-md-8" style="font-size:14px;margin-left: 31%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 27%;width:100%;">Description : '.utf8_encode($value[4]).'</div>');
+
+                            foreach ($neme as $key => $valu) {
+                                echo (", proposé par : " . utf8_encode($valu[0]));
+                            }
+
+                            echo('<div class="col-md-4" style="font-size:14px;margin-left: 35%;">Récompense : '.utf8_encode($value[5]).'€</div>');
+                            echo('<div class="col-md-1" style="text-align:right;margin-left: 41%;">');
+                            echo('</br>');
+                            echo("<a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></div>");
+                            echo("<p class style=\"height:20px;\"></p></div>");
+                            echo('</div>');
+                          }
+                          if($value[6] == 5) {
+                            echo('<div class="row" style="padding-bottom:10%"><div class="col-md-2">');
+                            echo('</div>');
+                            foreach ($tomcat as $key => $valuee) {
+                                //echo (utf8_encode($valuee[0]));
+                                echo('<div class="block-animaux" style="height:72px; width:72px ;margin-left: 40%;_68019.png); background-repeat: no-repeat;  ;"></div>');
+                            }
+                            echo('<div class="col-md-9" style="font-size:20px;margin-left: 35%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 37%;width:30%;">Nom : '.utf8_encode($value[1]).'</div>');
+                            echo('<div class="col-md-8" style="font-size:14px;margin-left: 31%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 27%;width:100%;">Description : '.utf8_encode($value[4]).'</div>');
+
+                            foreach ($neme as $key => $valu) {
+                                echo (", proposé par : " . utf8_encode($valu[0]));
+                            }
+
+                            echo('<div class="col-md-4" style="font-size:14px;margin-left: 35%;">Récompense : '.utf8_encode($value[5]).'€</div>');
+                            echo('<div class="col-md-1" style="text-align:right;margin-left: 41%;">');
+                            echo('</br>');
+                            echo("<a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></div>");
+                            echo("<p class style=\"height:20px;\"></p></div>");
+                            echo('</div>');
+                          }
+                          if($value[6] == 6) {
+                            echo('<div class="row" style="padding-bottom:10%"><div class="col-md-2">');
+                            echo('</div>');
+                            foreach ($tomcat as $key => $valuee) {
+                                //echo (utf8_encode($valuee[0]));
+                                echo('<div class="block-sport" style="height:72px; width:72px ;margin-left: 40%; background-repeat: no-repeat;  ;"></div>');
+                            }
+                            echo('<div class="col-md-9" style="font-size:20px;margin-left: 35%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 37%;width:30%;">Nom : '.utf8_encode($value[1]).'</div>');
+                            echo('<div class="col-md-8" style="font-size:14px;margin-left: 31%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 27%;width:100%;">Description : '.utf8_encode($value[4]).'</div>');
+
+                            foreach ($neme as $key => $valu) {
+                                echo (", proposé par : " . utf8_encode($valu[0]));
+                            }
+
+                            echo('<div class="col-md-4" style="font-size:14px;margin-left: 35%;">Récompense : '.utf8_encode($value[5]).'€</div>');
+                            echo('<div class="col-md-1" style="text-align:right;margin-left: 41%;">');
+                            echo('</br>');
+                            echo("<a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></div>");
+                            echo("<p class style=\"height:20px;\"></p></div>");
+                            echo('</div>');
+                          }
+                          if($value[6] == 7) {
+                            echo('<div class="row" style="padding-bottom:10%"><div class="col-md-2">');
+                            echo('</div>');
+                            foreach ($tomcat as $key => $valuee) {
+                                //echo (utf8_encode($valuee[0]));
+                                echo('<div class="block-informatique" style="height:72px; width:72px ;margin-left: 40%; background-repeat: no-repeat;  ;"></div>');
+                            }
+                            echo('<div class="col-md-9" style="font-size:20px;margin-left: 35%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 37%;width:30%;">Nom : '.utf8_encode($value[1]).'</div>');
+                            echo('<div class="col-md-8" style="font-size:14px;margin-left: 31%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 27%;width:100%;">Description : '.utf8_encode($value[4]).'</div>');
+
+                            foreach ($neme as $key => $valu) {
+                                echo (", proposé par : " . utf8_encode($valu[0]));
+                            }
+
+                            echo('<div class="col-md-4" style="font-size:14px;margin-left: 35%;">Récompense : '.utf8_encode($value[5]).'€</div>');
+                            echo('<div class="col-md-1" style="text-align:right;margin-left: 41%;">');
+                            echo('</br>');
+                            echo("<a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></div>");
+                            echo("<p class style=\"height:20px;\"></p></div>");
+                            echo('</div>');
+                          }
+                          if($value[6] == 8) {
+                            echo('<div class="row" style="padding-bottom:10%"><div class="col-md-2">');
+                            echo('</div>');
+                            foreach ($tomcat as $key => $valuee) {
+                                //echo (utf8_encode($valuee[0]));
+                                echo('<div class="block-jardinage" style="height:72px; width:72px ;margin-left: 40%; background-repeat: no-repeat; ;"></div>');
+                            }
+                            echo('<div class="col-md-9" style="font-size:20px;margin-left: 35%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 37%;width:30%;">Nom : '.utf8_encode($value[1]).'</div>');
+                            echo('<div class="col-md-8" style="font-size:14px;margin-left: 31%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 27%;width:100%;">Description : '.utf8_encode($value[4]).'</div>');
+
+                            foreach ($neme as $key => $valu) {
+                                echo (", proposé par : " . utf8_encode($valu[0]));
+                            }
+
+                            echo('<div class="col-md-4" style="font-size:14px;margin-left: 35%;">Récompense : '.utf8_encode($value[5]).'€</div>');
+                            echo('<div class="col-md-1" style="text-align:right;margin-left: 41%;">');
+                            echo('</br>');
+                            echo("<a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></div>");
+                            echo("<p class style=\"height:20px;\"></p></div>");
+                            echo('</div>');
+                          }
+                          if($value[6] == 9) {
+                            echo('<div class="row" style="padding-bottom:10%"><div class="col-md-2">');
+                            echo('</div>');
+                            foreach ($tomcat as $key => $valuee) {
+                                //echo (utf8_encode($valuee[0]));
+                                echo('<div class="block-coiffure" style="height:72px; width:72px ;margin-left: 40%; background-repeat: no-repeat; ;"></div>');
+                            }
+                            echo('<div class="col-md-9" style="font-size:20px;margin-left: 35%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 37%;width:30%;">Nom : '.utf8_encode($value[1]).'</div>');
+                            echo('<div class="col-md-8" style="font-size:14px;margin-left: 31%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 27%;width:100%;">Description : '.utf8_encode($value[4]).'</div>');
+
+                            foreach ($neme as $key => $valu) {
+                                echo (", proposé par : " . utf8_encode($valu[0]));
+                            }
+
+                            echo('<div class="col-md-4" style="font-size:14px;margin-left: 35%;">Récompense : '.utf8_encode($value[5]).'€</div>');
+                            echo('<div class="col-md-1" style="text-align:right;margin-left: 41%;">');
+                            echo('</br>');
+                            echo("<a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></div>");
+                            echo("<p class style=\"height:20px;\"></p></div>");
+                            echo('</div>');
+                          }
+                          if($value[6] == 10) {
+                            echo('<div class="row" style="padding-bottom:10%"><div class="col-md-2">');
+                            echo('</div>');
+                            foreach ($tomcat as $key => $valuee) {
+                                //echo (utf8_encode($valuee[0]));
+                                echo('<div class="block-maquillage" style="height:72px; width:72px ;margin-left: 40%; background-repeat: no-repeat; ;"></div>');
+                            }
+                            echo('<div class="col-md-9" style="font-size:20px;margin-left: 35%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 37%;width:30%;">Nom : '.utf8_encode($value[1]).'</div>');
+                            echo('<div class="col-md-8" style="font-size:14px;margin-left: 31%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 27%;width:100%;">Description : '.utf8_encode($value[4]).'</div>');
+
+                            foreach ($neme as $key => $valu) {
+                                echo (", proposé par : " . utf8_encode($valu[0]));
+                            }
+
+                            echo('<div class="col-md-4" style="font-size:14px;margin-left: 35%;">Récompense : '.utf8_encode($value[5]).'€</div>');
+                            echo('<div class="col-md-1" style="text-align:right;margin-left: 41%;">');
+                            echo('</br>');
+                            echo("<a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></div>");
+                            echo("<p class style=\"height:20px;\"></p></div>");
+                            echo('</div>');
+                          }
+                          if($value[6] == 11) {
+                            echo('<div class="row" style="padding-bottom:10%"><div class="col-md-2">');
+                            echo('</div>');
+                            foreach ($tomcat as $key => $valuee) {
+                                //echo (utf8_encode($valuee[0]));
+                                echo('<div class="block-menage" style="height:72px; width:72px ;margin-left: 40%; background-repeat: no-repeat; ;"></div>');
+                            }
+                            echo('<div class="col-md-9" style="font-size:20px;margin-left: 35%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 37%;width:30%;">Nom : '.utf8_encode($value[1]).'</div>');
+                            echo('<div class="col-md-8" style="font-size:14px;margin-left: 31%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 27%;width:100%;">Description : '.utf8_encode($value[4]).'</div>');
+
+                            foreach ($neme as $key => $valu) {
+                                echo (", proposé par : " . utf8_encode($valu[0]));
+                            }
+
+                            echo('<div class="col-md-4" style="font-size:14px;margin-left: 35%;">Récompense : '.utf8_encode($value[5]).'€</div>');
+                            echo('<div class="col-md-1" style="text-align:right;margin-left: 41%;">');
+                            echo('</br>');
+                            echo("<a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></div>");
+                            echo("<p class style=\"height:20px;\"></p></div>");
+                            echo('</div>');
+                          }
+                          if($value[6] == 12) {
+                            echo('<div class="row" style="padding-bottom:10%"><div class="col-md-2">');
+                            echo('</div>');
+                            foreach ($tomcat as $key => $valuee) {
+                                //echo (utf8_encode($valuee[0]));
+                                echo('<div class="block-plomberie" style="height:72px; width:72px ;margin-left: 40%; background-repeat: no-repeat; ;"></div>');
+                            }
+                            echo('<div class="col-md-9" style="font-size:20px;margin-left: 35%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 37%;width:30%;">Nom : '.utf8_encode($value[1]).'</div>');
+                            echo('<div class="col-md-8" style="font-size:14px;margin-left: 31%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 27%;width:100%;">Description : '.utf8_encode($value[4]).'</div>');
+
+                            foreach ($neme as $key => $valu) {
+                                echo (", proposé par : " . utf8_encode($valu[0]));
+                            }
+
+                            echo('<div class="col-md-4" style="font-size:14px;margin-left: 35%;">Récompense : '.utf8_encode($value[5]).'€</div>');
+                            echo('<div class="col-md-1" style="text-align:right;margin-left: 41%;">');
+                            echo('</br>');
+                            echo("<a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></div>");
+                            echo("<p class style=\"height:20px;\"></p></div>");
+                            echo('</div>');
+                          }
+                          if($value[6] == 13) {
+                            echo('<div class="row" style="padding-bottom:10%"><div class="col-md-2">');
+                            echo('</div>');
+                            foreach ($tomcat as $key => $valuee) {
+                                //echo (utf8_encode($valuee[0]));
+                                echo('<div class="block-peinture" style="height:72px; width:72px ;margin-left: 40%; background-repeat: no-repeat; ;"></div>');
+                            }
+                            echo('<div class="col-md-9" style="font-size:20px;margin-left: 35%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 37%;width:30%;">Nom : '.utf8_encode($value[1]).'</div>');
+                            echo('<div class="col-md-8" style="font-size:14px;margin-left: 31%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 27%;width:100%;">Description : '.utf8_encode($value[4]).'</div>');
+
+                            foreach ($neme as $key => $valu) {
+                                echo (", proposé par : " . utf8_encode($valu[0]));
+                            }
+
+                            echo('<div class="col-md-4" style="font-size:14px;margin-left: 35%;">Récompense : '.utf8_encode($value[5]).'€</div>');
+                            echo('<div class="col-md-1" style="text-align:right;margin-left: 41%;">');
+                            echo('</br>');
+                            echo("<a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></div>");
+                            echo("<p class style=\"height:20px;\"></p></div>");
+                            echo('</div>');
+                          }
+                          if($value[6] == 14) {
+                            echo('<div class="block-courdeMusique" style="padding-bottom:10%"><div class="col-md-2">');
+                            echo('</div>');
+                            foreach ($tomcat as $key => $valuee) {
+                                //echo (utf8_encode($valuee[0]));
+                                echo('<div class="col-md-1" style="height:72px; width:72px ;margin-left: 40%; background-repeat: no-repeat; ;"></div>');
+                            }
+                            echo('<div class="col-md-9" style="font-size:20px;margin-left: 35%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 37%;width:30%;">Nom : '.utf8_encode($value[1]).'</div>');
+                            echo('<div class="col-md-8" style="font-size:14px;margin-left: 31%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 27%;width:100%;">Description : '.utf8_encode($value[4]).'</div>');
+
+                            foreach ($neme as $key => $valu) {
+                                echo (", proposé par : " . utf8_encode($valu[0]));
+                            }
+
+                            echo('<div class="col-md-4" style="font-size:14px;margin-left: 35%;">Récompense : '.utf8_encode($value[5]).'€</div>');
+                            echo('<div class="col-md-1" style="text-align:right;margin-left: 41%;">');
+                            echo('</br>');
+                            echo("<a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></div>");
+                            echo("<p class style=\"height:20px;\"></p></div>");
+                            echo('</div>');
+                          }
+                          if($value[6] == 15) {
+                            echo('<div class="row" style="padding-bottom:10%"><div class="col-md-2">');
+                            echo('</div>');
+                            foreach ($tomcat as $key => $valuee) {
+                                //echo (utf8_encode($valuee[0]));
+                                echo('<div class="block-danse" style="height:72px; width:72px ;margin-left: 40%; background-repeat: no-repeat; ;"></div>');
+                            }
+                            echo('<div class="col-md-9" style="font-size:20px;margin-left: 35%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 37%;width:30%;">Nom : '.utf8_encode($value[1]).'</div>');
+                            echo('<div class="col-md-8" style="font-size:14px;margin-left: 31%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 27%;width:100%;">Description : '.utf8_encode($value[4]).'</div>');
+
+                            foreach ($neme as $key => $valu) {
+                                echo (", proposé par : " . utf8_encode($valu[0]));
+                            }
+
+                            echo('<div class="col-md-4" style="font-size:14px;margin-left: 35%;">Récompense : '.utf8_encode($value[5]).'€</div>');
+                            echo('<div class="col-md-1" style="text-align:right;margin-left: 41%;">');
+                            echo('</br>');
+                            echo("<a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></div>");
+                            echo("<p class style=\"height:20px;\"></p></div>");
+                            echo('</div>');
+                          }
+                          if($value[6] == 16) {
+                            echo('<div class="row" style="padding-bottom:10%"><div class="col-md-2">');
+                            echo('</div>');
+                            foreach ($tomcat as $key => $valuee) {
+                                //echo (utf8_encode($valuee[0]));
+                                echo('<div class="block-animateur" style="height:72px; width:72px ;margin-left: 40%; background-repeat: no-repeat; ;"></div>');
+                            }
+                            echo('<div class="col-md-9" style="font-size:20px;margin-left: 35%;">Annonce n°'.utf8_encode($value[0]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 37%;width:30%;">Nom : '.utf8_encode($value[1]).'</div>');
+                            echo('<div class="col-md-8" style="font-size:14px;margin-left: 31%;">Le '.utf8_encode($value[2]).' à '.utf8_encode($value[3]).'</div>');
+                            echo('<div class="col-md-2" style="font-size:16px;margin-left: 27%;width:100%;">Description : '.utf8_encode($value[4]).'</div>');
+
+                            foreach ($neme as $key => $valu) {
+                                echo (", proposé par : " . utf8_encode($valu[0]));
+                            }
+
+                            echo('<div class="col-md-4" style="font-size:14px;margin-left: 35%;">Récompense : '.utf8_encode($value[5]).'€</div>');
+                            echo('<div class="col-md-1" style="text-align:right;margin-left: 41%;">');
+                            echo('</br>');
+                            echo("<a class=\"plusdinfo\" href='index.php?controle=postulerAnnonce&action=postuler&id=". utf8_encode($value[0]) ."'>Postuler</a></div>");
+                            echo("<p class style=\"height:20px;\"></p></div>");
+                            echo('</div>');
+                          }
+
+
                         }
-                    
+
                     ?>
                 </ul>
 
@@ -466,7 +820,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                       <!--Submenu-->
                                       <ul class="collapse">
-				      <?php 
+				      <?php
                                                                             echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfil&id='.$_SESSION['idUser'].'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
                                                                           ?>
                                           <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>
@@ -499,7 +853,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
 
                                       <!--Submenu-->
                                       <ul class="collapse">
-				      <?php 
+				      <?php
                                                                             echo('<li><a href="index.php?controle=consulterProfil&action=afficheProfil&id='.$iduser.'"><i class="fa fa-caret-right"></i> Consulter mon profil </a></li>');
                                                                           ?>
                                           <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Mes annonces </a></li>

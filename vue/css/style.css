@@ -376,7 +376,7 @@ display:block
 	position: absolute;
 	width: 100%;
 	z-index: 10;
-	background-color: #e7ebee;
+	background-color: white;
 	left: 0;
 	top: 0
 }
@@ -574,7 +574,7 @@ display:block
 	/* background-color: transparent */
 }
 #navbar .brand-title {
-	padding: 0 0 0 50px
+	/* padding: 0 0 0 50px */
 }
 #container.mainnav-in .navbar-brand, #container.mainnav-lg .navbar-brand, #container.mainnav-in .brand-title, #container.mainnav-lg .brand-title {
 	!/*width: 220px */

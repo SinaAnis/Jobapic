@@ -6,11 +6,11 @@ function accueil(){
 }
 
 function faqEmploye(){
-	require ("vue/faq.tpl") ;
+	require ("vue/faq2.tpl") ;
 }
 
 function faqEmployeur(){
-	require ("vue/faq2.tpl") ;
+	require ("vue/faq.tpl") ;
 }
 
 function getCategorieFavoris($idUser){
