@@ -4,7 +4,7 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Inbox | Jasmine - Responsive admin template.</title>
+    <title> Consulter mes messages | Job'Apic - Enfin un job à pic.</title>
 
     <!--STYLESHEET-->
     <!--=================================================-->
@@ -1119,7 +1119,7 @@ window.uabInject = function() {};
             <!--===================================================-->
             <!--END CONTENT CONTAINER-->
 
-            <!--MAIN NAVIGATION-->
+           <!--MAIN NAVIGATION-->
                                             <!--===================================================-->
                                             <nav id="mainnav-container">
                                                 <div id="mainnav">
@@ -1236,7 +1236,13 @@ window.uabInject = function() {};
                                                                         </span>
                                                                     </a>
                                                                 </li>
-
+<li>
+																 <a href="index.php?controle=espaceUtilisateur&action=faqEmployeur">
+                                                                        <i class="fa fa-exclamation"></i>
+                                                                        <span class="menu-title">FAQ</span>
+                                                                        <i class="arrow"></i>
+                                                                    </a>
+											</li>
     <li class="list-header">Espaces :</li>
                                                                 <li>
                                                                     <a href="index.php?controle=identification&action=afficherMurEmployeur">
